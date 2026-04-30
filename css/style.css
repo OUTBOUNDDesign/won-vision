@@ -887,7 +887,7 @@ body.is-loading > :not(.loader){visibility:hidden}
 .con-b{
   background:var(--paper);
   display:grid;grid-template-columns:1.1fr 1fr;
-  align-items:stretch;
+  align-items:center;
   min-height:640px;
   position:relative;
 }
