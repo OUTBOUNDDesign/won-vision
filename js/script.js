@@ -145,10 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
     io.observe(heroSec);
   })();
 
-  // ---------- HERO aperture lens + global small-circle cursor ----------
+  // ---------- HERO aperture (desktop) / parallax (mobile) + small cursor ----------
   (function(){
     const hero = document.querySelector('.hero');
     const lens = hero && hero.querySelector('.hero__lens');
+    const base = hero && hero.querySelector('.hero__base');
 
     let cur = document.querySelector('.hero__cursor');
     if(!cur){
@@ -157,7 +158,57 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(cur);
     }
 
-    if(lens){
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    // ===== Mobile: scroll + device-tilt parallax (no aperture, no scroll-block) =====
+    if (isMobile) {
+      if (!hero || !base) return;
+      // Disable Ken Burns; we'll drive the transform manually
+      base.style.animation = 'none';
+      if (lens) lens.style.animation = 'none';
+
+      let scrollPx = 0, tiltX = 0, tiltY = 0, raf = null;
+      function paint(){
+        const tx = tiltX;
+        const ty = scrollPx * 0.3 + tiltY;
+        base.style.transform = `scale(1.12) translate3d(${tx}px, ${ty}px, 0)`;
+        if (lens) lens.style.transform = `scale(1.06) translate3d(${tx * 1.4}px, ${ty * 0.7}px, 0)`;
+        raf = null;
+      }
+      function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
+
+      window.addEventListener('scroll', () => {
+        scrollPx = Math.min(window.scrollY, window.innerHeight * 1.2);
+        schedule();
+      }, { passive: true });
+
+      function onTilt(e){
+        // gamma: -90 → 90 (left/right). beta: -180 → 180 (front/back).
+        const gx = e.gamma || 0;
+        const by = (e.beta || 0) - 45; // assume phone held ~45° tilt forward
+        tiltX = Math.max(-18, Math.min(18, gx * 0.35));
+        tiltY = Math.max(-12, Math.min(12, by * 0.25));
+        schedule();
+      }
+      // iOS 13+ requires a user-gesture-triggered permission request
+      if (typeof DeviceOrientationEvent !== 'undefined'
+          && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        const ask = () => {
+          DeviceOrientationEvent.requestPermission().then(p => {
+            if (p === 'granted') window.addEventListener('deviceorientation', onTilt);
+          }).catch(() => {});
+        };
+        document.body.addEventListener('touchstart', ask, { once: true, passive: true });
+      } else if ('DeviceOrientationEvent' in window) {
+        window.addEventListener('deviceorientation', onTilt);
+      }
+
+      paint();
+      return;
+    }
+
+    // ===== Desktop: aperture cursor lens + global small-circle cursor =====
+    if (lens) {
       lens.style.setProperty('--mx', '50%');
       lens.style.setProperty('--my', '55%');
     }
@@ -201,18 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lens.style.setProperty('--mx', '50%');
         lens.style.setProperty('--my', '55%');
       });
-      // Touch — drag finger to move aperture
-      hero.addEventListener('touchmove', (e) => {
-        if(!e.touches || !e.touches.length || !lens) return;
-        const t = e.touches[0];
-        const r = hero.getBoundingClientRect();
-        if(t.clientY < r.top || t.clientY > r.bottom) return;
-        e.preventDefault();
-        mx = ((t.clientX - r.left) / r.width) * 100;
-        my = ((t.clientY - r.top) / r.height) * 100;
-        cx = t.clientX; cy = t.clientY;
-        if(!raf) raf = requestAnimationFrame(paint);
-      }, {passive:false});
     }
   })();
 
