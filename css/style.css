@@ -1406,13 +1406,12 @@ body.is-loading > :not(.loader){visibility:hidden}
   .nav__brand .wordmark{font-size:18px}
 
   .hero{cursor:auto;touch-action:auto}
-  /* Drop the aperture entirely on mobile — full image visible, no mask, no scroll-block */
-  .hero__lens{
-    -webkit-mask-image:none;
-            mask-image:none;
-    opacity:0.65;
+  /* Drop the aperture lens entirely on mobile — only base shows */
+  .hero__lens{display:none}
+  .hero__base{
+    filter:saturate(0.95) brightness(0.65) contrast(1.05);
+    transform:scale(1.2);
   }
-  .hero__base{filter:saturate(0.7) brightness(0.55) contrast(1.05)}
   .hero__cursor{display:none}
 
   .section{padding:80px var(--gutter)}

@@ -165,15 +165,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!hero || !base) return;
       // Disable Ken Burns; we'll drive the transform manually
       base.style.animation = 'none';
-      if (lens) lens.style.animation = 'none';
 
-      let scrollPx = 0, tiltX = 0, tiltY = 0, raf = null;
+      // Smoothed tilt — interpolate towards target so it feels like real depth, not jittery
+      let scrollPx = 0;
+      let tx = 0, ty = 0;       // current transform offsets (px)
+      let targetX = 0, targetY = 0; // target offsets from tilt
+      let baseY0 = 0;           // calibrated initial beta
+      let calibrated = false;
+      let raf = null;
+
       function paint(){
-        const tx = tiltX;
-        const ty = scrollPx * 0.3 + tiltY;
-        base.style.transform = `scale(1.12) translate3d(${tx}px, ${ty}px, 0)`;
-        if (lens) lens.style.transform = `scale(1.06) translate3d(${tx * 1.4}px, ${ty * 0.7}px, 0)`;
-        raf = null;
+        // ease towards target each frame
+        tx += (targetX - tx) * 0.12;
+        ty += (targetY - ty) * 0.12;
+        const total = scrollPx * 0.35 + ty;
+        base.style.transform = `scale(1.2) translate3d(${tx}px, ${total}px, 0)`;
+        // keep painting while we're meaningfully animating
+        if (Math.abs(targetX - tx) > 0.05 || Math.abs(targetY - ty) > 0.05){
+          raf = requestAnimationFrame(paint);
+        } else {
+          raf = null;
+        }
       }
       function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
 
@@ -183,24 +195,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { passive: true });
 
       function onTilt(e){
-        // gamma: -90 → 90 (left/right). beta: -180 → 180 (front/back).
-        const gx = e.gamma || 0;
-        const by = (e.beta || 0) - 45; // assume phone held ~45° tilt forward
-        tiltX = Math.max(-18, Math.min(18, gx * 0.35));
-        tiltY = Math.max(-12, Math.min(12, by * 0.25));
+        const gx = e.gamma || 0;        // left/right tilt
+        const by = (e.beta || 0);       // front/back tilt
+        if (!calibrated && by){ baseY0 = by; calibrated = true; }
+        const dy = by - baseY0;
+        // Generous range — ±36 px on X, ±24 px on Y
+        targetX = Math.max(-36, Math.min(36, gx * 0.9));
+        targetY = Math.max(-24, Math.min(24, dy * 0.6));
         schedule();
       }
-      // iOS 13+ requires a user-gesture-triggered permission request
+
+      function startListening(){
+        window.addEventListener('deviceorientation', onTilt);
+      }
+
+      // iOS 13+ requires a user-gesture-triggered permission request.
+      // Hook it onto the first user interaction of any kind so we don't miss it.
       if (typeof DeviceOrientationEvent !== 'undefined'
           && typeof DeviceOrientationEvent.requestPermission === 'function') {
         const ask = () => {
           DeviceOrientationEvent.requestPermission().then(p => {
-            if (p === 'granted') window.addEventListener('deviceorientation', onTilt);
+            if (p === 'granted') startListening();
           }).catch(() => {});
         };
-        document.body.addEventListener('touchstart', ask, { once: true, passive: true });
+        ['touchstart','click','pointerdown'].forEach(ev =>
+          document.body.addEventListener(ev, ask, { once: true, passive: true })
+        );
       } else if ('DeviceOrientationEvent' in window) {
-        window.addEventListener('deviceorientation', onTilt);
+        startListening();
       }
 
       paint();
