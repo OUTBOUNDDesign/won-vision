@@ -770,12 +770,12 @@ body.is-loading > :not(.loader){visibility:hidden}
 /* =========================================================
    PROCESS — accordion editorial with counting numbers
 ========================================================= */
-.process{background:var(--paper);padding:140px var(--gutter)}
+.process{background:var(--paper);padding:80px var(--gutter)}
 .process__inner{max-width:1280px;margin:0 auto}
 .process__head{
-  margin-bottom:48px;
+  margin-bottom:24px;
 }
-.process__head .h2{margin:0}
+.process__head .h2{margin:0;font-size:clamp(40px, 4.4vw, 60px)}
 .process__head .h2 em{color:var(--steel);font-style:italic;font-weight:400}
 
 .process__item{
@@ -788,8 +788,8 @@ body.is-loading > :not(.loader){visibility:hidden}
 
 .process__row{
   display:grid;grid-template-columns:auto 1fr auto;
-  gap:48px;align-items:center;
-  padding:32px 8px;
+  gap:32px;align-items:center;
+  padding:18px 8px;
   width:100%;
   background:transparent;border:none;
   cursor:pointer;
@@ -798,10 +798,10 @@ body.is-loading > :not(.loader){visibility:hidden}
 }
 .process__num{
   font-family:var(--display);font-weight:500;
-  font-size:clamp(72px, 9vw, 144px);
-  line-height:0.85;letter-spacing:-0.04em;
+  font-size:clamp(40px, 5vw, 80px);
+  line-height:0.9;letter-spacing:-0.04em;
   color:var(--ink);
-  min-width:1.2em;
+  min-width:1.4em;
   display:inline-block;
   font-variant-numeric:tabular-nums;
   transition:color .35s ease;
@@ -809,20 +809,20 @@ body.is-loading > :not(.loader){visibility:hidden}
 .process__item.is-open .process__num{color:var(--steel)}
 .process__name{
   font-family:var(--display);font-weight:500;
-  font-size:clamp(36px, 4.4vw, 64px);
+  font-size:clamp(26px, 3vw, 40px);
   line-height:1;color:var(--ink);
   letter-spacing:-0.012em;
   transition:transform .5s var(--ease), color .35s ease;
   transform-origin:left center;
 }
 .process__name em{font-style:italic;color:var(--steel);font-weight:400}
-.process__row:hover .process__name{transform:translateX(12px)}
+.process__row:hover .process__name{transform:translateX(10px)}
 .process__item.is-open .process__name{color:var(--steel)}
 .process__plus{
-  width:44px;height:44px;
+  width:32px;height:32px;
   border:1px solid rgba(74,74,72,0.3);
   display:flex;align-items:center;justify-content:center;
-  font-size:22px;color:var(--ink);font-weight:300;line-height:1;
+  font-size:16px;color:var(--ink);font-weight:300;line-height:1;
   transition:transform .4s var(--ease), background .25s ease, border-color .25s ease, color .25s ease;
   flex-shrink:0;
 }
@@ -840,10 +840,10 @@ body.is-loading > :not(.loader){visibility:hidden}
 .process__item.is-open .process__body{grid-template-rows:1fr}
 .process__body__inner{
   overflow:hidden;
-  display:grid;grid-template-columns:1fr 1fr;gap:40px;
-  margin:0 8px 0 calc(clamp(72px, 9vw, 144px) + 48px);
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;
+  margin:0 8px 0 calc(clamp(40px, 5vw, 80px) + 32px);
 }
-.process__item.is-open .process__body__inner{margin-bottom:28px}
+.process__item.is-open .process__body__inner{margin-bottom:20px}
 .process__copy{
   display:flex;flex-direction:column;justify-content:center;gap:14px;padding:4px 0;
 }
@@ -857,7 +857,7 @@ body.is-loading > :not(.loader){visibility:hidden}
   content:'';position:absolute;left:0;top:0.65em;width:14px;height:1px;background:var(--steel);
 }
 .process__media{
-  height:260px;
+  height:200px;
   overflow:hidden;background:var(--soft);
 }
 .process__media img{
