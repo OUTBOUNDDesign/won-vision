@@ -921,6 +921,26 @@ body.is-loading > :not(.loader){visibility:hidden}
   border:1px solid rgba(74,74,72,0.15);
   pointer-events:none;
 }
+/* Suburb labels rendered as Leaflet DivIcons */
+.map-suburb{background:transparent !important;border:none !important;pointer-events:none}
+.map-suburb__pip{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--steel);
+  margin:0 auto 4px;
+}
+.map-suburb__name{
+  display:inline-block;
+  font-family:var(--body);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+  color:var(--ink);
+  background:rgba(250,250,247,0.92);
+  padding:3px 7px;
+  white-space:nowrap;
+  border:1px solid rgba(74,74,72,0.18);
+}
+.map-suburb--cbd .map-suburb__pip{display:none}
+.map-suburb--cbd .map-suburb__name{
+  color:var(--paper);background:var(--steel);border-color:var(--steel);
+}
 .con-b__copy{
   padding:96px 64px;
   display:flex;flex-direction:column;justify-content:center;gap:18px;

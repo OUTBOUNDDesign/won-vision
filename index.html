@@ -383,6 +383,29 @@
         interactive: false,
       }).addTo(map);
 
+      // Hand-picked suburb anchors around the CBD — covers each compass arm
+      const SUBURBS = [
+        { name: 'Melbourne CBD', ll: [-37.8136, 144.9631], cbd: true },
+        { name: 'Geelong',       ll: [-38.1499, 144.3617] },
+        { name: 'Werribee',      ll: [-37.9000, 144.6627] },
+        { name: 'Sunbury',       ll: [-37.5818, 144.7253] },
+        { name: 'Lilydale',      ll: [-37.7569, 145.3500] },
+        { name: 'Dandenong',     ll: [-37.9818, 145.2147] },
+        { name: 'Frankston',     ll: [-38.1413, 145.1198] },
+      ];
+      SUBURBS.forEach(s => {
+        L.marker(s.ll, {
+          icon: L.divIcon({
+            className: 'map-suburb' + (s.cbd ? ' map-suburb--cbd' : ''),
+            html: '<div class="map-suburb__pip"></div><span class="map-suburb__name">' + s.name + '</span>',
+            iconSize: null,
+            iconAnchor: [0, 0],
+          }),
+          interactive: false,
+          keyboard: false,
+        }).addTo(map);
+      });
+
       fit();
       map.whenReady(() => setTimeout(fit, 80));
       // Final settle once tiles have actually loaded
