@@ -403,24 +403,26 @@
       map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
     }
 
-    // The loader sets body.is-loading, which hides the page (visibility:hidden).
-    // Leaflet would compute 0×0 if we init now — wait for the loader to clear.
-    function ready(){
-      // Small grace so the visibility transition has settled
-      setTimeout(init, 120);
+    // The loader sets body.is-loading, which hides every direct child of
+    // body via visibility:hidden. Leaflet inside a hidden container queues
+    // tile requests but they may never render. Poll until the loader has
+    // cleared, then init.
+    let started = false;
+    function tryStart(){
+      if (started) return;
+      const stillLoading = document.body.classList.contains('is-loading');
+      const loaderEl = document.getElementById('loader');
+      if (stillLoading || (loaderEl && !loaderEl.classList.contains('is-out'))) {
+        setTimeout(tryStart, 150);
+        return;
+      }
+      started = true;
+      // Grace for visibility transition + layout settle
+      setTimeout(init, 200);
     }
-
-    if (document.body.classList.contains('is-loading')) {
-      const obs = new MutationObserver(() => {
-        if (!document.body.classList.contains('is-loading')) {
-          obs.disconnect();
-          ready();
-        }
-      });
-      obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-    } else {
-      ready();
-    }
+    // Kick off after window load so all sync scripts (incl. the loader IIFE) have run
+    if (document.readyState === 'complete') tryStart();
+    else window.addEventListener('load', tryStart);
   })();
 </script>
 </body>
