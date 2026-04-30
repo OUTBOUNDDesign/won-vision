@@ -175,12 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let raf = null;
 
       function paint(){
-        // ease towards target each frame
-        tx += (targetX - tx) * 0.12;
-        ty += (targetY - ty) * 0.12;
+        // ease towards target each frame (slow lerp = iOS-style smoothness)
+        tx += (targetX - tx) * 0.08;
+        ty += (targetY - ty) * 0.08;
         const total = scrollPx * 0.35 + ty;
-        base.style.transform = `scale(1.2) translate3d(${tx}px, ${total}px, 0)`;
-        // keep painting while we're meaningfully animating
+        base.style.transform = `scale(1.12) translate3d(${tx}px, ${total}px, 0)`;
         if (Math.abs(targetX - tx) > 0.05 || Math.abs(targetY - ty) > 0.05){
           raf = requestAnimationFrame(paint);
         } else {
@@ -199,9 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const by = (e.beta || 0);       // front/back tilt
         if (!calibrated && by){ baseY0 = by; calibrated = true; }
         const dy = by - baseY0;
-        // Generous range — ±36 px on X, ±24 px on Y
-        targetX = Math.max(-36, Math.min(36, gx * 0.9));
-        targetY = Math.max(-24, Math.min(24, dy * 0.6));
+        // iOS-wallpaper subtlety — small range, gentle multiplier
+        targetX = Math.max(-10, Math.min(10, gx * 0.22));
+        targetY = Math.max(-8,  Math.min(8,  dy * 0.16));
         schedule();
       }
 
