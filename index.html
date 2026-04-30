@@ -386,12 +386,13 @@
       // Hand-picked suburb anchors around the CBD — covers each compass arm
       const SUBURBS = [
         { name: 'Melbourne CBD', ll: [-37.8136, 144.9631], cbd: true },
-        { name: 'Geelong',       ll: [-38.1499, 144.3617] },
-        { name: 'Werribee',      ll: [-37.9000, 144.6627] },
-        { name: 'Sunbury',       ll: [-37.5818, 144.7253] },
-        { name: 'Lilydale',      ll: [-37.7569, 145.3500] },
-        { name: 'Dandenong',     ll: [-37.9818, 145.2147] },
-        { name: 'Frankston',     ll: [-38.1413, 145.1198] },
+        { name: 'Geelong',       ll: [-38.1499, 144.3617] },   // SW
+        { name: 'Werribee',      ll: [-37.9000, 144.6627] },   // W
+        { name: 'Gisborne',      ll: [-37.4900, 144.5957] },   // NW (outer)
+        { name: 'Wallan',        ll: [-37.4143, 144.9803] },   // N (outer)
+        { name: 'Healesville',   ll: [-37.6520, 145.5210] },   // NE (outer)
+        { name: 'Dandenong',     ll: [-37.9818, 145.2147] },   // SE
+        { name: 'Frankston',     ll: [-38.1413, 145.1198] },   // S
       ];
       SUBURBS.forEach(s => {
         L.marker(s.ll, {
