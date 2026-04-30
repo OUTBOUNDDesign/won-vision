@@ -398,8 +398,11 @@
         L.marker(s.ll, {
           icon: L.divIcon({
             className: 'map-suburb' + (s.cbd ? ' map-suburb--cbd' : ''),
-            html: '<div class="map-suburb__pip"></div><span class="map-suburb__name">' + s.name + '</span>',
-            iconSize: null,
+            html: '<div class="map-suburb__inner">'
+                + '<div class="map-suburb__pip"></div>'
+                + '<span class="map-suburb__name">' + s.name + '</span>'
+                + '</div>',
+            iconSize: [0, 0],
             iconAnchor: [0, 0],
           }),
           interactive: false,

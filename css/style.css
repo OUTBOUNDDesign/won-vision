@@ -921,12 +921,17 @@ body.is-loading > :not(.loader){visibility:hidden}
   border:1px solid rgba(74,74,72,0.15);
   pointer-events:none;
 }
-/* Suburb labels rendered as Leaflet DivIcons */
-.map-suburb{background:transparent !important;border:none !important;pointer-events:none}
+/* Suburb labels rendered as Leaflet DivIcons — anchored on coordinates */
+.map-suburb{background:transparent !important;border:none !important;pointer-events:none;width:0 !important;height:0 !important}
+.map-suburb__inner{
+  position:absolute;left:0;top:0;
+  transform:translate(-50%, -50%);
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  white-space:nowrap;
+}
 .map-suburb__pip{
   width:5px;height:5px;border-radius:50%;
   background:var(--steel);
-  margin:0 auto 4px;
 }
 .map-suburb__name{
   display:inline-block;
