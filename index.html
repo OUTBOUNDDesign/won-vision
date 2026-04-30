@@ -41,7 +41,7 @@
   </div>
   <nav class="nav__links">
     <a href="#services">Services</a>
-    <a href="#brief">Contact</a>
+    <a href="#contact">Contact</a>
     <a href="gallery.html">Gallery</a>
   </nav>
   <div class="nav__right">
@@ -54,7 +54,7 @@
 <aside class="nav__drawer" aria-hidden="true">
   <ul>
     <li><a href="#services">Services</a></li>
-    <li><a href="#brief">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="gallery.html"><em>Gallery</em></a></li>
     <li><a href="book.html" class="drawer-cta">Book now →</a></li>
   </ul>
@@ -271,7 +271,7 @@
 </section>
 
 <!-- CONTACT B — Map + studio info -->
-<section id="brief" class="con-b">
+<section id="contact" class="con-b">
   <div class="con-b__map reveal">
     <div id="serviceMap" class="con-b__map__canvas" aria-label="Map of Melbourne with a 100 kilometre service radius"></div>
     <div class="con-b__label">100 KM SERVICE RADIUS</div>
@@ -400,26 +400,21 @@
       map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
     }
 
-    // The loader sets body.is-loading, which hides every direct child of
-    // body via visibility:hidden. Leaflet inside a hidden container queues
-    // tile requests but they may never render. Poll until the loader has
-    // cleared, then init.
+    // Init the map only when its container actually enters the viewport.
+    // This guarantees the element is visible + has real dimensions, regardless
+    // of the loader state, page-fold position, or hidden ancestors.
     let started = false;
-    function tryStart(){
-      if (started) return;
-      const stillLoading = document.body.classList.contains('is-loading');
-      const loaderEl = document.getElementById('loader');
-      if (stillLoading || (loaderEl && !loaderEl.classList.contains('is-out'))) {
-        setTimeout(tryStart, 150);
-        return;
-      }
-      started = true;
-      // Grace for visibility transition + layout settle
-      setTimeout(init, 200);
-    }
-    // Kick off after window load so all sync scripts (incl. the loader IIFE) have run
-    if (document.readyState === 'complete') tryStart();
-    else window.addEventListener('load', tryStart);
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!started && e.isIntersecting && e.intersectionRatio > 0){
+          started = true;
+          obs.disconnect();
+          // Grace for any in-flight visibility transition
+          setTimeout(init, 80);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+    obs.observe(el);
   })();
 </script>
 </body>
