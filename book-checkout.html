@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Won Vision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+  /* Field-level error state */
+  .step-form .row.has-error label{color:#c4543a}
+  .step-form .row.has-error input,
+  .step-form .row.has-error textarea,
+  .step-form .row.has-error select{
+    border-color:#c4543a;
+    background:rgba(196,84,58,0.04);
+  }
+  /* Missing-fields summary banner */
+  .form-errors{
+    background:rgba(196,84,58,0.08);
+    border:1px solid rgba(196,84,58,0.4);
+    color:#a23f28;
+    padding:14px 18px;
+    margin-bottom:24px;
+    font-family:var(--body);
+  }
+  .form-errors strong{
+    display:block;font-family:var(--display);font-weight:500;
+    font-size:16px;color:#a23f28;margin-bottom:6px;letter-spacing:-0.005em;
+  }
+  .form-errors ul{
+    list-style:none;margin:0;padding:0;
+    font-size:13px;line-height:1.7;
+  }
+  .form-errors li::before{content:'— ';color:#c4543a}
+  .form-errors[hidden]{display:none}
+
+  /* Helper hint under inputs */
+  .step-form .hint{
+    display:block;margin-top:6px;
+    font-family:var(--body);font-size:11px;line-height:1.5;color:var(--graphite);
+    letter-spacing:0.01em;
+  }
+  /* Address typeahead */
+  .address-wrap{position:relative;margin-bottom:18px}
+  .address-input-wrap{position:relative}
+  .address-suggest{
+    position:absolute;left:0;right:0;top:100%;z-index:20;
+    background:var(--paper);
+    border:1px solid rgba(74,74,72,0.22);
+    box-shadow:0 8px 20px rgba(10,10,10,0.06);
+    max-height:280px;overflow-y:auto;
+    display:none;margin-top:-1px;
+  }
+  .address-suggest.is-open{display:block}
+  .address-suggest__item{
+    padding:10px 14px;cursor:pointer;
+    font-family:var(--body);font-size:13px;line-height:1.4;color:var(--graphite);
+    border-bottom:1px solid rgba(74,74,72,0.1);
+    display:flex;flex-direction:column;gap:2px;
+  }
+  .address-suggest__item:last-child{border-bottom:none}
+  .address-suggest__item:hover, .address-suggest__item.is-active{background:var(--soft);color:var(--ink)}
+  .address-suggest__item strong{font-family:var(--display);font-weight:500;font-size:14px;color:var(--ink);letter-spacing:-0.005em}
+  .address-suggest__loading{padding:12px 14px;font-size:12px;color:var(--graphite)}
+
+  /* Property map preview */
+  .prop-map{
+    position:relative;
+    height:260px;
+    background:var(--soft);
+    border:1px solid rgba(74,74,72,0.16);
+    margin-bottom:24px;
+    overflow:hidden;
+    opacity:0;transform:translateY(6px);
+    transition:opacity .45s var(--ease), transform .45s var(--ease);
+  }
+  .prop-map.is-active{opacity:1;transform:none}
+  .prop-map__canvas{
+    position:absolute;inset:0;
+    background:var(--soft);
+    /* Tint OSM tiles into the brand grayscale + Steel wash */
+    filter:grayscale(1) contrast(1.05) brightness(0.97) sepia(0.04) hue-rotate(180deg) saturate(0.4);
+  }
+  .prop-map .leaflet-container{background:var(--soft) !important;outline:none !important}
+  .prop-map .leaflet-control-attribution,
+  .prop-map .leaflet-control-zoom,
+  .prop-map .leaflet-control-container{display:none !important}
+  .prop-map__label{
+    position:absolute;top:14px;left:14px;z-index:5;
+    background:var(--paper);padding:8px 12px;
+    font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--ink);font-weight:600;
+    border:1px solid rgba(74,74,72,0.15);
+  }
+  .map-pulse{transform-origin:center;animation:mapPulseDot 2.4s ease-in-out infinite}
+  @keyframes mapPulseDot{
+    0%,100%{stroke-opacity:0.55;fill-opacity:0.18;transform:scale(1)}
+    50%{stroke-opacity:0.2;fill-opacity:0.05;transform:scale(1.5)}
+  }
+
+  @media (max-width:760px){
+    .prop-map{height:200px;margin-bottom:18px}
+    .prop-map__label{font-size:9px;padding:6px 10px;letter-spacing:0.18em;top:10px;left:10px}
+    .address-suggest{max-height:240px}
+    .address-suggest__item{padding:9px 12px;font-size:12px}
+    .address-suggest__item strong{font-size:13px}
+  }
+  @media (max-width:560px){
+    .prop-map{height:180px}
+    .form-errors{padding:12px 14px}
+    .form-errors strong{font-size:14px}
+    .form-errors ul{font-size:12px}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="nav is-stuck">
+  <div class="nav__brand">
+    <a href="index.html#top" class="wordmark" data-home>WON <span class="accent">VISION</span></a>
+  </div>
+  <nav class="nav__links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#brief">Contact</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+  <div class="nav__right">
+    <a href="book.html" class="nav__cta">Book now</a>
+  </div>
+  <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<aside class="nav__drawer" aria-hidden="true">
+  <ul>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#brief">Contact</a></li>
+    <li><a href="gallery.html"><em>Gallery</em></a></li>
+    <li><a href="book.html" class="drawer-cta">Book now →</a></li>
+  </ul>
+  <div class="nav__drawer__foot"><span>Won Vision</span><span>Melbourne · 2026</span></div>
+</aside>
+
+<section class="step-page">
+  <div class="progress">
+    <div class="progress__step is-done"><span class="progress__num">1</span><span>Cart</span></div>
+    <span class="progress__line is-done"></span>
+    <div class="progress__step is-active"><span class="progress__num">2</span><span>Details</span></div>
+    <span class="progress__line"></span>
+    <div class="progress__step"><span class="progress__num">3</span><span>Schedule</span></div>
+    <span class="progress__line"></span>
+    <div class="progress__step"><span class="progress__num">4</span><span>Confirm</span></div>
+  </div>
+
+  <div class="step-inner">
+    <form class="step-form" id="checkoutForm" novalidate>
+      <h2>Property &amp; <em>your details.</em></h2>
+      <p class="lede">Address for the shoot, plus the contact we'll send the call sheet to.</p>
+
+      <section>
+        <h3>Property details</h3>
+        <div class="row address-wrap">
+          <label for="address">Street address</label>
+          <div class="address-input-wrap">
+            <input id="address" name="address" type="text" placeholder="Start typing the address" required
+                   autocomplete="street-address" aria-autocomplete="list" aria-controls="addrSuggest">
+            <div class="address-suggest" id="addrSuggest" role="listbox"></div>
+          </div>
+          <small class="hint">We'll auto-fill the suburb, state and postcode from your selection.</small>
+        </div>
+        <div class="row two">
+          <div><label for="unit">Unit / apt (optional)</label><input id="unit" name="unit" type="text" autocomplete="address-line2"></div>
+          <div><label for="suburb">Suburb</label><input id="suburb" name="suburb" type="text" placeholder="Suburb" required autocomplete="address-level2"></div>
+        </div>
+        <div class="row three">
+          <div><label for="state">State</label>
+            <select id="state" name="state" required autocomplete="address-level1">
+              <option value="VIC" selected>VIC</option>
+              <option>NSW</option><option>QLD</option><option>SA</option>
+              <option>WA</option><option>TAS</option><option>NT</option><option>ACT</option>
+            </select>
+          </div>
+          <div><label for="postcode">Postcode</label><input id="postcode" name="postcode" type="text" placeholder="0000" required autocomplete="postal-code"></div>
+          <div><label for="country">Country</label><input id="country" name="country" type="text" value="Australia" readonly autocomplete="country-name"></div>
+        </div>
+        <div class="row"><label for="propertyNotes">Property notes (optional)</label><textarea id="propertyNotes" name="propertyNotes" rows="2" placeholder="Anything about access, parking, light, layout."></textarea></div>
+
+        <div class="prop-map" id="propMap" hidden>
+          <div class="prop-map__canvas" id="propMapCanvas" aria-label="Property location map"></div>
+          <div class="prop-map__label" id="propMapLabel">Property location</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Your details</h3>
+        <div class="row two">
+          <div><label for="firstName">First name</label><input id="firstName" name="firstName" type="text" required autocomplete="given-name"></div>
+          <div><label for="lastName">Last name</label><input id="lastName" name="lastName" type="text" required autocomplete="family-name"></div>
+        </div>
+        <div class="row two">
+          <div><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel"></div>
+        </div>
+        <div class="row">
+          <label for="agency">Agency</label>
+          <input id="agency" name="agency" type="text" placeholder="Studio or agency name" autocomplete="organization">
+          <small class="hint">We'll use this to set up your client portal so you can track the booking.</small>
+        </div>
+      </section>
+
+      <div class="form-errors" id="formErrors" hidden role="alert" aria-live="polite">
+        <strong>A few things still missing</strong>
+        <ul id="formErrorsList"></ul>
+      </div>
+
+      <div class="step-actions">
+        <a href="book.html" class="step-back">← Back to cart</a>
+        <button type="submit" class="step-submit">Continue to schedule →</button>
+      </div>
+    </form>
+
+    <aside class="step-summary">
+      <h3>Your booking</h3>
+      <div class="step-summary__list" id="summaryList"></div>
+      <div class="step-summary__total">
+        <span class="step-summary__total__label">Subtotal · GST inc.</span>
+        <span class="step-summary__total__amt" id="summaryAmt">$0</span>
+      </div>
+      <a href="book.html" class="step-summary__edit">← Edit cart</a>
+    </aside>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div>
+        <a href="index.html#top" class="wordmark" data-home>WON <span class="accent" style="color:var(--steel)">VISION</span></a>
+        <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
+      </div>
+      <div><h4>Studio</h4><ul>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="book.html">Book now</a></li>
+      </ul></div>
+      <div><h4>Contact</h4><ul>
+        <li><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></li>
+        <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
+      </ul></div>
+      <div><h4>Operations</h4><ul>
+        <li>Won Vision Pty Ltd</li>
+        <li>CASA-licensed drone ops</li>
+      </ul></div>
+    </div>
+    <div class="foot__rule"></div>
+    <div class="foot__bot">
+      <span>© 2026 Won Vision Pty Ltd</span>
+      <span>Your listing the star, we make it go far.</span>
+      <span>Melbourne · Made in-house</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  (function(){
+    // Load cart
+    const cart = JSON.parse(sessionStorage.getItem('wv-cart') || '[]');
+    if (!cart.length) { window.location.href = 'book.html'; return; }
+
+    const list = document.getElementById('summaryList');
+    let total = 0;
+    cart.forEach(it => {
+      total += Number(it.price) || 0;
+      const row = document.createElement('div');
+      row.className = 'step-summary__item';
+      const priceLabel = (Number(it.price) === 0) ? 'POA' : '$' + Number(it.price).toLocaleString('en-AU');
+      row.innerHTML = `
+        <div class="step-summary__thumb" style="background-image:url('${it.img}')"></div>
+        <div class="step-summary__name">${it.name}</div>
+        <div class="step-summary__price">${priceLabel}</div>`;
+      list.appendChild(row);
+    });
+    document.getElementById('summaryAmt').textContent = total === 0 ? '$0' : '$' + total.toLocaleString('en-AU');
+
+    // Pre-fill from prior step if user came back
+    const prior = JSON.parse(sessionStorage.getItem('wv-details') || '{}');
+    Object.entries(prior).forEach(([k,v]) => {
+      const el = document.querySelector(`[name="${k}"]`);
+      if (el && typeof v === 'string') el.value = v;
+    });
+
+    // ---------- Validation: red on submit, clears on input ----------
+    const form = document.getElementById('checkoutForm');
+    const errBox = document.getElementById('formErrors');
+    const errList = document.getElementById('formErrorsList');
+
+    // Friendly labels per field
+    const labelOf = (el) => {
+      const row = el.closest('.row');
+      if (row) {
+        const lbl = row.querySelector('label');
+        if (lbl) return lbl.textContent.replace(/\(optional\)/i,'').trim();
+      }
+      return el.name;
+    };
+
+    // Live clear: as soon as a previously-flagged field gets input, drop the error
+    form.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('input', () => clearFieldError(el));
+      el.addEventListener('change', () => clearFieldError(el));
+    });
+    function clearFieldError(el){
+      const row = el.closest('.row');
+      if (row && row.classList.contains('has-error') && el.value.trim()){
+        row.classList.remove('has-error');
+        rebuildSummary();
+      }
+    }
+    function rebuildSummary(){
+      const stillBad = Array.from(form.querySelectorAll('.row.has-error label'))
+        .map(l => l.textContent.trim());
+      if (!stillBad.length){
+        errBox.hidden = true;
+        return;
+      }
+      errList.innerHTML = stillBad.map(t => `<li>${t}</li>`).join('');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Collect required fields and validate
+      const required = form.querySelectorAll('[required]');
+      const missing = [];
+      required.forEach(el => {
+        const row = el.closest('.row');
+        const filled = el.value.trim().length > 0;
+        if (!filled){
+          row && row.classList.add('has-error');
+          missing.push(labelOf(el));
+        } else {
+          row && row.classList.remove('has-error');
+        }
+      });
+
+      if (missing.length){
+        errList.innerHTML = missing.map(t => `<li>${t}</li>`).join('');
+        errBox.hidden = false;
+        // Scroll the highest errored field to the top of the viewport
+        // (account for the fixed nav, ~80px).
+        const firstBad = form.querySelector('.row.has-error input, .row.has-error select, .row.has-error textarea');
+        if (firstBad){
+          const rect = firstBad.getBoundingClientRect();
+          const offset = rect.top + window.scrollY - 110;
+          window.scrollTo({top: offset, behavior: 'smooth'});
+          setTimeout(() => firstBad.focus({preventScroll:true}), 400);
+        }
+        return;
+      }
+
+      // All good — save and continue
+      const data = {};
+      new FormData(form).forEach((v,k) => data[k] = v);
+      if (window.WV_LATLON){
+        data.lat = window.WV_LATLON.lat;
+        data.lon = window.WV_LATLON.lon;
+      }
+      sessionStorage.setItem('wv-details', JSON.stringify(data));
+      window.location.href = 'book-schedule.html';
+    });
+
+    // ---------- Property map (brand-tinted Leaflet) ----------
+    let _propMap = null, _propMarker = null;
+    function renderPropMap(lat, lon, label){
+      const wrap = document.getElementById('propMap');
+      const canvas = document.getElementById('propMapCanvas');
+      const lblEl = document.getElementById('propMapLabel');
+      if(!wrap || !canvas || typeof L === 'undefined') return;
+      wrap.hidden = false;
+      // Force reflow before transition class
+      requestAnimationFrame(() => wrap.classList.add('is-active'));
+      if(lblEl && label) lblEl.textContent = label;
+
+      if (!_propMap){
+        _propMap = L.map(canvas, {
+          attributionControl:false, zoomControl:false,
+          scrollWheelZoom:false, doubleClickZoom:false, dragging:false,
+          touchZoom:false, boxZoom:false, keyboard:false, tap:false,
+        });
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+          subdomains:'abcd', maxZoom:19, crossOrigin:true,
+        }).addTo(_propMap);
+      }
+      const ll = [lat, lon];
+      _propMap.setView(ll, 17);
+      if(_propMarker) _propMarker.remove();
+      _propMarker = L.circleMarker(ll, {
+        radius:8, color:'#FAFAF7', weight:2,
+        fillColor:'#4A6178', fillOpacity:1, interactive:false,
+      }).addTo(_propMap);
+      setTimeout(() => _propMap.invalidateSize(), 60);
+    }
+
+    // If user came back from the schedule page, restore the map
+    (function(){
+      const prior = JSON.parse(sessionStorage.getItem('wv-details') || '{}');
+      if (prior.lat && prior.lon){
+        const label = (prior.address ? prior.address + ', ' : '') + (prior.suburb || '');
+        window.WV_LATLON = { lat: prior.lat, lon: prior.lon, label: label };
+        renderPropMap(parseFloat(prior.lat), parseFloat(prior.lon), label);
+      }
+    })();
+
+    // ---------- Address typeahead (Nominatim / OSM) ----------
+    (function(){
+      const input  = document.getElementById('address');
+      const box    = document.getElementById('addrSuggest');
+      const sub    = document.getElementById('suburb');
+      const stEl   = document.getElementById('state');
+      const post   = document.getElementById('postcode');
+      if(!input || !box) return;
+
+      const stateMap = {
+        'Victoria':'VIC','New South Wales':'NSW','Queensland':'QLD',
+        'South Australia':'SA','Western Australia':'WA','Tasmania':'TAS',
+        'Northern Territory':'NT','Australian Capital Territory':'ACT',
+      };
+      let timer = null, lastQ = '', activeIdx = -1, results = [];
+
+      function close(){ box.classList.remove('is-open'); box.innerHTML = ''; activeIdx = -1; }
+      function open(){ box.classList.add('is-open'); }
+
+      function render(){
+        if(!results.length){ close(); return; }
+        // Pick the user's typed leading street number (e.g. "52" or "52a")
+        const userNumberMatch = (input.value || '').trim().match(/^\s*(\d+[a-zA-Z]?)\b/);
+        const userNumber = userNumberMatch ? userNumberMatch[1] : '';
+        box.innerHTML = results.map((r,i) => {
+          const a = r.address || {};
+          const apiStreet = [a.house_number, a.road].filter(Boolean).join(' ') || a.road || '';
+          // If the user typed a number and Nominatim only knows the road, prepend the number.
+          const street = (userNumber && !a.house_number && a.road)
+            ? userNumber + ' ' + a.road
+            : (apiStreet || r.display_name.split(',')[0]);
+          const suburb = a.suburb || a.city || a.town || a.village || a.municipality || '';
+          const region = stateMap[a.state] || a.state || '';
+          const post = a.postcode || '';
+          const meta = [suburb, region, post].filter(Boolean).join(' · ');
+          return `<div class="address-suggest__item${i===activeIdx?' is-active':''}" data-i="${i}" role="option">
+                    <strong>${street}</strong>
+                    <span>${meta || r.display_name}</span>
+                  </div>`;
+        }).join('');
+        open();
+        box.querySelectorAll('.address-suggest__item').forEach(el => {
+          el.addEventListener('mousedown', (e) => { e.preventDefault(); pick(parseInt(el.dataset.i,10)); });
+        });
+      }
+
+      function pick(i){
+        const r = results[i]; if(!r) return;
+        const a = r.address || {};
+        // Preserve the user's typed street number if Nominatim didn't include one
+        const userTyped = input.value.trim();
+        const userNumberMatch = userTyped.match(/^\s*(\d+[a-zA-Z]?)\b/);
+        const apiStreet = [a.house_number, a.road].filter(Boolean).join(' ').trim();
+        if (a.house_number && apiStreet){
+          input.value = apiStreet;
+        } else if (userNumberMatch && a.road){
+          // User had a number, API only knows the street — combine
+          input.value = `${userNumberMatch[1]} ${a.road}`;
+        } else {
+          input.value = apiStreet || userTyped || r.display_name.split(',')[0];
+        }
+        if(sub) sub.value = a.suburb || a.city || a.town || a.village || a.municipality || '';
+        if(stEl){
+          const code = stateMap[a.state];
+          if(code) stEl.value = code;
+        }
+        if(post) post.value = a.postcode || '';
+        close();
+        // Clear any errors on these rows now that they're filled
+        [input, sub, stEl, post].forEach(el => {
+          if(!el) return;
+          const row = el.closest('.row');
+          if(row) row.classList.remove('has-error');
+        });
+        rebuildSummary();
+        // Save lat/lon and render the property map
+        const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+        if (!isNaN(lat) && !isNaN(lon)){
+          window.WV_LATLON = { lat: lat, lon: lon, label: input.value };
+          renderPropMap(lat, lon, input.value);
+        }
+      }
+
+      function fetchSuggest(q){
+        const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=au&addressdetails=1&limit=6&q=${encodeURIComponent(q)}`;
+        return fetch(url, { headers: { 'Accept-Language':'en-AU' }})
+          .then(r => r.ok ? r.json() : []);
+      }
+
+      input.addEventListener('input', () => {
+        const q = input.value.trim();
+        if(q === lastQ) return;
+        lastQ = q;
+        if(q.length < 4){ close(); return; }
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          box.innerHTML = '<div class="address-suggest__loading">Searching…</div>';
+          open();
+          fetchSuggest(q).then(arr => {
+            // Skip if user has already typed past this query
+            if(input.value.trim() !== q) return;
+            results = Array.isArray(arr) ? arr : [];
+            render();
+          }).catch(() => close());
+        }, 280);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if(!box.classList.contains('is-open')) return;
+        if(e.key === 'ArrowDown'){ e.preventDefault(); activeIdx = Math.min(results.length-1, activeIdx+1); render(); }
+        else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIdx = Math.max(0, activeIdx-1); render(); }
+        else if(e.key === 'Enter' && activeIdx >= 0){ e.preventDefault(); pick(activeIdx); }
+        else if(e.key === 'Escape'){ close(); }
+      });
+
+      document.addEventListener('click', (e) => {
+        if(!box.contains(e.target) && e.target !== input) close();
+      });
+    })();
+  })();
+</script>
+</body>
+</html>

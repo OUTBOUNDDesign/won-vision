@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Won Vision — Your listing the star, we make it go far.</title>
+<meta name="description" content="A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body id="top">
+
+<script>
+  // Loader runs once per session — skip if user already entered
+  if (sessionStorage.getItem('wv-entered') === '1') {
+    document.documentElement.classList.add('wv-skip-loader');
+  }
+</script>
+
+<!-- LOADING GATE — minimal -->
+<div class="loader" id="loader" role="dialog" aria-label="Won Vision — entry">
+  <div class="loader__inner">
+    <h1 class="loader__wordmark" id="lwMark" aria-label="Won Vision">
+      <span class="lw__W" aria-hidden="true">W</span>
+      <span class="lw__rest lw__rest--on" aria-hidden="true"><span>ON</span></span>
+      <span class="lw__bar" aria-hidden="true"></span>
+      <span class="lw__space" aria-hidden="true"></span>
+      <span class="lw__V" aria-hidden="true">V</span>
+      <span class="lw__rest lw__rest--isi" aria-hidden="true"><span>ISION</span></span>
+    </h1>
+    <button class="loader__btn" id="enterBtn" type="button">Enter website →</button>
+  </div>
+</div>
+
+<header class="nav" data-start-light="true">
+  <div class="nav__brand">
+    <a href="#top" class="wordmark" aria-label="Won Vision — home" data-home>WON <span class="accent">VISION</span></a>
+  </div>
+  <nav class="nav__links">
+    <a href="#services">Services</a>
+    <a href="#brief">Contact</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+  <div class="nav__right">
+    <a href="book.html" class="nav__cta">Book now</a>
+  </div>
+  <button class="nav__burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<aside class="nav__drawer" aria-hidden="true">
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#brief">Contact</a></li>
+    <li><a href="gallery.html"><em>Gallery</em></a></li>
+    <li><a href="book.html" class="drawer-cta">Book now →</a></li>
+  </ul>
+  <div class="nav__drawer__foot">
+    <span>Won Vision</span><span>Melbourne · 2026</span>
+  </div>
+</aside>
+
+<!-- HERO — aperture cursor lens -->
+<section class="hero">
+  <div class="hero__base"></div>
+  <div class="hero__lens"></div>
+  <div class="hero__veil"></div>
+
+  <div class="hero__layer">
+    <div class="hero__copy">
+      <h1 class="hero__hed hero__hed--wordmark">WON <span class="accent">VISION</span></h1>
+      <p class="hero__slogan">Your listing the star, we make it go far.</p>
+    </div>
+  </div>
+
+  <div class="hero__cursor"></div>
+</section>
+
+
+<!-- SERVICES — image cards (SB) -->
+<section id="services" class="sb section--soft">
+  <div class="sb__inner">
+    <div class="section__head section__head--split reveal-stagger" style="margin-bottom:48px">
+      <div>
+        <span class="eyebrow">Services</span>
+        <h2 class="h2" style="margin-top:18px">Five disciplines.<br>One studio.</h2>
+      </div>
+    </div>
+    <div class="sb__grid reveal-stagger">
+      <a href="book.html" class="sb__card">
+        <div class="sb__card__img"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=900&q=80" alt=""></div>
+        <div class="sb__card__body">
+          <span class="sb__num">01</span>
+          <h3 class="sb__name">Photography</h3>
+          <p class="sb__desc">Stills, twilight, naturally coloured.</p>
+          <span class="sb__link">Book now</span>
+        </div>
+      </a>
+      <a href="book.html" class="sb__card">
+        <div class="sb__card__img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt=""></div>
+        <div class="sb__card__body">
+          <span class="sb__num">02</span>
+          <h3 class="sb__name">Video</h3>
+          <p class="sb__desc">Walkthroughs and lifestyle reels.</p>
+          <span class="sb__link">Book now</span>
+        </div>
+      </a>
+      <a href="book.html" class="sb__card">
+        <div class="sb__card__img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt=""></div>
+        <div class="sb__card__body">
+          <span class="sb__num">03</span>
+          <h3 class="sb__name">Drone</h3>
+          <p class="sb__desc">CASA-licensed aerial, fully insured.</p>
+          <span class="sb__link">Book now</span>
+        </div>
+      </a>
+      <a href="book.html" class="sb__card">
+        <div class="sb__card__img"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80" alt=""></div>
+        <div class="sb__card__body">
+          <span class="sb__num">04</span>
+          <h3 class="sb__name">Floor plans</h3>
+          <p class="sb__desc">2D and 3D, brand-aligned.</p>
+          <span class="sb__link">Book now</span>
+        </div>
+      </a>
+      <a href="book.html" class="sb__card">
+        <div class="sb__card__img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt=""></div>
+        <div class="sb__card__body">
+          <span class="sb__num">05</span>
+          <h3 class="sb__name"><em>Virtual staging</em></h3>
+          <p class="sb__desc">Restrained, architectural staging.</p>
+          <span class="sb__link">Book now</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- SELECTED WORK -->
+<section id="work" class="section work">
+  <div class="section__inner">
+    <div class="section__head section__head--split reveal-stagger">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2 class="h2" style="margin-top:18px">Recent listings,<br><em>edited.</em></h2>
+      </div>
+    </div>
+
+    <div class="work__grid reveal-stagger">
+      <a class="work__item a" href="gallery.html">
+        <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt="Carlton North living">
+        <div class="work__item__caption"><span><b>Carlton North</b><br>12 Drummond Street</span><span>Photography · Video</span></div>
+      </a>
+      <a class="work__item b" href="gallery.html">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85" alt="Fitzroy interior">
+        <div class="work__item__caption"><span><b>Fitzroy</b><br>4 Argyle Place</span><span>Photography</span></div>
+      </a>
+      <a class="work__item c" href="gallery.html">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=85" alt="Brunswick exterior">
+        <div class="work__item__caption"><span><b>Brunswick</b><br>118 Lygon Street</span><span>Drone · Video</span></div>
+      </a>
+      <a class="work__item d" href="gallery.html">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200&q=85" alt="Northcote bedroom">
+        <div class="work__item__caption"><span><b>Northcote</b><br>21 Westbourne Grove</span><span>Photography</span></div>
+      </a>
+    </div>
+
+    <div class="work__cta reveal" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+      <a href="gallery.html" class="nav__cta nav__cta--ghost" style="padding:16px 32px;font-size:12px">View the full gallery →</a>
+      <a href="book.html" class="nav__cta" style="padding:16px 32px;font-size:12px">Book now</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS — accordion editorial with counting numbers -->
+<section id="process" class="process">
+  <div class="process__inner">
+    <div class="process__head reveal-stagger">
+      <h2 class="h2">Process<em>.</em></h2>
+    </div>
+
+    <div class="process__list" id="processList">
+
+      <article class="process__item is-open">
+        <button class="process__row" type="button" aria-expanded="true">
+          <span class="process__num" data-count="1">0</span>
+          <h3 class="process__name">Book</h3>
+          <span class="process__plus" aria-hidden="true">+</span>
+        </button>
+        <div class="process__body">
+          <div class="process__body__inner">
+            <div class="process__copy">
+              <p>Pick your services and a date through the booking calendar — photography, video, drone, floor plans or virtual staging. Studio confirms within one working day.</p>
+              <ul>
+                <li>Choose services &amp; date</li>
+                <li>Add the property details</li>
+                <li>Confirmation within 24 hours</li>
+              </ul>
+            </div>
+            <div class="process__media"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&q=85" alt=""></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="process__item">
+        <button class="process__row" type="button" aria-expanded="false">
+          <span class="process__num" data-count="2">0</span>
+          <h3 class="process__name">Plan</h3>
+          <span class="process__plus" aria-hidden="true">+</span>
+        </button>
+        <div class="process__body">
+          <div class="process__body__inner">
+            <div class="process__copy">
+              <p>Site walk and shot list. Light timing locked, drone permissions filed, virtual staging directions agreed before the shoot day.</p>
+              <ul>
+                <li>15-min site walk</li>
+                <li>Shot list shared</li>
+                <li>Drone permissions filed</li>
+              </ul>
+            </div>
+            <div class="process__media"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1400&q=85" alt=""></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="process__item">
+        <button class="process__row" type="button" aria-expanded="false">
+          <span class="process__num" data-count="3">0</span>
+          <h3 class="process__name">Capture</h3>
+          <span class="process__plus" aria-hidden="true">+</span>
+        </button>
+        <div class="process__body">
+          <div class="process__body__inner">
+            <div class="process__copy">
+              <p>A single visit covers photography, video, drone and floor plans. Naturally coloured imagery, no preset, no over-direction.</p>
+              <ul>
+                <li>Stills · twilight</li>
+                <li>Video walkthrough</li>
+                <li>Drone aerials</li>
+              </ul>
+            </div>
+            <div class="process__media"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=85" alt=""></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="process__item">
+        <button class="process__row" type="button" aria-expanded="false">
+          <span class="process__num" data-count="4">0</span>
+          <h3 class="process__name"><em>Deliver</em></h3>
+          <span class="process__plus" aria-hidden="true">+</span>
+        </button>
+        <div class="process__body">
+          <div class="process__body__inner">
+            <div class="process__copy">
+              <p>Edited files within 48 hours of the shoot — high-resolution stills, web-optimised set, cut walkthrough video, brand-aligned floor plans.</p>
+              <ul>
+                <li>High-res &amp; web sets</li>
+                <li>Cut walkthrough</li>
+                <li>Brand-aligned plans</li>
+              </ul>
+            </div>
+            <div class="process__media"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85" alt=""></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT B — Map + studio info -->
+<section id="brief" class="con-b">
+  <div class="con-b__map reveal">
+    <div id="serviceMap" class="con-b__map__canvas" aria-label="Map of Melbourne with a 100 kilometre service radius"></div>
+    <div class="con-b__label">100 KM SERVICE RADIUS</div>
+  </div>
+  <div class="con-b__copy reveal">
+    <span class="eyebrow">Find the studio</span>
+    <h2>Greater Melbourne,<br><em>and beyond.</em></h2>
+    <p>Studio works within 100 km of the Melbourne CBD — Greater Melbourne, the Mornington and Bellarine peninsulas, the Yarra Valley and the Macedon Ranges. Visits by appointment elsewhere across Victoria.</p>
+    <div class="con-b__list">
+      <div class="item"><b>Email</b><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></div>
+      <div class="item"><b>Phone</b><a href="tel:+61000000000">+61 (0) 0000 0000</a></div>
+      <div class="item"><b>Hours</b><span>Mon–Fri · 8am–6pm AEST</span></div>
+      <div class="item"><b>Booking</b><a href="book.html">Book a shoot →</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top reveal-stagger">
+      <div>
+        <a href="#top" class="wordmark" data-home>WON <span class="accent" style="color:var(--steel)">VISION</span></a>
+        <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="book.html">Book now</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></li>
+          <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
+          <li><a href="https://www.instagram.com/" target="_rel">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Operations</h4>
+        <ul>
+          <li>Won Vision Pty Ltd</li>
+          <li>ABN — coming soon</li>
+          <li>CASA-licensed drone ops</li>
+          <li>PPIB / Coverdrone insured</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__rule"></div>
+    <div class="foot__bot">
+      <span>© 2026 Won Vision Pty Ltd</span>
+      <span>Your listing the star, we make it go far.</span>
+      <span>Melbourne · Made in-house</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  // Service-area map — Melbourne CBD + 100 km radius. Display-only.
+  (function(){
+    const el = document.getElementById('serviceMap');
+    if(!el || typeof L === 'undefined') return;
+
+    const MELBOURNE = [-37.8136, 144.9631];
+
+    const map = L.map(el, {
+      attributionControl: false,
+      zoomControl: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      dragging: false,
+      touchZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      tap: false,
+      zoomSnap: 0.25,
+    });
+
+    // CartoDB Positron — clean light grey base, will be tinted via CSS filter on the container
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19,
+      crossOrigin: true,
+    }).addTo(map);
+
+    // Faint outer ring (stroke only, hint of brand wash)
+    const radiusCircle = L.circle(MELBOURNE, {
+      radius: 100000,        // 100 km in metres
+      color: '#4A6178',
+      weight: 1.5,
+      opacity: 0.95,
+      fillColor: '#4A6178',
+      fillOpacity: 0.07,
+      interactive: false,
+      dashArray: null,
+    }).addTo(map);
+
+    // Centre pin (Steel circle, Paper outline)
+    L.circleMarker(MELBOURNE, {
+      radius: 6,
+      color: '#FAFAF7',
+      weight: 2,
+      fillColor: '#4A6178',
+      fillOpacity: 1,
+      interactive: false,
+    }).addTo(map);
+
+    // Pulsing halo (single decorative circle that animates via CSS class)
+    const halo = L.circleMarker(MELBOURNE, {
+      radius: 18,
+      color: '#4A6178',
+      weight: 1,
+      opacity: 0.5,
+      fillColor: '#4A6178',
+      fillOpacity: 0.15,
+      interactive: false,
+      className: 'map-halo-pulse',
+    }).addTo(map);
+
+    // Fit to circle bounds with breathing room
+    map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
+
+    // Re-fit on resize
+    let rt = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => {
+        map.invalidateSize();
+        map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
+      }, 200);
+    });
+  })();
+</script>
+</body>
+</html>

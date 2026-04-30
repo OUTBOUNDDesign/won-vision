@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Won Media — Steps + Contact examples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{padding-top:0}
+
+  .ex-intro{padding:120px 32px 60px;max-width:920px;margin:0 auto}
+  .ex-intro h1{font-family:var(--display);font-weight:500;font-size:clamp(40px,5vw,68px);line-height:1.05;color:var(--ink);margin-bottom:20px;letter-spacing:-0.005em}
+  .ex-intro h1 em{font-style:italic;color:var(--steel);font-weight:400}
+  .ex-intro p{color:var(--graphite);font-size:17px;line-height:1.65;max-width:620px}
+  .ex-intro .eyebrow{margin-bottom:18px;display:inline-block}
+
+  .ex-divider{
+    text-align:center;padding:96px 32px 32px;
+    border-top:1px solid rgba(74,74,72,0.18);background:var(--paper);
+  }
+  .ex-divider .eyebrow{display:inline-block;margin-bottom:14px}
+  .ex-divider h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,4vw,52px);color:var(--ink);letter-spacing:-0.005em}
+  .ex-divider h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .ex-divider p{color:var(--graphite);font-size:14px;line-height:1.55;max-width:520px;margin:14px auto 0}
+
+  .ex-label{
+    text-align:center;padding:56px 32px 24px;background:var(--paper);
+    border-top:1px solid rgba(74,74,72,0.12);
+  }
+  .ex-label .tag{font-family:var(--body);font-size:10px;font-weight:500;letter-spacing:0.32em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:8px}
+  .ex-label h3{font-family:var(--display);font-weight:500;font-size:clamp(24px,2.4vw,32px);color:var(--ink);letter-spacing:-0.005em}
+  .ex-label h3 em{font-style:italic;color:var(--steel);font-weight:400}
+  .ex-label p{color:var(--graphite);max-width:560px;margin:8px auto 0;font-size:13px;line-height:1.55}
+
+  /* ============================================================
+     SHARED ANIMATION HELPERS
+  ============================================================ */
+  .ani{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease), transform .9s var(--ease);will-change:opacity, transform}
+  .ani.in{opacity:1;transform:none}
+  .ani-l{opacity:0;transform:translateX(-32px);transition:opacity .9s var(--ease), transform .9s var(--ease)}
+  .ani-l.in{opacity:1;transform:none}
+  .ani-r{opacity:0;transform:translateX(32px);transition:opacity .9s var(--ease), transform .9s var(--ease)}
+  .ani-r.in{opacity:1;transform:none}
+  .ani-stagger > *{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+  .ani-stagger.in > *{opacity:1;transform:none}
+  .ani-stagger.in > *:nth-child(1){transition-delay:.05s}
+  .ani-stagger.in > *:nth-child(2){transition-delay:.18s}
+  .ani-stagger.in > *:nth-child(3){transition-delay:.31s}
+  .ani-stagger.in > *:nth-child(4){transition-delay:.44s}
+  .ani-stagger.in > *:nth-child(5){transition-delay:.57s}
+
+  /* ============================================================
+     STEPS · A — Vertical timeline (animated progress fill)
+  ============================================================ */
+  .stp-a{background:var(--paper);padding:80px 32px}
+  .stp-a__inner{max-width:880px;margin:0 auto;position:relative;padding-left:64px}
+  .stp-a__inner::before{
+    content:'';position:absolute;left:24px;top:14px;bottom:14px;width:1px;background:rgba(74,74,72,0.16);
+  }
+  .stp-a__progress{
+    position:absolute;left:24px;top:14px;width:1px;background:var(--steel);
+    height:0;transition:height 1.4s var(--ease);
+  }
+  .stp-a.in .stp-a__progress{height:calc(100% - 28px)}
+  .stp-a__row{position:relative;padding:24px 0;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+  .stp-a.in .stp-a__row{opacity:1;transform:none}
+  .stp-a.in .stp-a__row:nth-child(2){transition-delay:.15s}
+  .stp-a.in .stp-a__row:nth-child(3){transition-delay:.35s}
+  .stp-a.in .stp-a__row:nth-child(4){transition-delay:.55s}
+  .stp-a.in .stp-a__row:nth-child(5){transition-delay:.75s}
+  .stp-a__row + .stp-a__row{border-top:1px solid rgba(74,74,72,0.12)}
+  .stp-a__dot{
+    position:absolute;left:-50px;top:30px;
+    width:14px;height:14px;border-radius:50%;background:var(--paper);border:1px solid var(--steel);
+    transform:scale(0);transition:transform .6s var(--ease) .3s, background .4s ease;
+  }
+  .stp-a.in .stp-a__row:nth-child(2) .stp-a__dot{transform:scale(1);background:var(--steel)}
+  .stp-a.in .stp-a__row:nth-child(3) .stp-a__dot{transform:scale(1);background:var(--steel);transition-delay:.55s}
+  .stp-a.in .stp-a__row:nth-child(4) .stp-a__dot{transform:scale(1);background:var(--steel);transition-delay:.8s}
+  .stp-a.in .stp-a__row:nth-child(5) .stp-a__dot{transform:scale(1);background:var(--steel);transition-delay:1.05s}
+  .stp-a__num{font-family:var(--body);font-size:11px;letter-spacing:0.22em;color:var(--steel);font-weight:500;padding-top:6px}
+  .stp-a__name{font-family:var(--display);font-weight:500;font-size:32px;line-height:1.05;color:var(--ink);letter-spacing:-0.005em;margin-bottom:8px}
+  .stp-a__name em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-a__desc{font-size:14px;line-height:1.65;color:var(--graphite);max-width:520px}
+  @media (max-width:640px){
+    .stp-a__inner{padding-left:36px}
+    .stp-a__inner::before, .stp-a__progress{left:12px}
+    .stp-a__dot{left:-30px;top:26px}
+    .stp-a__row{grid-template-columns:1fr;gap:8px}
+  }
+
+  /* ============================================================
+     STEPS · B — Image cards (animated stagger + image rise)
+  ============================================================ */
+  .stp-b{background:var(--soft);padding:80px 32px}
+  .stp-b__inner{max-width:1480px;margin:0 auto}
+  .stp-b__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px}
+  .stp-b__card{
+    background:var(--paper);overflow:hidden;
+    display:flex;flex-direction:column;
+    opacity:0;transform:translateY(40px);
+    transition:transform .9s var(--ease), opacity .9s var(--ease);
+  }
+  .stp-b.in .stp-b__card{opacity:1;transform:none}
+  .stp-b.in .stp-b__card:nth-child(2){transition-delay:.12s}
+  .stp-b.in .stp-b__card:nth-child(3){transition-delay:.24s}
+  .stp-b.in .stp-b__card:nth-child(4){transition-delay:.36s}
+  .stp-b.in .stp-b__card:nth-child(5){transition-delay:.48s}
+  .stp-b__card:hover{transform:translateY(-6px) !important}
+  .stp-b__img{aspect-ratio:4/5;background:var(--soft);overflow:hidden}
+  .stp-b__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);filter:saturate(0.94);transform:scale(1.08)}
+  .stp-b.in .stp-b__img img{transform:scale(1)}
+  .stp-b__card:hover .stp-b__img img{transform:scale(1.1)}
+  .stp-b__body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px}
+  .stp-b__num{font-family:var(--body);font-size:11px;letter-spacing:0.22em;color:var(--steel);font-weight:500}
+  .stp-b__name{font-family:var(--display);font-weight:500;font-size:24px;color:var(--ink);letter-spacing:-0.005em}
+  .stp-b__name em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-b__desc{font-size:13px;line-height:1.55;color:var(--graphite)}
+  @media (max-width:1100px){.stp-b__grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:760px){.stp-b__grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:440px){.stp-b__grid{grid-template-columns:1fr}}
+
+  /* ============================================================
+     STEPS · C — Numbered specimen (slide-in + underline sweep)
+  ============================================================ */
+  .stp-c{background:var(--paper);padding:80px 32px}
+  .stp-c__inner{max-width:1100px;margin:0 auto}
+  .stp-c__row{
+    display:grid;grid-template-columns:80px 1fr 200px;gap:32px;
+    align-items:baseline;padding:28px 0;
+    border-top:1px solid rgba(74,74,72,0.18);
+    transition:padding .35s var(--ease);
+    opacity:0;transform:translateX(-32px);
+    transition:padding .35s var(--ease), opacity .8s var(--ease), transform .8s var(--ease);
+    position:relative;overflow:hidden;
+  }
+  .stp-c__row::after{
+    content:'';position:absolute;left:0;bottom:-1px;height:1px;background:var(--steel);
+    width:0;transition:width 1.2s var(--ease);
+  }
+  .stp-c.in .stp-c__row{opacity:1;transform:none}
+  .stp-c.in .stp-c__row:nth-child(2){transition-delay:.14s}
+  .stp-c.in .stp-c__row:nth-child(3){transition-delay:.28s}
+  .stp-c.in .stp-c__row:nth-child(4){transition-delay:.42s}
+  .stp-c.in .stp-c__row::after{width:100%;transition-delay:.6s}
+  .stp-c.in .stp-c__row:nth-child(2)::after{transition-delay:.74s}
+  .stp-c.in .stp-c__row:nth-child(3)::after{transition-delay:.88s}
+  .stp-c.in .stp-c__row:nth-child(4)::after{transition-delay:1.02s}
+  .stp-c__row:last-child{border-bottom:1px solid rgba(74,74,72,0.18)}
+  .stp-c__row:hover{padding:36px 0}
+  .stp-c__num{font-family:var(--body);font-size:12px;letter-spacing:0.22em;color:var(--steel);font-weight:500}
+  .stp-c__name{font-family:var(--display);font-weight:500;font-size:clamp(36px,5vw,72px);line-height:1;color:var(--ink);letter-spacing:-0.012em;transition:transform .5s var(--ease);transform-origin:left}
+  .stp-c__name em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-c__row:hover .stp-c__name{transform:translateX(14px)}
+  .stp-c__meta{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite);text-align:right;line-height:1.7}
+  @media (max-width:760px){
+    .stp-c__row{grid-template-columns:1fr;gap:6px}
+    .stp-c__name{font-size:14vw}
+    .stp-c__meta{text-align:left}
+    .stp-c__row:hover .stp-c__name{transform:none}
+  }
+
+  /* ============================================================
+     STEPS · D — Image-paired alternating (parallax + slide)
+  ============================================================ */
+  .stp-d{background:var(--paper);padding:0}
+  .stp-d__row{
+    display:grid;grid-template-columns:1fr 1fr;
+    align-items:stretch;
+    border-top:1px solid rgba(74,74,72,0.18);
+    overflow:hidden;
+  }
+  .stp-d__row:last-child{border-bottom:1px solid rgba(74,74,72,0.18)}
+  .stp-d__row.rev .stp-d__media{order:2}
+  .stp-d__row.rev .stp-d__copy{order:1}
+  .stp-d__media{background:var(--soft);overflow:hidden;min-height:340px;position:relative}
+  .stp-d__media img{
+    position:absolute;inset:0;width:100%;height:120%;object-fit:cover;
+    transform:translateY(-6%) scale(1.06);transition:transform 1.6s var(--ease);
+    filter:saturate(0.94);
+  }
+  .stp-d__row.in .stp-d__media img{transform:translateY(0) scale(1)}
+  .stp-d__row:hover .stp-d__media img{transform:translateY(0) scale(1.08)}
+  .stp-d__copy{
+    padding:48px 56px;display:flex;flex-direction:column;justify-content:center;gap:14px;
+    opacity:0;transform:translateX(28px);
+    transition:opacity 1s var(--ease) .15s, transform 1s var(--ease) .15s;
+  }
+  .stp-d__row.rev .stp-d__copy{transform:translateX(-28px)}
+  .stp-d__row.in .stp-d__copy{opacity:1;transform:none}
+  .stp-d__num{font-family:var(--display);font-weight:500;font-size:80px;line-height:0.9;color:var(--ink);letter-spacing:-0.04em}
+  .stp-d__num em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-d__name{font-family:var(--display);font-weight:500;font-size:36px;color:var(--ink);letter-spacing:-0.005em;line-height:1.05}
+  .stp-d__name em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-d__desc{font-size:14px;line-height:1.65;color:var(--graphite);max-width:420px}
+  @media (max-width:880px){
+    .stp-d__row,.stp-d__row.rev{grid-template-columns:1fr}
+    .stp-d__row.rev .stp-d__media{order:0}
+    .stp-d__row.rev .stp-d__copy{order:0;transform:translateX(0) translateY(20px)}
+    .stp-d__media{min-height:240px}
+    .stp-d__copy{padding:28px 24px 36px}
+    .stp-d__num{font-size:64px}
+    .stp-d__name{font-size:28px}
+  }
+
+  /* ============================================================
+     STEPS · E — Sticky-rail + scroll-driven progress
+  ============================================================ */
+  .stp-e{background:var(--ink);color:var(--paper);padding:80px 32px}
+  .stp-e__inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .stp-e__rail{position:sticky;top:120px}
+  .stp-e__rail .eyebrow{color:var(--steel);margin-bottom:18px;display:inline-block}
+  .stp-e__rail h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,4vw,56px);color:var(--paper);line-height:1.05;letter-spacing:-0.005em}
+  .stp-e__rail h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-e__rail .progress{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+  .stp-e__progitem{display:grid;grid-template-columns:60px 1fr;gap:14px;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,250,247,0.45);padding-top:14px;border-top:1px solid rgba(250,250,247,0.18);transition:color .5s var(--ease)}
+  .stp-e__progitem.is-active{color:var(--paper)}
+  .stp-e__progitem.is-active b{color:var(--steel)}
+  .stp-e__progitem b{color:rgba(74,97,120,0.5);font-weight:500;transition:color .5s var(--ease)}
+  .stp-e__list{display:flex;flex-direction:column;gap:18px}
+  .stp-e__card{
+    background:#161616;overflow:hidden;display:grid;grid-template-rows:auto auto;
+    opacity:0;transform:translateY(40px) scale(0.98);
+    transition:opacity 1s var(--ease), transform 1s var(--ease);
+  }
+  .stp-e__card.in{opacity:1;transform:none}
+  .stp-e__cardimg{aspect-ratio:5/3;overflow:hidden;background:var(--graphite)}
+  .stp-e__cardimg img{width:100%;height:100%;object-fit:cover;filter:saturate(0.92);transform:scale(1.08);transition:transform 1.4s var(--ease)}
+  .stp-e__card.in .stp-e__cardimg img{transform:scale(1)}
+  .stp-e__cardbody{padding:24px 28px}
+  .stp-e__cardbody h3{font-family:var(--display);font-weight:500;font-size:28px;color:var(--paper);margin-bottom:8px;letter-spacing:-0.005em}
+  .stp-e__cardbody h3 em{font-style:italic;color:var(--steel);font-weight:400}
+  .stp-e__cardbody p{font-size:14px;line-height:1.65;color:rgba(250,250,247,0.78)}
+  @media (max-width:880px){.stp-e__inner{grid-template-columns:1fr}.stp-e__rail{position:static}}
+
+  /* ============================================================
+     CONTACT · A — Direct studio card (editorial, info-led)
+  ============================================================ */
+  .con-a{background:var(--paper);padding:120px 32px}
+  .con-a__inner{max-width:1280px;margin:0 auto}
+  .con-a__head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px}
+  .con-a__head h2{font-family:var(--display);font-weight:500;font-size:clamp(48px,6vw,84px);line-height:1.02;color:var(--ink);letter-spacing:-0.012em;max-width:780px}
+  .con-a__head h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .con-a__head p{font-size:15px;line-height:1.65;color:var(--graphite);max-width:340px;justify-self:end;text-align:left}
+  .con-a__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(74,74,72,0.18);border-bottom:1px solid rgba(74,74,72,0.18)}
+  .con-a__cell{padding:32px;border-right:1px solid rgba(74,74,72,0.12)}
+  .con-a__cell:last-child{border-right:none}
+  .con-a__cell .eyebrow{display:block;margin-bottom:14px}
+  .con-a__cell a, .con-a__cell span{font-family:var(--display);font-weight:500;font-size:24px;color:var(--ink);line-height:1.2;letter-spacing:-0.005em;transition:color .25s ease;display:block}
+  .con-a__cell a:hover{color:var(--steel)}
+  .con-a__cell small{display:block;margin-top:8px;font-size:13px;color:var(--graphite);line-height:1.5}
+  @media (max-width:880px){
+    .con-a__head{grid-template-columns:1fr;gap:18px}
+    .con-a__head p{justify-self:start}
+    .con-a__grid{grid-template-columns:1fr}
+    .con-a__cell{border-right:none;border-bottom:1px solid rgba(74,74,72,0.12);padding:22px}
+    .con-a__cell:last-child{border-bottom:none}
+  }
+
+  /* ============================================================
+     CONTACT · B — Map + studio info split
+  ============================================================ */
+  .con-b{background:var(--paper);display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch;min-height:640px}
+  .con-b__map{
+    background:#1c1c1c url('https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/144.9631,-37.8136,11,0/1200x900?access_token=pk.placeholder') center/cover;
+    position:relative;
+    background-image:linear-gradient(135deg,#1c1c1c,#2a2a2a);
+  }
+  .con-b__map::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(74,97,120,0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,97,120,0.14) 1px, transparent 1px);
+    background-size:32px 32px;
+  }
+  .con-b__pin{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:18px;height:18px;background:var(--steel);border-radius:50%;
+    box-shadow:0 0 0 8px rgba(74,97,120,0.25), 0 0 0 24px rgba(74,97,120,0.12);
+    animation:pulsePin 2.4s ease-in-out infinite;
+  }
+  @keyframes pulsePin{
+    0%,100%{box-shadow:0 0 0 8px rgba(74,97,120,0.25), 0 0 0 24px rgba(74,97,120,0.12)}
+    50%{box-shadow:0 0 0 14px rgba(74,97,120,0.18), 0 0 0 40px rgba(74,97,120,0.06)}
+  }
+  .con-b__label{position:absolute;left:50%;top:calc(50% - 32px);transform:translate(-50%,-100%);background:var(--paper);padding:10px 14px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:600;white-space:nowrap}
+  .con-b__copy{padding:96px 64px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .con-b__copy h2{font-family:var(--display);font-weight:500;font-size:clamp(40px,4.4vw,60px);color:var(--ink);line-height:1.02;letter-spacing:-0.005em}
+  .con-b__copy h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .con-b__copy p{font-size:15px;line-height:1.65;color:var(--graphite);max-width:380px}
+  .con-b__list{margin-top:8px;display:flex;flex-direction:column;gap:14px}
+  .con-b__list .item{display:grid;grid-template-columns:80px 1fr;gap:14px;border-top:1px solid rgba(74,74,72,0.18);padding-top:14px;font-size:14px;color:var(--graphite);align-items:baseline}
+  .con-b__list .item b{color:var(--steel);font-weight:500;font-size:11px;letter-spacing:0.22em;text-transform:uppercase}
+  .con-b__list .item a{color:var(--ink);font-weight:500;transition:color .25s ease}
+  .con-b__list .item a:hover{color:var(--steel)}
+  @media (max-width:880px){
+    .con-b{grid-template-columns:1fr}
+    .con-b__map{min-height:280px}
+    .con-b__copy{padding:48px 24px}
+  }
+
+  /* ============================================================
+     CONTACT · C — Quick form + sidebar
+  ============================================================ */
+  .con-c{background:var(--soft);padding:120px 32px}
+  .con-c__inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+  .con-c__side h2{font-family:var(--display);font-weight:500;font-size:clamp(40px,4.4vw,60px);color:var(--ink);line-height:1.02;letter-spacing:-0.005em;margin:14px 0 16px}
+  .con-c__side h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .con-c__side p{font-size:15px;line-height:1.65;color:var(--graphite);max-width:340px}
+  .con-c__side ul{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:10px}
+  .con-c__side ul li{display:grid;grid-template-columns:80px 1fr;gap:14px;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--graphite);padding-top:14px;border-top:1px solid rgba(74,74,72,0.18)}
+  .con-c__side ul li b{color:var(--steel);font-weight:500}
+  .con-c__form{background:var(--paper);padding:40px;display:flex;flex-direction:column;gap:20px;border:1px solid rgba(74,74,72,0.12)}
+  .con-c__form .row{display:flex;flex-direction:column;gap:6px}
+  .con-c__form .row.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .con-c__form label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite);font-weight:500}
+  .con-c__form input, .con-c__form textarea{font-family:var(--body);font-size:15px;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(74,74,72,0.3);padding:10px 0;outline:none;transition:border-color .25s ease;border-radius:0;width:100%}
+  .con-c__form input:focus, .con-c__form textarea:focus{border-bottom-color:var(--steel)}
+  .con-c__form textarea{min-height:96px;resize:vertical}
+  .con-c__form button{margin-top:8px;font-family:var(--body);font-size:13px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:16px 28px;border:1px solid var(--ink);transition:background .25s ease;cursor:pointer;align-self:flex-start}
+  .con-c__form button:hover{background:var(--steel);border-color:var(--steel)}
+  @media (max-width:880px){.con-c__inner{grid-template-columns:1fr;gap:32px}.con-c__form{padding:24px}.con-c__form .row.two{grid-template-columns:1fr}}
+
+  /* ============================================================
+     CONTACT · D — Studio roster (named contacts)
+  ============================================================ */
+  .con-d{background:var(--ink);color:var(--paper);padding:120px 32px}
+  .con-d__inner{max-width:1280px;margin:0 auto}
+  .con-d__head{margin-bottom:64px;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:48px}
+  .con-d__head h2{font-family:var(--display);font-weight:500;font-size:clamp(48px,6vw,84px);line-height:1.02;color:var(--paper);letter-spacing:-0.012em;max-width:780px}
+  .con-d__head h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .con-d__head p{font-size:15px;line-height:1.65;color:rgba(250,250,247,0.7);max-width:340px;justify-self:end}
+  .con-d__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .con-d__person{background:#161616;padding:32px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--ease)}
+  .con-d__person:hover{transform:translateY(-6px)}
+  .con-d__avatar{
+    width:72px;height:72px;border-radius:50%;
+    background:var(--steel);
+    font-family:var(--display);font-weight:500;font-size:28px;
+    display:flex;align-items:center;justify-content:center;color:var(--paper);letter-spacing:-0.005em;
+  }
+  .con-d__person h3{font-family:var(--display);font-weight:500;font-size:32px;color:var(--paper);letter-spacing:-0.005em;line-height:1.1}
+  .con-d__role{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--steel);font-weight:500}
+  .con-d__person .desc{font-size:13px;line-height:1.6;color:rgba(250,250,247,0.7);margin-top:4px}
+  .con-d__contacts{margin-top:14px;display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(250,250,247,0.18);padding-top:14px}
+  .con-d__contacts a{color:var(--paper);font-size:14px;transition:color .25s ease}
+  .con-d__contacts a:hover{color:var(--steel)}
+  @media (max-width:880px){.con-d__head{grid-template-columns:1fr;gap:18px}.con-d__head p{justify-self:start}.con-d__grid{grid-template-columns:1fr}}
+
+  /* ============================================================
+     CONTACT · E — Minimal centred (one big email)
+  ============================================================ */
+  .con-e{background:var(--paper);padding:160px 32px;text-align:center;position:relative}
+  .con-e .eyebrow{display:inline-block;margin-bottom:24px}
+  .con-e h2{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(36px,4vw,52px);color:var(--ink);line-height:1.1;margin-bottom:48px}
+  .con-e h2 em{color:var(--steel);font-style:italic;font-weight:500}
+  .con-e .email{
+    display:inline-block;
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(40px,7vw,108px);line-height:1;
+    color:var(--ink);letter-spacing:-0.02em;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:8px;
+    transition:color .35s ease, border-color .35s ease, transform .35s var(--ease);
+  }
+  .con-e .email:hover{color:var(--steel);border-bottom-color:var(--steel);transform:translateY(-3px)}
+  .con-e__row{margin-top:64px;display:flex;justify-content:center;gap:48px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite);flex-wrap:wrap}
+  .con-e__row b{display:block;color:var(--ink);font-family:var(--display);font-weight:500;font-size:18px;letter-spacing:0;margin-bottom:4px;text-transform:none}
+  .con-e__row a:hover b{color:var(--steel)}
+
+  /* ============================================================
+     PICK
+  ============================================================ */
+  .opts-pick{padding:120px 32px;text-align:center;background:var(--ink);color:var(--paper);border-top:1px solid rgba(250,250,247,0.08)}
+  .opts-pick h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,4vw,52px);color:var(--paper);margin-bottom:14px;letter-spacing:-0.005em}
+  .opts-pick h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .opts-pick p{color:rgba(250,250,247,0.7);max-width:540px;margin:0 auto;font-size:16px;line-height:1.65}
+
+  @media (prefers-reduced-motion:reduce){
+    .ani,.ani-l,.ani-r,.ani-stagger > *,
+    .stp-a__row,.stp-a__dot,.stp-a__progress,
+    .stp-b__card,.stp-b__img img,
+    .stp-c__row,.stp-c__row::after,
+    .stp-d__media img,.stp-d__copy,
+    .stp-e__card,.stp-e__cardimg img,
+    .con-b__pin{
+      opacity:1 !important;transform:none !important;transition:none !important;animation:none !important;
+    }
+    .stp-a__progress{height:calc(100% - 28px) !important}
+    .stp-c__row::after{width:100% !important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="nav is-stuck">
+  <div class="nav__brand">
+    <a href="index.html#top" class="wordmark" data-home>WON <span class="accent">MEDIA</span></a>
+  </div>
+  <nav class="nav__links">
+    <a href="index.html#services">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="examples.html" aria-current="page">Examples</a>
+  </nav>
+  <div class="nav__right">
+    <a href="book.html" class="nav__cta">Book now</a>
+  </div>
+  <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<aside class="nav__drawer" aria-hidden="true">
+  <ul>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="gallery.html"><em>Gallery</em></a></li>
+    <li><a href="book.html">Book now</a></li>
+  </ul>
+  <div class="nav__drawer__foot"><span>Won Media</span><span>Melbourne · 2026</span></div>
+</aside>
+
+<section class="ex-intro">
+  <span class="eyebrow">Steps + Contact · ten options</span>
+  <h1 style="margin-top:18px">Five <em>animated step</em> layouts and five <em>contact sections</em>.</h1>
+  <p>All steps reveal on scroll — connector fills, dots pop in, copy slides, images Ken Burns. Reply with the codes — e.g. <em>"Steps D + Contact A"</em> — and I'll wire them into the homepage.</p>
+</section>
+
+<!-- ================ STEPS ================ -->
+<section class="ex-divider">
+  <span class="eyebrow">Step layouts · animated</span>
+  <h2>From brief to <em>delivery.</em></h2>
+  <p>Same four-step process; five different motion strategies. Connector fills (A), staggered cards (B), slide + underline sweep (C), parallax + side-slide (D), scroll-driven progress (E).</p>
+</section>
+
+<!-- STEPS A -->
+<div class="ex-label"><span class="tag">Steps A</span><h3>Vertical timeline · <em>connector fills as you scroll</em></h3><p>Editorial flow with a Steel line that draws downward and dots that pop in sequentially.</p></div>
+<section class="stp-a" data-anim>
+  <div class="stp-a__inner">
+    <span class="stp-a__progress"></span>
+    <div class="stp-a__row">
+      <div class="stp-a__dot"></div>
+      <div class="stp-a__num">01</div>
+      <div>
+        <h3 class="stp-a__name">Brief</h3>
+        <p class="stp-a__desc">Address, agency, listing date and the disciplines you'd like covered. Studio responds within one working day with a quote and a shoot date.</p>
+      </div>
+    </div>
+    <div class="stp-a__row">
+      <div class="stp-a__dot"></div>
+      <div class="stp-a__num">02</div>
+      <div>
+        <h3 class="stp-a__name">Plan</h3>
+        <p class="stp-a__desc">Site walk and shot list. Light timing locked, drone permissions filed, virtual staging directions agreed before the shoot.</p>
+      </div>
+    </div>
+    <div class="stp-a__row">
+      <div class="stp-a__dot"></div>
+      <div class="stp-a__num">03</div>
+      <div>
+        <h3 class="stp-a__name">Capture</h3>
+        <p class="stp-a__desc">A single visit covers photography, video, drone and floor plans. Naturally coloured imagery, no preset, no over-direction.</p>
+      </div>
+    </div>
+    <div class="stp-a__row">
+      <div class="stp-a__dot"></div>
+      <div class="stp-a__num">04</div>
+      <div>
+        <h3 class="stp-a__name"><em>Deliver</em></h3>
+        <p class="stp-a__desc">Edited files within 48 hours of the shoot — high-resolution stills, web-optimised set, cut walkthrough video, brand-aligned floor plans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS B -->
+<div class="ex-label"><span class="tag">Steps B</span><h3>Image cards · <em>staggered rise + image scale</em></h3><p>Five-up grid. Cards stagger up; images scale from 1.08 → 1 as they enter view.</p></div>
+<section class="stp-b" data-anim>
+  <div class="stp-b__inner">
+    <div class="stp-b__grid">
+      <article class="stp-b__card"><div class="stp-b__img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80" alt=""></div><div class="stp-b__body"><span class="stp-b__num">01</span><h3 class="stp-b__name">Brief</h3><p class="stp-b__desc">Half-page brief. One-day quote.</p></div></article>
+      <article class="stp-b__card"><div class="stp-b__img"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80" alt=""></div><div class="stp-b__body"><span class="stp-b__num">02</span><h3 class="stp-b__name">Plan</h3><p class="stp-b__desc">Shot list, light timing, permits.</p></div></article>
+      <article class="stp-b__card"><div class="stp-b__img"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=900&q=80" alt=""></div><div class="stp-b__body"><span class="stp-b__num">03</span><h3 class="stp-b__name">Capture</h3><p class="stp-b__desc">One visit, all disciplines.</p></div></article>
+      <article class="stp-b__card"><div class="stp-b__img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt=""></div><div class="stp-b__body"><span class="stp-b__num">04</span><h3 class="stp-b__name">Edit</h3><p class="stp-b__desc">Naturally coloured, in-house.</p></div></article>
+      <article class="stp-b__card"><div class="stp-b__img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt=""></div><div class="stp-b__body"><span class="stp-b__num">05</span><h3 class="stp-b__name"><em>Deliver</em></h3><p class="stp-b__desc">Final files within 48 hours.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS C -->
+<div class="ex-label"><span class="tag">Steps C</span><h3>Numbered specimen · <em>slide-in + underline sweep</em></h3><p>Rows slide in from the left; a Steel underline sweeps across each row line in sequence.</p></div>
+<section class="stp-c" data-anim>
+  <div class="stp-c__inner">
+    <div class="stp-c__row"><span class="stp-c__num">01</span><span class="stp-c__name">Brief</span><span class="stp-c__meta">Address · Agency · Date</span></div>
+    <div class="stp-c__row"><span class="stp-c__num">02</span><span class="stp-c__name">Plan</span><span class="stp-c__meta">Shot list · Light timing</span></div>
+    <div class="stp-c__row"><span class="stp-c__num">03</span><span class="stp-c__name">Capture</span><span class="stp-c__meta">All disciplines · One visit</span></div>
+    <div class="stp-c__row"><span class="stp-c__num">04</span><span class="stp-c__name"><em>Deliver</em></span><span class="stp-c__meta">Edited · 48 hours</span></div>
+  </div>
+</section>
+
+<!-- STEPS D -->
+<div class="ex-label"><span class="tag">Steps D</span><h3>Image-paired alternating · <em>Ken Burns + side-slide copy</em></h3><p>Each row's image rises into place; copy slides in from the opposite side.</p></div>
+<section class="stp-d">
+  <div class="stp-d__row" data-anim-row>
+    <div class="stp-d__media"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=85" alt=""></div>
+    <div class="stp-d__copy"><span class="stp-d__num">01</span><h3 class="stp-d__name">Brief</h3><p class="stp-d__desc">Half-page brief — address, agency, listing date. Studio responds within one working day with a quote and a shoot date.</p></div>
+  </div>
+  <div class="stp-d__row rev" data-anim-row>
+    <div class="stp-d__media"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1600&q=85" alt=""></div>
+    <div class="stp-d__copy"><span class="stp-d__num">02</span><h3 class="stp-d__name">Plan</h3><p class="stp-d__desc">Site walk and shot list. Light timing locked, drone permits filed, virtual staging agreed.</p></div>
+  </div>
+  <div class="stp-d__row" data-anim-row>
+    <div class="stp-d__media"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt=""></div>
+    <div class="stp-d__copy"><span class="stp-d__num">03</span><h3 class="stp-d__name">Capture</h3><p class="stp-d__desc">A single visit covers all disciplines. Naturally coloured imagery, no preset, no over-direction.</p></div>
+  </div>
+  <div class="stp-d__row rev" data-anim-row>
+    <div class="stp-d__media"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85" alt=""></div>
+    <div class="stp-d__copy"><span class="stp-d__num">04</span><h3 class="stp-d__name"><em>Deliver</em></h3><p class="stp-d__desc">Edited files within 48 hours — stills, video, plans, ready to list.</p></div>
+  </div>
+</section>
+
+<!-- STEPS E -->
+<div class="ex-label"><span class="tag">Steps E</span><h3>Sticky rail · <em>scroll-driven active progress</em></h3><p>Left rail stays anchored; the active step indicator follows as the right column scrolls.</p></div>
+<section class="stp-e">
+  <div class="stp-e__inner">
+    <aside class="stp-e__rail">
+      <span class="eyebrow">Process</span>
+      <h2>From brief to<br><em>delivery.</em></h2>
+      <div class="progress" id="stpProgress">
+        <div class="stp-e__progitem is-active" data-step="0"><b>01</b><span>Brief</span></div>
+        <div class="stp-e__progitem" data-step="1"><b>02</b><span>Plan</span></div>
+        <div class="stp-e__progitem" data-step="2"><b>03</b><span>Capture</span></div>
+        <div class="stp-e__progitem" data-step="3"><b>04</b><span>Deliver</span></div>
+      </div>
+    </aside>
+    <div class="stp-e__list" id="stpCards">
+      <article class="stp-e__card" data-step="0"><div class="stp-e__cardimg"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&q=85" alt=""></div><div class="stp-e__cardbody"><h3>01 · Brief</h3><p>Half-page brief — address, agency, listing date and disciplines. Quote within one working day.</p></div></article>
+      <article class="stp-e__card" data-step="1"><div class="stp-e__cardimg"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1400&q=85" alt=""></div><div class="stp-e__cardbody"><h3>02 · Plan</h3><p>Shot list, light timing, drone permissions, virtual staging notes — all locked before the day.</p></div></article>
+      <article class="stp-e__card" data-step="2"><div class="stp-e__cardimg"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=85" alt=""></div><div class="stp-e__cardbody"><h3>03 · Capture</h3><p>One visit, all disciplines. Naturally coloured imagery, no preset.</p></div></article>
+      <article class="stp-e__card" data-step="3"><div class="stp-e__cardimg"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85" alt=""></div><div class="stp-e__cardbody"><h3>04 · <em>Deliver</em></h3><p>Edited files within 48 hours — stills, video, plans, ready to list.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================ CONTACT ================ -->
+<section class="ex-divider">
+  <span class="eyebrow">Contact section</span>
+  <h2>Five ways to <em>land the page.</em></h2>
+  <p>Replaces the bottom CTA on the homepage with a proper contact section. All emails/phones link out; forms submit to the existing booking flow.</p>
+</section>
+
+<!-- CONTACT A -->
+<div class="ex-label"><span class="tag">Contact A</span><h3>Direct studio card · <em>info-led editorial</em></h3><p>Big editorial heading, then a four-column row of email, phone, hours and location. No form. Cleanest, most premium.</p></div>
+<section class="con-a">
+  <div class="con-a__inner">
+    <div class="con-a__head">
+      <h2>Reach the<br>studio <em>directly.</em></h2>
+      <p>One-day response on every brief. For urgent listings, phone the studio. Hours below are AEST.</p>
+    </div>
+    <div class="con-a__grid">
+      <div class="con-a__cell">
+        <span class="eyebrow">Email</span>
+        <a href="mailto:studio@wonmedia.com.au">studio@<br>wonmedia.com.au</a>
+      </div>
+      <div class="con-a__cell">
+        <span class="eyebrow">Phone</span>
+        <a href="tel:+61000000000">+61 (0) 0000 0000</a>
+        <small>Mon–Fri · 8am–6pm</small>
+      </div>
+      <div class="con-a__cell">
+        <span class="eyebrow">Studio</span>
+        <span>Carlton North<br>Victoria 3054</span>
+        <small>By appointment</small>
+      </div>
+      <div class="con-a__cell">
+        <span class="eyebrow">Booking</span>
+        <a href="book.html">Book a shoot →</a>
+        <small>One-day response</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT B -->
+<div class="ex-label"><span class="tag">Contact B</span><h3>Map + studio info · <em>editorial split</em></h3><p>Half the section is a stylised dark map with a pulsing pin; the other half lists the studio's contact details.</p></div>
+<section class="con-b">
+  <div class="con-b__map">
+    <div class="con-b__label">Carlton North · 3054</div>
+    <div class="con-b__pin"></div>
+  </div>
+  <div class="con-b__copy">
+    <span class="eyebrow">Find the studio</span>
+    <h2>Carlton North,<br><em>Melbourne.</em></h2>
+    <p>Studio works across Greater Melbourne and regional Victoria. Visits by appointment.</p>
+    <div class="con-b__list">
+      <div class="item"><b>Email</b><a href="mailto:studio@wonmedia.com.au">studio@wonmedia.com.au</a></div>
+      <div class="item"><b>Phone</b><a href="tel:+61000000000">+61 (0) 0000 0000</a></div>
+      <div class="item"><b>Hours</b><span>Mon–Fri · 8am–6pm AEST</span></div>
+      <div class="item"><b>Booking</b><a href="book.html">Book a shoot →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT C -->
+<div class="ex-label"><span class="tag">Contact C</span><h3>Quick form + sidebar · <em>convert-on-page</em></h3><p>Compact contact form on the right, studio details on the left. For visitors who want to send a message without leaving.</p></div>
+<section class="con-c">
+  <div class="con-c__inner">
+    <aside class="con-c__side">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Drop the studio<br>a <em>line.</em></h2>
+      <p>For most projects the booking page is fastest. For everything else — questions, partnerships, press — use the form.</p>
+      <ul>
+        <li><b>Email</b><a href="mailto:studio@wonmedia.com.au">studio@wonmedia.com.au</a></li>
+        <li><b>Phone</b><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
+        <li><b>Hours</b><span>Mon–Fri · 8am–6pm</span></li>
+      </ul>
+    </aside>
+    <form class="con-c__form" onsubmit="event.preventDefault(); alert('Thank you — we will respond within one working day.'); this.reset();">
+      <div class="row two">
+        <div><label>Name</label><input name="name" type="text" required></div>
+        <div><label>Email</label><input name="email" type="email" required></div>
+      </div>
+      <div class="row"><label>Subject</label><input name="subject" type="text" placeholder="Project, press, or partnership"></div>
+      <div class="row"><label>Message</label><textarea name="message" rows="3"></textarea></div>
+      <button type="submit">Send message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT D -->
+<div class="ex-label"><span class="tag">Contact D</span><h3>Studio roster · <em>named contacts</em></h3><p>Three named contacts — Kiran, Sunny, Aayan — each with role, role description, and direct email. Ink theme. Most personal.</p></div>
+<section class="con-d">
+  <div class="con-d__inner">
+    <div class="con-d__head">
+      <h2>The studio,<br><em>by name.</em></h2>
+      <p>Three operators. Pick the right one for your brief — or send to <a href="mailto:studio@wonmedia.com.au" style="color:var(--steel)">studio@wonmedia.com.au</a> and we'll route.</p>
+    </div>
+    <div class="con-d__grid">
+      <article class="con-d__person">
+        <div class="con-d__avatar">K</div>
+        <span class="con-d__role">Studio direction</span>
+        <h3>Kiran</h3>
+        <p class="desc">Brief intake, creative direction, post-production sign-off.</p>
+        <div class="con-d__contacts"><a href="mailto:kiran@wonmedia.com.au">kiran@wonmedia.com.au</a></div>
+      </article>
+      <article class="con-d__person">
+        <div class="con-d__avatar">S</div>
+        <span class="con-d__role">Operations &amp; bookings</span>
+        <h3>Sunny</h3>
+        <p class="desc">Shoot scheduling, drone ops, agency relationships.</p>
+        <div class="con-d__contacts"><a href="mailto:sunny@wonmedia.com.au">sunny@wonmedia.com.au</a></div>
+      </article>
+      <article class="con-d__person">
+        <div class="con-d__avatar">A</div>
+        <span class="con-d__role">Capture &amp; edit</span>
+        <h3>Aayan</h3>
+        <p class="desc">Photography, video capture, in-house editing.</p>
+        <div class="con-d__contacts"><a href="mailto:aayan@wonmedia.com.au">aayan@wonmedia.com.au</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT E -->
+<div class="ex-label"><span class="tag">Contact E</span><h3>Minimal centred · <em>one big email</em></h3><p>Single oversized email link as the focal point, with phone and hours beneath. Most reductive — a pure invitation.</p></div>
+<section class="con-e">
+  <span class="eyebrow">Talk to the studio</span>
+  <h2>Send a brief, an idea, <em>or just a hello.</em></h2>
+  <a href="mailto:studio@wonmedia.com.au" class="email">studio@wonmedia.com.au</a>
+  <div class="con-e__row">
+    <a href="tel:+61000000000"><b>+61 (0) 0000 0000</b>Call the studio</a>
+    <span><b>Mon–Fri</b>8am–6pm AEST</span>
+    <a href="book.html"><b>Book a shoot →</b>One-day response</a>
+  </div>
+</section>
+
+<section class="opts-pick">
+  <span class="eyebrow">Decision</span>
+  <h2 style="margin-top:14px">Which steps and which <em>contact?</em></h2>
+  <p>Reply with the codes — e.g. <em>"Steps A + Contact E"</em>. I'll wire your pick straight into the homepage.</p>
+</section>
+
+<script src="js/script.js"></script>
+<script>
+  // Trigger step animations when sections enter view
+  (function(){
+    const groups = document.querySelectorAll('[data-anim]');
+    if(!groups.length){ /* still ok */ }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.18 });
+    groups.forEach(g => io.observe(g));
+
+    // Per-row anim for Steps D
+    const rows = document.querySelectorAll('[data-anim-row]');
+    const io2 = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io2.unobserve(e.target); } });
+    }, { threshold: 0.25 });
+    rows.forEach(r => io2.observe(r));
+
+    // Per-card anim for Steps E
+    const cards = document.querySelectorAll('.stp-e__card');
+    const io3 = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io3.unobserve(e.target); } });
+    }, { threshold: 0.22 });
+    cards.forEach(c => io3.observe(c));
+
+    // Active progress for Steps E
+    const progItems = document.querySelectorAll('#stpProgress .stp-e__progitem');
+    const stepCards = document.querySelectorAll('#stpCards .stp-e__card');
+    if(progItems.length && stepCards.length){
+      const io4 = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            const i = e.target.dataset.step;
+            progItems.forEach(p => p.classList.toggle('is-active', p.dataset.step === i));
+          }
+        });
+      }, { threshold: 0.55 });
+      stepCards.forEach(c => io4.observe(c));
+    }
+  })();
+</script>
+</body>
+</html>

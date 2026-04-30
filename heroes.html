@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Won Media — Hero & Slogan Exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;700&family=Abhaya+Libre+Italic&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7;
+    --soft:#ECECE8;
+    --steel:#4A6178;
+    --graphite:#4A4A48;
+    --ink:#0A0A0A;
+    --display:'Abhaya Libre', serif;
+    --body:'Inter', system-ui, sans-serif;
+    --ease:cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--graphite);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+
+  /* TOP BAR */
+  .meta{
+    position:fixed;
+    top:0;left:0;right:0;
+    background:rgba(250,250,247,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(74,74,72,0.08);
+    z-index:100;
+    padding:14px 32px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--body);
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+  .meta nav a{margin-left:18px;color:var(--graphite);transition:color .2s ease}
+  .meta nav a:hover{color:var(--steel)}
+
+  /* SECTION SHELL */
+  .frame{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    border-bottom:1px solid rgba(74,74,72,0.06);
+  }
+  .frame__label{
+    position:absolute;
+    top:74px;left:32px;
+    font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--steel);
+    font-weight:500;
+    z-index:10;
+  }
+  .frame__label b{color:var(--ink);font-weight:600}
+  .frame__caption{
+    position:absolute;
+    bottom:24px;left:32px;right:32px;
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--graphite);
+    opacity:0.7;
+    max-width:760px;
+  }
+  .eyebrow{
+    font-family:var(--body);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--steel);
+  }
+  .wordmark{
+    font-family:var(--display);
+    font-weight:500;
+    letter-spacing:0;
+    line-height:1;
+    color:var(--ink);
+  }
+  .wordmark .accent{color:var(--steel)}
+  .tagline{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:400;
+    color:var(--graphite);
+  }
+
+  /* INTRO */
+  .intro{
+    padding:140px 32px 80px;
+    max-width:880px;
+    margin:0 auto;
+  }
+  .intro h1{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(40px, 5.5vw, 72px);
+    line-height:1.05;
+    color:var(--ink);
+    margin-bottom:24px;
+  }
+  .intro p{font-size:18px;line-height:1.65;color:var(--graphite);max-width:640px}
+  .intro p + p{margin-top:18px}
+  .intro .eyebrow{margin-bottom:18px;display:inline-block}
+
+  /* SLOGAN GRID */
+  .slogans{
+    background:var(--soft);
+    padding:120px 32px;
+  }
+  .slogans__inner{max-width:1280px;margin:0 auto}
+  .slogans__head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:64px;
+    gap:32px;flex-wrap:wrap;
+  }
+  .slogans__head h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(36px, 4vw, 56px);
+    color:var(--ink);
+    line-height:1.05;
+    max-width:560px;
+  }
+  .slogans__head p{max-width:380px;color:var(--graphite);font-size:14px;line-height:1.6}
+  .slogan-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:1px;
+    background:rgba(74,74,72,0.12);
+    border:1px solid rgba(74,74,72,0.12);
+  }
+  .slogan{
+    background:var(--soft);
+    padding:36px 28px;
+    min-height:240px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    transition:background .3s var(--ease), transform .4s var(--ease);
+    cursor:default;
+  }
+  .slogan:hover{background:var(--paper);transform:translateY(-2px)}
+  .slogan__num{
+    font-family:var(--body);
+    font-size:11px;font-weight:500;letter-spacing:0.22em;
+    color:var(--steel);
+  }
+  .slogan__line{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:400;
+    font-size:34px;
+    line-height:1.1;
+    color:var(--ink);
+  }
+  .slogan__line.upright{font-style:normal;font-weight:500}
+  .slogan__note{
+    font-family:var(--body);
+    font-size:12px;
+    line-height:1.5;
+    color:var(--graphite);
+    letter-spacing:0.01em;
+  }
+  .slogan.locked{background:var(--ink);color:var(--paper)}
+  .slogan.locked .slogan__line{color:var(--paper)}
+  .slogan.locked .slogan__note{color:rgba(250,250,247,0.7)}
+  .slogan.locked .slogan__num{color:var(--paper);opacity:0.6}
+
+  /* HERO A — Quiet wordmark hold */
+  .hero-a{background:var(--paper);justify-content:center;align-items:center;text-align:center;padding:0 32px}
+  .hero-a__wm{font-size:clamp(64px, 9vw, 124px);margin-bottom:14px}
+  .hero-a__tag{font-size:clamp(20px, 2.4vw, 32px)}
+  .hero-a__foot{
+    position:absolute;bottom:42px;left:0;right:0;
+    display:flex;justify-content:center;gap:32px;
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--graphite);opacity:0.7;
+  }
+
+  /* HERO B — Frame within frame */
+  .hero-b{flex-direction:row;align-items:stretch;padding-top:0}
+  .hero-b__text{
+    flex:0 0 58%;
+    background:var(--paper);
+    padding:140px 64px 64px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .hero-b__text h1{
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(44px, 5.4vw, 84px);
+    line-height:1.04;
+    color:var(--ink);
+    max-width:780px;
+  }
+  .hero-b__text h1 em{color:var(--steel);font-style:italic;font-weight:500}
+  .hero-b__text .eyebrow{margin-bottom:32px}
+  .hero-b__img{
+    flex:1;
+    background:var(--soft) url('https://picsum.photos/seed/wonB/1200/1600') center/cover;
+    min-height:520px;
+  }
+
+  /* HERO C — Marquee index */
+  .hero-c{background:var(--paper);padding-top:120px;justify-content:space-between}
+  .hero-c__top{padding:0 32px;display:flex;justify-content:space-between;align-items:flex-end}
+  .hero-c__top .wordmark{font-size:28px}
+  .hero-c__top .eyebrow{align-self:center}
+  .marquee{
+    overflow:hidden;
+    margin:48px 0;
+    padding:0;
+    -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            mask-image:linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+  .marquee__track{
+    display:flex;gap:24px;
+    width:max-content;
+    animation:scroll 60s linear infinite;
+  }
+  .marquee:hover .marquee__track{animation-play-state:paused}
+  .marquee__item{
+    width:340px;height:440px;
+    background:var(--soft) center/cover no-repeat;
+    flex-shrink:0;
+    filter:saturate(0.95);
+  }
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(calc(-50% - 12px))}
+  }
+  .hero-c__foot{
+    padding:0 32px 32px;
+    border-top:1px solid rgba(74,74,72,0.15);
+    padding-top:36px;
+  }
+  .hero-c__foot h1{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(28px, 3.6vw, 48px);
+    line-height:1.15;color:var(--ink);
+    margin-bottom:12px;
+  }
+  .hero-c__foot h1 .sep{color:var(--steel);margin:0 8px}
+  .hero-c__foot p{font-family:var(--display);font-style:italic;font-size:22px;color:var(--graphite)}
+
+  /* HERO D — Numbered threshold */
+  .hero-d{padding:0;background:var(--ink)}
+  .hero-d__bg{
+    position:absolute;inset:0;
+    background:url('https://picsum.photos/seed/wonD/1800/1200') center/cover;
+    filter:brightness(0.78) contrast(1.05);
+  }
+  .hero-d__top{
+    position:relative;z-index:2;
+    padding:88px 32px 0;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .hero-d__top .eyebrow{color:var(--paper);opacity:0.85}
+  .hero-d__top .rule{flex:1;height:1px;background:var(--steel);margin:0 24px;opacity:0.6}
+  .hero-d__panel{
+    position:relative;z-index:2;
+    margin-top:auto;
+    width:clamp(320px, 44vw, 580px);
+    background:var(--paper);
+    padding:48px 44px;
+    margin-left:32px;margin-bottom:32px;
+  }
+  .hero-d__panel .wordmark{font-size:48px;margin-bottom:8px}
+  .hero-d__panel .tagline{font-size:22px;margin-bottom:32px}
+  .hero-d__panel .cue{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--steel);font-weight:500;
+    border-top:1px solid rgba(74,74,72,0.2);padding-top:18px;
+  }
+
+  /* HERO E — Vertical contact-sheet */
+  .hero-e{flex-direction:row;background:var(--paper)}
+  .hero-e__rail{
+    flex:0 0 64px;
+    background:var(--ink);
+    color:var(--paper);
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--body);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;
+    padding:24px 0;
+  }
+  .hero-e__main{flex:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:140px 64px 64px;gap:48px}
+  .hero-e__copy h1{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(56px, 7vw, 108px);
+    line-height:1;color:var(--ink);letter-spacing:-0.01em;
+  }
+  .hero-e__copy h1 .nl{display:block}
+  .hero-e__copy h1 em{font-style:italic;color:var(--steel);font-weight:400}
+  .hero-e__copy .eyebrow{margin-bottom:24px;display:inline-block}
+  .hero-e__copy .lede{margin-top:32px;font-size:16px;max-width:420px}
+  .hero-e__sheet{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:8px;align-content:center;
+  }
+  .hero-e__sheet div{aspect-ratio:3/4;background:var(--soft) center/cover}
+  .hero-e__sheet div:nth-child(1){background-image:url('https://picsum.photos/seed/wonE1/600/800')}
+  .hero-e__sheet div:nth-child(2){background-image:url('https://picsum.photos/seed/wonE2/600/800')}
+  .hero-e__sheet div:nth-child(3){background-image:url('https://picsum.photos/seed/wonE3/600/800')}
+  .hero-e__sheet div:nth-child(4){background-image:url('https://picsum.photos/seed/wonE4/600/800')}
+
+  /* HERO F — Centred giant italic */
+  .hero-f{background:var(--soft);justify-content:center;align-items:center;text-align:center;padding:120px 32px 64px}
+  .hero-f .eyebrow{margin-bottom:48px}
+  .hero-f h1{
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(64px, 11vw, 168px);
+    line-height:0.95;color:var(--ink);
+    max-width:1400px;
+  }
+  .hero-f h1 .word{display:inline-block}
+  .hero-f h1 .word--steel{color:var(--steel)}
+  .hero-f__foot{
+    position:absolute;bottom:40px;left:32px;right:32px;
+    display:flex;justify-content:space-between;
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--graphite);
+  }
+
+  /* HERO G — Editorial split with index */
+  .hero-g{background:var(--paper);flex-direction:row;padding-top:120px}
+  .hero-g__col{
+    flex:1;
+    padding:48px 64px;
+    border-right:1px solid rgba(74,74,72,0.12);
+    display:flex;flex-direction:column;
+    justify-content:space-between;
+  }
+  .hero-g__col:last-child{border-right:none;background:var(--ink);color:var(--paper)}
+  .hero-g__col:last-child .index-line{color:var(--paper);border-color:rgba(250,250,247,0.18)}
+  .hero-g__col:last-child .wordmark{color:var(--paper)}
+  .hero-g__col:last-child .wordmark .accent{color:var(--steel)}
+  .hero-g__col h2{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(40px, 4.5vw, 64px);line-height:1.05;color:var(--ink);
+    margin-bottom:24px;
+  }
+  .hero-g__col:last-child h2{color:var(--paper)}
+  .hero-g__col p{max-width:380px;font-size:15px;line-height:1.65}
+  .hero-g__col:last-child p{color:rgba(250,250,247,0.78)}
+  .index-line{
+    display:flex;justify-content:space-between;
+    padding:14px 0;
+    border-top:1px solid rgba(74,74,72,0.18);
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--graphite);
+  }
+  .hero-g__col .wordmark{font-size:32px}
+
+  /* HERO H — Stacked specimen */
+  .hero-h{background:var(--paper);justify-content:center;padding:140px 64px 64px}
+  .hero-h__row{
+    display:flex;align-items:baseline;gap:24px;
+    border-bottom:1px solid rgba(74,74,72,0.12);
+    padding:18px 0;
+  }
+  .hero-h__row:first-of-type{border-top:1px solid rgba(74,74,72,0.12)}
+  .hero-h__num{
+    font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:0.18em;
+    color:var(--steel);width:60px;flex-shrink:0;
+  }
+  .hero-h__word{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(48px, 7vw, 104px);
+    line-height:1;color:var(--ink);
+    letter-spacing:-0.01em;
+    flex:1;
+  }
+  .hero-h__word .it{font-style:italic;color:var(--steel);font-weight:400}
+  .hero-h__meta{
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--graphite);text-align:right;width:160px;flex-shrink:0;align-self:end;padding-bottom:14px;
+  }
+  .hero-h__head{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:36px;
+  }
+  .hero-h__head .wordmark{font-size:32px}
+
+  /* HERO I — Image-first single frame */
+  .hero-i{padding:0}
+  .hero-i__img{
+    position:absolute;inset:0;
+    background:url('https://picsum.photos/seed/wonI/1900/1200') center/cover;
+  }
+  .hero-i__shade{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.05) 35%, rgba(10,10,10,0.05) 65%, rgba(10,10,10,0.7) 100%)}
+  .hero-i__top{
+    position:relative;z-index:2;
+    padding:88px 40px 0;
+    display:flex;justify-content:space-between;align-items:center;
+    color:var(--paper);
+  }
+  .hero-i__top .wordmark{color:var(--paper);font-size:28px}
+  .hero-i__top .wordmark .accent{color:var(--paper);opacity:0.65}
+  .hero-i__bottom{
+    position:relative;z-index:2;
+    margin-top:auto;padding:0 40px 56px;
+    color:var(--paper);
+  }
+  .hero-i__bottom h1{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(48px, 6vw, 96px);
+    line-height:1.02;max-width:980px;
+  }
+  .hero-i__bottom h1 .it{font-style:italic;font-weight:400}
+  .hero-i__credit{
+    margin-top:24px;
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    opacity:0.78;
+  }
+
+  /* HERO J — Issue / masthead */
+  .hero-j{background:var(--paper);padding:120px 0 0;justify-content:flex-start}
+  .hero-j__band{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 32px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--ink);
+  }
+  .hero-j__head{
+    text-align:center;padding:80px 32px 56px;
+  }
+  .hero-j__head .wordmark{font-size:clamp(72px, 12vw, 168px);line-height:0.95}
+  .hero-j__head .tagline{font-size:clamp(22px, 2.6vw, 32px);margin-top:12px}
+  .hero-j__feature{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:0;
+    border-top:1px solid var(--ink);
+    flex:1;
+    min-height:380px;
+  }
+  .hero-j__feature .col{
+    padding:40px 32px;
+    border-right:1px solid var(--ink);
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .hero-j__feature .col:last-child{border-right:none;padding:0;background:var(--soft) center/cover;background-image:url('https://picsum.photos/seed/wonJ/1200/900')}
+  .hero-j__feature h3{font-family:var(--display);font-weight:500;font-size:36px;line-height:1.1;color:var(--ink);margin-bottom:18px}
+  .hero-j__feature h3 em{font-style:italic;color:var(--steel)}
+  .hero-j__feature .feat-foot{font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite)}
+
+  /* INSTRUCTION FOOTER */
+  .pick{
+    background:var(--ink);
+    color:var(--paper);
+    padding:120px 32px;
+    text-align:center;
+  }
+  .pick h2{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(36px, 4vw, 56px);
+    line-height:1.1;margin-bottom:24px;
+  }
+  .pick h2 em{font-style:italic;color:var(--steel)}
+  .pick p{max-width:540px;margin:0 auto;color:rgba(250,250,247,0.72)}
+  .pick .eyebrow{display:inline-block;margin-bottom:18px;color:var(--steel)}
+
+  /* RESPONSIVE */
+  @media (max-width:880px){
+    .meta{padding:12px 18px;font-size:10px}
+    .meta nav a{margin-left:12px}
+    .frame__label{top:60px;left:18px;font-size:10px}
+    .frame__caption{left:18px;right:18px;bottom:18px;font-size:10px}
+    .hero-b{flex-direction:column}
+    .hero-b__text{flex:none;padding:120px 24px 48px}
+    .hero-b__img{min-height:380px}
+    .hero-c__top{flex-direction:column;align-items:flex-start;gap:8px;padding:0 18px}
+    .hero-c__foot{padding:24px 18px}
+    .marquee__item{width:240px;height:320px}
+    .hero-d__panel{margin:0 18px 24px;padding:32px 24px;width:auto}
+    .hero-d__top{padding:64px 18px 0}
+    .hero-e{flex-direction:column}
+    .hero-e__rail{flex:none;writing-mode:horizontal-tb;transform:none;height:48px;padding:0;letter-spacing:0.22em}
+    .hero-e__main{padding:80px 24px 48px;grid-template-columns:1fr;gap:32px}
+    .hero-g{flex-direction:column}
+    .hero-g__col{padding:48px 24px;border-right:none;border-bottom:1px solid rgba(74,74,72,0.12)}
+    .hero-h{padding:100px 18px 48px}
+    .hero-h__row{flex-wrap:wrap;gap:8px}
+    .hero-h__num{width:40px}
+    .hero-h__meta{width:auto;text-align:left}
+    .hero-i__top,.hero-i__bottom{padding-left:18px;padding-right:18px}
+    .hero-j__feature{grid-template-columns:1fr}
+    .hero-j__feature .col:last-child{min-height:280px;border-top:1px solid var(--ink)}
+    .slogans{padding:80px 18px}
+  }
+
+  /* MOTION */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .marquee__track{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="meta">
+  <span>Won Media · Hero & slogan exploration · v0.1</span>
+  <nav>
+    <a href="#slogans">Slogans</a>
+    <a href="#a">A</a><a href="#b">B</a><a href="#c">C</a><a href="#d">D</a>
+    <a href="#e">E</a><a href="#f">F</a><a href="#g">G</a><a href="#h">H</a>
+    <a href="#i">I</a><a href="#j">J</a>
+  </nav>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+  <span class="eyebrow">Brief · 2026</span>
+  <h1>Ten hero directions and twelve slogan candidates for Won Media — pick the lines and frames that feel like a Melbourne property practice, not a photographer.</h1>
+  <p>All variants use the locked palette (Paper, Soft Grey, Steel, Graphite, Ink) and locked typography (Abhaya Libre 500 + Italic 400, Inter for utility). No radial pattern. AI photo placeholders are pulled from Picsum and will be replaced with real Melbourne photography on launch.</p>
+  <p>Scroll through. Each frame is labelled. Pick a hero (single letter or a mix), and circle the slogan you want to lead with — including any rewrites you'd make.</p>
+</section>
+
+<!-- SLOGANS -->
+<section id="slogans" class="slogans">
+  <div class="slogans__inner">
+    <div class="slogans__head">
+      <h2>Slogan candidates.</h2>
+      <p>The current locked tagline is <em>Property, considered.</em> — kept here as the baseline. The rest are written within the brief's voice rules: editorial, quiet, specific, no superlatives. Italics indicate the line reads better in Abhaya Italic; upright lines work in Abhaya Medium.</p>
+    </div>
+    <div class="slogan-grid">
+
+      <article class="slogan locked">
+        <span class="slogan__num">01 · LOCKED</span>
+        <p class="slogan__line">Property, considered.</p>
+        <p class="slogan__note">Current tagline. Considered. The brief's anchor — kept as the baseline.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">02</span>
+        <p class="slogan__line upright">Every angle, considered.</p>
+        <p class="slogan__note">Pulls directly from the brand promise. Three-word version reads as a mantra.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">03</span>
+        <p class="slogan__line">The single best angle.</p>
+        <p class="slogan__note">Quotes the promise verbatim. Editorial, declarative, no verb to carry.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">04</span>
+        <p class="slogan__line upright">A property practice.</p>
+        <p class="slogan__note">Frames the studio as a discipline, not a service. Pairs with "Melbourne" eyebrow.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">05</span>
+        <p class="slogan__line">Property, in frame.</p>
+        <p class="slogan__note">Doubles as a typographic device — frame literal in the wordmark crop.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">06</span>
+        <p class="slogan__line upright">Composed property media.</p>
+        <p class="slogan__note">"Composed" is on the approved word list. Reads as deliberately formal.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">07</span>
+        <p class="slogan__line">Light, angle, frame.</p>
+        <p class="slogan__note">Three-noun line. Lifts the craft vocabulary into the headline.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">08</span>
+        <p class="slogan__line upright">Property, made well.</p>
+        <p class="slogan__note">Quietly confident. Avoids "media studio" cliché entirely.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">09</span>
+        <p class="slogan__line">A studio for the listing.</p>
+        <p class="slogan__note">Aimed at agents directly. "The listing" is the deliverable — speaks their language.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">10</span>
+        <p class="slogan__line upright">Photography, with a position.</p>
+        <p class="slogan__note">Position = both literal angle and editorial stance. Slightly dryer humour.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">11</span>
+        <p class="slogan__line">The angle, found.</p>
+        <p class="slogan__note">Past-tense — implies the work is already done. Calm authority.</p>
+      </article>
+
+      <article class="slogan">
+        <span class="slogan__num">12</span>
+        <p class="slogan__line upright">Made for Melbourne property.</p>
+        <p class="slogan__note">Geographic anchor. Uses approved words only. Direct without being salesy.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- HERO A -->
+<section id="a" class="frame hero-a">
+  <span class="frame__label"><b>A</b> · Quiet wordmark hold</span>
+  <h1 class="wordmark hero-a__wm">WON <span class="accent">MEDIA</span></h1>
+  <p class="tagline hero-a__tag">Property, considered.</p>
+  <div class="hero-a__foot">
+    <span>Melbourne</span><span>Est. 2026</span><span>A property media studio</span>
+  </div>
+  <span class="frame__caption">Single-screen, no image. Authority by absence — feels like a publication's title page.</span>
+</section>
+
+<!-- HERO B -->
+<section id="b" class="frame hero-b">
+  <span class="frame__label"><b>B</b> · Frame within frame</span>
+  <div class="hero-b__text">
+    <span class="eyebrow">Won Media — Property, considered.</span>
+    <h1>Every property has a single <em>best angle.</em><br>Won Media finds it.</h1>
+  </div>
+  <div class="hero-b__img"></div>
+  <span class="frame__caption">Editorial spread — italic Abhaya at scale, image bleeds to the canvas edge. The Vogue Living option.</span>
+</section>
+
+<!-- HERO C -->
+<section id="c" class="frame hero-c">
+  <span class="frame__label"><b>C</b> · Marquee index</span>
+  <div class="hero-c__top">
+    <span class="wordmark">WON <span class="accent">MEDIA</span></span>
+    <span class="eyebrow">Selected work · 2026 →</span>
+  </div>
+  <div class="marquee">
+    <div class="marquee__track">
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC1/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC2/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC3/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC4/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC5/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC6/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC1/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC2/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC3/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC4/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC5/520/680')"></div>
+      <div class="marquee__item" style="background-image:url('https://picsum.photos/seed/wonC6/520/680')"></div>
+    </div>
+  </div>
+  <div class="hero-c__foot">
+    <h1>Photography <span class="sep">·</span> video <span class="sep">·</span> drone <span class="sep">·</span> floor plans <span class="sep">·</span> virtual staging</h1>
+    <p>Made for Melbourne property.</p>
+  </div>
+  <span class="frame__caption">Work-first contact sheet. Studio's portfolio is the hero — service line sits below.</span>
+</section>
+
+<!-- HERO D -->
+<section id="d" class="frame hero-d">
+  <span class="frame__label" style="color:var(--paper)"><b>D</b> · Numbered threshold</span>
+  <div class="hero-d__bg"></div>
+  <div class="hero-d__top">
+    <span class="eyebrow">Property, considered</span>
+    <span class="rule"></span>
+    <span class="eyebrow" style="color:var(--paper);opacity:0.85">Melbourne · Est. 2026</span>
+  </div>
+  <div class="hero-d__panel">
+    <h1 class="wordmark">WON <span class="accent">MEDIA</span></h1>
+    <p class="tagline">Property, considered.</p>
+    <div class="cue"><span>01 · Approach</span><span>Scroll →</span></div>
+  </div>
+  <span class="frame__caption" style="color:var(--paper);opacity:0.75">Magazine feature opening — image first, white slab anchors brand bottom-left.</span>
+</section>
+
+<!-- HERO E -->
+<section id="e" class="frame hero-e">
+  <span class="frame__label"><b>E</b> · Vertical contact-sheet</span>
+  <aside class="hero-e__rail">Won Media — Property, considered — Melbourne — Est. 2026</aside>
+  <div class="hero-e__main">
+    <div class="hero-e__copy">
+      <span class="eyebrow">A property media studio</span>
+      <h1><span class="nl">Light,</span><span class="nl">angle,</span><span class="nl"><em>frame.</em></span></h1>
+      <p class="lede">Photography, video, drone, floor plans and virtual staging for Victorian agencies. The work is the brief.</p>
+    </div>
+    <div class="hero-e__sheet"><div></div><div></div><div></div><div></div></div>
+  </div>
+  <span class="frame__caption">Vertical Ink rail anchors the brand. Stacked nouns. Four-up contact sheet on the right.</span>
+</section>
+
+<!-- HERO F -->
+<section id="f" class="frame hero-f">
+  <span class="frame__label"><b>F</b> · Centred giant italic</span>
+  <span class="eyebrow">Won Media · A property media studio</span>
+  <h1>
+    <span class="word">Every</span>
+    <span class="word">property</span>
+    <span class="word">has</span>
+    <span class="word">a</span>
+    <span class="word word--steel">single</span>
+    <span class="word word--steel">best</span>
+    <span class="word word--steel">angle.</span>
+  </h1>
+  <div class="hero-f__foot">
+    <span>Melbourne — Est. 2026</span>
+    <span>Photography · video · drone · floor plans · virtual staging</span>
+  </div>
+  <span class="frame__caption">Pure type. Soft Grey canvas. The brand promise IS the hero — Steel highlight on "single best angle."</span>
+</section>
+
+<!-- HERO G -->
+<section id="g" class="frame hero-g">
+  <span class="frame__label"><b>G</b> · Editorial split with index</span>
+  <div class="hero-g__col">
+    <div>
+      <span class="wordmark">WON <span class="accent">MEDIA</span></span>
+      <h2 style="margin-top:48px">Property, considered.</h2>
+      <p>A Melbourne property media studio working with mid-tier and lower-tier agencies across Victoria. Photography, video, drone, floor plans, virtual staging.</p>
+    </div>
+    <div>
+      <div class="index-line"><span>01</span><span>Approach</span></div>
+      <div class="index-line"><span>02</span><span>Services</span></div>
+      <div class="index-line"><span>03</span><span>Selected work</span></div>
+      <div class="index-line"><span>04</span><span>Brief →</span></div>
+    </div>
+  </div>
+  <div class="hero-g__col">
+    <div>
+      <span class="eyebrow" style="color:var(--steel)">Issue 01 · 2026</span>
+      <h2 style="margin-top:48px">Every property has a single best angle. We find it.</h2>
+      <p>The brief reads like a magazine feature. Pricing remains accessible while the studio builds reputation. Quiet, considered, premium-coded from day one.</p>
+    </div>
+    <div class="index-line"><span>Carlton North · Brunswick · Fitzroy · Northcote</span><span>Selected, 2026</span></div>
+  </div>
+  <span class="frame__caption">Two-column masthead — Paper left for the studio, Ink right for the philosophy. Index doubles as nav.</span>
+</section>
+
+<!-- HERO H -->
+<section id="h" class="frame hero-h">
+  <span class="frame__label"><b>H</b> · Stacked specimen</span>
+  <div class="hero-h__head">
+    <span class="wordmark">WON <span class="accent">MEDIA</span></span>
+    <span class="eyebrow">Property, considered. — Est. 2026</span>
+  </div>
+  <div class="hero-h__row">
+    <span class="hero-h__num">01</span>
+    <span class="hero-h__word">Photography</span>
+    <span class="hero-h__meta">Stills · Twilight</span>
+  </div>
+  <div class="hero-h__row">
+    <span class="hero-h__num">02</span>
+    <span class="hero-h__word">Video</span>
+    <span class="hero-h__meta">Walkthrough · Lifestyle</span>
+  </div>
+  <div class="hero-h__row">
+    <span class="hero-h__num">03</span>
+    <span class="hero-h__word">Drone</span>
+    <span class="hero-h__meta">CASA-licensed</span>
+  </div>
+  <div class="hero-h__row">
+    <span class="hero-h__num">04</span>
+    <span class="hero-h__word">Floor plans</span>
+    <span class="hero-h__meta">2D · 3D</span>
+  </div>
+  <div class="hero-h__row">
+    <span class="hero-h__num">05</span>
+    <span class="hero-h__word"><span class="it">Virtual staging</span></span>
+    <span class="hero-h__meta">Considered, restrained</span>
+  </div>
+  <span class="frame__caption">Type specimen as service menu. No image. Reads like a designer's masthead.</span>
+</section>
+
+<!-- HERO I -->
+<section id="i" class="frame hero-i">
+  <span class="frame__label" style="color:var(--paper)"><b>I</b> · Image-first single frame</span>
+  <div class="hero-i__img"></div>
+  <div class="hero-i__shade"></div>
+  <div class="hero-i__top">
+    <span class="wordmark" style="font-size:24px">WON <span class="accent">MEDIA</span></span>
+    <span class="eyebrow" style="color:var(--paper);opacity:0.85">Melbourne · Est. 2026</span>
+  </div>
+  <div class="hero-i__bottom">
+    <h1>The single best angle, <span class="it">found.</span></h1>
+    <p class="hero-i__credit">Carlton North — 12 Drummond Street — Selected, 2026</p>
+  </div>
+  <span class="frame__caption" style="color:var(--paper);opacity:0.75">Cinematic crop. Image carries the page; type sits in the lower third like a magazine cover line.</span>
+</section>
+
+<!-- HERO J -->
+<section id="j" class="frame hero-j">
+  <span class="frame__label"><b>J</b> · Issue / masthead</span>
+  <div class="hero-j__band">
+    <span>Issue 01</span><span>Won Media — Property, considered.</span><span>Melbourne · 2026</span>
+  </div>
+  <div class="hero-j__head">
+    <h1 class="wordmark">WON <span class="accent">MEDIA</span></h1>
+    <p class="tagline">Property, considered.</p>
+  </div>
+  <div class="hero-j__feature">
+    <div class="col">
+      <div>
+        <span class="eyebrow">Feature · 01</span>
+        <h3 style="margin-top:18px">Every property has a single <em>best angle.</em></h3>
+      </div>
+      <div class="feat-foot">Read approach →</div>
+    </div>
+    <div class="col"></div>
+  </div>
+  <span class="frame__caption">The site as a printed issue. Banded masthead, tagline, then a single feature card opens the scroll.</span>
+</section>
+
+<!-- PICK -->
+<section class="pick">
+  <span class="eyebrow">Next step</span>
+  <h2>Pick a hero, circle a slogan, and we'll <em>scaffold the full site.</em></h2>
+  <p>Reply with the letter (or a hybrid like "B body, A wordmark") and the slogan number. I'll build out the full editorial scroll — Approach, Services, Selected Work, Contact — using your selection as the spine.</p>
+</section>
+
+<script>
+  // light scroll-reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.frame, .slogan, .intro').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loader text — W|V expand, 15 variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{padding-top:0}
+
+  .ex-intro{padding:120px 32px 60px;max-width:920px;margin:0 auto}
+  .ex-intro h1{font-family:var(--display);font-weight:500;font-size:clamp(40px,5vw,68px);line-height:1.05;color:var(--ink);margin-bottom:20px;letter-spacing:-0.005em}
+  .ex-intro h1 em{font-style:italic;color:var(--steel);font-weight:400}
+  .ex-intro p{color:var(--graphite);font-size:17px;line-height:1.65;max-width:620px}
+  .ex-intro .eyebrow{margin-bottom:18px;display:inline-block}
+
+  .ex-label{
+    text-align:center;padding:48px 32px 18px;background:var(--paper);
+    border-top:1px solid rgba(74,74,72,0.18);
+  }
+  .ex-label .tag{font-family:var(--body);font-size:10px;font-weight:500;letter-spacing:0.32em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:6px}
+  .ex-label h3{font-family:var(--display);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--ink);letter-spacing:-0.005em}
+  .ex-label h3 em{font-style:italic;color:var(--steel);font-weight:400}
+  .ex-label p{color:var(--graphite);max-width:560px;margin:6px auto 0;font-size:13px;line-height:1.5}
+
+  .stage{
+    background:var(--paper);
+    min-height:42vh;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+    padding:48px 32px;
+  }
+  .stage--ink{background:var(--ink)}
+  .stage--ink .lwx, .stage--ink .lwx *{color:var(--paper)}
+  .stage--ink .lwx .lwx__V, .stage--ink .lwx .lwx__rest--isi *{color:var(--steel)}
+  .stage--ink .lwx__bar{background:var(--paper);opacity:0.55}
+
+  .replay{
+    position:absolute;top:18px;right:18px;
+    font-family:var(--body);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;font-weight:500;
+    padding:9px 14px;border:1px solid rgba(74,74,72,0.3);background:transparent;cursor:pointer;color:var(--graphite);
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .replay:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .stage--ink .replay{border-color:rgba(250,250,247,0.3);color:rgba(250,250,247,0.8)}
+  .stage--ink .replay:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+  /* Smooth easings — no spring */
+  :root{
+    --smooth:cubic-bezier(0.45, 0, 0.15, 1);
+    --silk:cubic-bezier(0.6, 0, 0.2, 1);
+    --calm:cubic-bezier(0.33, 0, 0.13, 1);
+  }
+
+  /* ============================================================
+     Shared wordmark container
+  ============================================================ */
+  .lwx{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(56px, 9vw, 132px);
+    line-height:1;color:var(--ink);letter-spacing:-0.018em;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;
+  }
+  .lwx__W{color:var(--ink)}
+  .lwx__V{color:var(--steel)}
+  .lwx__rest{
+    display:inline-block;overflow:hidden;
+    max-width:0;
+    vertical-align:baseline;
+  }
+  .lwx__rest > span{display:inline-block;color:inherit}
+  .lwx__rest--on{color:var(--ink)}
+  .lwx__rest--isi{color:var(--steel)}
+  .lwx__bar{
+    display:inline-block;
+    width:1.5px;height:0.62em;
+    background:var(--ink);opacity:0.55;
+    margin:0 0.18em;
+  }
+  .lwx__space{display:inline-block;width:0}
+
+  /* ============================================================
+     1 — Smooth max-width + opacity  (baseline, calm)
+  ============================================================ */
+  .lwx-1 .lwx__rest{animation:e1Width 1.6s var(--smooth) 1s forwards}
+  .lwx-1 .lwx__rest > span{opacity:0;animation:e1Fade 1.6s var(--smooth) 1s forwards}
+  .lwx-1 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-1 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e1Width{from{max-width:0}to{max-width:6em}}
+  @keyframes e1Fade{from{opacity:0}to{opacity:1}}
+
+  /* ============================================================
+     2 — Width + slide-in (translateX)
+  ============================================================ */
+  .lwx-2 .lwx__rest{animation:e1Width 1.5s var(--smooth) 1s forwards}
+  .lwx-2 .lwx__rest > span{transform:translateX(-12px);opacity:0;animation:e2Slide 1.5s var(--smooth) 1s forwards}
+  .lwx-2 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-2 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e2Slide{to{transform:none;opacity:1}}
+
+  /* ============================================================
+     3 — Width + blur to focus
+  ============================================================ */
+  .lwx-3 .lwx__rest{animation:e1Width 1.6s var(--smooth) 1s forwards}
+  .lwx-3 .lwx__rest > span{filter:blur(10px);opacity:0;animation:e3Blur 1.6s var(--smooth) 1s forwards}
+  .lwx-3 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-3 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e3Blur{0%{filter:blur(10px);opacity:0}50%{opacity:1}100%{filter:blur(0);opacity:1}}
+
+  /* ============================================================
+     4 — Per-letter cascade (each letter rises with stagger)
+  ============================================================ */
+  .lwx-4 .lwx__rest{max-width:6em;overflow:visible}
+  .lwx-4 .lwx__rest i{display:inline-block;font-style:normal;opacity:0;transform:translateY(40%);animation:e4Rise .7s var(--smooth) forwards}
+  .lwx-4 .lwx__bar{animation:eBarOut .55s var(--smooth) .25s forwards}
+  .lwx-4 .lwx__space{animation:eSpaceIn .55s var(--smooth) .35s forwards}
+  @keyframes e4Rise{to{opacity:1;transform:none}}
+
+  /* ============================================================
+     5 — Per-letter blur cascade
+  ============================================================ */
+  .lwx-5 .lwx__rest{max-width:6em;overflow:visible}
+  .lwx-5 .lwx__rest i{display:inline-block;font-style:normal;opacity:0;filter:blur(8px);animation:e5Sharp .9s var(--smooth) forwards}
+  .lwx-5 .lwx__bar{animation:eBarOut .55s var(--smooth) .25s forwards}
+  .lwx-5 .lwx__space{animation:eSpaceIn .55s var(--smooth) .35s forwards}
+  @keyframes e5Sharp{0%{opacity:0;filter:blur(8px)}60%{opacity:1}100%{opacity:1;filter:blur(0)}}
+
+  /* ============================================================
+     6 — Per-letter scale-from-zero
+  ============================================================ */
+  .lwx-6 .lwx__rest{max-width:6em;overflow:visible}
+  .lwx-6 .lwx__rest i{display:inline-block;font-style:normal;opacity:0;transform:scale(0.4);transform-origin:center bottom;animation:e6Pop .65s var(--smooth) forwards}
+  .lwx-6 .lwx__bar{animation:eBarOut .55s var(--smooth) .2s forwards}
+  .lwx-6 .lwx__space{animation:eSpaceIn .55s var(--smooth) .3s forwards}
+  @keyframes e6Pop{to{opacity:1;transform:scale(1)}}
+
+  /* ============================================================
+     7 — Mask gradient sweep
+  ============================================================ */
+  .lwx-7 .lwx__rest{
+    max-width:6em;overflow:visible;
+    -webkit-mask-image:linear-gradient(to right, #000 var(--p,0%), transparent var(--p,0%));
+            mask-image:linear-gradient(to right, #000 var(--p,0%), transparent var(--p,0%));
+    animation:e7Mask 1.4s var(--silk) 1s forwards;
+  }
+  .lwx-7 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-7 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e7Mask{
+    from{-webkit-mask-image:linear-gradient(to right, #000 0%, transparent 0%); mask-image:linear-gradient(to right, #000 0%, transparent 0%)}
+    to{-webkit-mask-image:linear-gradient(to right, #000 100%, transparent 100%); mask-image:linear-gradient(to right, #000 100%, transparent 100%)}
+  }
+
+  /* ============================================================
+     8 — Clip-path expand
+  ============================================================ */
+  .lwx-8 .lwx__rest{max-width:6em;overflow:visible;clip-path:inset(0 100% 0 0);animation:e8Clip 1.4s var(--silk) 1s forwards}
+  .lwx-8 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-8 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e8Clip{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+  /* ============================================================
+     9 — Letter-spacing release (kerning bloom on rest)
+  ============================================================ */
+  .lwx-9 .lwx__rest{max-width:6em;overflow:visible;letter-spacing:-0.4em;opacity:0;animation:e9Kern 1.7s var(--silk) 1s forwards}
+  .lwx-9 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-9 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e9Kern{0%{letter-spacing:-0.4em;opacity:0}50%{opacity:1}100%{letter-spacing:-0.018em;opacity:1}}
+
+  /* ============================================================
+     10 — Width + slight scale settle (no overshoot)
+  ============================================================ */
+  .lwx-10 .lwx__rest{animation:e1Width 1.5s var(--smooth) 1s forwards}
+  .lwx-10 .lwx__rest > span{opacity:0;transform:scale(1.04);transform-origin:left center;animation:e10Settle 1.5s var(--smooth) 1s forwards}
+  .lwx-10 .lwx__bar{animation:eBarOut .7s var(--smooth) .85s forwards}
+  .lwx-10 .lwx__space{animation:eSpaceIn .9s var(--smooth) 1.05s forwards}
+  @keyframes e10Settle{to{opacity:1;transform:scale(1)}}
+
+  /* ============================================================
+     11 — Slow editorial (calm 2.4s)
+  ============================================================ */
+  .lwx-11 .lwx__rest{animation:e1Width 2.4s var(--calm) 1.1s forwards}
+  .lwx-11 .lwx__rest > span{opacity:0;animation:e1Fade 2.4s var(--calm) 1.1s forwards}
+  .lwx-11 .lwx__bar{animation:eBarOut 1s var(--calm) .9s forwards}
+  .lwx-11 .lwx__space{animation:eSpaceIn 1.4s var(--calm) 1.15s forwards}
+
+  /* ============================================================
+     12 — Quick crisp (.7s, energetic but smooth)
+  ============================================================ */
+  .lwx-12 .lwx__rest{animation:e1Width .7s var(--silk) .55s forwards}
+  .lwx-12 .lwx__rest > span{opacity:0;animation:e1Fade .7s var(--silk) .55s forwards}
+  .lwx-12 .lwx__bar{animation:eBarOut .35s var(--silk) .45s forwards}
+  .lwx-12 .lwx__space{animation:eSpaceIn .45s var(--silk) .6s forwards}
+
+  /* ============================================================
+     13 — Sequential block (ON first, then ISION)
+  ============================================================ */
+  .lwx-13 .lwx__rest--on{animation:e1Width 1s var(--smooth) .9s forwards}
+  .lwx-13 .lwx__rest--on > span{opacity:0;animation:e1Fade 1s var(--smooth) .9s forwards}
+  .lwx-13 .lwx__rest--isi{animation:e1Width 1s var(--smooth) 1.5s forwards}
+  .lwx-13 .lwx__rest--isi > span{opacity:0;animation:e1Fade 1s var(--smooth) 1.5s forwards}
+  .lwx-13 .lwx__bar{animation:eBarOut .55s var(--smooth) .8s forwards}
+  .lwx-13 .lwx__space{animation:eSpaceIn .7s var(--smooth) 1.0s forwards}
+
+  /* ============================================================
+     14 — Sequential per-letter (each letter waits its turn, even across both halves)
+  ============================================================ */
+  .lwx-14 .lwx__rest{max-width:6em;overflow:visible}
+  .lwx-14 .lwx__rest i{display:inline-block;font-style:normal;opacity:0;transform:translateY(30%);animation:e4Rise .55s var(--smooth) forwards}
+  .lwx-14 .lwx__bar{animation:eBarOut .45s var(--smooth) .25s forwards}
+  .lwx-14 .lwx__space{animation:eSpaceIn .45s var(--smooth) .35s forwards}
+
+  /* ============================================================
+     15 — VISION expands first, ON follows
+  ============================================================ */
+  .lwx-15 .lwx__rest--isi{animation:e1Width 1.1s var(--smooth) .85s forwards}
+  .lwx-15 .lwx__rest--isi > span{opacity:0;animation:e1Fade 1.1s var(--smooth) .85s forwards}
+  .lwx-15 .lwx__rest--on{animation:e1Width 1.1s var(--smooth) 1.45s forwards}
+  .lwx-15 .lwx__rest--on > span{opacity:0;animation:e1Fade 1.1s var(--smooth) 1.45s forwards}
+  .lwx-15 .lwx__bar{animation:eBarOut .55s var(--smooth) .8s forwards}
+  .lwx-15 .lwx__space{animation:eSpaceIn .7s var(--smooth) 1s forwards}
+
+  /* ============================================================
+     Shared keyframes for bar / space
+  ============================================================ */
+  @keyframes eBarOut{from{opacity:0.55;width:1.5px;margin:0 0.18em}to{opacity:0;width:0;margin:0}}
+  @keyframes eSpaceIn{to{width:0.32em}}
+
+  .opts-pick{padding:120px 32px;text-align:center;background:var(--ink);color:var(--paper);border-top:1px solid rgba(250,250,247,0.08)}
+  .opts-pick h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,4vw,52px);color:var(--paper);margin-bottom:14px;letter-spacing:-0.005em}
+  .opts-pick h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .opts-pick p{color:rgba(250,250,247,0.7);max-width:540px;margin:0 auto;font-size:16px;line-height:1.65}
+
+  @media (max-width:760px){
+    .stage{min-height:30vh;padding:32px 18px}
+    .replay{top:12px;right:12px;font-size:9px;padding:7px 12px}
+    .lwx{font-size:14vw}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .lwx__rest, .lwx__rest > span, .lwx__rest i, .lwx__bar, .lwx__space{
+      animation:none !important;
+      max-width:6em !important;opacity:1 !important;transform:none !important;
+      filter:none !important;letter-spacing:normal !important;clip-path:none !important;
+    }
+    .lwx__bar{opacity:0 !important;width:0 !important;margin:0 !important}
+    .lwx__space{width:0.32em !important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="nav is-stuck">
+  <div class="nav__brand">
+    <a href="index.html#top" class="wordmark" data-home>WON <span class="accent">VISION</span></a>
+  </div>
+  <nav class="nav__links">
+    <a href="index.html#services">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="loader-text.html" aria-current="page">Loader</a>
+  </nav>
+  <div class="nav__right">
+    <a href="book.html" class="nav__cta">Book now</a>
+  </div>
+  <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<aside class="nav__drawer" aria-hidden="true">
+  <ul>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="gallery.html"><em>Gallery</em></a></li>
+    <li><a href="book.html">Book now</a></li>
+  </ul>
+  <div class="nav__drawer__foot"><span>Won Vision</span><span>Melbourne · 2026</span></div>
+</aside>
+
+<section class="ex-intro">
+  <span class="eyebrow">Loader · 15 expansion variants</span>
+  <h1 style="margin-top:18px">Same mechanic — fifteen different <em>feels.</em></h1>
+  <p>Each variant starts at <strong>W | V</strong> and expands to <strong>WON VISION</strong>. The reveal mechanism is what changes — easing curve, stagger order, slide vs blur vs scale, simultaneous vs sequential. Hit Replay on each to compare. Reply with the number you want wired into the actual loader.</p>
+</section>
+
+<!-- generates 15 stages -->
+<!-- 1 -->
+<div class="ex-label"><span class="tag">01</span><h3>Smooth width &amp; opacity · <em>baseline</em></h3><p>Hidden letters expand width while fading in. Calm, no extra mechanic.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-1" data-target>
+    <span class="lwx__W">W</span>
+    <span class="lwx__rest lwx__rest--on"><span>ON</span></span>
+    <span class="lwx__bar"></span>
+    <span class="lwx__space"></span>
+    <span class="lwx__V">V</span>
+    <span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 2 -->
+<div class="ex-label"><span class="tag">02</span><h3>Width + horizontal slide · <em>letters glide out</em></h3><p>Hidden letters slide right from a -12px offset as they expand. Subtle directional motion.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-2" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 3 -->
+<div class="ex-label"><span class="tag">03</span><h3>Width + blur to focus · <em>cinematic</em></h3><p>Letters resolve from a soft blur as the wordmark expands. Camera-focus feel.</p></div>
+<section class="stage stage--ink" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-3" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 4 -->
+<div class="ex-label"><span class="tag">04</span><h3>Per-letter cascade · <em>fade-up rise</em></h3><p>Each individual letter rises with a 60ms stagger. No width morph — letters appear in sequence.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-4" data-target>
+    <span class="lwx__W">W</span>
+    <span class="lwx__rest lwx__rest--on"><i style="animation-delay:.30s">O</i><i style="animation-delay:.36s">N</i></span>
+    <span class="lwx__bar"></span><span class="lwx__space"></span>
+    <span class="lwx__V">V</span>
+    <span class="lwx__rest lwx__rest--isi"><i style="animation-delay:.50s">I</i><i style="animation-delay:.56s">S</i><i style="animation-delay:.62s">I</i><i style="animation-delay:.68s">O</i><i style="animation-delay:.74s">N</i></span>
+  </h1>
+</section>
+
+<!-- 5 -->
+<div class="ex-label"><span class="tag">05</span><h3>Per-letter blur cascade · <em>focus pull, letter by letter</em></h3><p>Each letter sharpens from blurred state in sequence. Slower, more deliberate than 04.</p></div>
+<section class="stage stage--ink" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-5" data-target>
+    <span class="lwx__W">W</span>
+    <span class="lwx__rest lwx__rest--on"><i style="animation-delay:.30s">O</i><i style="animation-delay:.40s">N</i></span>
+    <span class="lwx__bar"></span><span class="lwx__space"></span>
+    <span class="lwx__V">V</span>
+    <span class="lwx__rest lwx__rest--isi"><i style="animation-delay:.55s">I</i><i style="animation-delay:.65s">S</i><i style="animation-delay:.75s">I</i><i style="animation-delay:.85s">O</i><i style="animation-delay:.95s">N</i></span>
+  </h1>
+</section>
+
+<!-- 6 -->
+<div class="ex-label"><span class="tag">06</span><h3>Per-letter scale · <em>pop into place</em></h3><p>Each letter scales from 0.4 to 1 with a smooth ease. Architectural, like type being set.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-6" data-target>
+    <span class="lwx__W">W</span>
+    <span class="lwx__rest lwx__rest--on"><i style="animation-delay:.25s">O</i><i style="animation-delay:.31s">N</i></span>
+    <span class="lwx__bar"></span><span class="lwx__space"></span>
+    <span class="lwx__V">V</span>
+    <span class="lwx__rest lwx__rest--isi"><i style="animation-delay:.45s">I</i><i style="animation-delay:.51s">S</i><i style="animation-delay:.57s">I</i><i style="animation-delay:.63s">O</i><i style="animation-delay:.69s">N</i></span>
+  </h1>
+</section>
+
+<!-- 7 -->
+<div class="ex-label"><span class="tag">07</span><h3>Linear-gradient mask sweep · <em>crisp wipe</em></h3><p>The hidden region is revealed by a horizontal gradient mask sliding across — single continuous wipe.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-7" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 8 -->
+<div class="ex-label"><span class="tag">08</span><h3>Clip-path expand · <em>hard-edged reveal</em></h3><p>Each hidden block has its clip-path inset eased to zero — a clean hard-edge wipe.</p></div>
+<section class="stage stage--ink" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-8" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 9 -->
+<div class="ex-label"><span class="tag">09</span><h3>Kerning release · <em>compressed letters spread</em></h3><p>Hidden letters start crammed at -0.4em, ease to natural spacing. Type-specimen energy.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-9" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 10 -->
+<div class="ex-label"><span class="tag">10</span><h3>Width + scale settle · <em>subtle breath</em></h3><p>Letters expand at 1.04× and ease down to 1×. Adds a breathing quality without bouncing.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-10" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 11 -->
+<div class="ex-label"><span class="tag">11</span><h3>Slow editorial · <em>2.4s, calm ease</em></h3><p>Same mechanic as 01 but slowed and softened. For editorial / luxury feel.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-11" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 12 -->
+<div class="ex-label"><span class="tag">12</span><h3>Quick crisp · <em>0.7s, energetic</em></h3><p>Same mechanic as 01, fast. Snappy without being abrupt — a single confident motion.</p></div>
+<section class="stage stage--ink" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-12" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 13 -->
+<div class="ex-label"><span class="tag">13</span><h3>Sequential blocks · <em>ON, then VISION</em></h3><p>WON resolves first, then VISION fans out from the V. Two-beat reveal.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-13" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<!-- 14 -->
+<div class="ex-label"><span class="tag">14</span><h3>Cross-half cascade · <em>letters from W to N continuous</em></h3><p>Per-letter rise that ignores the WON / VISION split — typewriter-style reveal across the whole word.</p></div>
+<section class="stage" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-14" data-target>
+    <span class="lwx__W">W</span>
+    <span class="lwx__rest lwx__rest--on"><i style="animation-delay:.20s">O</i><i style="animation-delay:.27s">N</i></span>
+    <span class="lwx__bar"></span><span class="lwx__space"></span>
+    <span class="lwx__V">V</span>
+    <span class="lwx__rest lwx__rest--isi"><i style="animation-delay:.41s">I</i><i style="animation-delay:.48s">S</i><i style="animation-delay:.55s">I</i><i style="animation-delay:.62s">O</i><i style="animation-delay:.69s">N</i></span>
+  </h1>
+</section>
+
+<!-- 15 -->
+<div class="ex-label"><span class="tag">15</span><h3>VISION first, then WON · <em>reverse order</em></h3><p>The Steel-coloured VISION fans out first, then ON resolves into WON. Anchors the brand-voice colour.</p></div>
+<section class="stage stage--ink" data-stage>
+  <button class="replay">Replay ↻</button>
+  <h1 class="lwx lwx-15" data-target>
+    <span class="lwx__W">W</span><span class="lwx__rest lwx__rest--on"><span>ON</span></span><span class="lwx__bar"></span><span class="lwx__space"></span><span class="lwx__V">V</span><span class="lwx__rest lwx__rest--isi"><span>ISION</span></span>
+  </h1>
+</section>
+
+<section class="opts-pick">
+  <span class="eyebrow">Decision</span>
+  <h2 style="margin-top:14px">Reply with a <em>number</em>.</h2>
+  <p>Tell me which one to wire into the actual loader (e.g. "10" or "12 with 03's blur"). I'll match the timing and ease curve to whichever you pick.</p>
+</section>
+
+<script src="js/script.js"></script>
+<script>
+  // Replay — clone the wordmark to restart its CSS animations
+  document.querySelectorAll('[data-stage]').forEach(stage => {
+    const btn = stage.querySelector('.replay');
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      const target = stage.querySelector('[data-target]');
+      if(!target) return;
+      const fresh = target.cloneNode(true);
+      target.replaceWith(fresh);
+    });
+  });
+</script>
+</body>
+</html>
