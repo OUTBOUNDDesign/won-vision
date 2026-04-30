@@ -343,61 +343,84 @@
     if(!el || typeof L === 'undefined') return;
 
     const MELBOURNE = [-37.8136, 144.9631];
+    let map = null, radiusCircle = null;
 
-    const map = L.map(el, {
-      attributionControl: false,
-      zoomControl: false,
-      scrollWheelZoom: false,
-      doubleClickZoom: false,
-      dragging: false,
-      touchZoom: false,
-      boxZoom: false,
-      keyboard: false,
-      tap: false,
-      zoomSnap: 0.25,
-    });
+    function init(){
+      if (map) return;
+      map = L.map(el, {
+        attributionControl: false,
+        zoomControl: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        dragging: false,
+        touchZoom: false,
+        boxZoom: false,
+        keyboard: false,
+        tap: false,
+        zoomSnap: 0.25,
+      });
 
-    // CartoDB Positron — clean light grey base, will be tinted via CSS filter on the container
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19,
-      crossOrigin: true,
-    }).addTo(map);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+        subdomains: 'abcd',
+        maxZoom: 19,
+        crossOrigin: true,
+      }).addTo(map);
 
-    // 100km Steel service ring — sits on top of the tinted tiles
-    const radiusCircle = L.circle(MELBOURNE, {
-      radius: 100000,        // 100 km in metres
-      color: '#4A6178',
-      weight: 2.5,
-      opacity: 1,
-      fillColor: '#4A6178',
-      fillOpacity: 0.10,
-      interactive: false,
-    }).addTo(map);
+      radiusCircle = L.circle(MELBOURNE, {
+        radius: 100000,
+        color: '#4A6178',
+        weight: 2.5,
+        opacity: 1,
+        fillColor: '#4A6178',
+        fillOpacity: 0.10,
+        interactive: false,
+      }).addTo(map);
 
-    // Centre pin (Steel circle with Paper outline)
-    L.circleMarker(MELBOURNE, {
-      radius: 8,
-      color: '#FAFAF7',
-      weight: 2,
-      fillColor: '#4A6178',
-      fillOpacity: 1,
-      interactive: false,
-    }).addTo(map);
+      L.circleMarker(MELBOURNE, {
+        radius: 8,
+        color: '#FAFAF7',
+        weight: 2,
+        fillColor: '#4A6178',
+        fillOpacity: 1,
+        interactive: false,
+      }).addTo(map);
+
+      fit();
+      map.whenReady(() => setTimeout(fit, 80));
+      // Final settle once tiles have actually loaded
+      map.on('load', () => setTimeout(fit, 80));
+
+      let rt = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(rt);
+        rt = setTimeout(fit, 200);
+      });
+    }
 
     function fit(){
+      if (!map || !radiusCircle) return;
       map.invalidateSize();
       map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
     }
-    fit();
-    // Re-fit once tiles have actually loaded so the layout settles
-    map.whenReady(() => setTimeout(fit, 60));
 
-    let rt = null;
-    window.addEventListener('resize', () => {
-      clearTimeout(rt);
-      rt = setTimeout(fit, 200);
-    });
+    // The loader sets body.is-loading, which hides the page (visibility:hidden).
+    // Leaflet would compute 0×0 if we init now — wait for the loader to clear.
+    function ready(){
+      // Small grace so the visibility transition has settled
+      setTimeout(init, 120);
+    }
+
+    if (document.body.classList.contains('is-loading')) {
+      const obs = new MutationObserver(() => {
+        if (!document.body.classList.contains('is-loading')) {
+          obs.disconnect();
+          ready();
+        }
+      });
+      obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    } else {
+      ready();
+    }
   })();
 </script>
 </body>
