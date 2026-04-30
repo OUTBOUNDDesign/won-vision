@@ -903,24 +903,22 @@ body.is-loading > :not(.loader){visibility:hidden}
   position:relative;
   background:var(--soft);
   overflow:hidden;
+  min-height:520px;
 }
 .con-b__map__canvas{
   position:absolute;inset:0;
   background:var(--soft);
-  /* Brand-tint the OSM tiles: clean grayscale + subtle warmth shift */
-  filter:grayscale(1) contrast(1.05) brightness(0.97) sepia(0.04) hue-rotate(180deg) saturate(0.4);
+  height:100%;
 }
-/* Strip every Leaflet attribution / control surface (per request to remove watermarks) */
-.con-b__map .leaflet-container{background:var(--soft) !important;outline:none !important}
+.con-b__map .leaflet-container{background:var(--soft) !important;outline:none !important;height:100%}
+/* Tint ONLY the OSM tile pane — keep the Steel ring + pin in full Steel */
+.con-b__map .leaflet-tile-pane{
+  filter:grayscale(1) contrast(1.05) brightness(0.96);
+}
+/* Strip Leaflet UI (per the no-watermark request) */
 .con-b__map .leaflet-control-attribution,
 .con-b__map .leaflet-control-zoom,
 .con-b__map .leaflet-control-container{display:none !important}
-/* Pulsing halo on the centre marker */
-.map-halo-pulse{transform-origin:center;animation:mapPulse 2.6s ease-in-out infinite}
-@keyframes mapPulse{
-  0%,100%{stroke-opacity:0.5;fill-opacity:0.15;transform:scale(1)}
-  50%{stroke-opacity:0.2;fill-opacity:0.05;transform:scale(1.6)}
-}
 .con-b__label{
   position:absolute;top:24px;left:24px;z-index:5;
   background:var(--paper);

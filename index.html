@@ -364,21 +364,20 @@
       crossOrigin: true,
     }).addTo(map);
 
-    // Faint outer ring (stroke only, hint of brand wash)
+    // 100km Steel service ring — sits on top of the tinted tiles
     const radiusCircle = L.circle(MELBOURNE, {
       radius: 100000,        // 100 km in metres
       color: '#4A6178',
-      weight: 1.5,
-      opacity: 0.95,
+      weight: 2.5,
+      opacity: 1,
       fillColor: '#4A6178',
-      fillOpacity: 0.07,
+      fillOpacity: 0.10,
       interactive: false,
-      dashArray: null,
     }).addTo(map);
 
-    // Centre pin (Steel circle, Paper outline)
+    // Centre pin (Steel circle with Paper outline)
     L.circleMarker(MELBOURNE, {
-      radius: 6,
+      radius: 8,
       color: '#FAFAF7',
       weight: 2,
       fillColor: '#4A6178',
@@ -386,29 +385,18 @@
       interactive: false,
     }).addTo(map);
 
-    // Pulsing halo (single decorative circle that animates via CSS class)
-    const halo = L.circleMarker(MELBOURNE, {
-      radius: 18,
-      color: '#4A6178',
-      weight: 1,
-      opacity: 0.5,
-      fillColor: '#4A6178',
-      fillOpacity: 0.15,
-      interactive: false,
-      className: 'map-halo-pulse',
-    }).addTo(map);
+    function fit(){
+      map.invalidateSize();
+      map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
+    }
+    fit();
+    // Re-fit once tiles have actually loaded so the layout settles
+    map.whenReady(() => setTimeout(fit, 60));
 
-    // Fit to circle bounds with breathing room
-    map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
-
-    // Re-fit on resize
     let rt = null;
     window.addEventListener('resize', () => {
       clearTimeout(rt);
-      rt = setTimeout(() => {
-        map.invalidateSize();
-        map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
-      }, 200);
+      rt = setTimeout(fit, 200);
     });
   })();
 </script>
