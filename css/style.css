@@ -904,13 +904,14 @@ body.is-loading > :not(.loader){visibility:hidden}
   background:var(--soft);
   overflow:hidden;
   min-height:520px;
+  height:520px;
+  width:100%;
 }
-.con-b__map__canvas{
-  position:absolute;inset:0;
-  background:var(--soft);
-  height:100%;
+.con-b__map .leaflet-container{
+  width:100%;height:100%;
+  background:var(--soft) !important;
+  outline:none !important;
 }
-.con-b__map .leaflet-container{background:var(--soft) !important;outline:none !important;height:100%}
 /* Tint ONLY the OSM tile pane — keep the Steel ring + pin in full Steel */
 .con-b__map .leaflet-tile-pane{
   filter:grayscale(1) contrast(1.05) brightness(0.96);
@@ -920,12 +921,13 @@ body.is-loading > :not(.loader){visibility:hidden}
 .con-b__map .leaflet-control-zoom,
 .con-b__map .leaflet-control-container{display:none !important}
 .con-b__label{
-  position:absolute;top:24px;left:24px;z-index:5;
+  position:absolute;top:24px;left:24px;z-index:500;
   background:var(--paper);
   padding:10px 14px;
   font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
   color:var(--ink);font-weight:600;
   border:1px solid rgba(74,74,72,0.15);
+  pointer-events:none;
 }
 .con-b__copy{
   padding:96px 64px;
