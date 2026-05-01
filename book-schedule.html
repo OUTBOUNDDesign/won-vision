@@ -115,6 +115,11 @@
           </div>
           <div class="row datetime-row__time">
             <label>Time window</label>
+            <div class="slots" id="anytimeRow" style="grid-template-columns:1fr;margin-bottom:8px">
+              <button type="button" class="slot" id="anytimeBtn" data-anytime="1">
+                Anytime · 8am–5pm <span style="opacity:.7;font-weight:normal">(let the studio pick)</span>
+              </button>
+            </div>
             <div class="slots" id="windows">
               <button type="button" class="slot" data-window="morning">Morning</button>
               <button type="button" class="slot" data-window="midday">Midday</button>
@@ -123,13 +128,14 @@
             </div>
             <input type="hidden" id="selectedWindow" name="selectedWindow">
             <input type="hidden" id="selectedTime" name="selectedTime" required>
+            <input type="hidden" id="anytime" name="anytime">
           </div>
         </div>
 
         <div class="row time-row" id="timeRow" hidden>
           <label id="timeRowLabel">Pick a start time</label>
           <div class="slots time-slots" id="timeSlots"></div>
-          <small class="hint">Hourly arrival times. Final slot confirmed by the studio.</small>
+          <small class="hint" id="timeHint">Hourly arrival times. Final slot confirmed by the studio.</small>
         </div>
       </section>
 
@@ -167,6 +173,12 @@
             <input id="accessPhone" name="accessPhone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel">
             <small class="hint" id="phoneHint">If we can't reach you on shoot day.</small>
           </div>
+        </div>
+        <div class="row">
+          <label for="accessNotes" id="accessNotesLabel">Access notes</label>
+          <textarea id="accessNotes" name="accessNotes" rows="3" placeholder="Anything we should know on arrival?"
+            style="width:100%;padding:12px;border:1px solid rgba(0,0,0,.18);border-radius:6px;font:inherit;color:inherit;background:transparent;resize:vertical"></textarea>
+          <small class="hint" id="accessNotesHint">Anything our shooter should know — gates, parking, pets, alarms.</small>
         </div>
       </section>
 
@@ -266,6 +278,19 @@
     // Show / hide person on site + phone based on access method
     const accessSel = document.getElementById('accessMethod');
     const meetingFields = document.getElementById('meetingFields');
+    const accessNotesEl = document.getElementById('accessNotes');
+    const accessNotesLabel = document.getElementById('accessNotesLabel');
+    const accessNotesHint = document.getElementById('accessNotesHint');
+    const ACCESS_NOTE_COPY = {
+      meeting: { label: 'Anything else we should know?', placeholder: 'Buzzer, parking, pets…',
+                 hint: 'Optional — gates, alarm codes, pets, anything else we should know.' },
+      lockbox: { label: 'Lockbox details', placeholder: 'Lockbox code + location (e.g. 1234, on the front gate)',
+                 hint: 'Required for lockbox access — code and where it’s located.' },
+      vacant:  { label: 'Vacant entry instructions', placeholder: 'Front door unlocked / key under mat / alarm code…',
+                 hint: 'Tell us how we get in and disable any alarms.' },
+      other:   { label: 'Access details', placeholder: 'Tell us how to get in',
+                 hint: 'Required — describe how we should access the property.' },
+    };
     function toggleAccessFields(){
       const v = accessSel.value;
       const hide = (v === 'lockbox' || v === 'vacant');
@@ -275,6 +300,10 @@
       } else {
         meetingFields.hidden = false;
       }
+      const cfg = ACCESS_NOTE_COPY[v] || ACCESS_NOTE_COPY.meeting;
+      if (accessNotesLabel) accessNotesLabel.textContent = cfg.label;
+      if (accessNotesEl) accessNotesEl.placeholder = cfg.placeholder;
+      if (accessNotesHint) accessNotesHint.textContent = cfg.hint;
     }
     accessSel.addEventListener('change', toggleAccessFields);
     toggleAccessFields();
@@ -327,8 +356,41 @@
       });
     }
 
+    const anytimeBtn = document.getElementById('anytimeBtn');
+    const anytimeEl  = document.getElementById('anytime');
+    const dateEl     = document.getElementById('selectedDate');
+
+    function clearWindowSelection(){
+      windowsEl.querySelectorAll('.slot').forEach(x => x.classList.remove('is-active'));
+      timeRow.hidden = true;
+      selectedWindowEl.value = '';
+      selectedTimeEl.value = '';
+    }
+    function setAnytime(active){
+      if (active){
+        clearWindowSelection();
+        anytimeBtn.classList.add('is-active');
+        anytimeEl.value = 'anytime';
+        selectedWindowEl.value = 'Anytime · 8am–5pm';
+        // helper requires a non-empty time; engine will repack
+        selectedTimeEl.value = '8:00 AM';
+      } else {
+        anytimeBtn.classList.remove('is-active');
+        anytimeEl.value = '';
+        if (selectedWindowEl.value === 'Anytime · 8am–5pm'){
+          selectedWindowEl.value = '';
+          selectedTimeEl.value = '';
+        }
+      }
+    }
+    anytimeBtn.addEventListener('click', () => {
+      setAnytime(!anytimeBtn.classList.contains('is-active'));
+    });
+
     windowsEl.querySelectorAll('.slot').forEach(b => {
       b.addEventListener('click', () => {
+        // Picking a specific window cancels anytime mode
+        setAnytime(false);
         windowsEl.querySelectorAll('.slot').forEach(x => x.classList.remove('is-active'));
         b.classList.add('is-active');
         const key = b.dataset.window;
@@ -338,6 +400,72 @@
         renderTimes(key);
       });
     });
+
+    // ---------- Live availability sync with Ops ----------
+    // Fetch real specific_slots for the chosen date and gray out times that
+    // aren't returned. Fail-soft: on error we leave the static grid as-is so
+    // the form still works.
+    const OPS_BASE = 'https://ops.outbounddesign.com.au';
+    const TENANT_SLUG = 'won-vision';
+    let availableSlots24h = null; // null = unknown (fallback to all open)
+    function to24h(label){
+      const m = String(label).match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+      if (!m) return null;
+      let hr = parseInt(m[1], 10);
+      const pm = /pm/i.test(m[3]);
+      if (pm && hr < 12) hr += 12;
+      if (!pm && hr === 12) hr = 0;
+      return String(hr).padStart(2, '0') + ':' + m[2];
+    }
+    function applySlotAvailability(){
+      const buttons = timeSlots.querySelectorAll('.slot');
+      buttons.forEach(btn => {
+        if (availableSlots24h == null){
+          btn.disabled = false;
+          btn.style.opacity = '';
+          btn.title = '';
+          return;
+        }
+        const t24 = to24h(btn.dataset.time);
+        const ok  = t24 && availableSlots24h.includes(t24);
+        btn.disabled = !ok;
+        btn.style.opacity = ok ? '' : '0.4';
+        btn.style.cursor = ok ? '' : 'not-allowed';
+        btn.title = ok ? '' : 'Not available — try another time';
+      });
+      const hint = document.getElementById('timeHint');
+      if (hint && availableSlots24h){
+        hint.textContent = availableSlots24h.length
+          ? 'Live availability shown. Greyed-out times are already booked.'
+          : 'No remaining slots for this date — try another day.';
+      }
+    }
+    // Patch renderTimes to apply availability after rendering
+    const _origRenderTimes = renderTimes;
+    renderTimes = function(windowKey, preselect){
+      _origRenderTimes(windowKey, preselect);
+      applySlotAvailability();
+    };
+    async function refreshAvailability(){
+      const date = dateEl?.value;
+      if (!date) { availableSlots24h = null; applySlotAvailability(); return; }
+      try {
+        const url = OPS_BASE + '/api/public/' + encodeURIComponent(TENANT_SLUG) +
+          '/availability/slots?date=' + encodeURIComponent(date) +
+          '&duration=60' +
+          '&address=' + encodeURIComponent(details.address || '') +
+          '&suburb='  + encodeURIComponent(details.suburb || '');
+        const r = await fetch(url, { credentials: 'omit' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const j = await r.json();
+        availableSlots24h = Array.isArray(j.specific_slots) ? j.specific_slots : null;
+      } catch (err) {
+        console.warn('[availability] fetch failed, falling back to static grid:', err);
+        availableSlots24h = null;
+      }
+      applySlotAvailability();
+    }
+    if (dateEl) dateEl.addEventListener('change', refreshAvailability);
     // Payment picker
     document.querySelectorAll('#paymentSlots .slot').forEach(b => {
       b.addEventListener('click', () => {
@@ -373,6 +501,8 @@
       }
     }
     toggleAccessFields(); // re-evaluate after pre-fill
+    if (prior.anytime === 'anytime') setAnytime(true);
+    if (dateEl && dateEl.value) refreshAvailability();
 
     // Submit + validation
     const form = document.getElementById('scheduleForm');
