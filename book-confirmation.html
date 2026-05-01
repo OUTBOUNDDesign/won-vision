@@ -191,14 +191,12 @@
       schedule: {
         date: schedule.selectedDate || '',
         time: schedule.selectedTime || '',
-        access: {
-          method: schedule.accessMethod || '',
-          role: schedule.meetingRole || '',
-          meetingPerson: schedule.meetingPerson || '',
-          phone: schedule.accessPhone || '',
-        },
+        accessMethod: schedule.accessMethod || '',
+        meetingPerson: schedule.meetingPerson || (schedule.meetingRole || ''),
+        accessPhone: schedule.accessPhone || '',
       },
-      payment: { method: schedule.paymentMethod || '' },
+      paymentMethod: schedule.paymentMethod || '',
+      notes: details.propertyNotes || '',
     };
 
     // ---------- Property map ----------
@@ -227,15 +225,32 @@
       setTimeout(() => map.invalidateSize(), 80);
     })();
 
+    function showSubmitError(err){
+      var msg = (err && err.message) ? err.message : String(err || 'Booking submit failed');
+      console.error('[OutboundOps]', err);
+      var banner = document.getElementById('bookingError');
+      if (!banner){
+        banner = document.createElement('div');
+        banner.id = 'bookingError';
+        banner.style.cssText = 'margin:16px auto;max-width:560px;padding:12px 16px;border:1px solid #B33A3A;background:#FFF4F4;color:#7A1F1F;border-radius:8px;font-size:14px;line-height:1.4;text-align:left';
+        var ref = document.getElementById('bookingRef');
+        if (ref && ref.parentNode) ref.parentNode.insertBefore(banner, ref.nextSibling);
+        else document.body.insertBefore(banner, document.body.firstChild);
+      }
+      banner.textContent = 'We saved your booking locally but couldn’t reach the studio system: ' + msg + '. Please contact us to confirm.';
+    }
+
     if (window.OutboundOps && typeof window.OutboundOps.submitBooking === 'function') {
       window.OutboundOps.submitBooking({
         slug: 'won-vision',
         booking: booking,
         onSuccess: applyPortal,
+        onError: showSubmitError,
       });
     } else {
       // Helper not yet loaded / offline — keep the fallback ref + portal URL
       applyPortal(fallbackRef, {});
+      showSubmitError(new Error('Ops helper script failed to load'));
     }
 
     // Clear staged sessionStorage so the cart resets after they leave the page
