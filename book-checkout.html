@@ -207,10 +207,29 @@
           <div><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
           <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel"></div>
         </div>
-        <div class="row">
+        <div class="row" style="position:relative">
           <label for="agency">Agency</label>
-          <input id="agency" name="agency" type="text" placeholder="Studio or agency name" autocomplete="organization">
-          <small class="hint">We'll use this to set up your client portal so you can track the booking.</small>
+          <input id="agency" name="agency" type="text" placeholder="Studio or agency name (e.g. Ray White)"
+                 autocomplete="off" autocorrect="off" spellcheck="false">
+          <ul id="agencyTypeahead"
+              role="listbox"
+              style="position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;
+                     list-style:none;margin:0;padding:0;background:#fff;border:1px solid rgba(0,0,0,.18);
+                     border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.08);max-height:240px;overflow:auto;
+                     display:none"></ul>
+          <small class="hint">Existing brands appear as you type — pick one or type a new agency.</small>
+        </div>
+        <div class="row" style="position:relative">
+          <label for="agencyOffice">Agency office location</label>
+          <input id="agencyOffice" name="agencyOffice" type="text" placeholder="Office address or suburb (e.g. Ray White Brunswick)"
+                 autocomplete="off" autocorrect="off" spellcheck="false">
+          <ul id="officeTypeahead"
+              role="listbox"
+              style="position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;
+                     list-style:none;margin:0;padding:0;background:#fff;border:1px solid rgba(0,0,0,.18);
+                     border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.08);max-height:240px;overflow:auto;
+                     display:none"></ul>
+          <small class="hint">Pick the specific office. Two agents from the same brand at different offices stay distinct.</small>
         </div>
       </section>
 
@@ -296,6 +315,9 @@
       const el = document.querySelector(`[name="${k}"]`);
       if (el && typeof v === 'string') el.value = v;
     });
+    if (prior.agencyLocation && typeof prior.agencyLocation === 'object'){
+      window.WV_AGENCY_OFFICE = prior.agencyLocation;
+    }
 
     // ---------- Validation: red on submit, clears on input ----------
     const form = document.getElementById('checkoutForm');
@@ -372,9 +394,127 @@
         data.lat = window.WV_LATLON.lat;
         data.lon = window.WV_LATLON.lon;
       }
+      // Persist the chosen agency office (Places-resolved) alongside the
+      // freeform office text. Confirmation page passes this to Ops as
+      // contact.agency_location.
+      if (window.WV_AGENCY_OFFICE){
+        data.agencyLocation = window.WV_AGENCY_OFFICE;
+      }
       sessionStorage.setItem('wv-details', JSON.stringify(data));
       window.location.href = 'book-schedule.html';
     });
+
+    // ---------- Agency typeahead (existing tenant agencies) ----------
+    (function(){
+      const OPS_BASE = 'https://ops.outbounddesign.com.au';
+      const TENANT_SLUG = 'won-vision';
+      const input = document.getElementById('agency');
+      const list = document.getElementById('agencyTypeahead');
+      if (!input || !list) return;
+      let activeReq = 0;
+      function close(){ list.style.display = 'none'; list.innerHTML = ''; }
+      function render(items){
+        if (!items.length){ close(); return; }
+        list.innerHTML = items.map(function(a){
+          return '<li role="option" data-name="' + a.name.replace(/"/g,'&quot;') + '"' +
+                 ' style="padding:10px 12px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.06)">' +
+                 a.name + '</li>';
+        }).join('');
+        list.style.display = 'block';
+        list.querySelectorAll('li').forEach(function(li){
+          li.addEventListener('mousedown', function(ev){
+            ev.preventDefault();
+            input.value = li.dataset.name;
+            close();
+          });
+          li.addEventListener('mouseenter', function(){ li.style.background = '#f3f3ee'; });
+          li.addEventListener('mouseleave', function(){ li.style.background = ''; });
+        });
+      }
+      let debounce;
+      input.addEventListener('input', function(){
+        clearTimeout(debounce);
+        const q = input.value.trim();
+        if (q.length < 2){ close(); return; }
+        const reqId = ++activeReq;
+        debounce = setTimeout(function(){
+          fetch(OPS_BASE + '/api/public/' + TENANT_SLUG + '/agencies?q=' + encodeURIComponent(q),
+                { credentials: 'omit' })
+            .then(function(r){ return r.ok ? r.json() : { agencies: [] }; })
+            .then(function(j){ if (reqId === activeReq) render(j.agencies || []); })
+            .catch(function(){ if (reqId === activeReq) close(); });
+        }, 200);
+      });
+      input.addEventListener('blur', function(){ setTimeout(close, 120); });
+    })();
+
+    // ---------- Office location Places autocomplete ----------
+    (function(){
+      const OPS_BASE = 'https://ops.outbounddesign.com.au';
+      const TENANT_SLUG = 'won-vision';
+      const input = document.getElementById('agencyOffice');
+      const list = document.getElementById('officeTypeahead');
+      if (!input || !list) return;
+      window.WV_AGENCY_OFFICE = null;
+      let activeReq = 0;
+      function close(){ list.style.display = 'none'; list.innerHTML = ''; }
+      function render(predictions){
+        if (!predictions.length){ close(); return; }
+        list.innerHTML = predictions.map(function(p){
+          return '<li role="option" data-id="' + p.place_id + '" data-desc="' +
+                 p.description.replace(/"/g,'&quot;') + '"' +
+                 ' style="padding:10px 12px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.06)">' +
+                 p.description + '</li>';
+        }).join('');
+        list.style.display = 'block';
+        list.querySelectorAll('li').forEach(function(li){
+          li.addEventListener('mousedown', function(ev){
+            ev.preventDefault();
+            input.value = li.dataset.desc;
+            // Resolve to lat/lng + structured components
+            fetch(OPS_BASE + '/api/public/' + TENANT_SLUG + '/places/details?place_id=' +
+                  encodeURIComponent(li.dataset.id), { credentials: 'omit' })
+              .then(function(r){ return r.ok ? r.json() : null; })
+              .then(function(j){
+                if (!j) { window.WV_AGENCY_OFFICE = null; return; }
+                window.WV_AGENCY_OFFICE = {
+                  place_id: j.place_id,
+                  label: j.name || '',
+                  address: j.formatted_address || '',
+                  suburb: j.suburb || '',
+                  state: j.state || '',
+                  postcode: j.postcode || '',
+                  country: j.country || 'Australia',
+                  lat: j.lat, lng: j.lng,
+                };
+              })
+              .catch(function(){ window.WV_AGENCY_OFFICE = null; });
+            close();
+          });
+          li.addEventListener('mouseenter', function(){ li.style.background = '#f3f3ee'; });
+          li.addEventListener('mouseleave', function(){ li.style.background = ''; });
+        });
+      }
+      let debounce;
+      input.addEventListener('input', function(){
+        clearTimeout(debounce);
+        // Typing again invalidates any previously resolved office
+        window.WV_AGENCY_OFFICE = null;
+        const q = input.value.trim();
+        if (q.length < 3){ close(); return; }
+        const reqId = ++activeReq;
+        debounce = setTimeout(function(){
+          // 'establishment' matches named offices; falls back to address.
+          fetch(OPS_BASE + '/api/public/' + TENANT_SLUG +
+                '/places/autocomplete?types=establishment&q=' + encodeURIComponent(q),
+                { credentials: 'omit' })
+            .then(function(r){ return r.ok ? r.json() : { predictions: [] }; })
+            .then(function(j){ if (reqId === activeReq) render(j.predictions || []); })
+            .catch(function(){ if (reqId === activeReq) close(); });
+        }, 220);
+      });
+      input.addEventListener('blur', function(){ setTimeout(close, 120); });
+    })();
 
     // ---------- Property map (brand-tinted Leaflet) ----------
     let _propMap = null, _propMarker = null;
