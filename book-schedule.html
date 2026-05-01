@@ -123,15 +123,17 @@
         <div class="datetime-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
           <div class="row datetime-row__date" style="margin:0">
             <label for="selectedDate">Preferred date</label>
-            <input id="selectedDate" name="selectedDate" type="date" required style="height:48px">
+            <input id="selectedDate" name="selectedDate" type="date" required
+                   style="height:52px;padding:0 14px;font:inherit">
           </div>
           <div class="row datetime-row__time" style="margin:0">
             <label>Or pick a window</label>
-            <div class="slots" id="windows" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-              <button type="button" class="slot" data-window="morning">Morning</button>
-              <button type="button" class="slot" data-window="midday">Midday</button>
-              <button type="button" class="slot" data-window="afternoon">Afternoon</button>
-              <button type="button" class="slot" data-window="twilight">Twilight</button>
+            <div class="slots" id="windows"
+                 style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+              <button type="button" class="slot" data-window="morning"   style="height:52px">Morning</button>
+              <button type="button" class="slot" data-window="midday"    style="height:52px">Midday</button>
+              <button type="button" class="slot" data-window="afternoon" style="height:52px">Afternoon</button>
+              <button type="button" class="slot" data-window="twilight"  style="height:52px">Twilight</button>
             </div>
             <input type="hidden" id="selectedWindow" name="selectedWindow">
             <input type="hidden" id="selectedTime" name="selectedTime" required>
