@@ -108,19 +108,26 @@
 
       <section>
         <h3>Date &amp; time</h3>
-        <div class="datetime-row">
-          <div class="row datetime-row__date">
+
+        <!-- Anytime: full-width pill above the date+windows grid so picking
+             "let the studio pick" is the most prominent option. -->
+        <div class="row" style="margin-bottom:16px">
+          <button type="button" id="anytimeBtn" data-anytime="1"
+                  class="slot"
+                  style="width:100%;padding:18px;font-size:14px;letter-spacing:.05em">
+            ANYTIME · 8AM–5PM <span style="opacity:.7;font-weight:normal;text-transform:none;letter-spacing:0">(let the studio pick)</span>
+          </button>
+        </div>
+
+        <!-- Date + window pills, two equal columns. -->
+        <div class="datetime-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
+          <div class="row datetime-row__date" style="margin:0">
             <label for="selectedDate">Preferred date</label>
-            <input id="selectedDate" name="selectedDate" type="date" required>
+            <input id="selectedDate" name="selectedDate" type="date" required style="height:48px">
           </div>
-          <div class="row datetime-row__time">
-            <label>Time window</label>
-            <div class="slots" id="anytimeRow" style="grid-template-columns:1fr;margin-bottom:8px">
-              <button type="button" class="slot" id="anytimeBtn" data-anytime="1">
-                Anytime · 8am–5pm <span style="opacity:.7;font-weight:normal">(let the studio pick)</span>
-              </button>
-            </div>
-            <div class="slots" id="windows">
+          <div class="row datetime-row__time" style="margin:0">
+            <label>Or pick a window</label>
+            <div class="slots" id="windows" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
               <button type="button" class="slot" data-window="morning">Morning</button>
               <button type="button" class="slot" data-window="midday">Midday</button>
               <button type="button" class="slot" data-window="afternoon">Afternoon</button>
@@ -132,7 +139,9 @@
           </div>
         </div>
 
-        <div class="row time-row" id="timeRow" hidden>
+        <!-- Hourly slots only render when a specific window is picked. Stays
+             hidden in Anytime mode. -->
+        <div class="row time-row" id="timeRow" hidden style="margin-top:16px">
           <label id="timeRowLabel">Pick a start time</label>
           <div class="slots time-slots" id="timeSlots"></div>
           <small class="hint" id="timeHint">Hourly arrival times. Final slot confirmed by the studio.</small>
@@ -369,6 +378,11 @@
     function setAnytime(active){
       if (active){
         clearWindowSelection();
+        // Defence in depth: explicitly hide the hourly grid in case CSS
+        // somewhere in the build overrides [hidden].
+        timeRow.hidden = true;
+        timeRow.style.display = 'none';
+        timeSlots.innerHTML = '';
         anytimeBtn.classList.add('is-active');
         anytimeEl.value = 'anytime';
         selectedWindowEl.value = 'Anytime · 8am–5pm';
@@ -377,6 +391,7 @@
       } else {
         anytimeBtn.classList.remove('is-active');
         anytimeEl.value = '';
+        timeRow.style.display = '';
         if (selectedWindowEl.value === 'Anytime · 8am–5pm'){
           selectedWindowEl.value = '';
           selectedTimeEl.value = '';

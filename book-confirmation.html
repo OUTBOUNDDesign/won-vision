@@ -102,8 +102,9 @@
 
     <div class="confirm-page__portal" id="portalCard">
       <h4>Your client portal</h4>
-      <p>Track shoot status, download files when ready, and message the studio — all from a single page tied to this booking.</p>
-      <a href="#" id="portalLink" target="_blank" rel="noopener">Open client portal →</a>
+      <p id="portalCopy">Track shoot status, download files when ready, and message the studio — all from a single page tied to this booking.</p>
+      <a href="#" id="portalLink" target="_blank" rel="noopener" hidden>Open client portal →</a>
+      <p id="portalPending" style="font-size:13px;color:var(--graphite);margin:0">We’ll email your portal link to <strong id="portalPendingEmail">your address</strong> shortly.</p>
     </div>
 
     <p style="font-size:13px;color:var(--graphite);margin-top:24px">A confirmation email has been sent to <strong id="clientEmail" style="color:var(--ink)">your address</strong>.<br>If urgent, call <a href="tel:+61000000000" style="color:var(--steel)">+61 (0) 0000 0000</a>.</p>
@@ -162,10 +163,24 @@
     function applyPortal(jobNumber, response){
       const ref = jobNumber || (response && response.jobNumber) || fallbackRef;
       refEl.textContent = 'Ref: ' + ref;
-      // Operations panel client portal URL — tenant slug + job ref
-      const portalUrl = (response && (response.portalUrl || response.clientUrl))
-        || ('https://ops.outbounddesign.com.au/portal/' + ref);
-      linkEl.href = portalUrl;
+      // Only the signed magic-link URL from Ops is valid. The plain
+      // /portal/{jobNumber} fallback is rejected as "Link Invalid", so we
+      // hide the button and tell the user the link is on its way by email.
+      const realUrl = response && (response.portalUrl || response.portal_url || response.clientUrl);
+      const pendingEmailEl = document.getElementById('portalPendingEmail');
+      const pendingEl = document.getElementById('portalPending');
+      if (realUrl){
+        linkEl.href = realUrl;
+        linkEl.hidden = false;
+        if (pendingEl) pendingEl.hidden = true;
+      } else {
+        linkEl.removeAttribute('href');
+        linkEl.hidden = true;
+        if (pendingEl){
+          pendingEl.hidden = false;
+          if (pendingEmailEl && details.email) pendingEmailEl.textContent = details.email;
+        }
+      }
     }
 
     const booking = {
