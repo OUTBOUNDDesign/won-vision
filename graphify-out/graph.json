@@ -1,0 +1,662 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "id": "script_js",
+      "community": 0,
+      "norm_label": "script.js"
+    },
+    {
+      "label": "enter()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L30",
+      "id": "js_script_enter",
+      "community": 0,
+      "norm_label": "enter()"
+    },
+    {
+      "label": "ready()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L46",
+      "id": "js_script_ready",
+      "community": 0,
+      "norm_label": "ready()"
+    },
+    {
+      "label": "setHidden()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L68",
+      "id": "js_script_sethidden",
+      "community": 2,
+      "norm_label": "sethidden()"
+    },
+    {
+      "label": "update()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L73",
+      "id": "js_script_update",
+      "community": 2,
+      "norm_label": "update()"
+    },
+    {
+      "label": "paint()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L177",
+      "id": "js_script_paint",
+      "community": 0,
+      "norm_label": "paint()"
+    },
+    {
+      "label": "schedule()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L189",
+      "id": "js_script_schedule",
+      "community": 3,
+      "norm_label": "schedule()"
+    },
+    {
+      "label": "onTilt()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L196",
+      "id": "js_script_ontilt",
+      "community": 3,
+      "norm_label": "ontilt()"
+    },
+    {
+      "label": "startListening()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L207",
+      "id": "js_script_startlistening",
+      "community": 0,
+      "norm_label": "startlistening()"
+    },
+    {
+      "label": "ask()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L215",
+      "id": "js_script_ask",
+      "community": 0,
+      "norm_label": "ask()"
+    },
+    {
+      "label": "easeOut()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L304",
+      "id": "js_script_easeout",
+      "community": 0,
+      "norm_label": "easeout()"
+    },
+    {
+      "label": "animate()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L305",
+      "id": "js_script_animate",
+      "community": 0,
+      "norm_label": "animate()"
+    },
+    {
+      "label": "apply()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L346",
+      "id": "js_script_apply",
+      "community": 0,
+      "norm_label": "apply()"
+    },
+    {
+      "label": "open()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L390",
+      "id": "js_script_open",
+      "community": 4,
+      "norm_label": "open()"
+    },
+    {
+      "label": "close()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L402",
+      "id": "js_script_close",
+      "community": 0,
+      "norm_label": "close()"
+    },
+    {
+      "label": "step()",
+      "file_type": "code",
+      "source_file": "script.js",
+      "source_location": "L406",
+      "id": "js_script_step",
+      "community": 4,
+      "norm_label": "step()"
+    },
+    {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "script.js",
+      "id": "js_script_js"
+    },
+    {
+      "label": "enter()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L30",
+      "community": 1,
+      "norm_label": "enter()",
+      "id": "script_enter"
+    },
+    {
+      "label": "ready()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L46",
+      "community": 1,
+      "norm_label": "ready()",
+      "id": "script_ready"
+    },
+    {
+      "label": "setHidden()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L68",
+      "community": 5,
+      "norm_label": "sethidden()",
+      "id": "script_sethidden"
+    },
+    {
+      "label": "update()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L73",
+      "community": 5,
+      "norm_label": "update()",
+      "id": "script_update"
+    },
+    {
+      "label": "paint()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L177",
+      "community": 1,
+      "norm_label": "paint()",
+      "id": "script_paint"
+    },
+    {
+      "label": "schedule()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L189",
+      "community": 6,
+      "norm_label": "schedule()",
+      "id": "script_schedule"
+    },
+    {
+      "label": "onTilt()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L196",
+      "community": 6,
+      "norm_label": "ontilt()",
+      "id": "script_ontilt"
+    },
+    {
+      "label": "startListening()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L207",
+      "community": 1,
+      "norm_label": "startlistening()",
+      "id": "script_startlistening"
+    },
+    {
+      "label": "ask()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L215",
+      "community": 1,
+      "norm_label": "ask()",
+      "id": "script_ask"
+    },
+    {
+      "label": "easeOut()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L304",
+      "community": 1,
+      "norm_label": "easeout()",
+      "id": "script_easeout"
+    },
+    {
+      "label": "animate()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L305",
+      "community": 1,
+      "norm_label": "animate()",
+      "id": "script_animate"
+    },
+    {
+      "label": "apply()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L346",
+      "community": 1,
+      "norm_label": "apply()",
+      "id": "script_apply"
+    },
+    {
+      "label": "open()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L390",
+      "community": 7,
+      "norm_label": "open()",
+      "id": "script_open"
+    },
+    {
+      "label": "close()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L402",
+      "community": 1,
+      "norm_label": "close()",
+      "id": "script_close"
+    },
+    {
+      "label": "step()",
+      "file_type": "code",
+      "source_file": "js/script.js",
+      "source_location": "L406",
+      "community": 7,
+      "norm_label": "step()",
+      "id": "script_step"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_enter"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_ready"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_sethidden"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L238",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_paint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_schedule"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_ontilt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_startlistening"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_ask"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L304",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_easeout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L305",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_animate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L346",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_apply"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L390",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_open"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L402",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_close"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L406",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_js",
+      "target": "js_script_step"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_update",
+      "target": "js_script_sethidden"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L204",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_ontilt",
+      "target": "js_script_schedule"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "script.js",
+      "source_location": "L411",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_step",
+      "target": "js_script_open"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_enter"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_ready"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_sethidden"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L238",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_paint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_schedule"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_ontilt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_startlistening"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_ask"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L304",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_easeout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L305",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_animate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L346",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_apply"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L390",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_open"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L402",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_close"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L406",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_script_js",
+      "target": "script_step"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_sethidden",
+      "target": "script_update"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L204",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_schedule",
+      "target": "script_ontilt"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "js/script.js",
+      "source_location": "L411",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "script_open",
+      "target": "script_step"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "2b56b1150e49f2505d1c51052c2466475be695bb"
+}
