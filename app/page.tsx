@@ -87,6 +87,9 @@ export default function HomePage() {
       {/* SERVICES — editorial index with sticky hover image (V2) */}
       <ServicesEditorial />
 
+      {/* PROCESS — horizontal stepper, animated rule on scroll-in */}
+      <ProcessStepper />
+
       {/* SELECTED WORK */}
       <section id="work" className="section work">
         <div className="section__inner">
@@ -122,9 +125,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* PROCESS — horizontal stepper, animated rule on scroll-in */}
-      <ProcessStepper />
 
       {/* CONTACT B — Map + studio info */}
       <section id="contact" className="con-b">

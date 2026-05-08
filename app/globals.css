@@ -2114,10 +2114,12 @@ a{color:inherit}
   padding-top:24px;
 }
 
-/* Step dot — square notch on the rule */
+/* Step dot — square notch sitting ON the rule (rule is at row y=24,
+   step starts at row y=48 from padding-top, so step-relative top=-31
+   centres the 14px square on the 1px rule). */
 .ps__dot{
   position:absolute;
-  top:-7px;
+  top:-31px;
   left:0;
   width:14px;
   height:14px;

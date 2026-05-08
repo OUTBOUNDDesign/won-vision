@@ -20,8 +20,8 @@
     "hash": "16267698ccc09af0e69e32e20b7272f9"
   },
   "/Users/kiranc/Code/won-media/app/page.tsx": {
-    "mtime": 1778220127.4373682,
-    "hash": "4cdd1d677ce4d7055fee75688edc5caa"
+    "mtime": 1778221175.3983989,
+    "hash": "53f8152fa65b0b6b59389707c2f7c116"
   },
   "/Users/kiranc/Code/won-media/app/gallery/page.tsx": {
     "mtime": 1778215529.0478537,
@@ -42,6 +42,10 @@
   "/Users/kiranc/Code/won-media/app/components/ServicesEditorial.tsx": {
     "mtime": 1778220112.571523,
     "hash": "a43225ebca205a3fe6facb3e31a57bfa"
+  },
+  "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx": {
+    "mtime": 1778221153.9782205,
+    "hash": "f64bf6457f8e0c0d9480db1a40c31508"
   },
   "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx": {
     "mtime": 1778219258.4563322,
@@ -134,6 +138,10 @@
   "/Users/kiranc/Code/won-media/_archive/book-hero-options.html": {
     "mtime": 1778213433.9227502,
     "hash": "9bce3952eb119fd6f28c6570566b78cb"
+  },
+  "/Users/kiranc/Code/won-media/_archive/process-explorations.html": {
+    "mtime": 1778220758.2090273,
+    "hash": "938869cd128a6ab8ebbea12b9a5a79a9"
   },
   "/Users/kiranc/Code/won-media/_archive/steps-more.html": {
     "mtime": 1778213433.926942,

@@ -1,16 +1,16 @@
 # Graph Report - won-media  (2026-05-08)
 
 ## Corpus Check
-- 25 files · ~56,240 words
+- 26 files · ~57,892 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 79 nodes · 68 edges · 20 communities (19 shown, 1 thin omitted)
+- 81 nodes · 69 edges · 21 communities (20 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8578d55e`
+- Built from commit: `58a74b7c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -35,7 +35,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (20 total, 1 thin omitted)
+## Communities (21 total, 1 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.14

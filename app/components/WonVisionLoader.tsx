@@ -49,7 +49,7 @@ interface Props {
 }
 
 export default function WonVisionLoader({
-  duration = 3800,
+  duration = 3000,
   playOnce = true,
   bg = '#FFFFFF',
   onComplete,
