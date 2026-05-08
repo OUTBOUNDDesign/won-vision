@@ -1715,14 +1715,22 @@ body{
 .nav__cta--ghost::before{background:var(--fg)}
 .nav__cta--ghost:hover{color:var(--bg)}   /* fill slides in → white on black */
 
-/* Over the dark hero: filled CTA stays white-on-black, hover keeps text white
-   so it remains legible against the dark backdrop when fill slides off. */
+/* Over the dark hero: ghost button — transparent at rest with white border +
+   white text; hover fills white with black text. */
 .nav.is-light .nav__cta{
   color:var(--bg);
   border-color:var(--bg);
 }
-.nav.is-light .nav__cta::before{background:var(--fg)}
-.nav.is-light .nav__cta:hover{color:var(--bg)}
+.nav.is-light .nav__cta::before{
+  background:var(--bg);
+  transform:scaleX(0);
+  transform-origin:left center;
+}
+.nav.is-light .nav__cta:hover{color:var(--fg)}
+.nav.is-light .nav__cta:hover::before{
+  transform:scaleX(1);
+  transform-origin:right center;
+}
 
 /* --- Nav drawer: inverse mode --- */
 .nav__drawer{background:var(--bg-inverse);color:var(--text-primary-inverse)}
