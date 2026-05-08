@@ -99,8 +99,7 @@ export default function HomePage() {
 
         <div className="hero__layer">
           <div className="hero__copy">
-            <h1 className="hero__hed hero__hed--wordmark">WON <span className="accent">VISION</span></h1>
-            <p className="hero__slogan">Your listing the star, we make it go far.</p>
+            <h1 className="hero__hed hero__hed--wordmark">Won Vision</h1>
           </div>
         </div>
 

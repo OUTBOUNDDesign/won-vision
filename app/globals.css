@@ -1563,7 +1563,7 @@ body{
 /* --- Selection: pure inverse, no blue --- */
 ::selection{background:var(--fg);color:var(--bg)}
 
-/* --- Wordmark lockup (mark + WON VISION) --- */
+/* --- Wordmark lockup (mark + Won Vision) --- */
 .wordmark{
   display:inline-flex;
   align-items:center;
@@ -1573,7 +1573,7 @@ body{
   letter-spacing:-0.01em;
   line-height:1;
   color:var(--fg);
-  text-transform:uppercase;
+  text-transform:none;
 }
 .wordmark__mark{
   height:1.4em;
@@ -1656,7 +1656,8 @@ body{
   font-weight:inherit;
 }
 
-/* --- Hero wordmark: kill the steel underline, full white --- */
+/* --- Hero wordmark: sentence-case "Won Vision", kill underline --- */
+.hero__hed--wordmark{text-transform:none !important;letter-spacing:-0.025em}
 .hero__hed--wordmark .accent{
   background:none !important;
   color:var(--text-primary-inverse) !important;
@@ -1670,33 +1671,43 @@ body{
 .body-copy, .lede{color:var(--text-secondary)}
 .lede{font-family:var(--body);font-style:italic;font-weight:400}
 
-/* --- Buttons / CTAs: B/W only, sharp corners --- */
+/* --- Buttons / CTAs: B/W only, sharp corners ---
+   Filled-by-default (.nav__cta, .loader__btn): fill is ON at rest →
+     rest: WHITE text on BLACK fill
+     hover: fill slides off → BLACK text + BLACK border on transparent
+   Outline-by-default (.nav__cta--ghost): fill is OFF at rest →
+     rest: BLACK text + BLACK border on transparent
+     hover: fill slides in → WHITE text on BLACK fill
+*/
 .nav__cta,
-.nav__cta--ghost,
 .loader__btn{
   border-color:var(--fg);
-  color:var(--fg);
+  color:var(--bg);          /* white text over the black fill at rest */
   border-radius:0;
 }
 .nav__cta::before,
 .loader__btn::before{background:var(--fg)}
 .nav__cta:hover,
-.loader__btn:hover{color:var(--fg)}
+.loader__btn:hover{color:var(--fg)}   /* fill slides off → black text on white */
 .nav__cta:hover::before,
 .loader__btn:hover::before{transform:scaleX(0)}
-.nav__cta--ghost{color:var(--fg);border-color:var(--fg)}
-.nav__cta--ghost:hover{color:var(--bg)}
 
-/* Inverse CTA (over dark hero / dark sections) */
-.nav.is-light .nav__cta,
-.section--ink .nav__cta{
+.nav__cta--ghost{
+  color:var(--fg);
+  border-color:var(--fg);
+  border-radius:0;
+}
+.nav__cta--ghost::before{background:var(--fg)}
+.nav__cta--ghost:hover{color:var(--bg)}   /* fill slides in → white on black */
+
+/* Over the dark hero: filled CTA stays white-on-black, hover keeps text white
+   so it remains legible against the dark backdrop when fill slides off. */
+.nav.is-light .nav__cta{
   color:var(--bg);
   border-color:var(--bg);
 }
-.nav.is-light .nav__cta::before,
-.section--ink .nav__cta::before{background:var(--bg)}
-.nav.is-light .nav__cta:hover,
-.section--ink .nav__cta:hover{color:var(--fg)}
+.nav.is-light .nav__cta::before{background:var(--fg)}
+.nav.is-light .nav__cta:hover{color:var(--bg)}
 
 /* --- Nav drawer: inverse mode --- */
 .nav__drawer{background:var(--bg-inverse);color:var(--text-primary-inverse)}

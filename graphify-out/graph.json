@@ -697,9 +697,9 @@
       "source_file": "app/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_page_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "contains",
@@ -718,9 +718,9 @@
       "source_file": "app/gallery/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_gallery_page_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "imports",
@@ -729,9 +729,9 @@
       "source_file": "app/components/Wordmark.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_components_wordmark_tsx",
-      "target": "components_wonvisionmark_wonvisionmark",
-      "confidence_score": 1.0
+      "target": "components_wonvisionmark_wonvisionmark"
     },
     {
       "relation": "contains",
@@ -739,9 +739,9 @@
       "source_file": "app/components/Wordmark.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_components_wordmark_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "imports",
@@ -750,9 +750,9 @@
       "source_file": "app/book/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_book_page_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "imports",
@@ -761,9 +761,9 @@
       "source_file": "app/book/schedule/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_book_schedule_page_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "imports",
@@ -772,9 +772,9 @@
       "source_file": "app/book/confirmation/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_book_confirmation_page_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "imports",
@@ -783,9 +783,9 @@
       "source_file": "app/book/checkout/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_book_checkout_page_tsx",
-      "target": "components_wordmark_wordmark",
-      "confidence_score": 1.0
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "contains",
@@ -793,9 +793,9 @@
       "source_file": "app/components/WonVisionMark.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_components_wonvisionmark_tsx",
-      "target": "components_wonvisionmark_wonvisionmark",
-      "confidence_score": 1.0
+      "target": "components_wonvisionmark_wonvisionmark"
     },
     {
       "relation": "contains",
@@ -803,9 +803,9 @@
       "source_file": "app/book/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_book_page_tsx",
-      "target": "book_page_bookpage",
-      "confidence_score": 1.0
+      "target": "book_page_bookpage"
     },
     {
       "relation": "contains",
@@ -813,9 +813,9 @@
       "source_file": "public/script.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_script_js",
-      "target": "public_script_wvboot",
-      "confidence_score": 1.0
+      "target": "public_script_wvboot"
     },
     {
       "relation": "contains",
@@ -1365,5 +1365,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "352978dcaddaf87acc20169a06f53f3a78776cf6"
+  "built_at_commit": "87ff1b4de3f0c553a52fe1c742e57263ff462c50"
 }
