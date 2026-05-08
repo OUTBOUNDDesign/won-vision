@@ -9,8 +9,17 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 14,
+      "community": 5,
       "norm_label": "next-env.d.ts"
+    },
+    {
+      "label": "playwright.config.ts",
+      "file_type": "code",
+      "source_file": "playwright.config.ts",
+      "source_location": "L1",
+      "id": "playwright_config_ts",
+      "community": 6,
+      "norm_label": "playwright.config.ts"
     },
     {
       "label": "next.config.ts",
@@ -18,8 +27,17 @@
       "source_file": "next.config.ts",
       "source_location": "L1",
       "id": "next_config_ts",
-      "community": 15,
+      "community": 7,
       "norm_label": "next.config.ts"
+    },
+    {
+      "label": "fonts.ts",
+      "file_type": "code",
+      "source_file": "app/fonts.ts",
+      "source_location": "L1",
+      "id": "app_fonts_ts",
+      "community": 8,
+      "norm_label": "fonts.ts"
     },
     {
       "label": "layout.tsx",
@@ -27,17 +45,8 @@
       "source_file": "app/layout.tsx",
       "source_location": "L1",
       "id": "app_layout_tsx",
-      "community": 3,
+      "community": 4,
       "norm_label": "layout.tsx"
-    },
-    {
-      "label": "RootLayout()",
-      "file_type": "code",
-      "source_file": "app/layout.tsx",
-      "source_location": "L12",
-      "id": "app_layout_rootlayout",
-      "community": 3,
-      "norm_label": "rootlayout()"
     },
     {
       "label": "page.tsx",
@@ -45,17 +54,170 @@
       "source_file": "app/page.tsx",
       "source_location": "L1",
       "id": "app_page_tsx",
-      "community": 4,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
-      "label": "HomePage()",
+      "label": "page.tsx",
       "file_type": "code",
-      "source_file": "app/page.tsx",
+      "source_file": "app/gallery/page.tsx",
       "source_location": "L1",
-      "id": "app_page_homepage",
-      "community": 4,
-      "norm_label": "homepage()"
+      "id": "app_gallery_page_tsx",
+      "community": 3,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Wordmark.tsx",
+      "file_type": "code",
+      "source_file": "app/components/Wordmark.tsx",
+      "source_location": "L1",
+      "id": "app_components_wordmark_tsx",
+      "community": 3,
+      "norm_label": "wordmark.tsx"
+    },
+    {
+      "label": "Wordmark()",
+      "file_type": "code",
+      "source_file": "app/components/Wordmark.tsx",
+      "source_location": "L10",
+      "id": "components_wordmark_wordmark",
+      "community": 3,
+      "norm_label": "wordmark()"
+    },
+    {
+      "label": "WonVisionMark.tsx",
+      "file_type": "code",
+      "source_file": "app/components/WonVisionMark.tsx",
+      "source_location": "L1",
+      "id": "app_components_wonvisionmark_tsx",
+      "community": 3,
+      "norm_label": "wonvisionmark.tsx"
+    },
+    {
+      "label": "WonVisionMark()",
+      "file_type": "code",
+      "source_file": "app/components/WonVisionMark.tsx",
+      "source_location": "L3",
+      "id": "components_wonvisionmark_wonvisionmark",
+      "community": 3,
+      "norm_label": "wonvisionmark()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/book/page.tsx",
+      "source_location": "L1",
+      "id": "app_book_page_tsx",
+      "community": 3,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "BookPage()",
+      "file_type": "code",
+      "source_file": "app/book/page.tsx",
+      "source_location": "L12",
+      "id": "book_page_bookpage",
+      "community": 3,
+      "norm_label": "bookpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/book/schedule/page.tsx",
+      "source_location": "L1",
+      "id": "app_book_schedule_page_tsx",
+      "community": 3,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/book/confirmation/page.tsx",
+      "source_location": "L1",
+      "id": "app_book_confirmation_page_tsx",
+      "community": 3,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/book/checkout/page.tsx",
+      "source_location": "L1",
+      "id": "app_book_checkout_page_tsx",
+      "community": 3,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "redirects.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/redirects.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_redirects_spec_ts",
+      "community": 9,
+      "norm_label": "redirects.spec.ts"
+    },
+    {
+      "label": "smoke.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/smoke.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_smoke_spec_ts",
+      "community": 10,
+      "norm_label": "smoke.spec.ts"
+    },
+    {
+      "label": "book-confirmation.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/book-confirmation.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_book_confirmation_spec_ts",
+      "community": 11,
+      "norm_label": "book-confirmation.spec.ts"
+    },
+    {
+      "label": "book-schedule.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/book-schedule.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_book_schedule_spec_ts",
+      "community": 12,
+      "norm_label": "book-schedule.spec.ts"
+    },
+    {
+      "label": "home.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/home.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_home_spec_ts",
+      "community": 13,
+      "norm_label": "home.spec.ts"
+    },
+    {
+      "label": "book-checkout.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/book-checkout.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_book_checkout_spec_ts",
+      "community": 14,
+      "norm_label": "book-checkout.spec.ts"
+    },
+    {
+      "label": "gallery.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/gallery.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_gallery_spec_ts",
+      "community": 15,
+      "norm_label": "gallery.spec.ts"
+    },
+    {
+      "label": "book.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/visual/book.spec.ts",
+      "source_location": "L1",
+      "id": "tests_visual_book_spec_ts",
+      "community": 16,
+      "norm_label": "book.spec.ts"
     },
     {
       "label": "script.js",
@@ -67,139 +229,166 @@
       "norm_label": "script.js"
     },
     {
+      "label": "__wvBoot()",
+      "file_type": "code",
+      "source_file": "public/script.js",
+      "source_location": "L5",
+      "id": "public_script_wvboot",
+      "community": 0,
+      "norm_label": "__wvboot()"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L12",
+      "community": 4,
+      "norm_label": "rootlayout()",
+      "id": "app_layout_rootlayout"
+    },
+    {
+      "label": "HomePage()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "homepage()",
+      "id": "app_page_homepage"
+    },
+    {
       "label": "enter()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L30",
-      "id": "public_script_enter",
       "community": 0,
-      "norm_label": "enter()"
+      "norm_label": "enter()",
+      "id": "public_script_enter"
     },
     {
       "label": "ready()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L46",
-      "id": "public_script_ready",
       "community": 0,
-      "norm_label": "ready()"
+      "norm_label": "ready()",
+      "id": "public_script_ready"
     },
     {
       "label": "setHidden()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L68",
-      "id": "public_script_sethidden",
-      "community": 5,
-      "norm_label": "sethidden()"
+      "community": 0,
+      "norm_label": "sethidden()",
+      "id": "public_script_sethidden"
     },
     {
       "label": "update()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L73",
-      "id": "public_script_update",
-      "community": 5,
-      "norm_label": "update()"
+      "community": 0,
+      "norm_label": "update()",
+      "id": "public_script_update"
     },
     {
       "label": "paint()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L177",
-      "id": "public_script_paint",
       "community": 0,
-      "norm_label": "paint()"
+      "norm_label": "paint()",
+      "id": "public_script_paint"
     },
     {
       "label": "schedule()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L189",
-      "id": "public_script_schedule",
-      "community": 7,
-      "norm_label": "schedule()"
+      "community": 0,
+      "norm_label": "schedule()",
+      "id": "public_script_schedule"
     },
     {
       "label": "onTilt()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L196",
-      "id": "public_script_ontilt",
-      "community": 7,
-      "norm_label": "ontilt()"
+      "community": 0,
+      "norm_label": "ontilt()",
+      "id": "public_script_ontilt"
     },
     {
       "label": "startListening()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L207",
-      "id": "public_script_startlistening",
       "community": 0,
-      "norm_label": "startlistening()"
+      "norm_label": "startlistening()",
+      "id": "public_script_startlistening"
     },
     {
       "label": "ask()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L215",
-      "id": "public_script_ask",
       "community": 0,
-      "norm_label": "ask()"
+      "norm_label": "ask()",
+      "id": "public_script_ask"
     },
     {
       "label": "easeOut()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L304",
-      "id": "public_script_easeout",
       "community": 0,
-      "norm_label": "easeout()"
+      "norm_label": "easeout()",
+      "id": "public_script_easeout"
     },
     {
       "label": "animate()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L305",
-      "id": "public_script_animate",
       "community": 0,
-      "norm_label": "animate()"
+      "norm_label": "animate()",
+      "id": "public_script_animate"
     },
     {
       "label": "apply()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L346",
-      "id": "public_script_apply",
       "community": 0,
-      "norm_label": "apply()"
+      "norm_label": "apply()",
+      "id": "public_script_apply"
     },
     {
       "label": "open()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L390",
-      "id": "public_script_open",
-      "community": 6,
-      "norm_label": "open()"
+      "community": 0,
+      "norm_label": "open()",
+      "id": "public_script_open"
     },
     {
       "label": "close()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L402",
-      "id": "public_script_close",
       "community": 0,
-      "norm_label": "close()"
+      "norm_label": "close()",
+      "id": "public_script_close"
     },
     {
       "label": "step()",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L406",
-      "id": "public_script_step",
-      "community": 6,
-      "norm_label": "step()"
+      "community": 0,
+      "norm_label": "step()",
+      "id": "public_script_step"
     },
     {
       "label": "script.js",
@@ -233,7 +422,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L68",
-      "community": 8,
+      "community": 1,
       "norm_label": "sethidden()",
       "id": "js_script_sethidden"
     },
@@ -242,7 +431,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L73",
-      "community": 8,
+      "community": 1,
       "norm_label": "update()",
       "id": "js_script_update"
     },
@@ -260,7 +449,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L189",
-      "community": 9,
+      "community": 1,
       "norm_label": "schedule()",
       "id": "js_script_schedule"
     },
@@ -269,7 +458,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L196",
-      "community": 9,
+      "community": 1,
       "norm_label": "ontilt()",
       "id": "js_script_ontilt"
     },
@@ -323,7 +512,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L390",
-      "community": 10,
+      "community": 1,
       "norm_label": "open()",
       "id": "js_script_open"
     },
@@ -341,7 +530,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L406",
-      "community": 10,
+      "community": 1,
       "norm_label": "step()",
       "id": "js_script_step"
     },
@@ -377,7 +566,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L68",
-      "community": 11,
+      "community": 2,
       "norm_label": "sethidden()",
       "id": "script_sethidden"
     },
@@ -386,7 +575,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L73",
-      "community": 11,
+      "community": 2,
       "norm_label": "update()",
       "id": "script_update"
     },
@@ -404,7 +593,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L189",
-      "community": 12,
+      "community": 2,
       "norm_label": "schedule()",
       "id": "script_schedule"
     },
@@ -413,7 +602,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L196",
-      "community": 12,
+      "community": 2,
       "norm_label": "ontilt()",
       "id": "script_ontilt"
     },
@@ -467,7 +656,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L390",
-      "community": 13,
+      "community": 2,
       "norm_label": "open()",
       "id": "script_open"
     },
@@ -485,7 +674,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L406",
-      "community": 13,
+      "community": 2,
       "norm_label": "step()",
       "id": "script_step"
     }
@@ -502,6 +691,17 @@
       "target": "app_layout_rootlayout"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_page_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/page.tsx",
@@ -510,6 +710,112 @@
       "confidence_score": 1.0,
       "source": "app_page_tsx",
       "target": "app_page_homepage"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/gallery/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_gallery_page_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/Wordmark.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_components_wordmark_tsx",
+      "target": "components_wonvisionmark_wonvisionmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/Wordmark.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_components_wordmark_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/book/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_book_page_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/book/schedule/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_book_schedule_page_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/book/confirmation/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_book_confirmation_page_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/book/checkout/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_book_checkout_page_tsx",
+      "target": "components_wordmark_wordmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/WonVisionMark.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_components_wonvisionmark_tsx",
+      "target": "components_wonvisionmark_wonvisionmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/book/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_book_page_tsx",
+      "target": "book_page_bookpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/script.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "public_script_js",
+      "target": "public_script_wvboot",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1059,5 +1365,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "18b4f3066e2547170988a7b08d26c186acebb8aa"
+  "built_at_commit": "352978dcaddaf87acc20169a06f53f3a78776cf6"
 }

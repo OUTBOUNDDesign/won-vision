@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import { Wordmark } from '../../components/Wordmark';
 
 export const metadata: Metadata = {
   title: 'Booking confirmed',
@@ -11,12 +12,6 @@ export const metadata: Metadata = {
 export default function ConfirmationPage() {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
       <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -64,7 +59,7 @@ export default function ConfirmationPage() {
 
       <header className="nav is-stuck">
         <div className="nav__brand">
-          <Link href="/#top" className="wordmark" data-home>WON <span className="accent">VISION</span></Link>
+          <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
         </div>
         <nav className="nav__links">
           <Link href="/#services">Services</Link>
@@ -115,7 +110,7 @@ export default function ConfirmationPage() {
             <p id="portalPending" style={{ fontSize: 13, color: 'var(--graphite)', margin: 0 }}>We'll email your portal link to <strong id="portalPendingEmail">your address</strong> shortly.</p>
           </div>
 
-          <p style={{ fontSize: 13, color: 'var(--graphite)', marginTop: 24 }}>A confirmation email has been sent to <strong id="clientEmail" style={{ color: 'var(--ink)' }}>your address</strong>.<br />If urgent, call <a href="tel:+61000000000" style={{ color: 'var(--steel)' }}>+61 (0) 0000 0000</a>.</p>
+          <p style={{ fontSize: 13, color: 'var(--graphite)', marginTop: 24 }}>A confirmation email has been sent to <strong id="clientEmail" style={{ color: 'var(--ink)' }}>your address</strong>.<br />If urgent, call <a href="tel:+61000000000" style={{ color: 'var(--fg)', textDecoration: 'underline' }}>+61 (0) 0000 0000</a>.</p>
         </div>
       </section>
 
@@ -123,7 +118,7 @@ export default function ConfirmationPage() {
         <div className="foot__inner">
           <div className="foot__top">
             <div>
-              <Link href="/#top" className="wordmark" data-home>WON <span className="accent" style={{ color: 'var(--steel)' }}>VISION</span></Link>
+              <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
               <p>A Melbourne property media studio.</p>
             </div>
             <div><h4>Studio</h4><ul>

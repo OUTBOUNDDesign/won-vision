@@ -1,22 +1,51 @@
 /* =========================================================
-   WON MEDIA — design tokens + shared components
-   Locked palette · Abhaya Libre + Inter · No radial pattern
+   WON VISION — Brand System v1
+   Pure B/W · Archivo + Archivo Black · sharp corners
+   Legacy token names map to brand values so existing rules
+   keep working without a global rename:
+     --paper    = bg (white)
+     --ink      = fg (black)
+     --steel    = fg (collapsed: no accent colour)
+     --graphite = text-secondary
+     --soft     = border light
 ========================================================= */
 
 :root{
-  --paper:#FAFAF7;
-  --soft:#ECECE8;
-  --steel:#4A6178;
-  --steel-dark:#3a4d60;
-  --graphite:#4A4A48;
-  --ink:#0A0A0A;
+  /* Brand primaries */
+  --bg:#FFFFFF;
+  --fg:#000000;
+  --bg-inverse:#000000;
+  --fg-inverse:#FFFFFF;
 
-  --display:'Abhaya Libre', Georgia, serif;
-  --body:'Inter', system-ui, -apple-system, sans-serif;
+  /* Text hierarchy on white */
+  --text-primary:#000000;
+  --text-secondary:#404040;
+  --text-muted:#737373;
+
+  /* Text hierarchy on black */
+  --text-primary-inverse:#FFFFFF;
+  --text-secondary-inverse:#B8B8B8;
+  --text-muted-inverse:#8A8A8A;
+
+  /* Surfaces */
+  --border:#E5E5E5;
+  --border-strong:#999999;
+  --border-inverse:#2A2A2A;
+
+  /* Legacy aliases — remapped to brand B/W. No blue. */
+  --paper:#FFFFFF;
+  --soft:#F5F5F5;
+  --steel:#000000;
+  --steel-dark:#000000;
+  --graphite:#404040;
+  --ink:#000000;
+
+  /* Type system */
+  --display:var(--font-archivo-black), system-ui, sans-serif;
+  --body:var(--font-archivo), system-ui, -apple-system, sans-serif;
 
   --ease:cubic-bezier(0.16, 1, 0.3, 1);
   --easeInOut:cubic-bezier(0.7, 0, 0.3, 1);
-  /* Gentle deceleration — no snap, no overshoot. Used for loader letter expansion. */
   --ease-smooth:cubic-bezier(0.45, 0, 0.15, 1);
 
   --gutter:32px;
@@ -1517,3 +1546,226 @@ body.is-loading > :not(.loader){visibility:hidden}
   .reveal, .reveal-stagger > *{opacity:1 !important;transform:none !important}
   *{transition-duration:.001ms !important}
 }
+
+/* =========================================================
+   BRAND V1 — Won Vision overrides (Archivo, B/W, sharp)
+   Appended last so it wins against earlier declarations.
+========================================================= */
+
+/* --- Body baseline --- */
+body{
+  background:var(--bg);
+  color:var(--text-primary);
+  font-family:var(--body);
+  font-weight:400;
+}
+
+/* --- Selection: pure inverse, no blue --- */
+::selection{background:var(--fg);color:var(--bg)}
+
+/* --- Wordmark lockup (mark + WON VISION) --- */
+.wordmark{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4em;
+  font-family:var(--display);
+  font-weight:400;
+  letter-spacing:-0.01em;
+  line-height:1;
+  color:var(--fg);
+  text-transform:uppercase;
+}
+.wordmark__mark{
+  height:1.4em;
+  width:auto;
+  display:inline-block;
+  flex-shrink:0;
+}
+.wordmark__text{display:inline-block}
+.wordmark .accent{
+  color:inherit;
+  font-style:normal;
+  font-weight:inherit;
+  background:none !important;
+  padding:0;
+}
+
+/* --- Eyebrows / labels --- */
+.eyebrow{
+  font-family:var(--body);
+  font-weight:500;
+  color:var(--text-secondary);
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+}
+.eyebrow--light{color:var(--text-secondary-inverse)}
+
+/* --- H1 / display: Archivo Black, ALL CAPS --- */
+.h1, .hero__hed, .loader__wordmark{
+  font-family:var(--display);
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:-0.025em;
+  color:var(--text-primary);
+}
+.h1 em, .hero__hed em{
+  font-style:italic;
+  color:inherit;
+  font-weight:inherit;
+}
+
+/* --- Inverse heading on dark backgrounds (hero, dark sections) --- */
+.hero__hed,
+.section--ink .h1,
+.section--ink .h2,
+.section--ink .h3,
+.steps .step__name,
+.steps .step__num{
+  color:var(--text-primary-inverse);
+}
+.hero__slogan,
+.hero__eyebrow,
+.section--ink p,
+.section--ink .body-copy{
+  color:var(--text-secondary-inverse);
+}
+
+/* --- H2 / H3: Archivo (body), bolder weight, sentence case --- */
+.h2, .sb__name, .step__name, .process__name,
+.svc-page__intro h2, .cat__head h3, .svc-card__name,
+.con-b__copy h2, .foot h4{
+  font-family:var(--body);
+  font-weight:700;
+  text-transform:none;
+  letter-spacing:-0.02em;
+  color:var(--text-primary);
+}
+.h3, .sb__name, .svc-card__name{
+  font-family:var(--body);
+  font-weight:600;
+  letter-spacing:-0.015em;
+}
+
+/* em inside headings: italic only, no colour change */
+.h2 em, .h3 em, .sb__name em, .step__name em,
+.process__name em, .svc-page__intro h2 em,
+.cat__head h3 em, .svc-card__name em,
+.con-b__copy h2 em{
+  font-style:italic;
+  color:inherit;
+  font-weight:inherit;
+}
+
+/* --- Hero wordmark: kill the steel underline, full white --- */
+.hero__hed--wordmark .accent{
+  background:none !important;
+  color:var(--text-primary-inverse) !important;
+  padding-bottom:0 !important;
+}
+.hero__hed .underline{
+  background-image:linear-gradient(var(--text-primary-inverse),var(--text-primary-inverse));
+}
+
+/* --- Body copy hierarchy --- */
+.body-copy, .lede{color:var(--text-secondary)}
+.lede{font-family:var(--body);font-style:italic;font-weight:400}
+
+/* --- Buttons / CTAs: B/W only, sharp corners --- */
+.nav__cta,
+.nav__cta--ghost,
+.loader__btn{
+  border-color:var(--fg);
+  color:var(--fg);
+  border-radius:0;
+}
+.nav__cta::before,
+.loader__btn::before{background:var(--fg)}
+.nav__cta:hover,
+.loader__btn:hover{color:var(--fg)}
+.nav__cta:hover::before,
+.loader__btn:hover::before{transform:scaleX(0)}
+.nav__cta--ghost{color:var(--fg);border-color:var(--fg)}
+.nav__cta--ghost:hover{color:var(--bg)}
+
+/* Inverse CTA (over dark hero / dark sections) */
+.nav.is-light .nav__cta,
+.section--ink .nav__cta{
+  color:var(--bg);
+  border-color:var(--bg);
+}
+.nav.is-light .nav__cta::before,
+.section--ink .nav__cta::before{background:var(--bg)}
+.nav.is-light .nav__cta:hover,
+.section--ink .nav__cta:hover{color:var(--fg)}
+
+/* --- Nav drawer: inverse mode --- */
+.nav__drawer{background:var(--bg-inverse);color:var(--text-primary-inverse)}
+.nav__drawer ul a{
+  color:var(--text-primary-inverse);
+  font-family:var(--display);
+  font-weight:400;
+  text-transform:uppercase;
+}
+.nav__drawer ul a em{font-style:italic;color:inherit}
+.nav__drawer .drawer-cta{
+  background:var(--bg);
+  color:var(--fg);
+  border-radius:0;
+}
+.nav__drawer .drawer-cta:hover{background:var(--text-secondary-inverse);color:var(--fg)}
+.nav__drawer__foot{color:var(--text-muted-inverse)}
+
+/* --- Loader: pure B/W, no steel V --- */
+.lw__W, .lw__V,
+.lw__rest--on > span,
+.lw__rest--isi > span{color:var(--fg)}
+.lw__bar{background:var(--fg)}
+
+/* --- Service map: black radius circle + pip, no steel --- */
+.con-b__map .leaflet-container{background:var(--bg)}
+
+/* --- Sharp corners everywhere; photos square --- */
+.work__item img,
+.sb__card__img img,
+.process__media img,
+.gallery__item img,
+.svc-card__media img{
+  border-radius:0;
+}
+.sb__card,
+.svc-card,
+.work__item,
+.process__item,
+.fp-config,
+.cart,
+.summary{
+  border-radius:0;
+}
+
+/* --- Borders: neutral grey, no tint --- */
+.svc-card{border-color:var(--border)}
+.svc-card:hover{border-color:var(--fg)}
+.svc-card.is-added{
+  border-color:var(--fg);
+  background:var(--bg);
+}
+.svc-card.is-added .svc-card__add{
+  background:var(--fg);
+  color:var(--bg);
+  border-color:var(--fg);
+}
+
+/* --- Steel-tinted backgrounds → neutral --- */
+[style*="rgba(74,97,120"]{background:var(--bg) !important}
+
+/* --- Form errors: keep red (semantic) but don't ship anywhere else --- */
+
+/* --- Footer: inverse acceptable --- */
+.foot{background:var(--bg);color:var(--text-primary)}
+.foot h4{color:var(--text-primary)}
+.foot a{color:var(--text-primary)}
+.foot p{color:var(--text-secondary)}
+.foot__rule{background:var(--border)}
+
+/* --- Accessibility: links underline subtly on hover only (no colour change) --- */
+a{color:inherit}

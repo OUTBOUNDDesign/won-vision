@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Wordmark } from './components/Wordmark';
 
 export const metadata: Metadata = {
   title: {
@@ -29,14 +30,6 @@ export default function HomePage() {
       <Script id="wv-skip-loader" strategy="beforeInteractive">
         {`if (sessionStorage.getItem('wv-entered') === '1') { document.documentElement.classList.add('wv-skip-loader'); }`}
       </Script>
-
-      {/* Google Fonts — Abhaya Libre + Inter */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
 
       {/* Leaflet stylesheet for the contact map */}
       <link
@@ -70,8 +63,8 @@ export default function HomePage() {
 
       <header className="nav" data-start-light="true">
         <div className="nav__brand">
-          <a href="#top" className="wordmark" aria-label="Won Vision — home" data-home>
-            WON <span className="accent">VISION</span>
+          <a href="#top" aria-label="Won Vision — home" data-home>
+            <Wordmark />
           </a>
         </div>
         <nav className="nav__links">
@@ -325,7 +318,7 @@ export default function HomePage() {
         <div className="foot__inner">
           <div className="foot__top reveal-stagger">
             <div>
-              <a href="#top" className="wordmark" data-home>WON <span className="accent" style={{ color: 'var(--steel)' }}>VISION</span></a>
+              <a href="#top" data-home aria-label="Won Vision — home"><Wordmark /></a>
               <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
             </div>
             <div>

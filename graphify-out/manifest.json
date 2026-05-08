@@ -1,110 +1,182 @@
 {
   "/Users/kiranc/Code/won-media/next-env.d.ts": {
-    "mtime": 1778134112.4281893,
+    "mtime": 1778136236.4605727,
     "hash": "2a74d3909800ca5467fa83b0ab4a4890"
   },
+  "/Users/kiranc/Code/won-media/playwright.config.ts": {
+    "mtime": 1778213433.9518425,
+    "hash": "e1fd390a6fac875702fd8b488c89932d"
+  },
   "/Users/kiranc/Code/won-media/next.config.ts": {
-    "mtime": 1778133344.4252033,
-    "hash": "53454d5be770288438c5ca646afaf838"
+    "mtime": 1778213433.9481418,
+    "hash": "7291bb137f7afafee4fd11f52d970924"
+  },
+  "/Users/kiranc/Code/won-media/app/fonts.ts": {
+    "mtime": 1778215394.1707978,
+    "hash": "da6f0ac5664dcba581e09adfb18d627f"
   },
   "/Users/kiranc/Code/won-media/app/layout.tsx": {
-    "mtime": 1778134028.1491432,
-    "hash": "d0d32163797421bfb818c85f1e401750"
+    "mtime": 1778216356.2225077,
+    "hash": "1549b54e970419898ae4467b3fa710c0"
   },
   "/Users/kiranc/Code/won-media/app/page.tsx": {
-    "mtime": 1778134029.1615326,
-    "hash": "c6d0be17e2e89732fb5026917a63866c"
+    "mtime": 1778215504.9676192,
+    "hash": "0f1355abedafc034413ff1cdf911f1ce"
+  },
+  "/Users/kiranc/Code/won-media/app/gallery/page.tsx": {
+    "mtime": 1778215529.0478537,
+    "hash": "ce8cdb584261426c49b1184677011c50"
+  },
+  "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx": {
+    "mtime": 1778215388.6217372,
+    "hash": "cd1c50f8dbd001329dedb3a498a6f341"
+  },
+  "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx": {
+    "mtime": 1778215381.786019,
+    "hash": "3a7df8efcb64430e06352b3b197acad0"
+  },
+  "/Users/kiranc/Code/won-media/app/book/page.tsx": {
+    "mtime": 1778215558.3234966,
+    "hash": "dff92fdcdcaf7dc38ee0f503b2829630"
+  },
+  "/Users/kiranc/Code/won-media/app/book/schedule/page.tsx": {
+    "mtime": 1778215614.1128447,
+    "hash": "4999949a0fbfb79d90c15ab75ae204de"
+  },
+  "/Users/kiranc/Code/won-media/app/book/confirmation/page.tsx": {
+    "mtime": 1778215643.9281795,
+    "hash": "c12e3e93f4e9916d9811077aa9f80c34"
+  },
+  "/Users/kiranc/Code/won-media/app/book/checkout/page.tsx": {
+    "mtime": 1778215586.784402,
+    "hash": "bcafc963ebd485daf199aa26c6f20c6c"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/redirects.spec.ts": {
+    "mtime": 1778213433.9617453,
+    "hash": "cf73b55ac4b444592b810383d4d0a511"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/smoke.spec.ts": {
+    "mtime": 1778213433.963332,
+    "hash": "ba2ec13baebf623ad425ccbcc5149317"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/book-confirmation.spec.ts": {
+    "mtime": 1778213433.9573624,
+    "hash": "7ebfd19cd0ac79250070d5c836366d33"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/book-schedule.spec.ts": {
+    "mtime": 1778213433.958247,
+    "hash": "fe7440aa979e28fbf2e81695099e1db2"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/home.spec.ts": {
+    "mtime": 1778213433.9610305,
+    "hash": "57f2f00a44894435ca985dffeb2fe315"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/book-checkout.spec.ts": {
+    "mtime": 1778213433.9570987,
+    "hash": "bbc61b7f15ce337f4a910658d0ba72bc"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/gallery.spec.ts": {
+    "mtime": 1778213433.9602501,
+    "hash": "7c0d271aff0c8212f00eeb10dee5bbb1"
+  },
+  "/Users/kiranc/Code/won-media/tests/visual/book.spec.ts": {
+    "mtime": 1778213433.9585264,
+    "hash": "82779c45e1df564c76dea617f8153b47"
   },
   "/Users/kiranc/Code/won-media/public/script.js": {
-    "mtime": 1777519527.202535,
-    "hash": "5e66912199065160c4ce04b592c40dfd"
+    "mtime": 1778213433.9561846,
+    "hash": "ec285555fd372b2dfb771a11418b023f"
   },
   "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-07-phase-1-nextjs-migration.md": {
-    "mtime": 1778130655.953403,
+    "mtime": 1778213433.9375336,
     "hash": "74555493fd0bf8b40c043cebb986128b"
   },
   "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-07-won-vision-photo-editor-roadmap.md": {
-    "mtime": 1778130386.7007966,
+    "mtime": 1778213433.9382737,
     "hash": "47f59cefa689e05be4451784675b370a"
   },
   "/Users/kiranc/Code/won-media/public/robots.txt": {
-    "mtime": 1777618567.6512773,
+    "mtime": 1778213433.9555168,
     "hash": "d3e4e74781e387fc09b847c01e124f56"
   },
   "/Users/kiranc/Code/won-media/_archive/index.html": {
-    "mtime": 1777701012.9128344,
+    "mtime": 1778213433.92564,
     "hash": "a9c1801d2f077a0f89f15660aca4a625"
   },
   "/Users/kiranc/Code/won-media/_archive/heroes-v2.html": {
-    "mtime": 1777701012.8013716,
+    "mtime": 1778213433.9248512,
     "hash": "dee80f1c0c13b13e110c5e56b0e0d712"
   },
   "/Users/kiranc/Code/won-media/_archive/book-schedule.html": {
-    "mtime": 1777701012.584448,
+    "mtime": 1778213433.9231663,
     "hash": "b2d13c6a6a3f81f6388d8f12dce77849"
   },
   "/Users/kiranc/Code/won-media/_archive/loader-text.html": {
-    "mtime": 1777701012.9539607,
+    "mtime": 1778213433.9259846,
     "hash": "f3d7af99a4255d7a0507986c3d2860eb"
   },
   "/Users/kiranc/Code/won-media/_archive/book-hero-options.html": {
-    "mtime": 1777701012.5394182,
+    "mtime": 1778213433.9227502,
     "hash": "9bce3952eb119fd6f28c6570566b78cb"
   },
   "/Users/kiranc/Code/won-media/_archive/steps-more.html": {
-    "mtime": 1777701013.038927,
+    "mtime": 1778213433.926942,
     "hash": "3c7be223f5ef3d71f74c72b5ef9e807f"
   },
   "/Users/kiranc/Code/won-media/_archive/gallery.html": {
-    "mtime": 1777701012.7089074,
+    "mtime": 1778213433.9244654,
     "hash": "a82c74b0b63fc2e6c916ce161abe2d98"
   },
   "/Users/kiranc/Code/won-media/_archive/book-confirmation.html": {
-    "mtime": 1777701012.491677,
+    "mtime": 1778213433.92239,
     "hash": "0f44d7d7121699ccb7d24f4672572fbd"
   },
   "/Users/kiranc/Code/won-media/_archive/book.html": {
-    "mtime": 1777701012.6226084,
+    "mtime": 1778213433.9236302,
     "hash": "aa59bbc600b7f52d569d77329da2289a"
   },
   "/Users/kiranc/Code/won-media/_archive/book-checkout.html": {
-    "mtime": 1777701012.4437428,
+    "mtime": 1778213433.921967,
     "hash": "1bd37feb19430eb02a486a99548bfce9"
   },
   "/Users/kiranc/Code/won-media/_archive/heroes.html": {
-    "mtime": 1777701012.866816,
+    "mtime": 1778213433.9252772,
     "hash": "ea0173eb7982d58f3f379a4288790b0a"
   },
   "/Users/kiranc/Code/won-media/_archive/examples.html": {
-    "mtime": 1777701012.6701326,
+    "mtime": 1778213433.9240825,
     "hash": "4e9c20e1579e5ecbd197a9300e61e97a"
   },
   "/Users/kiranc/Code/won-media/_archive/services-options.html": {
-    "mtime": 1777701012.9972453,
+    "mtime": 1778213433.926332,
     "hash": "113ce25fb08ab7f4e56fdc1ee57ff423"
   },
+  "/Users/kiranc/Code/won-media/public/won-vision-mark.svg": {
+    "mtime": 1778215372.905924,
+    "hash": "a8b1c3def261d410791cfb872383aca4"
+  },
   "/Users/kiranc/Code/won-media/public/assets/favicon-source.png": {
-    "mtime": 1777549727.1409533,
+    "mtime": 1778213433.9548926,
     "hash": "f173e5c5c27f89c05b11dba3864c3267"
   },
   "/Users/kiranc/Code/won-media/public/assets/favicon-192.png": {
-    "mtime": 1777549736.1838214,
+    "mtime": 1778213433.952938,
     "hash": "a6148e7c5b4cd959294ef12b059e06d2"
   },
   "/Users/kiranc/Code/won-media/public/assets/apple-touch-icon.png": {
-    "mtime": 1777549736.350509,
+    "mtime": 1778213433.9523065,
     "hash": "42b82e271492da0297044ccc3de1469a"
   },
   "/Users/kiranc/Code/won-media/public/assets/favicon-16.png": {
-    "mtime": 1777549736.2941911,
+    "mtime": 1778213433.9526236,
     "hash": "388cfb6adde135e45f3c3743eca2db9a"
   },
   "/Users/kiranc/Code/won-media/public/assets/favicon-32.png": {
-    "mtime": 1777549736.2390826,
+    "mtime": 1778213433.9532065,
     "hash": "f3e47986be6355dc0b2dd1f1a6e321ba"
   },
   "/Users/kiranc/Code/won-media/public/assets/favicon-512.png": {
-    "mtime": 1777549736.1257362,
+    "mtime": 1778213433.9537127,
     "hash": "95004ce5f74d08603dec849c4d6ce859"
   }
 }

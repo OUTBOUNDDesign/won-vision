@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import { Wordmark } from '../../components/Wordmark';
 
 export const metadata: Metadata = {
   title: 'Checkout',
@@ -11,12 +12,6 @@ export const metadata: Metadata = {
 export default function CheckoutPage() {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
       <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -127,7 +122,7 @@ export default function CheckoutPage() {
 
       <header className="nav is-stuck">
         <div className="nav__brand">
-          <Link href="/#top" className="wordmark" data-home>WON <span className="accent">VISION</span></Link>
+          <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
         </div>
         <nav className="nav__links">
           <Link href="/#services">Services</Link>
@@ -262,7 +257,7 @@ export default function CheckoutPage() {
         <div className="foot__inner">
           <div className="foot__top">
             <div>
-              <Link href="/#top" className="wordmark" data-home>WON <span className="accent" style={{ color: 'var(--steel)' }}>VISION</span></Link>
+              <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
               <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
             </div>
             <div><h4>Studio</h4><ul>

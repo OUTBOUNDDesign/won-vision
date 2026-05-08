@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Wordmark } from '../components/Wordmark';
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -10,18 +11,10 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      {/* Google Fonts — Abhaya Libre + Inter */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
-
       <header className="nav">
         <div className="nav__brand">
-          <Link href="/#top" className="wordmark" aria-label="Won Vision — home">
-            WON <span className="accent">VISION</span>
+          <Link href="/#top" aria-label="Won Vision — home">
+            <Wordmark />
           </Link>
         </div>
         <nav className="nav__links">
@@ -241,7 +234,7 @@ export default function GalleryPage() {
         <div className="foot__inner">
           <div className="foot__top">
             <div>
-              <Link href="/#top" className="wordmark">WON <span className="accent" style={{ color: 'var(--steel)' }}>VISION</span></Link>
+              <Link href="/#top" aria-label="Won Vision — home"><Wordmark /></Link>
               <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
             </div>
             <div>

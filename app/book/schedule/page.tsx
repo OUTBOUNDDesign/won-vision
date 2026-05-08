@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import { Wordmark } from '../../components/Wordmark';
 
 export const metadata: Metadata = {
   title: 'Schedule',
@@ -11,12 +12,6 @@ export const metadata: Metadata = {
 export default function SchedulePage() {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
       <style>{`
   .datetime-row{
     display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:end;
@@ -73,7 +68,7 @@ export default function SchedulePage() {
 
       <header className="nav is-stuck">
         <div className="nav__brand">
-          <Link href="/#top" className="wordmark" data-home>WON <span className="accent">VISION</span></Link>
+          <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
         </div>
         <nav className="nav__links">
           <Link href="/#services">Services</Link>
@@ -232,7 +227,7 @@ export default function SchedulePage() {
         <div className="foot__inner">
           <div className="foot__top">
             <div>
-              <Link href="/#top" className="wordmark" data-home>WON <span className="accent" style={{ color: 'var(--steel)' }}>VISION</span></Link>
+              <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
               <p>A Melbourne property media studio.</p>
             </div>
             <div><h4>Studio</h4><ul>
