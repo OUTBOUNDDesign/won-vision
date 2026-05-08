@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Won Vision — Services · Row Explorations (Round 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap">
+<style>
+  :root{
+    --bg:#fff; --fg:#000;
+    --text-secondary:#404040; --text-muted:#737373;
+    --border:#E5E5E5;
+    --display:'Archivo Black', system-ui, sans-serif;
+    --body:'Archivo', system-ui, sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  .doc-head{padding:64px 32px 32px;border-bottom:1px solid var(--border);max-width:1480px;margin:0 auto}
+  .doc-head h1{font-family:var(--display);font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:16px}
+  .doc-head p{color:var(--text-secondary);max-width:720px;font-size:18px}
+  .doc-toc{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+  .doc-toc a{padding:10px 16px;border:1px solid var(--fg);transition:background .25s ease,color .25s ease}
+  .doc-toc a:hover{background:var(--fg);color:var(--bg)}
+  .doc-back{margin-top:16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
+  .doc-back a{text-decoration:underline}
+
+  .variant-head{padding:64px 32px 24px;max-width:1480px;margin:0 auto}
+  .variant-head .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .variant-head h2{font-family:var(--body);font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.02em;margin-top:8px}
+  .variant-head .vsub{color:var(--text-secondary);margin-top:10px;max-width:680px}
+
+  .variant + .variant{border-top:1px solid var(--border);margin-top:48px}
+
+  /* ============================================================
+     V5 — Pinned title, scrolling image strip
+     Big sticky service title on the left, images scroll horizontally
+     across the right. Each service is its own pinned chapter.
+     ============================================================ */
+  .v5{display:flex;flex-direction:column;background:var(--bg)}
+  .v5__chap{display:grid;grid-template-columns:42% 1fr;border-bottom:1px solid var(--border);min-height:72vh}
+  .v5__title{position:sticky;top:0;align-self:start;height:100%;display:flex;flex-direction:column;justify-content:center;gap:24px;padding:80px 48px;border-right:1px solid var(--border)}
+  .v5__chap{position:relative}
+  .v5__num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+  .v5__name{font-family:var(--display);font-size:clamp(48px,6.4vw,108px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+  .v5__desc{color:var(--text-secondary);max-width:380px;font-size:16px;line-height:1.5}
+  .v5__strip{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .v5__strip::-webkit-scrollbar{display:none}
+  .v5__shot{flex:0 0 65%;aspect-ratio:4/5;scroll-snap-align:start;background:#000;position:relative;overflow:hidden}
+  .v5__shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.95);transition:transform 1s var(--ease)}
+  .v5__shot:hover img{transform:scale(1.04)}
+  .v5__shot__cap{position:absolute;left:24px;bottom:24px;color:#fff;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.85}
+  @media (max-width: 900px){
+    .v5__chap{grid-template-columns:1fr;min-height:auto}
+    .v5__title{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--border);padding:48px 24px}
+    .v5__shot{flex-basis:80%}
+  }
+
+  /* ============================================================
+     V6 — Asymmetric magazine grid
+     Each row is two columns but the proportions flip 1/3+2/3 → 2/3+1/3
+     and the copy block alternates left/right. Magazine rhythm.
+     ============================================================ */
+  .v6{display:flex;flex-direction:column;background:var(--bg)}
+  .v6__row{display:grid;min-height:520px;border-bottom:1px solid var(--border)}
+  .v6__row--a{grid-template-columns:38% 1fr}
+  .v6__row--b{grid-template-columns:1fr 38%}
+  .v6__row--c{grid-template-columns:55% 1fr}
+  .v6__row--d{grid-template-columns:1fr 55%}
+  .v6__row--e{grid-template-columns:1fr 1fr}
+  .v6__media{position:relative;overflow:hidden;background:#000}
+  .v6__media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.95);transition:transform 1s var(--ease)}
+  .v6__row:hover .v6__media img{transform:scale(1.04)}
+  .v6__copy{padding:64px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .v6__num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+  .v6__name{font-family:var(--display);font-size:clamp(36px,4.6vw,72px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase}
+  .v6__desc{color:var(--text-secondary);font-size:17px;line-height:1.55;max-width:440px}
+  .v6__cta{align-self:start;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--fg);padding-bottom:4px;margin-top:8px}
+  @media (max-width: 900px){
+    .v6__row{grid-template-columns:1fr !important}
+    .v6__media{aspect-ratio:5/4}
+    .v6__copy{padding:48px 24px}
+  }
+
+  /* ============================================================
+     V7 — Numeral-led rows (big-number backdrop)
+     Each row has a HUGE faded numeral as the background type, a small
+     image inset, and the service name overlaid. Numbers carry the page.
+     ============================================================ */
+  .v7{background:var(--bg)}
+  .v7__row{position:relative;overflow:hidden;border-bottom:1px solid var(--border);padding:64px 32px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px;min-height:360px}
+  .v7__bignum{position:absolute;left:-2vw;bottom:-8vh;font-family:var(--display);font-size:clamp(280px,42vw,560px);line-height:.78;letter-spacing:-.06em;color:var(--fg);opacity:.06;pointer-events:none;user-select:none;z-index:0}
+  .v7__main{position:relative;z-index:1;max-width:680px;margin-left:6vw}
+  .v7__eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);font-weight:500;display:block;margin-bottom:14px}
+  .v7__name{font-family:var(--display);font-size:clamp(40px,5.6vw,96px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+  .v7__desc{color:var(--text-secondary);font-size:17px;line-height:1.55;margin-top:18px;max-width:520px}
+  .v7__cta{display:inline-block;margin-top:24px;padding:14px 26px;border:1px solid var(--fg);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;background:var(--fg);color:var(--bg);transition:background .35s ease,color .35s ease}
+  .v7__cta:hover{background:transparent;color:var(--fg)}
+  .v7__shot{position:relative;z-index:1;width:clamp(220px,26vw,360px);aspect-ratio:3/4;overflow:hidden;background:#000}
+  .v7__shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.95);transition:transform 1s var(--ease)}
+  .v7__row:hover .v7__shot img{transform:scale(1.05)}
+  @media (max-width: 900px){
+    .v7__row{grid-template-columns:1fr;gap:24px}
+    .v7__main{margin-left:0}
+    .v7__shot{width:100%;aspect-ratio:5/4}
+  }
+
+  /* ============================================================
+     V8 — Overlap caption rows
+     Image fills the row, the service title overhangs the bottom edge
+     of the image into white space. Editorial print energy.
+     ============================================================ */
+  .v8{background:var(--bg)}
+  .v8__row{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:80px 48px 48px;border-bottom:1px solid var(--border);align-items:end}
+  .v8__row:nth-child(even){direction:rtl}
+  .v8__row:nth-child(even) > *{direction:ltr}
+  .v8__media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+  .v8__media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.92);transition:transform 1.1s var(--ease)}
+  .v8__row:hover .v8__media img{transform:scale(1.04)}
+  .v8__overhang{position:absolute;left:-12px;bottom:-32px;z-index:2}
+  .v8__row:nth-child(even) .v8__overhang{left:auto;right:-12px}
+  .v8__name{font-family:var(--display);font-size:clamp(64px,9vw,168px);line-height:.85;letter-spacing:-.04em;text-transform:uppercase;color:var(--fg);text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff;}
+  .v8__copy{padding-bottom:24px;max-width:420px}
+  .v8__num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);font-weight:500;display:block;margin-bottom:10px}
+  .v8__desc{color:var(--text-secondary);font-size:17px;line-height:1.55}
+  .v8__cta{margin-top:18px;display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--fg);padding-bottom:4px}
+  @media (max-width: 900px){
+    .v8__row,.v8__row:nth-child(even){grid-template-columns:1fr;direction:ltr;gap:24px;padding:48px 24px}
+    .v8__overhang,.v8__row:nth-child(even) .v8__overhang{position:relative;left:0;right:auto;bottom:0;margin-top:-48px}
+    .v8__name{font-size:18vw}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <h1>Services — Row Variants · Round 2</h1>
+  <p>Four more directions, all in the same alternating-row family as V3 since that's the favourite. Each one keeps the row rhythm but changes which element leads — image, type, numerals, or magazine layout.</p>
+  <p class="doc-back"><a href="services-explorations.html">← Back to round 1 (V1–V4)</a></p>
+  <nav class="doc-toc">
+    <a href="#v5">V5 — Pinned title + image strip</a>
+    <a href="#v6">V6 — Asymmetric magazine grid</a>
+    <a href="#v7">V7 — Numeral-led rows</a>
+    <a href="#v8">V8 — Overlap caption rows</a>
+  </nav>
+</header>
+
+<!-- V5 ============================================================ -->
+<section class="variant" id="v5">
+  <div class="variant-head">
+    <span class="eyebrow">V5 — Pinned title, scrolling strip</span>
+    <h2>Sticky service title with horizontal photo gallery</h2>
+    <p class="vsub">The service title pins on the left while a horizontal strip of photos scrolls under it on the right. Each service becomes its own chapter — quietly editorial, supports 3–6 photos per service without crowding.</p>
+  </div>
+  <div class="v5">
+    <div class="v5__chap">
+      <div class="v5__title"><span class="v5__num">01 / Photography</span><h3 class="v5__name">Photography</h3><p class="v5__desc">Naturally coloured stills, twilight on request. Wide architectural and tight detail in the same pass.</p></div>
+      <div class="v5__strip">
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=85" alt=""><span class="v5__shot__cap">Carlton North · Living</span></div>
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85" alt=""><span class="v5__shot__cap">Fitzroy · Kitchen</span></div>
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1400&q=85" alt=""><span class="v5__shot__cap">Northcote · Bedroom</span></div>
+      </div>
+    </div>
+    <div class="v5__chap">
+      <div class="v5__title"><span class="v5__num">02 / Video</span><h3 class="v5__name">Video</h3><p class="v5__desc">Cut walkthroughs and lifestyle reels. Web-ready masters plus social cuts.</p></div>
+      <div class="v5__strip">
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1400&q=85" alt=""><span class="v5__shot__cap">Brunswick · Reel</span></div>
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=85" alt=""><span class="v5__shot__cap">Carlton · Walkthrough</span></div>
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1400&q=85" alt=""><span class="v5__shot__cap">Hawthorn · Reel</span></div>
+      </div>
+    </div>
+    <div class="v5__chap">
+      <div class="v5__title"><span class="v5__num">03 / Drone</span><h3 class="v5__name">Drone</h3><p class="v5__desc">CASA-licensed, fully insured. Aerial integrated with the ground shoot in a single visit.</p></div>
+      <div class="v5__strip">
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=85" alt=""><span class="v5__shot__cap">Brunswick · Aerial</span></div>
+        <div class="v5__shot"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85" alt=""><span class="v5__shot__cap">Fitzroy · Block</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V6 ============================================================ -->
+<section class="variant" id="v6">
+  <div class="variant-head">
+    <span class="eyebrow">V6 — Asymmetric magazine grid</span>
+    <h2>Row proportions shift — narrow image, wide image, square</h2>
+    <p class="vsub">Same alternating-row spine as V3 but the column proportions shift each row (38/62, 62/38, 50/50). Reads like a print magazine spread — never the same beat twice. Side flips alternate to keep eye flow.</p>
+  </div>
+  <div class="v6">
+    <div class="v6__row v6__row--a">
+      <div class="v6__media"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt=""></div>
+      <div class="v6__copy"><span class="v6__num">01 / Photography</span><h3 class="v6__name">Photography</h3><p class="v6__desc">Stills, twilight, naturally coloured. Wide architectural and tight detail captured in a single pass.</p><a class="v6__cta" href="#">Book photography →</a></div>
+    </div>
+    <div class="v6__row v6__row--b">
+      <div class="v6__copy"><span class="v6__num">02 / Video</span><h3 class="v6__name">Video</h3><p class="v6__desc">Cut walkthroughs and lifestyle reels with web masters and social ratios delivered alongside.</p><a class="v6__cta" href="#">Book video →</a></div>
+      <div class="v6__media"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&q=85" alt=""></div>
+    </div>
+    <div class="v6__row v6__row--c">
+      <div class="v6__media"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=85" alt=""></div>
+      <div class="v6__copy"><span class="v6__num">03 / Drone</span><h3 class="v6__name">Drone</h3><p class="v6__desc">CASA-licensed, fully insured. Aerial added to the ground shoot in a single visit.</p><a class="v6__cta" href="#">Book drone →</a></div>
+    </div>
+    <div class="v6__row v6__row--d">
+      <div class="v6__copy"><span class="v6__num">04 / Floor plans</span><h3 class="v6__name">Floor plans</h3><p class="v6__desc">2D and 3D, brand-aligned in your colours. Editable PDF and SVG masters.</p><a class="v6__cta" href="#">Book plans →</a></div>
+      <div class="v6__media"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=85" alt=""></div>
+    </div>
+    <div class="v6__row v6__row--e">
+      <div class="v6__media"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85" alt=""></div>
+      <div class="v6__copy"><span class="v6__num">05 / Virtual staging</span><h3 class="v6__name">Virtual staging</h3><p class="v6__desc">Restrained, architectural staging. Empty rooms become editor-grade interiors without changing the bones.</p><a class="v6__cta" href="#">Book staging →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- V7 ============================================================ -->
+<section class="variant" id="v7">
+  <div class="variant-head">
+    <span class="eyebrow">V7 — Numeral-led rows</span>
+    <h2>Huge faded numeral behind each row</h2>
+    <p class="vsub">Every row has a massive Archivo Black numeral (01, 02 …) ghosted in the background at 6% opacity. The numbers do the design work; the photo can stay small and disciplined. Strong, typographic, very studio-monograph.</p>
+  </div>
+  <div class="v7">
+    <div class="v7__row">
+      <span class="v7__bignum">01</span>
+      <div class="v7__main">
+        <span class="v7__eyebrow">Service</span>
+        <h3 class="v7__name">Photography</h3>
+        <p class="v7__desc">Stills, twilight, naturally coloured. Wide architectural and tight detail in a single pass.</p>
+        <a class="v7__cta" href="#">Book photography →</a>
+      </div>
+      <div class="v7__shot"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1200&q=85" alt=""></div>
+    </div>
+    <div class="v7__row">
+      <span class="v7__bignum">02</span>
+      <div class="v7__main">
+        <span class="v7__eyebrow">Service</span>
+        <h3 class="v7__name">Video</h3>
+        <p class="v7__desc">Cut walkthroughs and lifestyle reels. Web masters plus social cuts.</p>
+        <a class="v7__cta" href="#">Book video →</a>
+      </div>
+      <div class="v7__shot"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85" alt=""></div>
+    </div>
+    <div class="v7__row">
+      <span class="v7__bignum">03</span>
+      <div class="v7__main">
+        <span class="v7__eyebrow">Service</span>
+        <h3 class="v7__name">Drone</h3>
+        <p class="v7__desc">CASA-licensed, fully insured. Aerial added to the ground shoot in a single visit.</p>
+        <a class="v7__cta" href="#">Book drone →</a>
+      </div>
+      <div class="v7__shot"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=85" alt=""></div>
+    </div>
+    <div class="v7__row">
+      <span class="v7__bignum">04</span>
+      <div class="v7__main">
+        <span class="v7__eyebrow">Service</span>
+        <h3 class="v7__name">Floor plans</h3>
+        <p class="v7__desc">2D and 3D, brand-aligned in your colours. Editable PDF and SVG masters.</p>
+        <a class="v7__cta" href="#">Book plans →</a>
+      </div>
+      <div class="v7__shot"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=85" alt=""></div>
+    </div>
+    <div class="v7__row">
+      <span class="v7__bignum">05</span>
+      <div class="v7__main">
+        <span class="v7__eyebrow">Service</span>
+        <h3 class="v7__name">Virtual staging</h3>
+        <p class="v7__desc">Restrained, architectural staging. Empty rooms become editor-grade interiors.</p>
+        <a class="v7__cta" href="#">Book staging →</a>
+      </div>
+      <div class="v7__shot"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- V8 ============================================================ -->
+<section class="variant" id="v8">
+  <div class="variant-head">
+    <span class="eyebrow">V8 — Overlap caption rows</span>
+    <h2>Service title overhangs the image into white space</h2>
+    <p class="vsub">Image left, copy right (alternating). The service title is set massive and bleeds out of the image's bottom-left corner into the white margin — print-style overhang. Confident, gallery-monograph energy without going maximalist.</p>
+  </div>
+  <div class="v8">
+    <div class="v8__row">
+      <div class="v8__media"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt=""><span class="v8__overhang"><span class="v8__name">Photo</span></span></div>
+      <div class="v8__copy"><span class="v8__num">01 / Photography</span><p class="v8__desc">Stills, twilight, naturally coloured. Wide architectural and tight detail in a single pass.</p><a class="v8__cta" href="#">Book photography →</a></div>
+    </div>
+    <div class="v8__row">
+      <div class="v8__media"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&q=85" alt=""><span class="v8__overhang"><span class="v8__name">Video</span></span></div>
+      <div class="v8__copy"><span class="v8__num">02 / Video</span><p class="v8__desc">Cut walkthroughs and lifestyle reels. Web masters plus social cuts.</p><a class="v8__cta" href="#">Book video →</a></div>
+    </div>
+    <div class="v8__row">
+      <div class="v8__media"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=85" alt=""><span class="v8__overhang"><span class="v8__name">Drone</span></span></div>
+      <div class="v8__copy"><span class="v8__num">03 / Drone</span><p class="v8__desc">CASA-licensed, fully insured. Aerial added to the ground shoot in a single visit.</p><a class="v8__cta" href="#">Book drone →</a></div>
+    </div>
+    <div class="v8__row">
+      <div class="v8__media"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=85" alt=""><span class="v8__overhang"><span class="v8__name">Plans</span></span></div>
+      <div class="v8__copy"><span class="v8__num">04 / Floor plans</span><p class="v8__desc">2D and 3D, brand-aligned in your colours. Editable PDF and SVG masters.</p><a class="v8__cta" href="#">Book plans →</a></div>
+    </div>
+    <div class="v8__row">
+      <div class="v8__media"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85" alt=""><span class="v8__overhang"><span class="v8__name">Staging</span></span></div>
+      <div class="v8__copy"><span class="v8__num">05 / Virtual staging</span><p class="v8__desc">Restrained, architectural staging. Empty rooms become editor-grade interiors.</p><a class="v8__cta" href="#">Book staging →</a></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

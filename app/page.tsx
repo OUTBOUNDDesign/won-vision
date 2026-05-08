@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Wordmark } from './components/Wordmark';
 import LoaderGate from './components/LoaderGate';
+import ServicesEditorial from './components/ServicesEditorial';
 
 export const metadata: Metadata = {
   title: {
@@ -82,34 +83,8 @@ export default function HomePage() {
         <div className="hero__cursor"></div>
       </section>
 
-      {/* SERVICES — full-bleed vertical tiles */}
-      <section id="services" className="services-tiles" aria-label="Services">
-        <a href="/book" className="tile">
-          <img className="tile__img" src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=80" alt="" />
-          <span className="tile__veil" aria-hidden="true" />
-          <span className="tile__label">Photography</span>
-        </a>
-        <a href="/book" className="tile">
-          <img className="tile__img" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1400&q=80" alt="" />
-          <span className="tile__veil" aria-hidden="true" />
-          <span className="tile__label">Video</span>
-        </a>
-        <a href="/book" className="tile">
-          <img className="tile__img" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=80" alt="" />
-          <span className="tile__veil" aria-hidden="true" />
-          <span className="tile__label">Drone</span>
-        </a>
-        <a href="/book" className="tile">
-          <img className="tile__img" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1400&q=80" alt="" />
-          <span className="tile__veil" aria-hidden="true" />
-          <span className="tile__label">Floor plans</span>
-        </a>
-        <a href="/book" className="tile">
-          <img className="tile__img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=80" alt="" />
-          <span className="tile__veil" aria-hidden="true" />
-          <span className="tile__label">Virtual staging</span>
-        </a>
-      </section>
+      {/* SERVICES — editorial index with sticky hover image (V2) */}
+      <ServicesEditorial />
 
       {/* SELECTED WORK */}
       <section id="work" className="section work">

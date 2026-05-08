@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Won Vision — Services Layout Explorations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap">
+<style>
+  :root{
+    --bg:#fff; --fg:#000;
+    --text-secondary:#404040; --text-muted:#737373;
+    --border:#E5E5E5; --border-strong:#999;
+    --display:'Archivo Black', system-ui, sans-serif;
+    --body:'Archivo', system-ui, sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* Doc shell */
+  .doc-head{padding:64px 32px 32px;border-bottom:1px solid var(--border);max-width:1480px;margin:0 auto}
+  .doc-head h1{font-family:var(--display);font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:16px}
+  .doc-head p{color:var(--text-secondary);max-width:720px;font-size:18px;line-height:1.5}
+  .doc-toc{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;font-family:var(--body);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+  .doc-toc a{padding:10px 16px;border:1px solid var(--fg);transition:background .25s ease,color .25s ease}
+  .doc-toc a:hover{background:var(--fg);color:var(--bg)}
+
+  .variant-head{padding:64px 32px 24px;max-width:1480px;margin:0 auto}
+  .variant-head .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .variant-head h2{font-family:var(--body);font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.02em;margin-top:8px}
+  .variant-head .vsub{color:var(--text-secondary);margin-top:10px;max-width:640px}
+
+  .variant + .variant{border-top:1px solid var(--border);margin-top:48px}
+
+  /* ============================================================
+     V1 — Tiles (current AC Media-style baseline)
+     ============================================================ */
+  .v1-tiles{display:grid;grid-template-columns:repeat(5,1fr);height:80vh;min-height:520px;background:var(--fg)}
+  .v1-tile{position:relative;overflow:hidden;color:var(--bg);isolation:isolate}
+  .v1-tile + .v1-tile{border-left:1px solid #000}
+  .v1-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.55) contrast(1.05);transform:scale(1.02);transition:transform .9s var(--ease),filter .6s var(--ease)}
+  .v1-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.55) 100%);transition:background .45s var(--ease);pointer-events:none}
+  .v1-tile span{position:absolute;left:32px;bottom:32px;font-family:var(--display);font-size:clamp(18px,1.6vw,28px);text-transform:uppercase;letter-spacing:-.01em;line-height:.95;z-index:2}
+  .v1-tile:hover img{transform:scale(1.08);filter:grayscale(1) brightness(.7) contrast(1.05)}
+  .v1-tile:hover::after{background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 60%,rgba(0,0,0,.4) 100%)}
+
+  /* ============================================================
+     V2 — Editorial index (typographic list + sticky hover image)
+     ============================================================ */
+  .v2{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;background:var(--bg)}
+  .v2__list{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;gap:0}
+  .v2__row{display:grid;grid-template-columns:64px 1fr auto;gap:32px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:padding .35s var(--ease)}
+  .v2__row:first-child{border-top:1px solid var(--border)}
+  .v2__num{font-family:var(--body);font-size:11px;letter-spacing:.22em;font-weight:500;color:var(--text-muted);transform:translateY(-2px)}
+  .v2__name{font-family:var(--display);font-size:clamp(36px,4.5vw,68px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;transition:transform .35s var(--ease)}
+  .v2__meta{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+  .v2__row:hover{padding-left:16px}
+  .v2__row:hover .v2__name{transform:translateX(8px)}
+  .v2__pane{position:sticky;top:0;align-self:start;height:100vh;overflow:hidden;background:#000}
+  .v2__pane figure{position:absolute;inset:0;opacity:0;transition:opacity .55s var(--ease)}
+  .v2__pane figure.is-active{opacity:1}
+  .v2__pane figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.85)}
+  .v2__pane figure figcaption{position:absolute;left:32px;bottom:32px;color:#fff;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.85}
+  @media (max-width: 900px){
+    .v2{grid-template-columns:1fr}
+    .v2__pane{position:relative;height:60vh;order:-1}
+    .v2__list{padding:48px 24px}
+    .v2__row{grid-template-columns:auto 1fr;gap:16px}
+    .v2__meta{display:none}
+  }
+
+  /* ============================================================
+     V3 — Alternating stacked rows (image left/right swap)
+     ============================================================ */
+  .v3{display:flex;flex-direction:column;background:var(--bg)}
+  .v3__row{display:grid;grid-template-columns:1fr 1fr;min-height:560px;border-bottom:1px solid var(--border)}
+  .v3__row:nth-child(even){direction:rtl}
+  .v3__row:nth-child(even) > *{direction:ltr}
+  .v3__media{position:relative;overflow:hidden;background:#000}
+  .v3__media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.85);transition:transform 1.1s var(--ease),filter .6s var(--ease)}
+  .v3__row:hover .v3__media img{transform:scale(1.04);filter:grayscale(1) brightness(1)}
+  .v3__copy{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .v3__num{font-family:var(--body);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .v3__name{font-family:var(--display);font-size:clamp(40px,5.4vw,84px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+  .v3__desc{color:var(--text-secondary);max-width:480px;font-size:17px;line-height:1.55}
+  .v3__cta{align-self:start;margin-top:18px;padding:14px 28px;border:1px solid var(--fg);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;background:var(--fg);color:var(--bg);transition:background .35s ease,color .35s ease}
+  .v3__cta:hover{background:transparent;color:var(--fg)}
+  @media (max-width: 900px){
+    .v3__row,.v3__row:nth-child(even){grid-template-columns:1fr;direction:ltr}
+    .v3__media{aspect-ratio:5/4;min-height:auto}
+    .v3__copy{padding:48px 24px}
+  }
+
+  /* ============================================================
+     V4 — Sticky hover index (cinematic background swap)
+     ============================================================ */
+  .v4{position:relative;height:100vh;min-height:640px;overflow:hidden;background:#000;color:#fff}
+  .v4__bg{position:absolute;inset:0}
+  .v4__bg figure{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease)}
+  .v4__bg figure.is-active{opacity:1}
+  .v4__bg figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.5) contrast(1.05);transform:scale(1.04)}
+  .v4__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.55) 0%,rgba(0,0,0,.2) 60%,rgba(0,0,0,0) 100%);pointer-events:none}
+  .v4__inner{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:64px;z-index:2}
+  .v4__eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.8;margin-bottom:24px}
+  .v4__list{display:flex;flex-direction:column;gap:0}
+  .v4__item{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:center;padding:14px 0;cursor:pointer;border-top:1px solid rgba(255,255,255,.1);transition:padding-left .35s var(--ease)}
+  .v4__item:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+  .v4__num{font-family:var(--body);font-size:11px;letter-spacing:.22em;font-weight:500;opacity:.6}
+  .v4__name{font-family:var(--display);font-size:clamp(28px,3.6vw,56px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;transition:transform .35s var(--ease)}
+  .v4__arrow{font-size:14px;opacity:0;transform:translateX(-8px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .v4__item:hover{padding-left:16px}
+  .v4__item:hover .v4__arrow{opacity:1;transform:translateX(0)}
+  @media (max-width: 720px){
+    .v4__inner{padding:32px 24px}
+    .v4__item{grid-template-columns:auto 1fr auto;gap:16px}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <h1>Services — Layout Explorations</h1>
+  <p>Four directions for the Services section, all on-brand for Won Vision (Archivo + Archivo Black, pure black/white, sharp corners). Pick a winner and we'll wire it into <code>app/page.tsx</code>.</p>
+  <nav class="doc-toc">
+    <a href="#v1">V1 — Tiles (current)</a>
+    <a href="#v2">V2 — Editorial index</a>
+    <a href="#v3">V3 — Alternating rows</a>
+    <a href="#v4">V4 — Sticky hover index</a>
+  </nav>
+</header>
+
+<!-- V1 ============================================================ -->
+<section class="variant" id="v1">
+  <div class="variant-head">
+    <span class="eyebrow">V1 — Tiles · current direction</span>
+    <h2>Full-bleed vertical panels (AC Media)</h2>
+    <p class="vsub">Five edge-to-edge greyscale photos with a dark gradient veil and a bottom-left label. Hover lightens the veil and zooms the image. Confident and image-first; works best when each photo earns its panel.</p>
+  </div>
+  <div class="v1-tiles">
+    <a class="v1-tile" href="#"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=80" alt=""><span>Photography</span></a>
+    <a class="v1-tile" href="#"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1400&q=80" alt=""><span>Video</span></a>
+    <a class="v1-tile" href="#"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=80" alt=""><span>Drone</span></a>
+    <a class="v1-tile" href="#"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1400&q=80" alt=""><span>Floor plans</span></a>
+    <a class="v1-tile" href="#"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=80" alt=""><span>Virtual staging</span></a>
+  </div>
+</section>
+
+<!-- V2 ============================================================ -->
+<section class="variant" id="v2">
+  <div class="variant-head">
+    <span class="eyebrow">V2 — Editorial index</span>
+    <h2>Typographic list with sticky hover image</h2>
+    <p class="vsub">Big numbered list of services on the left, sticky image pane on the right that swaps on hover. Quietly luxurious, very studio-portfolio. Good if you want the typography to lead and photos to feel curated, not catalogued.</p>
+  </div>
+  <div class="v2">
+    <div class="v2__list" id="v2List">
+      <div class="v2__row" data-img="0"><span class="v2__num">01</span><span class="v2__name">Photography</span><span class="v2__meta">Stills · Twilight</span></div>
+      <div class="v2__row" data-img="1"><span class="v2__num">02</span><span class="v2__name">Video</span><span class="v2__meta">Walkthrough · Lifestyle</span></div>
+      <div class="v2__row" data-img="2"><span class="v2__num">03</span><span class="v2__name">Drone</span><span class="v2__meta">CASA-licensed</span></div>
+      <div class="v2__row" data-img="3"><span class="v2__num">04</span><span class="v2__name">Floor plans</span><span class="v2__meta">2D · 3D</span></div>
+      <div class="v2__row" data-img="4"><span class="v2__num">05</span><span class="v2__name">Virtual staging</span><span class="v2__meta">Architectural</span></div>
+    </div>
+    <div class="v2__pane" id="v2Pane">
+      <figure class="is-active"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt=""><figcaption>Photography · Carlton North</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&q=85" alt=""><figcaption>Video · Fitzroy</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=85" alt=""><figcaption>Drone · Brunswick</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=85" alt=""><figcaption>Floor plans · Northcote</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85" alt=""><figcaption>Virtual staging</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- V3 ============================================================ -->
+<section class="variant" id="v3">
+  <div class="variant-head">
+    <span class="eyebrow">V3 — Alternating stacked rows</span>
+    <h2>Full-width rows, image side alternates</h2>
+    <p class="vsub">Each service gets its own breathing room — half image, half copy, sides flipping every row. Lots of vertical real estate. Best if you want to add real description and a per-service CTA without losing scannability.</p>
+  </div>
+  <div class="v3">
+    <div class="v3__row">
+      <div class="v3__media"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt=""></div>
+      <div class="v3__copy"><span class="v3__num">01 / Photography</span><h3 class="v3__name">Photography</h3><p class="v3__desc">Naturally coloured stills, plus twilight on request. Wide architectural and tight detail in the same pass.</p><a class="v3__cta" href="#">Book photography →</a></div>
+    </div>
+    <div class="v3__row">
+      <div class="v3__media"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&q=85" alt=""></div>
+      <div class="v3__copy"><span class="v3__num">02 / Video</span><h3 class="v3__name">Video</h3><p class="v3__desc">Cut walkthroughs and lifestyle reels. Web-ready masters plus social cuts.</p><a class="v3__cta" href="#">Book video →</a></div>
+    </div>
+    <div class="v3__row">
+      <div class="v3__media"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=85" alt=""></div>
+      <div class="v3__copy"><span class="v3__num">03 / Drone</span><h3 class="v3__name">Drone</h3><p class="v3__desc">CASA-licensed and fully insured. Aerials integrated with the ground shoot in a single visit.</p><a class="v3__cta" href="#">Book drone →</a></div>
+    </div>
+    <div class="v3__row">
+      <div class="v3__media"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=85" alt=""></div>
+      <div class="v3__copy"><span class="v3__num">04 / Floor plans</span><h3 class="v3__name">Floor plans</h3><p class="v3__desc">2D and 3D, brand-aligned in your colours. Editable PDF and SVG masters delivered.</p><a class="v3__cta" href="#">Book plans →</a></div>
+    </div>
+    <div class="v3__row">
+      <div class="v3__media"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85" alt=""></div>
+      <div class="v3__copy"><span class="v3__num">05 / Virtual staging</span><h3 class="v3__name">Virtual staging</h3><p class="v3__desc">Restrained, architectural staging. Empty rooms become editor-grade interiors without changing the bones.</p><a class="v3__cta" href="#">Book staging →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- V4 ============================================================ -->
+<section class="variant" id="v4">
+  <div class="variant-head">
+    <span class="eyebrow">V4 — Sticky hover index</span>
+    <h2>Cinematic full-bleed background, list overlay</h2>
+    <p class="vsub">Single full-screen photograph behind a vertical service list. Hovering a service crossfades the background to that service's image. Big-cinema energy — the most "studio film" of the four. Costs a single, very strong photo per service.</p>
+  </div>
+  <div class="v4">
+    <div class="v4__bg" id="v4Bg">
+      <figure class="is-active"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85" alt=""></figure>
+    </div>
+    <div class="v4__inner">
+      <span class="v4__eyebrow">Services — what we shoot</span>
+      <div class="v4__list" id="v4List">
+        <div class="v4__item" data-img="0"><span class="v4__num">01</span><span class="v4__name">Photography</span><span class="v4__arrow">→</span></div>
+        <div class="v4__item" data-img="1"><span class="v4__num">02</span><span class="v4__name">Video</span><span class="v4__arrow">→</span></div>
+        <div class="v4__item" data-img="2"><span class="v4__num">03</span><span class="v4__name">Drone</span><span class="v4__arrow">→</span></div>
+        <div class="v4__item" data-img="3"><span class="v4__num">04</span><span class="v4__name">Floor plans</span><span class="v4__arrow">→</span></div>
+        <div class="v4__item" data-img="4"><span class="v4__num">05</span><span class="v4__name">Virtual staging</span><span class="v4__arrow">→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // V2 — sticky image swap on hover
+  (function(){
+    const list = document.getElementById('v2List');
+    const pane = document.getElementById('v2Pane');
+    if(!list || !pane) return;
+    const figs = pane.querySelectorAll('figure');
+    list.querySelectorAll('.v2__row').forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        const i = parseInt(row.dataset.img, 10);
+        figs.forEach((f, idx) => f.classList.toggle('is-active', idx === i));
+      });
+    });
+  })();
+
+  // V4 — cinematic background swap on hover
+  (function(){
+    const list = document.getElementById('v4List');
+    const bg   = document.getElementById('v4Bg');
+    if(!list || !bg) return;
+    const figs = bg.querySelectorAll('figure');
+    list.querySelectorAll('.v4__item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const i = parseInt(item.dataset.img, 10);
+        figs.forEach((f, idx) => f.classList.toggle('is-active', idx === i));
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
