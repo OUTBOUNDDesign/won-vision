@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Wordmark } from './components/Wordmark';
+import LoaderGate from './components/LoaderGate';
 
 export const metadata: Metadata = {
   title: {
@@ -25,11 +26,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Loader runs once per session — skip if user already entered.
-          Must run before paint so the loader doesn't flash for returning users. */}
-      <Script id="wv-skip-loader" strategy="beforeInteractive">
-        {`if (sessionStorage.getItem('wv-entered') === '1') { document.documentElement.classList.add('wv-skip-loader'); }`}
-      </Script>
+      <LoaderGate />
 
       {/* Leaflet stylesheet for the contact map */}
       <link
@@ -45,21 +42,6 @@ export default function HomePage() {
         strategy="afterInteractive"
         data-outbound-slug="won-vision"
       />
-
-      {/* LOADING GATE — minimal */}
-      <div className="loader" id="loader" role="dialog" aria-label="Won Vision — entry">
-        <div className="loader__inner">
-          <h1 className="loader__wordmark" id="lwMark" aria-label="Won Vision">
-            <span className="lw__W" aria-hidden="true">W</span>
-            <span className="lw__rest lw__rest--on" aria-hidden="true"><span>ON</span></span>
-            <span className="lw__bar" aria-hidden="true"></span>
-            <span className="lw__space" aria-hidden="true"></span>
-            <span className="lw__V" aria-hidden="true">V</span>
-            <span className="lw__rest lw__rest--isi" aria-hidden="true"><span>ISION</span></span>
-          </h1>
-          <button className="loader__btn" id="enterBtn" type="button">Enter website →</button>
-        </div>
-      </div>
 
       <header className="nav" data-start-light="true">
         <div className="nav__brand">
