@@ -48,8 +48,8 @@
     "hash": "54863ebf86ea82ee24f4f933d798215d"
   },
   "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx": {
-    "mtime": 1778221153.9782205,
-    "hash": "f64bf6457f8e0c0d9480db1a40c31508"
+    "mtime": 1778223715.999979,
+    "hash": "2dba87e4b1ffa78b386259ad10f2b467"
   },
   "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx": {
     "mtime": 1778219258.4563322,
@@ -107,6 +107,10 @@
     "mtime": 1778213433.9561846,
     "hash": "ec285555fd372b2dfb771a11418b023f"
   },
+  "/Users/kiranc/Code/won-media/docs/BRAND.md": {
+    "mtime": 1778224696.4382472,
+    "hash": "7ff5dd68de997ef4b63e32b880b12b3a"
+  },
   "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-07-phase-1-nextjs-migration.md": {
     "mtime": 1778213433.9375336,
     "hash": "74555493fd0bf8b40c043cebb986128b"
@@ -114,6 +118,10 @@
   "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-07-won-vision-photo-editor-roadmap.md": {
     "mtime": 1778221928.8826904,
     "hash": "eaf092ac95a10f59c2383af396ac9ec2"
+  },
+  "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-08-phase-2-db-auth-foundations.md": {
+    "mtime": 1778225379.5266163,
+    "hash": "bcec25541dd31cf8b621577d0f777e3f"
   },
   "/Users/kiranc/Code/won-media/public/robots.txt": {
     "mtime": 1778213433.9555168,
@@ -186,6 +194,10 @@
   "/Users/kiranc/Code/won-media/_archive/services-options.html": {
     "mtime": 1778213433.926332,
     "hash": "113ce25fb08ab7f4e56fdc1ee57ff423"
+  },
+  "/Users/kiranc/Code/won-media/_archive/process-mobile-explorations.html": {
+    "mtime": 1778223588.4598577,
+    "hash": "5e94fd72f31582da5baf5dd2a44538a3"
   },
   "/Users/kiranc/Code/won-media/app/icon.svg": {
     "mtime": 1778219096.1711087,
