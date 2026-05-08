@@ -9,7 +9,7 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 7,
+      "community": 8,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "playwright.config.ts",
       "source_location": "L1",
       "id": "playwright_config_ts",
-      "community": 8,
+      "community": 9,
       "norm_label": "playwright.config.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "next.config.ts",
       "source_location": "L1",
       "id": "next_config_ts",
-      "community": 9,
+      "community": 10,
       "norm_label": "next.config.ts"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "app/fonts.ts",
       "source_location": "L1",
       "id": "app_fonts_ts",
-      "community": 10,
+      "community": 11,
       "norm_label": "fonts.ts"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "app/layout.tsx",
       "source_location": "L1",
       "id": "app_layout_tsx",
-      "community": 4,
+      "community": 5,
       "norm_label": "layout.tsx"
     },
     {
@@ -65,6 +65,42 @@
       "id": "app_gallery_page_tsx",
       "community": 3,
       "norm_label": "page.tsx"
+    },
+    {
+      "label": "ServiceGalleryLightbox.tsx",
+      "file_type": "code",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L1",
+      "id": "app_components_servicegallerylightbox_tsx",
+      "community": 4,
+      "norm_label": "servicegallerylightbox.tsx"
+    },
+    {
+      "label": "inject()",
+      "file_type": "code",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L62",
+      "id": "components_servicegallerylightbox_inject",
+      "community": 4,
+      "norm_label": "inject()"
+    },
+    {
+      "label": "handler()",
+      "file_type": "code",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L92",
+      "id": "components_servicegallerylightbox_handler",
+      "community": 4,
+      "norm_label": "handler()"
+    },
+    {
+      "label": "esc()",
+      "file_type": "code",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L102",
+      "id": "components_servicegallerylightbox_esc",
+      "community": 4,
+      "norm_label": "esc()"
     },
     {
       "label": "Wordmark.tsx",
@@ -90,7 +126,7 @@
       "source_file": "app/components/WonVisionLoader.tsx",
       "source_location": "L1",
       "id": "app_components_wonvisionloader_tsx",
-      "community": 11,
+      "community": 12,
       "norm_label": "wonvisionloader.tsx"
     },
     {
@@ -99,7 +135,7 @@
       "source_file": "app/components/LoaderGate.tsx",
       "source_location": "L1",
       "id": "app_components_loadergate_tsx",
-      "community": 5,
+      "community": 6,
       "norm_label": "loadergate.tsx"
     },
     {
@@ -108,7 +144,7 @@
       "source_file": "app/components/LoaderGate.tsx",
       "source_location": "L8",
       "id": "components_loadergate_loadergate",
-      "community": 5,
+      "community": 6,
       "norm_label": "loadergate()"
     },
     {
@@ -117,7 +153,7 @@
       "source_file": "app/components/ServicesEditorial.tsx",
       "source_location": "L1",
       "id": "app_components_serviceseditorial_tsx",
-      "community": 12,
+      "community": 13,
       "norm_label": "serviceseditorial.tsx"
     },
     {
@@ -126,7 +162,7 @@
       "source_file": "app/components/ProcessStepper.tsx",
       "source_location": "L1",
       "id": "app_components_processstepper_tsx",
-      "community": 6,
+      "community": 7,
       "norm_label": "processstepper.tsx"
     },
     {
@@ -135,7 +171,7 @@
       "source_file": "app/components/ProcessStepper.tsx",
       "source_location": "L29",
       "id": "components_processstepper_processstepper",
-      "community": 6,
+      "community": 7,
       "norm_label": "processstepper()"
     },
     {
@@ -160,7 +196,7 @@
       "label": "BookPage()",
       "file_type": "code",
       "source_file": "app/book/page.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "id": "book_page_bookpage",
       "community": 3,
       "norm_label": "bookpage()"
@@ -198,7 +234,7 @@
       "source_file": "tests/visual/redirects.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_redirects_spec_ts",
-      "community": 13,
+      "community": 14,
       "norm_label": "redirects.spec.ts"
     },
     {
@@ -207,7 +243,7 @@
       "source_file": "tests/visual/smoke.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_smoke_spec_ts",
-      "community": 14,
+      "community": 15,
       "norm_label": "smoke.spec.ts"
     },
     {
@@ -216,7 +252,7 @@
       "source_file": "tests/visual/book-confirmation.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_confirmation_spec_ts",
-      "community": 15,
+      "community": 16,
       "norm_label": "book-confirmation.spec.ts"
     },
     {
@@ -225,7 +261,7 @@
       "source_file": "tests/visual/book-schedule.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_schedule_spec_ts",
-      "community": 16,
+      "community": 17,
       "norm_label": "book-schedule.spec.ts"
     },
     {
@@ -234,7 +270,7 @@
       "source_file": "tests/visual/home.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_home_spec_ts",
-      "community": 17,
+      "community": 18,
       "norm_label": "home.spec.ts"
     },
     {
@@ -243,7 +279,7 @@
       "source_file": "tests/visual/book-checkout.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_checkout_spec_ts",
-      "community": 18,
+      "community": 19,
       "norm_label": "book-checkout.spec.ts"
     },
     {
@@ -252,7 +288,7 @@
       "source_file": "tests/visual/gallery.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_gallery_spec_ts",
-      "community": 19,
+      "community": 20,
       "norm_label": "gallery.spec.ts"
     },
     {
@@ -261,7 +297,7 @@
       "source_file": "tests/visual/book.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_spec_ts",
-      "community": 20,
+      "community": 21,
       "norm_label": "book.spec.ts"
     },
     {
@@ -296,7 +332,7 @@
       "file_type": "code",
       "source_file": "app/layout.tsx",
       "source_location": "L12",
-      "community": 4,
+      "community": 5,
       "norm_label": "rootlayout()",
       "id": "app_layout_rootlayout"
     },
@@ -775,6 +811,36 @@
       "confidence_score": 1.0,
       "source": "app_gallery_page_tsx",
       "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "app_components_servicegallerylightbox_tsx",
+      "target": "components_servicegallerylightbox_inject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "app_components_servicegallerylightbox_tsx",
+      "target": "components_servicegallerylightbox_handler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "app_components_servicegallerylightbox_tsx",
+      "target": "components_servicegallerylightbox_esc",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -1439,5 +1505,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6a5705d55614543aff783fac487d3a332b7e8189"
+  "built_at_commit": "276f74d4ccf464e5c44824b36bc69534e1a463b4"
 }

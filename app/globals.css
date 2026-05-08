@@ -1796,12 +1796,17 @@ body{
 
 /* --- Form errors: keep red (semantic) but don't ship anywhere else --- */
 
-/* --- Footer: inverse acceptable --- */
+/* --- Footer: white background, black/grey content. The original CSS
+       was authored for a dark footer (rgba(250,250,247,…) text). Use
+       matching specificity so the brand B/W palette wins. --- */
 .foot{background:var(--bg);color:var(--text-primary)}
-.foot h4{color:var(--text-primary)}
-.foot a{color:var(--text-primary)}
-.foot p{color:var(--text-secondary)}
+.foot__top h4{color:var(--text-primary)}
+.foot__top ul a{color:var(--text-primary)}
+.foot__top ul a:hover{color:var(--text-secondary)}
+.foot__top p{color:var(--text-secondary)}
+.foot__top .wordmark{color:var(--text-primary)}
 .foot__rule{background:var(--border)}
+.foot__bot{color:var(--text-muted)}
 
 /* --- Accessibility: links underline subtly on hover only (no colour change) --- */
 a{color:inherit}
