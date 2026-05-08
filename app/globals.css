@@ -1656,13 +1656,28 @@ body{
   font-weight:inherit;
 }
 
-/* --- Hero wordmark: sentence-case "Won Vision", kill underline --- */
-.hero__hed--wordmark{text-transform:none !important;letter-spacing:-0.025em}
+/* --- Hero wordmark: sentence-case "Won Vision", smaller, kill underline --- */
+.hero__hed--wordmark{
+  text-transform:none !important;
+  letter-spacing:-0.03em;
+  font-size:clamp(56px, 9vw, 140px) !important;
+  line-height:0.95 !important;
+}
 .hero__hed--wordmark .accent{
   background:none !important;
   color:var(--text-primary-inverse) !important;
   padding-bottom:0 !important;
 }
+
+/* --- Nav wordmark over the dark hero: white --- */
+.nav.is-light .wordmark,
+.nav.is-light .wordmark__text,
+.nav.is-light .wordmark__mark,
+.nav.is-light .wordmark .accent{
+  color:var(--bg) !important;
+}
+/* When the nav becomes solid (scrolled past hero), wordmark goes back to black */
+.nav.is-stuck:not(.is-light) .wordmark{color:var(--fg) !important}
 .hero__hed .underline{
   background-image:linear-gradient(var(--text-primary-inverse),var(--text-primary-inverse));
 }
