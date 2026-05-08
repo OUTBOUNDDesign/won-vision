@@ -1910,18 +1910,18 @@ a{color:inherit}
 }
 .wordmark .wv-mark__dot{
   fill:currentColor;
-  transform-origin:center;
-  transform:scale(1);
+  opacity:1;
 }
 
-/* Hover replay — uses the same outline → fill → dot timing as the loader,
-   compressed to ~1.6s. Each new hover restarts from 0% because the rule
-   below only applies while :hover is active. */
+/* Hover replay — outline → fill → dot. The dot uses opacity, not scale,
+   at this size: animating transform promotes the path to a compositor
+   layer and the bilinear filter softens its edge into a fuzzy circle.
+   Plain opacity keeps it crisp. */
 .wordmark:hover .wv-mark__path{
   animation:wv-nav-trace 1600ms linear forwards;
 }
 .wordmark:hover .wv-mark__dot{
-  animation:wv-nav-dot 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation:wv-nav-dot 1600ms ease-out forwards;
 }
 
 @keyframes wv-nav-trace{
@@ -1931,10 +1931,9 @@ a{color:inherit}
   100% { stroke-opacity:1; stroke-dashoffset:0; fill-opacity:1; }
 }
 @keyframes wv-nav-dot{
-  0%, 60% { transform:scale(0); }
-  72%     { transform:scale(1.18); }
-  78%     { transform:scale(1); }
-  100%    { transform:scale(1); }
+  0%, 62% { opacity:0; }
+  76%     { opacity:1; }
+  100%    { opacity:1; }
 }
 
 /* Don't clip the dot's overshoot at small sizes */
