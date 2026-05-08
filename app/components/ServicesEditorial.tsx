@@ -61,20 +61,22 @@ export default function ServicesEditorial() {
     <section id="services" className="services-editorial" aria-label="Services">
       <div className="se__list">
         <span className="se__eyebrow">Services</span>
-        {services.map((s, i) => (
-          <a
-            key={s.num}
-            href={s.href}
-            className="se__row"
-            onMouseEnter={() => setActive(i)}
-            onFocus={() => setActive(i)}
-            aria-label={`Book ${s.name}`}
-          >
-            <span className="se__num">{s.num}</span>
-            <span className="se__name">{s.name}</span>
-            <span className="se__meta">{s.meta}</span>
-          </a>
-        ))}
+        <div className="se__rows">
+          {services.map((s, i) => (
+            <a
+              key={s.num}
+              href={s.href}
+              className="se__row"
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              aria-label={`Book ${s.name}`}
+            >
+              <span className="se__num">{s.num}</span>
+              <span className="se__name">{s.name}</span>
+              <span className="se__meta">{s.meta}</span>
+            </a>
+          ))}
+        </div>
       </div>
       <div className="se__pane" aria-hidden="true">
         {services.map((s, i) => (
