@@ -1,0 +1,110 @@
+{
+  "/Users/kiranc/Code/won-media/next-env.d.ts": {
+    "mtime": 1778134112.4281893,
+    "hash": "2a74d3909800ca5467fa83b0ab4a4890"
+  },
+  "/Users/kiranc/Code/won-media/next.config.ts": {
+    "mtime": 1778133344.4252033,
+    "hash": "53454d5be770288438c5ca646afaf838"
+  },
+  "/Users/kiranc/Code/won-media/app/layout.tsx": {
+    "mtime": 1778134028.1491432,
+    "hash": "d0d32163797421bfb818c85f1e401750"
+  },
+  "/Users/kiranc/Code/won-media/app/page.tsx": {
+    "mtime": 1778134029.1615326,
+    "hash": "c6d0be17e2e89732fb5026917a63866c"
+  },
+  "/Users/kiranc/Code/won-media/public/script.js": {
+    "mtime": 1777519527.202535,
+    "hash": "5e66912199065160c4ce04b592c40dfd"
+  },
+  "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-07-phase-1-nextjs-migration.md": {
+    "mtime": 1778130655.953403,
+    "hash": "74555493fd0bf8b40c043cebb986128b"
+  },
+  "/Users/kiranc/Code/won-media/docs/superpowers/plans/2026-05-07-won-vision-photo-editor-roadmap.md": {
+    "mtime": 1778130386.7007966,
+    "hash": "47f59cefa689e05be4451784675b370a"
+  },
+  "/Users/kiranc/Code/won-media/public/robots.txt": {
+    "mtime": 1777618567.6512773,
+    "hash": "d3e4e74781e387fc09b847c01e124f56"
+  },
+  "/Users/kiranc/Code/won-media/_archive/index.html": {
+    "mtime": 1777701012.9128344,
+    "hash": "a9c1801d2f077a0f89f15660aca4a625"
+  },
+  "/Users/kiranc/Code/won-media/_archive/heroes-v2.html": {
+    "mtime": 1777701012.8013716,
+    "hash": "dee80f1c0c13b13e110c5e56b0e0d712"
+  },
+  "/Users/kiranc/Code/won-media/_archive/book-schedule.html": {
+    "mtime": 1777701012.584448,
+    "hash": "b2d13c6a6a3f81f6388d8f12dce77849"
+  },
+  "/Users/kiranc/Code/won-media/_archive/loader-text.html": {
+    "mtime": 1777701012.9539607,
+    "hash": "f3d7af99a4255d7a0507986c3d2860eb"
+  },
+  "/Users/kiranc/Code/won-media/_archive/book-hero-options.html": {
+    "mtime": 1777701012.5394182,
+    "hash": "9bce3952eb119fd6f28c6570566b78cb"
+  },
+  "/Users/kiranc/Code/won-media/_archive/steps-more.html": {
+    "mtime": 1777701013.038927,
+    "hash": "3c7be223f5ef3d71f74c72b5ef9e807f"
+  },
+  "/Users/kiranc/Code/won-media/_archive/gallery.html": {
+    "mtime": 1777701012.7089074,
+    "hash": "a82c74b0b63fc2e6c916ce161abe2d98"
+  },
+  "/Users/kiranc/Code/won-media/_archive/book-confirmation.html": {
+    "mtime": 1777701012.491677,
+    "hash": "0f44d7d7121699ccb7d24f4672572fbd"
+  },
+  "/Users/kiranc/Code/won-media/_archive/book.html": {
+    "mtime": 1777701012.6226084,
+    "hash": "aa59bbc600b7f52d569d77329da2289a"
+  },
+  "/Users/kiranc/Code/won-media/_archive/book-checkout.html": {
+    "mtime": 1777701012.4437428,
+    "hash": "1bd37feb19430eb02a486a99548bfce9"
+  },
+  "/Users/kiranc/Code/won-media/_archive/heroes.html": {
+    "mtime": 1777701012.866816,
+    "hash": "ea0173eb7982d58f3f379a4288790b0a"
+  },
+  "/Users/kiranc/Code/won-media/_archive/examples.html": {
+    "mtime": 1777701012.6701326,
+    "hash": "4e9c20e1579e5ecbd197a9300e61e97a"
+  },
+  "/Users/kiranc/Code/won-media/_archive/services-options.html": {
+    "mtime": 1777701012.9972453,
+    "hash": "113ce25fb08ab7f4e56fdc1ee57ff423"
+  },
+  "/Users/kiranc/Code/won-media/public/assets/favicon-source.png": {
+    "mtime": 1777549727.1409533,
+    "hash": "f173e5c5c27f89c05b11dba3864c3267"
+  },
+  "/Users/kiranc/Code/won-media/public/assets/favicon-192.png": {
+    "mtime": 1777549736.1838214,
+    "hash": "a6148e7c5b4cd959294ef12b059e06d2"
+  },
+  "/Users/kiranc/Code/won-media/public/assets/apple-touch-icon.png": {
+    "mtime": 1777549736.350509,
+    "hash": "42b82e271492da0297044ccc3de1469a"
+  },
+  "/Users/kiranc/Code/won-media/public/assets/favicon-16.png": {
+    "mtime": 1777549736.2941911,
+    "hash": "388cfb6adde135e45f3c3743eca2db9a"
+  },
+  "/Users/kiranc/Code/won-media/public/assets/favicon-32.png": {
+    "mtime": 1777549736.2390826,
+    "hash": "f3e47986be6355dc0b2dd1f1a6e321ba"
+  },
+  "/Users/kiranc/Code/won-media/public/assets/favicon-512.png": {
+    "mtime": 1777549736.1257362,
+    "hash": "95004ce5f74d08603dec849c4d6ce859"
+  }
+}

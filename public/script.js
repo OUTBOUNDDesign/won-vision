@@ -2,7 +2,7 @@
    Hero aperture · nav scroll · scroll reveals · gallery filters + lightbox
 */
 
-document.addEventListener('DOMContentLoaded', () => {
+function __wvBoot(){
 
   // ---------- LOADER: minimal manual gate (once per session) ----------
   (function(){
@@ -442,4 +442,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', __wvBoot);
+} else {
+  __wvBoot();
+}
