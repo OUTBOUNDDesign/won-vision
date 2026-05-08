@@ -97,12 +97,6 @@ export default function HomePage() {
         <div className="hero__lens"></div>
         <div className="hero__veil"></div>
 
-        <div className="hero__layer">
-          <div className="hero__copy">
-            <h1 className="hero__hed hero__hed--wordmark">Won Vision</h1>
-          </div>
-        </div>
-
         <div className="hero__cursor"></div>
       </section>
 
