@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Wordmark } from '../components/Wordmark';
+import ServiceGalleryLightbox from '../components/ServiceGalleryLightbox';
 
 export const metadata: Metadata = {
   title: 'Book a shoot',
@@ -452,7 +453,7 @@ export default function BookPage() {
         </div>
 
         {/* PACKAGES */}
-        <div className="cat" id="cat-packages">
+        <div className="cat" id="cat-packages" data-gallery="photography">
           <div className="cat__head"><h3>Packages</h3><span className="cat__count">6 options</span></div>
           <div className="svc-grid">
 
@@ -520,7 +521,7 @@ export default function BookPage() {
         </div>
 
         {/* PHOTOGRAPHY */}
-        <div className="cat">
+        <div className="cat" id="cat-photography" data-gallery="photography">
           <div className="cat__head"><h3>Photography</h3><span className="cat__count">4 options</span></div>
           <div className="svc-grid">
 
@@ -544,7 +545,7 @@ export default function BookPage() {
               </div>
             </article>
 
-            <article className="svc-card" data-svc="Aerial / Drone Photography" data-price="220" data-desc="CASA-licensed drone stills + 4K aerial video. Insured. Sub-250g for tight blocks." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
+            <article className="svc-card" data-svc="Aerial / Drone Photography" data-price="220" data-desc="CASA-licensed drone stills + 4K aerial video. Insured. Sub-250g for tight blocks." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80" data-gallery="drone">
               <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
@@ -568,7 +569,7 @@ export default function BookPage() {
         </div>
 
         {/* VIDEO */}
-        <div className="cat">
+        <div className="cat" id="cat-video" data-gallery="video">
           <div className="cat__head"><h3>Video</h3><span className="cat__count">5 options</span></div>
           <div className="svc-grid">
 
@@ -626,7 +627,7 @@ export default function BookPage() {
         </div>
 
         {/* VIRTUAL STAGING & EDITING */}
-        <div className="cat">
+        <div className="cat" id="cat-staging" data-gallery="staging">
           <div className="cat__head"><h3>Virtual <em>staging &amp; editing</em></h3><span className="cat__count">3 options</span></div>
           <div className="svc-grid">
 
@@ -664,7 +665,7 @@ export default function BookPage() {
         </div>
 
         {/* FLOORPLANS */}
-        <div className="cat" id="cat-floorplans">
+        <div className="cat" id="cat-floorplans" data-gallery="floorplans">
           <div className="cat__head"><h3>Floor <em>plans</em></h3><span className="cat__count">Customisable</span></div>
 
           <div className="fp-config">
@@ -766,7 +767,7 @@ export default function BookPage() {
         </div>
 
         {/* ADD-ONS */}
-        <div className="cat">
+        <div className="cat" id="cat-addons" data-gallery="photography">
           <div className="cat__head"><h3>Add-ons</h3><span className="cat__count">1 option</span></div>
           <div className="svc-grid">
 
@@ -1045,6 +1046,7 @@ export default function BookPage() {
   render();
 })();
 `}</Script>
+      <ServiceGalleryLightbox />
     </>
   );
 }

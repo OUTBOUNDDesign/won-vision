@@ -2213,3 +2213,137 @@ a{color:inherit}
   .ps__name,
   .ps__desc{opacity:1;transform:none;transition:none}
 }
+
+/* =========================================================
+   SERVICE GALLERY — image button + lightbox
+   Used on /book to peek a curated photo set per service.
+   Lightbox is mounted by ServiceGalleryLightbox client comp.
+========================================================= */
+
+/* Anchor offset so deep-links from /#services don't bury the heading
+   under the fixed nav bar. */
+.cat{scroll-margin-top:96px}
+
+/* The little image button injected onto every .svc-card__media. */
+.svc-card__media{position:relative}
+.svc-card__gallery-btn{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:5;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  background:rgba(255,255,255,0.92);
+  color:var(--fg);
+  border:1px solid var(--fg);
+  border-radius:0;
+  font-family:var(--body);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  transition:background .25s ease, color .25s ease, transform .25s var(--ease);
+}
+.svc-card__gallery-btn svg{display:block}
+.svc-card__gallery-btn:hover,
+.svc-card__gallery-btn:focus-visible{
+  background:var(--fg);
+  color:var(--bg);
+  transform:translateY(-1px);
+  outline:none;
+}
+@media (max-width: 560px){
+  .svc-card__gallery-btn{padding:6px 10px;font-size:9px;letter-spacing:0.16em}
+  .svc-card__gallery-btn span{display:none}
+}
+
+/* Lightbox overlay */
+.svc-lb{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(0,0,0,0.96);
+  color:var(--bg);
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  padding:96px 32px 64px;
+  animation:svcLbIn .35s var(--ease);
+}
+@keyframes svcLbIn{from{opacity:0}to{opacity:1}}
+
+.svc-lb__bar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:24px 32px;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+}
+.svc-lb__title{
+  font-family:var(--body);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--text-secondary-inverse);
+}
+.svc-lb__close{
+  width:44px;
+  height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.7);
+  border-radius:0;
+  color:var(--bg);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  transition:background .25s ease, color .25s ease;
+}
+.svc-lb__close:hover{background:var(--bg);color:var(--fg)}
+
+.svc-lb__grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:18px;
+  max-width:1480px;
+  margin:0 auto;
+  width:100%;
+}
+.svc-lb__fig{
+  margin:0;
+  background:var(--fg);
+}
+.svc-lb__fig img{
+  width:100%;
+  height:auto;
+  display:block;
+  /* photos in colour per brief */
+}
+.svc-lb__fig figcaption{
+  padding:12px 4px 0;
+  font-family:var(--body);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--text-secondary-inverse);
+}
+@media (max-width: 720px){
+  .svc-lb{padding:88px 16px 48px}
+  .svc-lb__bar{padding:18px 20px}
+  .svc-lb__grid{grid-template-columns:1fr}
+}
