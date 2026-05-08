@@ -16,12 +16,12 @@
     "hash": "da6f0ac5664dcba581e09adfb18d627f"
   },
   "/Users/kiranc/Code/won-media/app/layout.tsx": {
-    "mtime": 1778216356.2225077,
-    "hash": "1549b54e970419898ae4467b3fa710c0"
+    "mtime": 1778219106.541902,
+    "hash": "16267698ccc09af0e69e32e20b7272f9"
   },
   "/Users/kiranc/Code/won-media/app/page.tsx": {
-    "mtime": 1778218306.1695492,
-    "hash": "c810f5196c4a3ce2175c04767b0b1920"
+    "mtime": 1778219064.7589543,
+    "hash": "9aed1adea83126ea25a075c185324401"
   },
   "/Users/kiranc/Code/won-media/app/gallery/page.tsx": {
     "mtime": 1778215529.0478537,
@@ -158,6 +158,10 @@
   "/Users/kiranc/Code/won-media/_archive/services-options.html": {
     "mtime": 1778213433.926332,
     "hash": "113ce25fb08ab7f4e56fdc1ee57ff423"
+  },
+  "/Users/kiranc/Code/won-media/app/icon.svg": {
+    "mtime": 1778219096.1711087,
+    "hash": "fb2e2e0e0eed6e1deddd1a11d95cf6b4"
   },
   "/Users/kiranc/Code/won-media/public/won-vision-mark.svg": {
     "mtime": 1778215372.905924,

@@ -1888,3 +1888,59 @@ a{color:inherit}
   .tile + .tile{border-left:none;border-top:1px solid var(--bg-inverse)}
   .tile__label{left:24px;bottom:24px;font-size:22px}
 }
+
+/* =========================================================
+   NAV WORDMARK — replay the loader animation on hover
+   The .wv-mark__path / .wv-mark__dot classes live on the same
+   <path>s the static mark renders, so the animated and resting
+   states are pixel-identical.
+========================================================= */
+.wordmark .wv-mark__path,
+.wordmark .wv-mark__dot{
+  transform-box:fill-box;
+}
+.wordmark .wv-mark__path{
+  fill:currentColor;
+  fill-opacity:1;
+  stroke:currentColor;
+  stroke-width:40;
+  stroke-opacity:0;
+  stroke-dasharray:1;
+  stroke-dashoffset:0;
+}
+.wordmark .wv-mark__dot{
+  fill:currentColor;
+  transform-origin:center;
+  transform:scale(1);
+}
+
+/* Hover replay — uses the same outline → fill → dot timing as the loader,
+   compressed to ~1.6s. Each new hover restarts from 0% because the rule
+   below only applies while :hover is active. */
+.wordmark:hover .wv-mark__path{
+  animation:wv-nav-trace 1600ms linear forwards;
+}
+.wordmark:hover .wv-mark__dot{
+  animation:wv-nav-dot 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes wv-nav-trace{
+  0%   { stroke-opacity:1; stroke-dashoffset:1; fill-opacity:0; }
+  50%  { stroke-opacity:1; stroke-dashoffset:0; fill-opacity:0; }
+  68%  { stroke-opacity:1; stroke-dashoffset:0; fill-opacity:1; }
+  100% { stroke-opacity:1; stroke-dashoffset:0; fill-opacity:1; }
+}
+@keyframes wv-nav-dot{
+  0%, 60% { transform:scale(0); }
+  72%     { transform:scale(1.18); }
+  78%     { transform:scale(1); }
+  100%    { transform:scale(1); }
+}
+
+/* Don't clip the dot's overshoot at small sizes */
+.wordmark .wordmark__mark{overflow:visible}
+
+@media (prefers-reduced-motion:reduce){
+  .wordmark:hover .wv-mark__path,
+  .wordmark:hover .wv-mark__dot{animation:none}
+}
