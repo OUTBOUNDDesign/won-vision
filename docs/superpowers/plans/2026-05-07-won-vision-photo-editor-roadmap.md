@@ -134,8 +134,10 @@ Each phase ships independently and produces working software. Plan files for pha
 **Depends on:** Phase 3.
 
 ### Phase 5 — Admin / editor portal
-**Outcome:** Clerk-protected `/admin` route for editors. Lists properties in review, shows variant 1 vs variant 2 side-by-side, lets editor pick + approve or reject + retry. Approval triggers Dropbox move to `/03 APPROVED/` and queues delivery.
+**Outcome:** Clerk-protected `/admin` route on wonvision.com.au for editors. **Hidden URL, no public link from the marketing site nav** — editors type the URL or bookmark it. Lists properties in review, shows variant 1 vs variant 2 side-by-side, lets editor pick + approve or reject + retry. Approval triggers Dropbox move to `/03 APPROVED/` and queues delivery. On approval, fires a webhook to OUTBOUND Operations so Ops can update the corresponding job's status to "delivered" — Ops stays the source of truth on job state; Won Vision owns the editing workflow.
 **Depends on:** Phase 4.
+
+**Decided 2026-05-08:** Admin lives in the Won Vision Next.js app, NOT inside OUTBOUND Operations. Reasoning: (1) photo editing review UI is domain-specific and doesn't generalize across Ops tenants; (2) the Vercel Workflow pipeline lives in this codebase, so co-locating UI keeps it one repo / one deploy; (3) avoids bloating Ops with a vertical feature. Lightweight webhook integration with Ops on approval keeps job-state ownership in Ops.
 
 ### Phase 6 — Client delivery + magic-link portal
 **Outcome:** When all photos in a property are approved, system moves to `/04 DELIVERED/`, sends client an email with magic-link, and the client's `/portal/{token}` page lets them download all 4K finals. Property status flips to delivered.
