@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://wonvision.com.au'),
   title: { default: 'Won Vision', template: '%s — Won Vision' },
   description: 'Melbourne real estate photography by Won Vision.',
-  icons: { icon: '/favicon.ico' },
+  // app/icon.svg is auto-served by Next via the file convention; explicit
+  // metadata.icons removed so the new W+V mark wins over the legacy .ico.
 };
 
 // Google Analytics 4 — Won Vision Website property (created 2026-05-08).

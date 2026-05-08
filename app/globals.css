@@ -1803,3 +1803,88 @@ body{
 
 /* --- Accessibility: links underline subtly on hover only (no colour change) --- */
 a{color:inherit}
+
+/* =========================================================
+   SERVICES TILES — full-bleed vertical panels (AC Media-style)
+========================================================= */
+.services-tiles{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  width:100%;
+  height:100vh;
+  min-height:560px;
+  background:var(--fg);
+  /* tear out from any parent gutters */
+  margin:0;
+  padding:0;
+}
+.tile{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  background:var(--fg);
+  text-decoration:none;
+  color:var(--bg);
+  isolation:isolate;
+}
+.tile + .tile{
+  border-left:1px solid var(--bg-inverse);
+}
+.tile__img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:grayscale(1) brightness(0.55) contrast(1.05);
+  transform:scale(1.02);
+  transition:transform .9s var(--ease), filter .6s var(--ease);
+  will-change:transform;
+}
+.tile__veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.25) 55%,
+    rgba(0,0,0,0.55) 100%);
+  transition:background .45s var(--ease);
+  pointer-events:none;
+}
+.tile__label{
+  position:absolute;
+  left:32px;bottom:32px;
+  font-family:var(--display);
+  font-weight:400;
+  text-transform:uppercase;
+  font-size:clamp(18px, 1.6vw, 28px);
+  line-height:0.95;
+  letter-spacing:-0.01em;
+  color:var(--bg);
+  z-index:2;
+}
+.tile:hover .tile__img{
+  transform:scale(1.08);
+  filter:grayscale(1) brightness(0.7) contrast(1.05);
+}
+.tile:hover .tile__veil{
+  background:linear-gradient(to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.1) 60%,
+    rgba(0,0,0,0.4) 100%);
+}
+
+/* Responsive: 2 col on tablet, stack on mobile */
+@media (max-width: 1024px){
+  .services-tiles{
+    grid-template-columns:repeat(2, 1fr);
+    height:auto;
+  }
+  .tile{aspect-ratio:3/4}
+  .tile + .tile{border-left:none}
+  .tile:nth-child(odd) + .tile{border-left:1px solid var(--bg-inverse)}
+  .tile:nth-child(n+3){border-top:1px solid var(--bg-inverse)}
+}
+@media (max-width: 560px){
+  .services-tiles{grid-template-columns:1fr}
+  .tile{aspect-ratio:5/4}
+  .tile + .tile{border-left:none;border-top:1px solid var(--bg-inverse)}
+  .tile__label{left:24px;bottom:24px;font-size:22px}
+}
