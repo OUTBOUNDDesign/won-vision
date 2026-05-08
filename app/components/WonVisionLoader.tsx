@@ -49,7 +49,7 @@ interface Props {
 }
 
 export default function WonVisionLoader({
-  duration = 3000,
+  duration = 4500,
   playOnce = true,
   bg = '#FFFFFF',
   onComplete,
@@ -130,14 +130,18 @@ export default function WonVisionLoader({
         }
 
         .wv-mark-wrap {
-          width: clamp(280px, 36vw, 520px);
+          width: clamp(180px, 22vw, 320px);
           aspect-ratio: 811 / 490;
+          /* leave breathing room for the dot's overshoot scale */
+          padding: 6%;
+          box-sizing: content-box;
         }
 
         .wv-svg {
           width: 100%;
           height: 100%;
           display: block;
+          overflow: visible; /* don't clip the dot when it overshoots */
         }
 
         .wv-path {
@@ -150,27 +154,18 @@ export default function WonVisionLoader({
         @keyframes wv-path {
           0% {
             stroke-dashoffset: 1;
-            stroke-opacity: 1;
             fill-opacity: 0;
           }
           45% {
             stroke-dashoffset: 0;
-            stroke-opacity: 1;
             fill-opacity: 0;
           }
-          55% {
+          65% {
             stroke-dashoffset: 0;
-            stroke-opacity: 1;
-            fill-opacity: 1;
-          }
-          60% {
-            stroke-dashoffset: 0;
-            stroke-opacity: 0;
             fill-opacity: 1;
           }
           100% {
             stroke-dashoffset: 0;
-            stroke-opacity: 0;
             fill-opacity: 1;
           }
         }
@@ -182,9 +177,9 @@ export default function WonVisionLoader({
           animation: wv-dot var(--wv-duration) cubic-bezier(0.4, 0, 0.2, 1) ${iter} ${fill};
         }
         @keyframes wv-dot {
-          0%, 55% { transform: scale(0); }
-          65%     { transform: scale(1.25); }
-          68%     { transform: scale(1); }
+          0%, 60% { transform: scale(0); }
+          70%     { transform: scale(1.18); }
+          73%     { transform: scale(1); }
           100%    { transform: scale(1); }
         }
 
@@ -192,14 +187,12 @@ export default function WonVisionLoader({
           animation: wv-content var(--wv-duration) linear ${iter} ${fill};
         }
         @keyframes wv-content {
-          0%, 88% { opacity: 1; }
-          95%     { opacity: 0; }
+          0%, 92% { opacity: 1; }
           100%    { opacity: 0; }
         }
 
         @keyframes wv-loader-out {
-          0%, 88% { opacity: 1; pointer-events: auto; }
-          95%     { opacity: 0; pointer-events: none; }
+          0%, 92% { opacity: 1; pointer-events: auto; }
           100%    { opacity: 0; pointer-events: none; visibility: hidden; }
         }
 

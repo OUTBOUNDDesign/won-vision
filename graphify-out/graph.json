@@ -9,7 +9,7 @@
       "source_file": "next-env.d.ts",
       "source_location": "L1",
       "id": "next_env_d_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "playwright.config.ts",
       "source_location": "L1",
       "id": "playwright_config_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "playwright.config.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "next.config.ts",
       "source_location": "L1",
       "id": "next_config_ts",
-      "community": 7,
+      "community": 8,
       "norm_label": "next.config.ts"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "app/fonts.ts",
       "source_location": "L1",
       "id": "app_fonts_ts",
-      "community": 8,
+      "community": 9,
       "norm_label": "fonts.ts"
     },
     {
@@ -83,6 +83,33 @@
       "id": "components_wordmark_wordmark",
       "community": 3,
       "norm_label": "wordmark()"
+    },
+    {
+      "label": "WonVisionLoader.tsx",
+      "file_type": "code",
+      "source_file": "app/components/WonVisionLoader.tsx",
+      "source_location": "L1",
+      "id": "app_components_wonvisionloader_tsx",
+      "community": 10,
+      "norm_label": "wonvisionloader.tsx"
+    },
+    {
+      "label": "LoaderGate.tsx",
+      "file_type": "code",
+      "source_file": "app/components/LoaderGate.tsx",
+      "source_location": "L1",
+      "id": "app_components_loadergate_tsx",
+      "community": 5,
+      "norm_label": "loadergate.tsx"
+    },
+    {
+      "label": "LoaderGate()",
+      "file_type": "code",
+      "source_file": "app/components/LoaderGate.tsx",
+      "source_location": "L8",
+      "id": "components_loadergate_loadergate",
+      "community": 5,
+      "norm_label": "loadergate()"
     },
     {
       "label": "WonVisionMark.tsx",
@@ -153,7 +180,7 @@
       "source_file": "tests/visual/redirects.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_redirects_spec_ts",
-      "community": 9,
+      "community": 11,
       "norm_label": "redirects.spec.ts"
     },
     {
@@ -162,7 +189,7 @@
       "source_file": "tests/visual/smoke.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_smoke_spec_ts",
-      "community": 10,
+      "community": 12,
       "norm_label": "smoke.spec.ts"
     },
     {
@@ -171,7 +198,7 @@
       "source_file": "tests/visual/book-confirmation.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_confirmation_spec_ts",
-      "community": 11,
+      "community": 13,
       "norm_label": "book-confirmation.spec.ts"
     },
     {
@@ -180,7 +207,7 @@
       "source_file": "tests/visual/book-schedule.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_schedule_spec_ts",
-      "community": 12,
+      "community": 14,
       "norm_label": "book-schedule.spec.ts"
     },
     {
@@ -189,7 +216,7 @@
       "source_file": "tests/visual/home.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_home_spec_ts",
-      "community": 13,
+      "community": 15,
       "norm_label": "home.spec.ts"
     },
     {
@@ -198,7 +225,7 @@
       "source_file": "tests/visual/book-checkout.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_checkout_spec_ts",
-      "community": 14,
+      "community": 16,
       "norm_label": "book-checkout.spec.ts"
     },
     {
@@ -207,7 +234,7 @@
       "source_file": "tests/visual/gallery.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_gallery_spec_ts",
-      "community": 15,
+      "community": 17,
       "norm_label": "gallery.spec.ts"
     },
     {
@@ -216,7 +243,7 @@
       "source_file": "tests/visual/book.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_spec_ts",
-      "community": 16,
+      "community": 18,
       "norm_label": "book.spec.ts"
     },
     {
@@ -786,6 +813,16 @@
       "confidence_score": 1.0,
       "source": "app_book_checkout_page_tsx",
       "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/LoaderGate.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_loadergate_tsx",
+      "target": "components_loadergate_loadergate",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1365,5 +1402,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2dd43c39ed103b74bc890056e78c5f437da26014"
+  "built_at_commit": "71185030e2457b6222ae03da77f468dda08ebef1"
 }

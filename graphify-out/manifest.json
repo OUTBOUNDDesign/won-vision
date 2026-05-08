@@ -20,8 +20,8 @@
     "hash": "1549b54e970419898ae4467b3fa710c0"
   },
   "/Users/kiranc/Code/won-media/app/page.tsx": {
-    "mtime": 1778218094.2324975,
-    "hash": "28f16a58f79d511e7f5b05deb59ca564"
+    "mtime": 1778218306.1695492,
+    "hash": "c810f5196c4a3ce2175c04767b0b1920"
   },
   "/Users/kiranc/Code/won-media/app/gallery/page.tsx": {
     "mtime": 1778215529.0478537,
@@ -30,6 +30,14 @@
   "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx": {
     "mtime": 1778217004.1980724,
     "hash": "1f52d5bbb61385406b4cdf19990fcda2"
+  },
+  "/Users/kiranc/Code/won-media/app/components/WonVisionLoader.tsx": {
+    "mtime": 1778218274.1325939,
+    "hash": "1c3881cfa2c791e45931538f208f11a1"
+  },
+  "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx": {
+    "mtime": 1778218281.263273,
+    "hash": "f4f7bb10583cbe86bebaaefb900d5fad"
   },
   "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx": {
     "mtime": 1778215381.786019,
