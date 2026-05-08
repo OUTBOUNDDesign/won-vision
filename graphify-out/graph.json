@@ -818,9 +818,9 @@
       "source_file": "app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_components_servicegallerylightbox_tsx",
-      "target": "components_servicegallerylightbox_inject",
-      "confidence_score": 1.0
+      "target": "components_servicegallerylightbox_inject"
     },
     {
       "relation": "contains",
@@ -828,9 +828,9 @@
       "source_file": "app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_components_servicegallerylightbox_tsx",
-      "target": "components_servicegallerylightbox_handler",
-      "confidence_score": 1.0
+      "target": "components_servicegallerylightbox_handler"
     },
     {
       "relation": "contains",
@@ -838,9 +838,9 @@
       "source_file": "app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_components_servicegallerylightbox_tsx",
-      "target": "components_servicegallerylightbox_esc",
-      "confidence_score": 1.0
+      "target": "components_servicegallerylightbox_esc"
     },
     {
       "relation": "imports",
@@ -1505,5 +1505,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "276f74d4ccf464e5c44824b36bc69534e1a463b4"
+  "built_at_commit": "7a585960be9ad26abc978c2e87e48b92bc85be8d"
 }

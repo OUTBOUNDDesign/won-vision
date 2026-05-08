@@ -1,15 +1,10 @@
-import { Archivo, Archivo_Black } from 'next/font/google';
+import { Sora } from 'next/font/google';
 
-export const archivo = Archivo({
+// Sora — single variable family for the brand. Weight 500 carries the
+// headings and logo lockup; weight 400 carries body copy.
+export const sora = Sora({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-archivo',
-  display: 'swap',
-});
-
-export const archivoBlack = Archivo_Black({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-archivo-black',
+  weight: ['400', '500'],
+  variable: '--font-sora',
   display: 'swap',
 });

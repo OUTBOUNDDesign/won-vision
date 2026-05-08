@@ -41,8 +41,8 @@
   --ink:#000000;
 
   /* Type system */
-  --display:var(--font-archivo-black), system-ui, sans-serif;
-  --body:var(--font-archivo), system-ui, -apple-system, sans-serif;
+  --display:var(--font-sora), system-ui, sans-serif;
+  --body:var(--font-sora), system-ui, -apple-system, sans-serif;
 
   --ease:cubic-bezier(0.16, 1, 0.3, 1);
   --easeInOut:cubic-bezier(0.7, 0, 0.3, 1);
@@ -1571,7 +1571,7 @@ body{
   align-items:center;
   gap:0.4em;
   font-family:var(--display);
-  font-weight:400;
+  font-weight:500;
   letter-spacing:-0.01em;
   line-height:1;
   color:var(--fg);
@@ -1602,10 +1602,10 @@ body{
 }
 .eyebrow--light{color:var(--text-secondary-inverse)}
 
-/* --- H1 / display: Archivo Black, ALL CAPS --- */
+/* --- H1 / display: Sora 500, ALL CAPS --- */
 .h1, .hero__hed, .loader__wordmark{
   font-family:var(--display);
-  font-weight:400;
+  font-weight:500;
   text-transform:uppercase;
   letter-spacing:-0.025em;
   color:var(--text-primary);
@@ -1739,7 +1739,7 @@ body{
 .nav__drawer ul a{
   color:var(--text-primary-inverse);
   font-family:var(--display);
-  font-weight:400;
+  font-weight:500;
   text-transform:uppercase;
 }
 .nav__drawer ul a em{font-style:italic;color:inherit}
@@ -1859,7 +1859,7 @@ a{color:inherit}
   position:absolute;
   left:32px;bottom:32px;
   font-family:var(--display);
-  font-weight:400;
+  font-weight:500;
   text-transform:uppercase;
   font-size:clamp(18px, 1.6vw, 28px);
   line-height:0.95;
@@ -2015,7 +2015,7 @@ a{color:inherit}
 }
 .se__name{
   font-family:var(--display);
-  font-weight:400;
+  font-weight:500;
   font-size:clamp(28px, 3.6vw, 56px);
   line-height:0.95;
   letter-spacing:-0.025em;
@@ -2166,7 +2166,7 @@ a{color:inherit}
 }
 .ps__name{
   font-family:var(--display);
-  font-weight:400;
+  font-weight:500;
   text-transform:uppercase;
   font-size:clamp(28px, 3vw, 48px);
   line-height:0.95;

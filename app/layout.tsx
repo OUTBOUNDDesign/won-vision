@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Script from 'next/script';
-import { archivo, archivoBlack } from './fonts';
+import { sora } from './fonts';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://wonvision.com.au'),
@@ -18,7 +18,7 @@ const GA4_MEASUREMENT_ID = "G-MHFPGW1T7F";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${archivoBlack.variable}`}>
+    <html lang="en" className={sora.variable}>
       <body id="top">
         {children}
         <Script src="/script.js" strategy="afterInteractive" />
