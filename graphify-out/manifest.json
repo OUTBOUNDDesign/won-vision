@@ -20,8 +20,8 @@
     "hash": "16267698ccc09af0e69e32e20b7272f9"
   },
   "/Users/kiranc/Code/won-media/app/page.tsx": {
-    "mtime": 1778219064.7589543,
-    "hash": "9aed1adea83126ea25a075c185324401"
+    "mtime": 1778220127.4373682,
+    "hash": "4cdd1d677ce4d7055fee75688edc5caa"
   },
   "/Users/kiranc/Code/won-media/app/gallery/page.tsx": {
     "mtime": 1778215529.0478537,
@@ -38,6 +38,10 @@
   "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx": {
     "mtime": 1778218281.263273,
     "hash": "f4f7bb10583cbe86bebaaefb900d5fad"
+  },
+  "/Users/kiranc/Code/won-media/app/components/ServicesEditorial.tsx": {
+    "mtime": 1778220112.571523,
+    "hash": "a43225ebca205a3fe6facb3e31a57bfa"
   },
   "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx": {
     "mtime": 1778219258.4563322,
@@ -107,6 +111,10 @@
     "mtime": 1778213433.9555168,
     "hash": "d3e4e74781e387fc09b847c01e124f56"
   },
+  "/Users/kiranc/Code/won-media/_archive/services-explorations.html": {
+    "mtime": 1778219804.9839525,
+    "hash": "308459f0c608ed3f017826d222f0b320"
+  },
   "/Users/kiranc/Code/won-media/_archive/index.html": {
     "mtime": 1778213433.92564,
     "hash": "a9c1801d2f077a0f89f15660aca4a625"
@@ -130,6 +138,10 @@
   "/Users/kiranc/Code/won-media/_archive/steps-more.html": {
     "mtime": 1778213433.926942,
     "hash": "3c7be223f5ef3d71f74c72b5ef9e807f"
+  },
+  "/Users/kiranc/Code/won-media/_archive/services-explorations-2.html": {
+    "mtime": 1778220001.644548,
+    "hash": "5ebb9f4f1c264e4d626406ce5de81191"
   },
   "/Users/kiranc/Code/won-media/_archive/gallery.html": {
     "mtime": 1778213433.9244654,

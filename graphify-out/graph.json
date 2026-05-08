@@ -112,6 +112,15 @@
       "norm_label": "loadergate()"
     },
     {
+      "label": "ServicesEditorial.tsx",
+      "file_type": "code",
+      "source_file": "app/components/ServicesEditorial.tsx",
+      "source_location": "L1",
+      "id": "app_components_serviceseditorial_tsx",
+      "community": 11,
+      "norm_label": "serviceseditorial.tsx"
+    },
+    {
       "label": "WonVisionMark.tsx",
       "file_type": "code",
       "source_file": "app/components/WonVisionMark.tsx",
@@ -171,7 +180,7 @@
       "source_file": "tests/visual/redirects.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_redirects_spec_ts",
-      "community": 11,
+      "community": 12,
       "norm_label": "redirects.spec.ts"
     },
     {
@@ -180,7 +189,7 @@
       "source_file": "tests/visual/smoke.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_smoke_spec_ts",
-      "community": 12,
+      "community": 13,
       "norm_label": "smoke.spec.ts"
     },
     {
@@ -189,7 +198,7 @@
       "source_file": "tests/visual/book-confirmation.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_confirmation_spec_ts",
-      "community": 13,
+      "community": 14,
       "norm_label": "book-confirmation.spec.ts"
     },
     {
@@ -198,7 +207,7 @@
       "source_file": "tests/visual/book-schedule.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_schedule_spec_ts",
-      "community": 14,
+      "community": 15,
       "norm_label": "book-schedule.spec.ts"
     },
     {
@@ -207,7 +216,7 @@
       "source_file": "tests/visual/home.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_home_spec_ts",
-      "community": 15,
+      "community": 16,
       "norm_label": "home.spec.ts"
     },
     {
@@ -216,7 +225,7 @@
       "source_file": "tests/visual/book-checkout.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_checkout_spec_ts",
-      "community": 16,
+      "community": 17,
       "norm_label": "book-checkout.spec.ts"
     },
     {
@@ -225,7 +234,7 @@
       "source_file": "tests/visual/gallery.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_gallery_spec_ts",
-      "community": 17,
+      "community": 18,
       "norm_label": "gallery.spec.ts"
     },
     {
@@ -234,7 +243,7 @@
       "source_file": "tests/visual/book.spec.ts",
       "source_location": "L1",
       "id": "tests_visual_book_spec_ts",
-      "community": 18,
+      "community": 19,
       "norm_label": "book.spec.ts"
     },
     {
@@ -1402,5 +1411,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1f0086e8520d0e902c2ac18a58042f540873d8cd"
+  "built_at_commit": "081f20946f010eb08a33daff46c8ae1418ad9e0c"
 }
