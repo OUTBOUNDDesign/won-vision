@@ -89,6 +89,23 @@ export default function ServicesEditorial() {
           </figure>
         ))}
       </div>
+
+      {/* Mobile-only stacked photo tiles. CSS hides this on desktop. */}
+      <div className="se__tiles">
+        {services.map((s) => (
+          <a key={s.num} href={s.href} className="se__tile" aria-label={`Book ${s.name}`}>
+            <img src={s.img} alt="" />
+            <span className="se__tile__veil" aria-hidden="true" />
+            <div className="se__tile__label">
+              <div>
+                <span className="se__tile__num">{s.num} — {s.name}</span>
+                <span className="se__tile__name">{s.name}</span>
+              </div>
+              <span className="se__tile__arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
     </section>
   );
 }

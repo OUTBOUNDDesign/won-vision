@@ -84,11 +84,12 @@ export default function HomePage() {
         <div className="hero__cursor"></div>
       </section>
 
-      {/* SERVICES — editorial index with sticky hover image (V2) */}
-      <ServicesEditorial />
-
-      {/* PROCESS — horizontal stepper, animated rule on scroll-in */}
-      <ProcessStepper />
+      {/* SERVICES + PROCESS — wrapper lets us flip the order on mobile so
+          the four-step explainer sits above the services list on phones */}
+      <div className="services-process-block">
+        <ServicesEditorial />
+        <ProcessStepper />
+      </div>
 
       {/* SELECTED WORK */}
       <section id="work" className="section work">

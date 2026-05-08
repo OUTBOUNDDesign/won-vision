@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Won Vision — Mobile Services Variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#fff; --fg:#000;
+    --text-secondary:#404040; --text-muted:#737373;
+    --border:#E5E5E5;
+    --display:'Sora',system-ui,sans-serif;
+    --body:'Sora',system-ui,sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#f1f1ef;font-family:var(--body);font-weight:400;color:var(--fg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* Doc head */
+  .doc-head{padding:48px 24px 24px;max-width:1480px;margin:0 auto}
+  .doc-head h1{font-family:var(--display);font-weight:500;font-size:clamp(32px,4.5vw,56px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:12px}
+  .doc-head p{color:var(--text-secondary);max-width:720px;font-size:16px}
+
+  /* Phone-frame layout */
+  .frames{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(360px, 1fr));
+    gap:32px;
+    padding:32px 24px 96px;
+    max-width:1480px;
+    margin:0 auto;
+  }
+  .frame{
+    display:flex;
+    flex-direction:column;
+    background:var(--bg);
+    border:1px solid var(--border);
+    overflow:hidden;
+  }
+  .frame__head{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .frame__head .v{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:18px;letter-spacing:-.015em}
+  .frame__head .pill{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted);padding:4px 8px;border:1px solid var(--border)}
+  .frame__sub{padding:14px 20px 18px;color:var(--text-secondary);font-size:13px;line-height:1.5;border-bottom:1px solid var(--border);background:#fafafa}
+  .frame__demo{position:relative;background:var(--bg)}
+  .frame__demo .scroll{max-height:680px;overflow-y:auto}
+  .frame__demo .scroll::-webkit-scrollbar{width:0;height:0}
+
+  /* ============================================================
+     M1 — Stacked photo tiles (recommended)
+     ============================================================ */
+  .m1{display:flex;flex-direction:column;gap:0}
+  .m1 .tile{position:relative;display:block;aspect-ratio:5/4;overflow:hidden;background:#000}
+  .m1 .tile + .tile{border-top:1px solid var(--bg-inverse,#000)}
+  .m1 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .m1 .tile::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.2) 50%,rgba(0,0,0,.6) 100%)}
+  .m1 .tile__label{position:absolute;left:20px;bottom:20px;right:20px;display:flex;align-items:flex-end;justify-content:space-between;color:#fff;z-index:2}
+  .m1 .tile__name{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(26px,7vw,38px);line-height:.95;letter-spacing:-.02em}
+  .m1 .tile__num{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.85;margin-bottom:10px}
+  .m1 .tile__arrow{font-size:14px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding-bottom:4px}
+
+  /* ============================================================
+     M2 — Pure typographic index (no photos)
+     ============================================================ */
+  .m2{padding:32px 20px 40px;background:var(--bg)}
+  .m2__eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted);margin-bottom:24px}
+  .m2 a{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--border);text-decoration:none}
+  .m2 a:first-of-type{border-top:1px solid var(--border)}
+  .m2 .num{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .m2 .name{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(26px,7vw,40px);line-height:.95;letter-spacing:-.02em;color:var(--fg)}
+  .m2 .arrow{font-size:14px;letter-spacing:.06em;color:var(--fg)}
+
+  /* ============================================================
+     M3 — Snap-scroll horizontal carousel
+     ============================================================ */
+  .m3{padding:24px 0 32px;background:var(--bg)}
+  .m3__eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted);padding:0 20px 18px;display:flex;justify-content:space-between;align-items:center}
+  .m3__hint{font-size:10px;letter-spacing:.06em;color:var(--text-muted);text-transform:none}
+  .m3__hint::before{content:'← '}
+  .m3__hint::after{content:' →'}
+  .m3__strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scrollbar-width:none}
+  .m3__strip::-webkit-scrollbar{display:none}
+  .m3__card{flex:0 0 78%;aspect-ratio:3/4;position:relative;overflow:hidden;background:#000;scroll-snap-align:start}
+  .m3__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .m3__card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.65) 100%)}
+  .m3__card__label{position:absolute;left:18px;right:18px;bottom:18px;color:#fff;display:flex;flex-direction:column;gap:4px;z-index:2}
+  .m3__card__num{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.85}
+  .m3__card__name{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(22px,6vw,32px);line-height:.95;letter-spacing:-.02em}
+
+  @media (max-width: 540px){
+    .frames{grid-template-columns:1fr;padding:16px 12px 64px;gap:20px}
+    .doc-head{padding:32px 16px 12px}
+    .frame__demo .scroll{max-height:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-head">
+  <h1>Mobile services — variants</h1>
+  <p>Three mobile-first directions for the Services section. Each frame shows roughly what a 360–420px-wide phone would render. Sora 500 for the headings, 400 for body.</p>
+</div>
+
+<div class="frames">
+
+  <!-- M1 — Stacked photo tiles -->
+  <div class="frame">
+    <div class="frame__head"><span class="v">M1 — Stacked photo tiles</span><span class="pill">Recommended</span></div>
+    <div class="frame__sub">Five vertical full-width cards. Photo + service name as Archivo Black caption bottom-left + a small "view" cue. One tap navigates straight to <code>/book#cat-…</code>. Photos do the storytelling on a screen where there's no hover. Closest cousin to AC Media's tiles, but stacked.</div>
+    <div class="frame__demo"><div class="scroll">
+      <div class="m1">
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=900&q=80" alt="">
+          <div class="tile__label">
+            <div><div class="tile__num">01 — Photography</div><div class="tile__name">Photography</div></div>
+            <div class="tile__arrow">→</div>
+          </div>
+        </a>
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt="">
+          <div class="tile__label">
+            <div><div class="tile__num">02 — Video</div><div class="tile__name">Video</div></div>
+            <div class="tile__arrow">→</div>
+          </div>
+        </a>
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt="">
+          <div class="tile__label">
+            <div><div class="tile__num">03 — Drone</div><div class="tile__name">Drone</div></div>
+            <div class="tile__arrow">→</div>
+          </div>
+        </a>
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80" alt="">
+          <div class="tile__label">
+            <div><div class="tile__num">04 — Floor plans</div><div class="tile__name">Floor plans</div></div>
+            <div class="tile__arrow">→</div>
+          </div>
+        </a>
+        <a class="tile" href="#">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt="">
+          <div class="tile__label">
+            <div><div class="tile__num">05 — Virtual staging</div><div class="tile__name">Virtual staging</div></div>
+            <div class="tile__arrow">→</div>
+          </div>
+        </a>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- M2 — Pure typographic index -->
+  <div class="frame">
+    <div class="frame__head"><span class="v">M2 — Typographic index</span><span class="pill">No photos</span></div>
+    <div class="frame__sub">No imagery — pure type. Numbered list of service names in big Sora 500. Fastest scan, most brand-correct, lets services photos breathe elsewhere. Risk: less visual on mobile if home page is already light on imagery.</div>
+    <div class="frame__demo"><div class="scroll">
+      <div class="m2">
+        <span class="m2__eyebrow">Services — what we shoot</span>
+        <a href="#"><span class="num">01</span><span class="name">Photography</span><span class="arrow">→</span></a>
+        <a href="#"><span class="num">02</span><span class="name">Video</span><span class="arrow">→</span></a>
+        <a href="#"><span class="num">03</span><span class="name">Drone</span><span class="arrow">→</span></a>
+        <a href="#"><span class="num">04</span><span class="name">Floor plans</span><span class="arrow">→</span></a>
+        <a href="#"><span class="num">05</span><span class="name">Virtual staging</span><span class="arrow">→</span></a>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- M3 — Snap-scroll carousel -->
+  <div class="frame">
+    <div class="frame__head"><span class="v">M3 — Horizontal carousel</span><span class="pill">Snap-scroll</span></div>
+    <div class="frame__sub">Five photo cards in a horizontal scroll-snap row, swipeable left/right. Feels app-y. Risk: first card sits in view but the rest are off-screen by default; users sometimes miss horizontal scroll without a strong cue.</div>
+    <div class="frame__demo"><div class="scroll">
+      <div class="m3">
+        <div class="m3__eyebrow"><span>Services</span><span class="m3__hint">swipe</span></div>
+        <div class="m3__strip">
+          <a class="m3__card" href="#"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=900&q=80" alt=""><div class="m3__card__label"><span class="m3__card__num">01</span><span class="m3__card__name">Photography</span></div></a>
+          <a class="m3__card" href="#"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt=""><div class="m3__card__label"><span class="m3__card__num">02</span><span class="m3__card__name">Video</span></div></a>
+          <a class="m3__card" href="#"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt=""><div class="m3__card__label"><span class="m3__card__num">03</span><span class="m3__card__name">Drone</span></div></a>
+          <a class="m3__card" href="#"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80" alt=""><div class="m3__card__label"><span class="m3__card__num">04</span><span class="m3__card__name">Floor plans</span></div></a>
+          <a class="m3__card" href="#"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt=""><div class="m3__card__label"><span class="m3__card__num">05</span><span class="m3__card__name">Virtual staging</span></div></a>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+
+</body>
+</html>
