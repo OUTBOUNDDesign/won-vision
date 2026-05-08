@@ -1704,18 +1704,29 @@ body{
 }
 .nav__cta::before,
 .loader__btn::before{background:var(--fg)}
-.nav__cta:hover,
+.nav__cta:not(.nav__cta--ghost):hover,
 .loader__btn:hover{color:var(--fg)}   /* fill slides off → black text on white */
-.nav__cta:hover::before,
+.nav__cta:not(.nav__cta--ghost):hover::before,
 .loader__btn:hover::before{transform:scaleX(0)}
 
+/* Ghost: fill is OFF at rest, slides IN on hover from the left so the
+   button inverts to white-on-black. The :not() above keeps the filled
+   CTA's slide-OFF rule from also matching this variant. */
 .nav__cta--ghost{
   color:var(--fg);
   border-color:var(--fg);
   border-radius:0;
 }
-.nav__cta--ghost::before{background:var(--fg)}
-.nav__cta--ghost:hover{color:var(--bg)}   /* fill slides in → white on black */
+.nav__cta--ghost::before{
+  background:var(--fg);
+  transform:scaleX(0);
+  transform-origin:left center;
+}
+.nav__cta--ghost:hover{color:var(--bg)}
+.nav__cta--ghost:hover::before{
+  transform:scaleX(1);
+  transform-origin:right center;
+}
 
 /* Over the dark hero: ghost button — transparent at rest with white border +
    white text; hover fills white with black text. */
