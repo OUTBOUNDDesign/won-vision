@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Wordmark } from './components/Wordmark';
 import LoaderGate from './components/LoaderGate';
 import ServicesEditorial from './components/ServicesEditorial';
+import ProcessStepper from './components/ProcessStepper';
 
 export const metadata: Metadata = {
   title: {
@@ -122,102 +123,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS — accordion editorial with counting numbers */}
-      <section id="process" className="process">
-        <div className="process__inner">
-          <div className="process__head reveal-stagger">
-            <h2 className="h2">Process<em>.</em></h2>
-          </div>
-
-          <div className="process__list" id="processList">
-
-            <article className="process__item is-open">
-              <button className="process__row" type="button" aria-expanded="true">
-                <span className="process__num" data-count="1">0</span>
-                <h3 className="process__name">Book</h3>
-                <span className="process__plus" aria-hidden="true">+</span>
-              </button>
-              <div className="process__body">
-                <div className="process__body__inner">
-                  <div className="process__copy">
-                    <p>Pick your services and a date through the booking calendar — photography, video, drone, floor plans or virtual staging. Studio confirms within one working day.</p>
-                    <ul>
-                      <li>Choose services &amp; date</li>
-                      <li>Add the property details</li>
-                      <li>Confirmation within 24 hours</li>
-                    </ul>
-                  </div>
-                  <div className="process__media"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&q=85" alt="" /></div>
-                </div>
-              </div>
-            </article>
-
-            <article className="process__item">
-              <button className="process__row" type="button" aria-expanded="false">
-                <span className="process__num" data-count="2">0</span>
-                <h3 className="process__name">Plan</h3>
-                <span className="process__plus" aria-hidden="true">+</span>
-              </button>
-              <div className="process__body">
-                <div className="process__body__inner">
-                  <div className="process__copy">
-                    <p>Site walk and shot list. Light timing locked, drone permissions filed, virtual staging directions agreed before the shoot day.</p>
-                    <ul>
-                      <li>15-min site walk</li>
-                      <li>Shot list shared</li>
-                      <li>Drone permissions filed</li>
-                    </ul>
-                  </div>
-                  <div className="process__media"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1400&q=85" alt="" /></div>
-                </div>
-              </div>
-            </article>
-
-            <article className="process__item">
-              <button className="process__row" type="button" aria-expanded="false">
-                <span className="process__num" data-count="3">0</span>
-                <h3 className="process__name">Capture</h3>
-                <span className="process__plus" aria-hidden="true">+</span>
-              </button>
-              <div className="process__body">
-                <div className="process__body__inner">
-                  <div className="process__copy">
-                    <p>A single visit covers photography, video, drone and floor plans. Naturally coloured imagery, no preset, no over-direction.</p>
-                    <ul>
-                      <li>Stills · twilight</li>
-                      <li>Video walkthrough</li>
-                      <li>Drone aerials</li>
-                    </ul>
-                  </div>
-                  <div className="process__media"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1400&q=85" alt="" /></div>
-                </div>
-              </div>
-            </article>
-
-            <article className="process__item">
-              <button className="process__row" type="button" aria-expanded="false">
-                <span className="process__num" data-count="4">0</span>
-                <h3 className="process__name"><em>Deliver</em></h3>
-                <span className="process__plus" aria-hidden="true">+</span>
-              </button>
-              <div className="process__body">
-                <div className="process__body__inner">
-                  <div className="process__copy">
-                    <p>Edited files within 48 hours of the shoot — high-resolution stills, web-optimised set, cut walkthrough video, brand-aligned floor plans.</p>
-                    <ul>
-                      <li>High-res &amp; web sets</li>
-                      <li>Cut walkthrough</li>
-                      <li>Brand-aligned plans</li>
-                    </ul>
-                  </div>
-                  <div className="process__media"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85" alt="" /></div>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </section>
+      {/* PROCESS — horizontal stepper, animated rule on scroll-in */}
+      <ProcessStepper />
 
       {/* CONTACT B — Map + studio info */}
       <section id="contact" className="con-b">

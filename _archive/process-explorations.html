@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Won Vision — Process Layout Explorations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap">
+<style>
+  :root{
+    --bg:#fff; --fg:#000;
+    --text-secondary:#404040; --text-muted:#737373;
+    --border:#E5E5E5; --border-strong:#999;
+    --display:'Archivo Black', system-ui, sans-serif;
+    --body:'Archivo', system-ui, sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  .doc-head{padding:64px 32px 32px;border-bottom:1px solid var(--border);max-width:1480px;margin:0 auto}
+  .doc-head h1{font-family:var(--display);font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:16px}
+  .doc-head p{color:var(--text-secondary);max-width:720px;font-size:18px}
+  .doc-toc{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+  .doc-toc a{padding:10px 16px;border:1px solid var(--fg);transition:background .25s ease,color .25s ease}
+  .doc-toc a:hover{background:var(--fg);color:var(--bg)}
+
+  .variant-head{padding:64px 32px 24px;max-width:1480px;margin:0 auto}
+  .variant-head .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .variant-head h2{font-family:var(--body);font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.02em;margin-top:8px}
+  .variant-head .vsub{color:var(--text-secondary);margin-top:10px;max-width:680px}
+  .variant + .variant{border-top:1px solid var(--border);margin-top:48px}
+
+  /* shared step copy/title type */
+  .stp-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .stp-name{font-family:var(--display);text-transform:uppercase;line-height:.95;letter-spacing:-.025em}
+  .stp-desc{color:var(--text-secondary);line-height:1.55}
+
+  /* ============================================================
+     P1 — Horizontal stepper with connecting rule
+     ============================================================ */
+  .p1{padding:96px 64px;max-width:1480px;margin:0 auto}
+  .p1__row{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;position:relative;padding-top:48px}
+  .p1__row::before{content:'';position:absolute;top:24px;left:0;right:0;height:1px;background:var(--fg)}
+  .p1__step{position:relative;padding-top:24px}
+  .p1__step::before{content:'';position:absolute;top:-24px;left:0;width:14px;height:14px;background:var(--fg);transform:translateY(-7px)}
+  .p1__step .stp-num{display:block;margin-bottom:12px}
+  .p1__step .stp-name{font-size:clamp(28px,3vw,44px);margin-bottom:14px}
+  .p1__step .stp-desc{font-size:15px;max-width:300px}
+  @media (max-width:900px){
+    .p1__row{grid-template-columns:1fr 1fr;gap:32px 24px}
+    .p1__row::before{display:none}
+    .p1__step::before{position:relative;top:auto;left:auto;display:inline-block;margin-bottom:14px;transform:none}
+  }
+
+  /* ============================================================
+     P2 — Sticky scroll narrative (matches services V2)
+     ============================================================ */
+  .p2{display:grid;grid-template-columns:1fr 1fr}
+  .p2__list{padding:96px 64px;display:flex;flex-direction:column;gap:0}
+  .p2__list .stp-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted);margin-bottom:32px}
+  .p2__row{padding:48px 0;border-bottom:1px solid var(--border);cursor:default}
+  .p2__row:first-of-type{border-top:1px solid var(--border)}
+  .p2__row .stp-num{display:block;margin-bottom:14px}
+  .p2__row .stp-name{font-size:clamp(36px,4.4vw,68px);margin-bottom:16px}
+  .p2__row .stp-desc{font-size:16px;max-width:440px}
+  .p2__row.is-active .stp-name{transform:translateX(8px);transition:transform .35s var(--ease)}
+  .p2__pane{position:sticky;top:0;align-self:start;height:100vh;overflow:hidden;background:#000}
+  .p2__pane figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .55s var(--ease)}
+  .p2__pane figure.is-active{opacity:1}
+  .p2__pane img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:900px){
+    .p2{grid-template-columns:1fr}
+    .p2__pane{position:relative;height:60vh;order:-1}
+    .p2__list{padding:48px 24px}
+  }
+
+  /* ============================================================
+     P3 — Numeral-led panels (V7 lineage)
+     ============================================================ */
+  .p3{background:var(--bg)}
+  .p3__row{position:relative;overflow:hidden;border-bottom:1px solid var(--border);padding:64px 32px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px;min-height:340px}
+  .p3__bignum{position:absolute;left:-2vw;bottom:-8vh;font-family:var(--display);font-size:clamp(280px,42vw,560px);line-height:.78;letter-spacing:-.06em;color:var(--fg);opacity:.06;pointer-events:none;user-select:none;z-index:0}
+  .p3__main{position:relative;z-index:1;max-width:680px;margin-left:6vw}
+  .p3__main .stp-num{display:block;margin-bottom:14px}
+  .p3__main .stp-name{font-size:clamp(40px,5.6vw,96px)}
+  .p3__main .stp-desc{font-size:17px;margin-top:18px;max-width:520px}
+  .p3__shot{position:relative;z-index:1;width:clamp(220px,26vw,360px);aspect-ratio:3/4;overflow:hidden;background:#000}
+  .p3__shot img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:900px){
+    .p3__row{grid-template-columns:1fr;gap:24px}
+    .p3__main{margin-left:0}
+    .p3__shot{width:100%;aspect-ratio:5/4}
+  }
+
+  /* ============================================================
+     P4 — Vertical timeline (left rail + content)
+     ============================================================ */
+  .p4{padding:96px 64px;max-width:1180px;margin:0 auto;position:relative}
+  .p4__rail{position:absolute;top:120px;bottom:120px;left:88px;width:1px;background:var(--border)}
+  .p4__step{display:grid;grid-template-columns:96px 1fr 280px;gap:48px;align-items:start;padding:36px 0;position:relative}
+  .p4__step:not(:last-child){border-bottom:1px solid var(--border)}
+  .p4__dot{width:14px;height:14px;background:var(--fg);position:relative;margin-top:8px;justify-self:end;margin-right:-6px;z-index:1}
+  .p4__copy .stp-num{display:block;margin-bottom:10px}
+  .p4__copy .stp-name{font-size:clamp(32px,3.6vw,52px);margin-bottom:14px}
+  .p4__copy .stp-desc{font-size:16px;max-width:520px}
+  .p4__shot{aspect-ratio:4/3;overflow:hidden;background:#000}
+  .p4__shot img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:900px){
+    .p4{padding:64px 24px}
+    .p4__rail{display:none}
+    .p4__step{grid-template-columns:auto 1fr;gap:18px}
+    .p4__dot{margin-right:0}
+    .p4__shot{grid-column:1/-1;margin-top:18px;aspect-ratio:5/4}
+  }
+
+  /* ============================================================
+     P5 — 2×2 image card grid
+     ============================================================ */
+  .p5{padding:96px 64px;max-width:1480px;margin:0 auto}
+  .p5__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .p5__card{position:relative;aspect-ratio:5/4;overflow:hidden;background:#000;color:var(--bg);isolation:isolate}
+  .p5__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+  .p5__card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.7) 100%)}
+  .p5__card:hover img{transform:scale(1.04)}
+  .p5__card__inner{position:relative;z-index:1;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+  .p5__card .stp-num{color:rgba(255,255,255,.7)}
+  .p5__card .stp-name{font-size:clamp(36px,4vw,60px);margin:14px 0}
+  .p5__card .stp-desc{color:rgba(255,255,255,.85);font-size:15px;max-width:420px}
+  @media (max-width:720px){
+    .p5__grid{grid-template-columns:1fr}
+    .p5__card{aspect-ratio:5/4}
+  }
+
+  /* ============================================================
+     P6 — Pure typographic index (no images)
+     ============================================================ */
+  .p6{padding:96px 64px;max-width:1480px;margin:0 auto}
+  .p6__head{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted);margin-bottom:48px}
+  .p6__row{display:grid;grid-template-columns:88px 1fr 480px;gap:48px;padding:40px 0;border-bottom:1px solid var(--border);align-items:baseline}
+  .p6__row:first-of-type{border-top:1px solid var(--border)}
+  .p6__num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--text-muted)}
+  .p6__name{font-family:var(--display);font-size:clamp(40px,5.4vw,84px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+  .p6__desc{color:var(--text-secondary);font-size:17px;line-height:1.55}
+  @media (max-width:900px){
+    .p6__row{grid-template-columns:auto 1fr;gap:18px}
+    .p6__desc{grid-column:1/-1;margin-top:14px}
+  }
+
+  /* ============================================================
+     P7 — Scroll-progress band (active step lights up)
+     ============================================================ */
+  .p7{position:relative;background:var(--fg);color:var(--bg);min-height:100vh;overflow:hidden}
+  .p7__bg{position:absolute;inset:0}
+  .p7__bg figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s var(--ease)}
+  .p7__bg figure.is-active{opacity:1}
+  .p7__bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) contrast(1.05)}
+  .p7__inner{position:relative;z-index:2;height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:64px;gap:48px}
+  .p7__head .stp-num{color:rgba(255,255,255,.7)}
+  .p7__head h3{font-family:var(--display);font-size:clamp(48px,7vw,140px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin-top:12px}
+  .p7__head p{margin-top:18px;max-width:520px;color:rgba(255,255,255,.85);font-size:17px;line-height:1.55}
+  .p7__bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:end;border-top:1px solid rgba(255,255,255,.2);padding-top:18px}
+  .p7__pill{padding:14px 18px;display:flex;flex-direction:column;gap:8px;border-right:1px solid rgba(255,255,255,.1);cursor:pointer;transition:background .3s ease}
+  .p7__pill:last-child{border-right:none}
+  .p7__pill:hover,.p7__pill.is-active{background:rgba(255,255,255,.08)}
+  .p7__pill__num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.6}
+  .p7__pill__name{font-family:var(--display);font-size:clamp(16px,1.6vw,22px);text-transform:uppercase;letter-spacing:-.01em}
+  @media (max-width:720px){
+    .p7__inner{padding:32px 24px;gap:24px}
+    .p7__bar{grid-template-columns:1fr 1fr}
+    .p7__pill{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <h1>Process — Layout Explorations</h1>
+  <p>Seven directions for the four-step process (Book / Plan / Capture / Deliver). All Archivo + B/W. Pick a winner and we'll wire it into <code>app/page.tsx</code>.</p>
+  <nav class="doc-toc">
+    <a href="#p1">P1 — Horizontal stepper</a>
+    <a href="#p2">P2 — Sticky narrative</a>
+    <a href="#p3">P3 — Numeral panels</a>
+    <a href="#p4">P4 — Vertical timeline</a>
+    <a href="#p5">P5 — 2×2 image cards</a>
+    <a href="#p6">P6 — Typographic index</a>
+    <a href="#p7">P7 — Scroll-progress band</a>
+  </nav>
+</header>
+
+<!-- P1 -->
+<section class="variant" id="p1">
+  <div class="variant-head">
+    <span class="eyebrow">P1 — Horizontal stepper</span>
+    <h2>Four columns, connecting rule, no images</h2>
+    <p class="vsub">Clean and instantly scannable. A horizontal rule connects the four steps; each gets a number, name, one-line description. Best when you want the process to feel light and quick.</p>
+  </div>
+  <div class="p1">
+    <div class="p1__row">
+      <div class="p1__step"><span class="stp-num">01 / Book</span><h3 class="stp-name">Book</h3><p class="stp-desc">Pick services and date through the booking calendar. Confirmation within 24 hours.</p></div>
+      <div class="p1__step"><span class="stp-num">02 / Plan</span><h3 class="stp-name">Plan</h3><p class="stp-desc">Site walk, shot list, light timing locked. Drone permissions filed before the day.</p></div>
+      <div class="p1__step"><span class="stp-num">03 / Capture</span><h3 class="stp-name">Capture</h3><p class="stp-desc">A single visit covers stills, video, drone and floor plans. Naturally coloured.</p></div>
+      <div class="p1__step"><span class="stp-num">04 / Deliver</span><h3 class="stp-name">Deliver</h3><p class="stp-desc">Edited files within 48 hours — high-res, web set, walkthrough cut, brand-aligned plans.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- P2 -->
+<section class="variant" id="p2">
+  <div class="variant-head">
+    <span class="eyebrow">P2 — Sticky narrative</span>
+    <h2>List on the left, sticky photo pane on the right</h2>
+    <p class="vsub">Same DNA as the services section — copy scrolls past while a sticky image pane swaps per step. Page reads as one design system top-to-bottom. Hover any row to swap the image.</p>
+  </div>
+  <div class="p2">
+    <div class="p2__list" id="p2List">
+      <span class="stp-eyebrow">Process</span>
+      <div class="p2__row is-active" data-img="0"><span class="stp-num">01 / Book</span><h3 class="stp-name">Book</h3><p class="stp-desc">Pick your services and a date through the booking calendar — photography, video, drone, floor plans or virtual staging. Confirmation within one working day.</p></div>
+      <div class="p2__row" data-img="1"><span class="stp-num">02 / Plan</span><h3 class="stp-name">Plan</h3><p class="stp-desc">Site walk and shot list. Light timing locked, drone permissions filed, virtual staging directions agreed before shoot day.</p></div>
+      <div class="p2__row" data-img="2"><span class="stp-num">03 / Capture</span><h3 class="stp-name">Capture</h3><p class="stp-desc">A single visit covers photography, video, drone and floor plans. Naturally coloured imagery, no preset, no over-direction.</p></div>
+      <div class="p2__row" data-img="3"><span class="stp-num">04 / Deliver</span><h3 class="stp-name">Deliver</h3><p class="stp-desc">Edited files within 48 hours of the shoot — high-resolution stills, web-optimised set, cut walkthrough video, brand-aligned floor plans.</p></div>
+    </div>
+    <div class="p2__pane" id="p2Pane">
+      <figure class="is-active"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1800&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1800&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=85" alt=""></figure>
+    </div>
+  </div>
+</section>
+
+<!-- P3 -->
+<section class="variant" id="p3">
+  <div class="variant-head">
+    <span class="eyebrow">P3 — Numeral panels</span>
+    <h2>Massive faded numerals as backdrops</h2>
+    <p class="vsub">Each step row has a giant Archivo Black numeral ghosted at 6% opacity behind the copy + small image. Numbers carry the design. Strong, branded, very studio-monograph.</p>
+  </div>
+  <div class="p3">
+    <div class="p3__row"><span class="p3__bignum">01</span><div class="p3__main"><span class="stp-num">Step</span><h3 class="stp-name">Book</h3><p class="stp-desc">Pick your services and a date through the booking calendar. Confirmation within one working day.</p></div><div class="p3__shot"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85" alt=""></div></div>
+    <div class="p3__row"><span class="p3__bignum">02</span><div class="p3__main"><span class="stp-num">Step</span><h3 class="stp-name">Plan</h3><p class="stp-desc">Site walk, shot list, light timing locked, drone permissions filed before the day.</p></div><div class="p3__shot"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=85" alt=""></div></div>
+    <div class="p3__row"><span class="p3__bignum">03</span><div class="p3__main"><span class="stp-num">Step</span><h3 class="stp-name">Capture</h3><p class="stp-desc">A single visit covers stills, video, drone and floor plans. Naturally coloured.</p></div><div class="p3__shot"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1200&q=85" alt=""></div></div>
+    <div class="p3__row"><span class="p3__bignum">04</span><div class="p3__main"><span class="stp-num">Step</span><h3 class="stp-name">Deliver</h3><p class="stp-desc">Edited files within 48 hours — high-res, web set, walkthrough cut, brand-aligned plans.</p></div><div class="p3__shot"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85" alt=""></div></div>
+  </div>
+</section>
+
+<!-- P4 -->
+<section class="variant" id="p4">
+  <div class="variant-head">
+    <span class="eyebrow">P4 — Vertical timeline</span>
+    <h2>Left rail with dots, content beside</h2>
+    <p class="vsub">A vertical line with a dot per step on the left, copy and a small image on the right. Reads top-to-bottom like a timeline. Quietly diagrammatic without feeling corporate.</p>
+  </div>
+  <div class="p4">
+    <div class="p4__rail"></div>
+    <div class="p4__step"><span class="p4__dot"></span><div class="p4__copy"><span class="stp-num">01 / Book</span><h3 class="stp-name">Book</h3><p class="stp-desc">Pick services and date through the booking calendar. Confirmation within 24 hours.</p></div><div class="p4__shot"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85" alt=""></div></div>
+    <div class="p4__step"><span class="p4__dot"></span><div class="p4__copy"><span class="stp-num">02 / Plan</span><h3 class="stp-name">Plan</h3><p class="stp-desc">Site walk, shot list, light timing locked. Drone permissions filed before the day.</p></div><div class="p4__shot"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=85" alt=""></div></div>
+    <div class="p4__step"><span class="p4__dot"></span><div class="p4__copy"><span class="stp-num">03 / Capture</span><h3 class="stp-name">Capture</h3><p class="stp-desc">A single visit covers stills, video, drone and floor plans.</p></div><div class="p4__shot"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1200&q=85" alt=""></div></div>
+    <div class="p4__step"><span class="p4__dot"></span><div class="p4__copy"><span class="stp-num">04 / Deliver</span><h3 class="stp-name">Deliver</h3><p class="stp-desc">Edited files within 48 hours — high-res, web set, walkthrough cut, plans.</p></div><div class="p4__shot"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85" alt=""></div></div>
+  </div>
+</section>
+
+<!-- P5 -->
+<section class="variant" id="p5">
+  <div class="variant-head">
+    <span class="eyebrow">P5 — 2×2 image cards</span>
+    <h2>Four large cards, dark photo backgrounds</h2>
+    <p class="vsub">A 2×2 grid of full-bleed image cards with a dark gradient veil and copy at the bottom. The most photo-led of the seven; closest cousin to the AC Media tile direction.</p>
+  </div>
+  <div class="p5">
+    <div class="p5__grid">
+      <a class="p5__card" href="#"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=85" alt=""><div class="p5__card__inner"><span class="stp-num">01</span><h3 class="stp-name">Book</h3><p class="stp-desc">Pick services and date through the booking calendar. Confirmation within 24 hours.</p></div></a>
+      <a class="p5__card" href="#"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1600&q=85" alt=""><div class="p5__card__inner"><span class="stp-num">02</span><h3 class="stp-name">Plan</h3><p class="stp-desc">Site walk, shot list, light timing locked. Drone permissions filed before the day.</p></div></a>
+      <a class="p5__card" href="#"><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1600&q=85" alt=""><div class="p5__card__inner"><span class="stp-num">03</span><h3 class="stp-name">Capture</h3><p class="stp-desc">A single visit covers stills, video, drone and floor plans.</p></div></a>
+      <a class="p5__card" href="#"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85" alt=""><div class="p5__card__inner"><span class="stp-num">04</span><h3 class="stp-name">Deliver</h3><p class="stp-desc">Edited files within 48 hours — high-res, web set, walkthrough cut, plans.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- P6 -->
+<section class="variant" id="p6">
+  <div class="variant-head">
+    <span class="eyebrow">P6 — Typographic index</span>
+    <h2>No images, pure type</h2>
+    <p class="vsub">Number column, big name, description. No imagery — purest typographic treatment, fastest to read. Best when the photos are doing the heavy lifting in the services section above.</p>
+  </div>
+  <div class="p6">
+    <span class="p6__head">Process — how a shoot runs</span>
+    <div class="p6__row"><span class="p6__num">01</span><h3 class="p6__name">Book</h3><p class="p6__desc">Pick your services and a date through the booking calendar — photography, video, drone, floor plans or virtual staging. Studio confirms within one working day.</p></div>
+    <div class="p6__row"><span class="p6__num">02</span><h3 class="p6__name">Plan</h3><p class="p6__desc">Site walk and shot list. Light timing locked, drone permissions filed, virtual staging directions agreed before shoot day.</p></div>
+    <div class="p6__row"><span class="p6__num">03</span><h3 class="p6__name">Capture</h3><p class="p6__desc">A single visit covers photography, video, drone and floor plans. Naturally coloured imagery, no preset, no over-direction.</p></div>
+    <div class="p6__row"><span class="p6__num">04</span><h3 class="p6__name">Deliver</h3><p class="p6__desc">Edited files within 48 hours of the shoot — high-resolution stills, web-optimised set, cut walkthrough video, brand-aligned floor plans.</p></div>
+  </div>
+</section>
+
+<!-- P7 -->
+<section class="variant" id="p7">
+  <div class="variant-head">
+    <span class="eyebrow">P7 — Scroll-progress band</span>
+    <h2>Full-bleed cinematic, active step pill row</h2>
+    <p class="vsub">Single full-screen background photo, large active step name and copy on top, four pill tabs along the bottom. Click/hover a pill to advance — cinematic and interactive.</p>
+  </div>
+  <section class="p7">
+    <div class="p7__bg" id="p7Bg">
+      <figure class="is-active"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=2000&q=85" alt=""></figure>
+      <figure><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85" alt=""></figure>
+    </div>
+    <div class="p7__inner">
+      <div class="p7__head" id="p7Head">
+        <span class="stp-num">Step 01</span>
+        <h3 data-name>Book</h3>
+        <p data-desc>Pick services and a date through the booking calendar — photography, video, drone, floor plans or virtual staging. Confirmation within one working day.</p>
+      </div>
+      <div></div>
+      <div class="p7__bar" id="p7Bar">
+        <div class="p7__pill is-active" data-i="0" data-name="Book" data-desc="Pick services and a date through the booking calendar. Confirmation within one working day."><span class="p7__pill__num">01</span><span class="p7__pill__name">Book</span></div>
+        <div class="p7__pill" data-i="1" data-name="Plan" data-desc="Site walk and shot list. Light timing locked, drone permissions filed, virtual staging directions agreed before shoot day."><span class="p7__pill__num">02</span><span class="p7__pill__name">Plan</span></div>
+        <div class="p7__pill" data-i="2" data-name="Capture" data-desc="A single visit covers photography, video, drone and floor plans. Naturally coloured, no preset, no over-direction."><span class="p7__pill__num">03</span><span class="p7__pill__name">Capture</span></div>
+        <div class="p7__pill" data-i="3" data-name="Deliver" data-desc="Edited files within 48 hours of the shoot — high-resolution stills, web-optimised set, cut walkthrough video, brand-aligned floor plans."><span class="p7__pill__num">04</span><span class="p7__pill__name">Deliver</span></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<script>
+  // P2 — sticky pane swap on hover
+  (function(){
+    const list = document.getElementById('p2List');
+    const pane = document.getElementById('p2Pane');
+    if(!list || !pane) return;
+    const figs = pane.querySelectorAll('figure');
+    list.querySelectorAll('.p2__row').forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        const i = parseInt(row.dataset.img, 10);
+        figs.forEach((f, idx) => f.classList.toggle('is-active', idx === i));
+        list.querySelectorAll('.p2__row').forEach((r, idx) => r.classList.toggle('is-active', idx === i));
+      });
+    });
+  })();
+
+  // P7 — pill swap
+  (function(){
+    const bar = document.getElementById('p7Bar');
+    const bg  = document.getElementById('p7Bg');
+    const head = document.getElementById('p7Head');
+    if(!bar || !bg || !head) return;
+    const figs = bg.querySelectorAll('figure');
+    const pills = bar.querySelectorAll('.p7__pill');
+    pills.forEach(p => {
+      p.addEventListener('mouseenter', () => activate(parseInt(p.dataset.i,10)));
+      p.addEventListener('click',     () => activate(parseInt(p.dataset.i,10)));
+    });
+    function activate(i){
+      figs.forEach((f, idx) => f.classList.toggle('is-active', idx === i));
+      pills.forEach((p, idx) => p.classList.toggle('is-active', idx === i));
+      const pill = pills[i];
+      head.querySelector('.stp-num').textContent = 'Step 0' + (i+1);
+      head.querySelector('[data-name]').textContent = pill.dataset.name;
+      head.querySelector('[data-desc]').textContent = pill.dataset.desc;
+    }
+  })();
+</script>
+
+</body>
+</html>
