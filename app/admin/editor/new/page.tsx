@@ -17,7 +17,20 @@ export default async function NewProperty() {
 
   return (
     <section>
-      <h1>New property intake</h1>
+      <div style={{ marginBottom: '2rem' }}>
+        <h1 style={{
+          fontSize: '22px',
+          fontWeight: 600,
+          color: '#000',
+          letterSpacing: '-0.01em',
+          marginBottom: '4px',
+        }}>
+          New property intake
+        </h1>
+        <p style={{ fontSize: '13px', color: '#888' }}>
+          Complete all four steps to submit a property for editing.
+        </p>
+      </div>
       <Stepper stylePresets={STYLE_PRESETS} />
     </section>
   );
