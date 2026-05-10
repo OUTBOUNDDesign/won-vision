@@ -5,30 +5,34 @@ import { auth } from '@clerk/nextjs/server';
 import { eq } from 'drizzle-orm';
 import { db, editors, properties, photos } from '@/lib/db';
 
-const STATUS_STYLES: Record<string, { bg: string; color: string; border?: string; textDecoration?: string }> = {
-  draft:      { bg: '#f5f5f5',  color: '#666' },
-  queued:     { bg: '#002FA7',  color: '#fff' },
-  processing: { bg: '#fef3c7', color: '#92400e' },
-  review:     { bg: '#f3e8ff', color: '#7e22ce' },
-  approved:   { bg: '#dcfce7', color: '#166534' },
-  delivered:  { bg: '#fff',    color: '#166534', border: '1px solid #166534' },
-  cancelled:  { bg: '#f5f5f5', color: '#aaa', textDecoration: 'line-through' },
+const STATUS_STYLES: Record<string, { bg: string; color: string; border: string; textDecoration?: string }> = {
+  draft:      { bg: '#fff',    color: '#737373', border: '1px solid #E5E5E5' },
+  intake:     { bg: '#fff',    color: '#404040', border: '1px solid #999999' },
+  queued:     { bg: '#000',    color: '#fff',    border: '1px solid #000' },
+  processing: { bg: '#F5F5F5', color: '#404040', border: '1px solid #999999' },
+  review:     { bg: '#fff',    color: '#000',    border: '1px solid #000' },
+  approved:   { bg: '#000',    color: '#fff',    border: '1px solid #000' },
+  delivered:  { bg: '#fff',    color: '#000',    border: '1px solid #000' },
+  cancelled:  { bg: '#fff',    color: '#737373', border: '1px solid #E5E5E5', textDecoration: 'line-through' },
+  // photo statuses
+  pending:    { bg: '#F5F5F5', color: '#737373', border: '1px solid #E5E5E5' },
+  rejected:   { bg: '#fff',    color: '#737373', border: '1px solid #E5E5E5', textDecoration: 'line-through' },
 };
 
 function StatusPill({ status }: { status: string }) {
-  const s = STATUS_STYLES[status] ?? { bg: '#f5f5f5', color: '#666' };
+  const s = STATUS_STYLES[status] ?? { bg: '#F5F5F5', color: '#737373', border: '1px solid #E5E5E5' };
   return (
     <span style={{
       display: 'inline-block',
-      padding: '3px 12px',
-      borderRadius: '99px',
-      fontSize: '11px',
-      fontWeight: 600,
-      letterSpacing: '0.06em',
+      padding: '3px 10px',
+      borderRadius: 0,
+      fontSize: '10px',
+      fontWeight: 500,
+      letterSpacing: '0.18em',
       textTransform: 'uppercase',
       background: s.bg,
       color: s.color,
-      border: s.border ?? '1px solid transparent',
+      border: s.border,
       textDecoration: s.textDecoration,
     }}>
       {status}
@@ -56,8 +60,11 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
         display: 'inline-flex',
         alignItems: 'center',
         gap: '6px',
-        fontSize: '13px',
-        color: '#888',
+        fontSize: '11px',
+        fontWeight: 500,
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+        color: '#737373',
         marginBottom: '1.5rem',
         textDecoration: 'none',
       }}>
@@ -65,20 +72,9 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
       </Link>
 
       {/* Property header card */}
-      <div style={{
-        background: '#fff',
-        border: '1px solid #e5e5e5',
-        borderRadius: '10px',
-        padding: '24px',
-        marginBottom: '1.5rem',
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-          <h1 style={{
-            fontSize: '20px',
-            fontWeight: 600,
-            color: '#000',
-            letterSpacing: '-0.01em',
-          }}>
+      <div style={{ background: '#fff', border: '1px solid #E5E5E5', borderRadius: 0, padding: '24px', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+          <h1 style={{ fontSize: '20px', fontWeight: 600, color: '#000', letterSpacing: '-0.01em' }}>
             {property.address}
           </h1>
           <StatusPill status={property.status} />
@@ -91,8 +87,8 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
             { label: 'Submitted', value: new Date(property.createdAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }) },
           ].map(({ label, value }) => (
             <div key={label}>
-              <p style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#aaa', marginBottom: '2px' }}>{label}</p>
-              <p style={{ fontSize: '14px', color: '#333' }}>{value}</p>
+              <p style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#737373', marginBottom: '4px' }}>{label}</p>
+              <p style={{ fontSize: '14px', color: '#000' }}>{value}</p>
             </div>
           ))}
         </div>
@@ -100,85 +96,57 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
           <div style={{
             marginTop: '16px',
             padding: '10px 14px',
-            background: '#f0f4ff',
-            border: '1px solid #c7d5f5',
-            borderRadius: '6px',
+            background: '#F5F5F5',
+            border: '1px solid #000',
+            borderRadius: 0,
             fontSize: '13px',
-            color: '#002FA7',
+            color: '#000',
           }}>
             This property is queued for the AI editing pipeline.
           </div>
         )}
       </div>
 
-      {/* Photos */}
-      <div style={{
-        background: '#fff',
-        border: '1px solid #e5e5e5',
-        borderRadius: '10px',
-        overflow: 'hidden',
-      }}>
-        <div style={{
-          padding: '14px 20px',
-          borderBottom: '1px solid #e5e5e5',
-          background: '#fafafa',
-        }}>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: '#333' }}>Photos</span>
+      {/* Photos table */}
+      <div style={{ background: '#fff', border: '1px solid #E5E5E5', borderRadius: 0, overflow: 'hidden' }}>
+        <div style={{ padding: '14px 20px', borderBottom: '1px solid #E5E5E5', background: '#F5F5F5' }}>
+          <span style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#737373' }}>Photos</span>
         </div>
 
         {rows.length === 0 ? (
-          <div style={{ padding: '40px', textAlign: 'center', color: '#aaa', fontSize: '14px' }}>
+          <div style={{ padding: '40px', textAlign: 'center', color: '#737373', fontSize: '14px' }}>
             No photos attached.
           </div>
         ) : (
           <>
-            {/* Column headers */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '60px 1fr 140px 140px 120px',
+              gridTemplateColumns: '60px 1fr 160px 140px 120px',
               padding: '10px 20px',
-              borderBottom: '1px solid #e5e5e5',
+              borderBottom: '1px solid #E5E5E5',
             }}>
-              {['', 'File', 'Service', 'Style', 'Status'].map((h) => (
-                <span key={h} style={{
-                  fontSize: '11px',
-                  fontWeight: 600,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: '#bbb',
-                }}>{h}</span>
+              {['', 'File', 'Services', 'Style', 'Status'].map((h) => (
+                <span key={h} style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#737373' }}>{h}</span>
               ))}
             </div>
 
             {rows.map((p, idx) => (
               <div key={p.id} style={{
                 display: 'grid',
-                gridTemplateColumns: '60px 1fr 140px 140px 120px',
+                gridTemplateColumns: '60px 1fr 160px 140px 120px',
                 padding: '12px 20px',
                 alignItems: 'center',
-                borderBottom: idx < rows.length - 1 ? '1px solid #f0f0f0' : 'none',
+                borderBottom: idx < rows.length - 1 ? '1px solid #F5F5F5' : 'none',
               }}>
-                {/* Thumbnail */}
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                  background: '#f5f5f5',
-                  flexShrink: 0,
-                }}>
+                <div style={{ width: '44px', height: '44px', overflow: 'hidden', background: '#F5F5F5', flexShrink: 0 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.originalBlobUrl ?? ''}
-                    alt={p.filename ?? ''}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                  <img src={p.originalBlobUrl ?? ''} alt={p.filename ?? ''} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <span style={{ fontSize: '13px', color: '#333', wordBreak: 'break-all', paddingRight: '12px' }}>{p.filename}</span>
-                <span style={{ fontSize: '13px', color: '#555' }}>
-                  {p.services && p.services.length > 0 ? p.services.join(' + ') : '—'}
+                <span style={{ fontSize: '13px', color: '#000', wordBreak: 'break-all', paddingRight: '12px' }}>{p.filename}</span>
+                <span style={{ fontSize: '13px', color: '#404040' }}>
+                  {Array.isArray(p.services) && p.services.length > 0 ? p.services.join(' + ') : '—'}
                 </span>
-                <span style={{ fontSize: '13px', color: '#555' }}>{p.style ?? '—'}</span>
+                <span style={{ fontSize: '13px', color: '#404040' }}>{p.style ?? '—'}</span>
                 <span><StatusPill status={p.status} /></span>
               </div>
             ))}

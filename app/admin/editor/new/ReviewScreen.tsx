@@ -17,16 +17,17 @@ const primaryBtn: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '6px',
-  background: '#002FA7',
+  background: '#000',
   color: '#fff',
   padding: '11px 26px',
-  borderRadius: '6px',
-  fontSize: '14px',
-  fontWeight: 600,
+  borderRadius: 0,
+  fontSize: '11px',
+  fontWeight: 500,
+  fontFamily: 'inherit',
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
   border: 'none',
   cursor: 'pointer',
-  fontFamily: 'inherit',
-  letterSpacing: '0.02em',
 };
 
 const secondaryBtn: React.CSSProperties = {
@@ -34,28 +35,39 @@ const secondaryBtn: React.CSSProperties = {
   alignItems: 'center',
   gap: '6px',
   background: '#fff',
-  color: '#002FA7',
+  color: '#000',
   padding: '11px 26px',
-  borderRadius: '6px',
-  fontSize: '14px',
-  fontWeight: 600,
-  border: '1.5px solid #002FA7',
-  cursor: 'pointer',
+  borderRadius: 0,
+  fontSize: '11px',
+  fontWeight: 500,
   fontFamily: 'inherit',
-  letterSpacing: '0.02em',
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
+  border: '1px solid #000',
+  cursor: 'pointer',
 };
 
-const disabledBtn: React.CSSProperties = { opacity: 0.4, cursor: 'not-allowed' };
+const disabledBtn: React.CSSProperties = { opacity: 0.35, cursor: 'not-allowed' };
+
+const card: React.CSSProperties = {
+  background: '#fff',
+  border: '1px solid #E5E5E5',
+  borderRadius: 0,
+  padding: '28px',
+  maxWidth: '700px',
+};
 
 function ErrorAlert({ message }: { message: string }) {
   return (
     <div role="alert" style={{
       display: 'flex', alignItems: 'flex-start', gap: '10px',
-      padding: '12px 16px', background: '#fef2f2',
-      border: '1px solid #fca5a5', borderRadius: '8px', marginBottom: '20px',
+      padding: '12px 16px',
+      background: '#fff',
+      border: '1px solid #000',
+      marginBottom: '20px',
     }}>
-      <span style={{ fontSize: '16px', flexShrink: 0 }}>⚠</span>
-      <p style={{ fontSize: '13px', color: '#b91c1c', lineHeight: 1.5, margin: 0 }}>{message}</p>
+      <span style={{ fontSize: '14px', flexShrink: 0 }}>!</span>
+      <p style={{ fontSize: '13px', color: '#000', lineHeight: 1.5, margin: 0 }}>{message}</p>
     </div>
   );
 }
@@ -94,21 +106,15 @@ export function ReviewScreen({
     }
   }
 
-  const card: React.CSSProperties = {
-    background: '#fff',
-    border: '1px solid #e5e5e5',
-    borderRadius: '10px',
-    padding: '28px',
-    maxWidth: '700px',
-  };
-
   return (
     <div style={{ maxWidth: '700px' }}>
       {error && <ErrorAlert message={error} />}
 
-      {/* ── Summary card ── */}
+      {/* ── Summary ── */}
       <div style={{ ...card, marginBottom: '20px' }}>
-        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#000', marginBottom: '20px' }}>Review & submit</h2>
+        <h2 style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#000', marginBottom: '24px' }}>
+          Review & submit
+        </h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
           {[
@@ -117,10 +123,10 @@ export function ReviewScreen({
             { label: 'Photos', value: `${state.photos.length} uploaded` },
           ].map(({ label, value }) => (
             <div key={label}>
-              <p style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#bbb', marginBottom: '2px' }}>
+              <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#737373', marginBottom: '4px' }}>
                 {label}
               </p>
-              <p style={{ fontSize: '14px', color: '#222', margin: 0 }}>{value}</p>
+              <p style={{ fontSize: '14px', color: '#000', margin: 0 }}>{value}</p>
             </div>
           ))}
         </div>
@@ -128,7 +134,7 @@ export function ReviewScreen({
 
       {/* ── Photo list ── */}
       <div style={{ ...card, marginBottom: '24px' }}>
-        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#bbb', marginBottom: '14px' }}>
+        <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#737373', marginBottom: '14px' }}>
           Photos ({state.photos.length})
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -147,24 +153,19 @@ export function ReviewScreen({
                 gap: '12px',
                 alignItems: 'center',
                 padding: '10px 14px',
-                background: '#fafafa',
-                border: '1px solid #ebebeb',
-                borderRadius: '8px',
+                background: '#F5F5F5',
+                border: '1px solid #E5E5E5',
+                borderRadius: 0,
               }}>
-                {/* Thumbnail */}
-                <div style={{ width: '44px', height: '44px', borderRadius: '4px', overflow: 'hidden', background: '#e5e5e5' }}>
+                <div style={{ width: '44px', height: '44px', overflow: 'hidden', background: '#E5E5E5' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.previewUrl ?? p.blobUrl}
-                    alt={p.filename}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                  <img src={p.previewUrl ?? p.blobUrl} alt={p.filename} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ fontSize: '13px', color: '#333', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: '13px', color: '#000', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {p.filename}
                   </span>
-                  <span style={{ fontSize: '12px', color: '#888', flexShrink: 0 }}>
+                  <span style={{ fontSize: '12px', color: '#737373', flexShrink: 0 }}>
                     {serviceLabel}{styleLabel ? ` · ${styleLabel}` : ''}
                   </span>
                 </div>

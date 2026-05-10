@@ -18,16 +18,8 @@ export default async function NewProperty() {
   return (
     <section>
       <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{
-          fontSize: '22px',
-          fontWeight: 600,
-          color: '#000',
-          letterSpacing: '-0.01em',
-          marginBottom: '4px',
-        }}>
-          New property intake
-        </h1>
-        <p style={{ fontSize: '13px', color: '#888' }}>
+        <p className="eyebrow" style={{ marginBottom: '8px' }}>New property</p>
+        <p style={{ fontSize: '13px', color: '#737373' }}>
           Fill in the property details, upload photos, and tag each one before submitting.
         </p>
       </div>

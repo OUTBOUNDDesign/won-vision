@@ -2,6 +2,7 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { eq } from 'drizzle-orm';
 import { db, editors } from '@/lib/db';
+import Link from 'next/link';
 
 export default async function AdminDashboard() {
   const { userId } = await auth();
@@ -14,21 +15,44 @@ export default async function AdminDashboard() {
   if (!editor) {
     const user = await currentUser();
     return (
-      <section>
-        <h1>Access denied</h1>
-        <p>Your account ({user?.primaryEmailAddress?.emailAddress}) is signed in, but is not authorized as an editor.</p>
-        <p>Ask the administrator to add you to the editors table.</p>
+      <section style={{ maxWidth: '480px' }}>
+        <p className="eyebrow" style={{ marginBottom: '12px' }}>Access denied</p>
+        <p style={{ fontSize: '14px', color: '#404040', lineHeight: 1.6 }}>
+          Your account ({user?.primaryEmailAddress?.emailAddress}) is signed in but is not authorized as an editor.
+        </p>
+        <p style={{ fontSize: '14px', color: '#737373', marginTop: '8px' }}>
+          Ask the administrator to add you to the editors table.
+        </p>
       </section>
     );
   }
 
   return (
-    <section>
-      <h1>Welcome, {editor.email}</h1>
-      <p>Role: {editor.role}</p>
-      <ul>
-        <li><a href="/admin/editor">Editor intake →</a></li>
-      </ul>
+    <section style={{ maxWidth: '480px' }}>
+      <p className="eyebrow" style={{ marginBottom: '12px' }}>Won Vision</p>
+      <h1 style={{ fontSize: '24px', fontWeight: 600, color: '#000', marginBottom: '4px', letterSpacing: '-0.01em' }}>
+        {editor.email}
+      </h1>
+      <p style={{ fontSize: '13px', color: '#737373', marginBottom: '32px', textTransform: 'capitalize' }}>
+        {editor.role}
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', border: '1px solid #E5E5E5' }}>
+        <Link href="/admin/editor" style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '14px 18px',
+          fontSize: '14px',
+          fontWeight: 500,
+          color: '#000',
+          background: '#fff',
+          textDecoration: 'none',
+          borderBottom: '1px solid #E5E5E5',
+        }}>
+          <span>Editor intake</span>
+          <span style={{ color: '#737373', fontSize: '16px' }}>→</span>
+        </Link>
+      </div>
     </section>
   );
 }

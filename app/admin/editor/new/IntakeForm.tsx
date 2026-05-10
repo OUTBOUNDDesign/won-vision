@@ -3,32 +3,32 @@
 import { useState, useRef, useCallback } from 'react';
 import { upload } from '@vercel/blob/client';
 import { createDraft } from '@/lib/intake/actions';
+import { AddressField } from './AddressField';
 import type { StylePreset } from './types';
 import type { IntakeState, ServiceId, UploadedPhoto } from './Intake';
 
-/* ─────────────────── shared styles ─────────────────── */
+/* ─── Brand tokens (inline — no Tailwind) ─── */
 const inputStyle: React.CSSProperties = {
   display: 'block',
   width: '100%',
   padding: '10px 12px',
-  border: '1px solid #ddd',
-  borderRadius: '6px',
+  border: '1px solid #000',
+  borderRadius: 0,
   fontSize: '14px',
-  color: '#111',
+  color: '#000',
   background: '#fff',
   outline: 'none',
   fontFamily: 'inherit',
-  transition: 'border-color 0.15s',
   boxSizing: 'border-box',
 };
 
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: '12px',
-  fontWeight: 600,
-  letterSpacing: '0.06em',
+  fontSize: '11px',
+  fontWeight: 500,
+  letterSpacing: '0.22em',
   textTransform: 'uppercase',
-  color: '#888',
+  color: '#000',
   marginBottom: '6px',
 };
 
@@ -36,19 +36,28 @@ const primaryBtn: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '6px',
-  background: '#002FA7',
+  background: '#000',
   color: '#fff',
   padding: '11px 26px',
-  borderRadius: '6px',
-  fontSize: '14px',
-  fontWeight: 600,
+  borderRadius: 0,
+  fontSize: '11px',
+  fontWeight: 500,
+  fontFamily: 'inherit',
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
   border: 'none',
   cursor: 'pointer',
-  fontFamily: 'inherit',
-  letterSpacing: '0.02em',
 };
 
-const disabledBtn: React.CSSProperties = { opacity: 0.4, cursor: 'not-allowed' };
+const disabledBtn: React.CSSProperties = { opacity: 0.35, cursor: 'not-allowed' };
+
+const card: React.CSSProperties = {
+  background: '#fff',
+  border: '1px solid #E5E5E5',
+  borderRadius: 0,
+  padding: '28px',
+  maxWidth: '700px',
+};
 
 const SERVICES: { id: ServiceId; label: string }[] = [
   { id: 'declutter', label: 'Declutter' },
@@ -61,47 +70,48 @@ function formatBytes(bytes: number) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-/* ─────────────────── sub-components ─────────────────── */
+/* ─── Sub-components ─── */
 function ErrorAlert({ message }: { message: string }) {
   return (
     <div role="alert" style={{
       display: 'flex', alignItems: 'flex-start', gap: '10px',
-      padding: '12px 16px', background: '#fef2f2',
-      border: '1px solid #fca5a5', borderRadius: '8px', marginBottom: '20px',
+      padding: '12px 16px',
+      background: '#fff',
+      border: '1px solid #000',
+      marginBottom: '20px',
     }}>
-      <span style={{ fontSize: '16px', flexShrink: 0 }}>⚠</span>
-      <p style={{ fontSize: '13px', color: '#b91c1c', lineHeight: 1.5, margin: 0 }}>{message}</p>
+      <span style={{ fontSize: '14px', flexShrink: 0 }}>!</span>
+      <p style={{ fontSize: '13px', color: '#000', lineHeight: 1.5, margin: 0 }}>{message}</p>
     </div>
   );
 }
 
 function ProgressBar({ progress }: { progress: number }) {
   return (
-    <div style={{ width: '100%', height: '4px', background: '#e5e5e5', borderRadius: '2px', overflow: 'hidden', marginTop: '4px' }}>
-      <div style={{ width: `${progress}%`, height: '100%', background: '#002FA7', borderRadius: '2px', transition: 'width 0.2s ease' }} />
+    <div style={{ width: '100%', height: '2px', background: '#E5E5E5', overflow: 'hidden', marginTop: '4px' }}>
+      <div style={{ width: `${progress}%`, height: '100%', background: '#000', transition: 'width 0.2s ease' }} />
     </div>
   );
 }
 
-function ServiceChip({
-  label, active, onClick,
-}: { label: string; active: boolean; onClick: () => void }) {
+function ServiceChip({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
     <button
       type="button"
       onClick={onClick}
       style={{
         padding: '5px 12px',
-        borderRadius: '99px',
-        fontSize: '12px',
-        fontWeight: 600,
+        borderRadius: 0,
+        fontSize: '11px',
+        fontWeight: 500,
         fontFamily: 'inherit',
+        letterSpacing: '0.12em',
+        textTransform: 'uppercase',
         cursor: 'pointer',
-        border: active ? 'none' : '1.5px solid #d0d0d0',
-        background: active ? '#002FA7' : '#fff',
-        color: active ? '#fff' : '#666',
-        letterSpacing: '0.02em',
-        transition: 'all 0.12s',
+        border: '1px solid #000',
+        background: active ? '#000' : '#fff',
+        color: active ? '#fff' : '#000',
+        transition: 'background 0.1s, color 0.1s',
         whiteSpace: 'nowrap',
       }}
     >
@@ -130,41 +140,31 @@ function PhotoRow({
       gap: '12px',
       alignItems: 'start',
       padding: '14px 16px',
-      background: '#fafafa',
-      border: '1px solid #ebebeb',
-      borderRadius: '8px',
+      background: '#F5F5F5',
+      border: '1px solid #E5E5E5',
+      borderRadius: 0,
     }}>
-      {/* Thumbnail */}
-      <div style={{
-        width: '44px', height: '44px', borderRadius: '4px',
-        overflow: 'hidden', background: '#e5e5e5', flexShrink: 0,
-      }}>
+      <div style={{ width: '44px', height: '44px', overflow: 'hidden', background: '#E5E5E5', flexShrink: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={photo.previewUrl ?? photo.blobUrl}
-          alt={photo.filename}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
+        <img src={photo.previewUrl ?? photo.blobUrl} alt={photo.filename} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </div>
 
       <div>
-        {/* Filename + remove */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <span style={{ fontSize: '13px', color: '#333', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '320px' }}>
+          <span style={{ fontSize: '13px', color: '#000', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '320px' }}>
             {photo.filename}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-            <span style={{ fontSize: '11px', color: '#aaa' }}>{formatBytes(photo.size)}</span>
+            <span style={{ fontSize: '11px', color: '#737373' }}>{formatBytes(photo.size)}</span>
             <button
               type="button"
               onClick={() => onRemove(index)}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#bbb', fontSize: '16px', lineHeight: 1, padding: '0 2px' }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#737373', fontSize: '18px', lineHeight: 1, padding: '0 2px', fontFamily: 'inherit' }}
               aria-label="Remove photo"
             >×</button>
           </div>
         </div>
 
-        {/* Service chips */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: showStyle ? '10px' : '0' }}>
           {SERVICES.map((s) => (
             <ServiceChip
@@ -176,7 +176,6 @@ function PhotoRow({
           ))}
         </div>
 
-        {/* Style select — only when staging is selected */}
         {showStyle && (
           <div style={{ marginTop: '10px' }}>
             <label style={{ ...labelStyle, marginBottom: '4px' }}>Style</label>
@@ -197,7 +196,7 @@ function PhotoRow({
   );
 }
 
-/* ─────────────────── IntakeForm ─────────────────── */
+/* ─── IntakeForm ─── */
 export function IntakeForm({
   stylePresets,
   initial,
@@ -217,7 +216,6 @@ export function IntakeForm({
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Validation
   const addressOk = address.trim().length >= 5;
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail.trim());
   const photosWithService = photos.filter((p) => p.services.length > 0);
@@ -235,7 +233,6 @@ export function IntakeForm({
     setBusy(true);
     setError(null);
 
-    // Need a propertyId before uploading
     let pid: string;
     try {
       pid = await ensureDraft();
@@ -298,7 +295,6 @@ export function IntakeForm({
         if (i !== idx) return p;
         const has = p.services.includes(svc);
         const services = has ? p.services.filter((s) => s !== svc) : [...p.services, svc];
-        // Clear style if staging removed
         const style = services.includes('stage') ? p.style : undefined;
         return { ...p, services, style };
       })
@@ -337,33 +333,21 @@ export function IntakeForm({
     }
   }
 
-  const card: React.CSSProperties = {
-    background: '#fff',
-    border: '1px solid #e5e5e5',
-    borderRadius: '10px',
-    padding: '28px',
-    maxWidth: '700px',
-  };
-
   return (
     <div style={{ maxWidth: '700px' }}>
       {error && <ErrorAlert message={error} />}
 
       {/* ── Property details ── */}
       <div style={{ ...card, marginBottom: '20px' }}>
-        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#000', marginBottom: '20px' }}>Property details</h2>
+        <h2 style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#000', marginBottom: '24px' }}>
+          Property details
+        </h2>
 
         <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle} htmlFor="address">Address</label>
-          <input
-            id="address"
-            required
-            placeholder="123 Collins St, Melbourne VIC 3000"
+          <AddressField
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            style={inputStyle}
-            onFocus={(e) => { e.target.style.borderColor = '#002FA7'; e.target.style.boxShadow = '0 0 0 3px rgba(0,47,167,0.08)'; }}
-            onBlur={(e) => { e.target.style.borderColor = '#ddd'; e.target.style.boxShadow = 'none'; }}
+            onChange={(addr) => setAddress(addr)}
           />
         </div>
 
@@ -377,41 +361,42 @@ export function IntakeForm({
             value={contactEmail}
             onChange={(e) => setContactEmail(e.target.value)}
             style={inputStyle}
-            onFocus={(e) => { e.target.style.borderColor = '#002FA7'; e.target.style.boxShadow = '0 0 0 3px rgba(0,47,167,0.08)'; }}
-            onBlur={(e) => { e.target.style.borderColor = '#ddd'; e.target.style.boxShadow = 'none'; }}
+            onFocus={(e) => { e.target.style.border = '2px solid #000'; e.target.style.padding = '9px 11px'; }}
+            onBlur={(e) => { e.target.style.border = '1px solid #000'; e.target.style.padding = '10px 12px'; }}
           />
         </div>
       </div>
 
       {/* ── Upload ── */}
       <div style={{ ...card, marginBottom: '20px' }}>
-        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#000', marginBottom: '8px' }}>Upload photos</h2>
-        <p style={{ fontSize: '13px', color: '#888', marginBottom: '20px' }}>
+        <h2 style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#000', marginBottom: '8px' }}>
+          Upload photos
+        </h2>
+        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '20px' }}>
           JPEG · PNG · HEIC · WebP — max 50 MB per file
         </p>
 
-        {/* Drop zone */}
         <div
           onClick={() => fileInputRef.current?.click()}
           onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
           onDragLeave={() => setIsDragOver(false)}
           onDrop={onDrop}
           style={{
-            border: `2px dashed ${isDragOver ? '#002FA7' : '#d0d0d0'}`,
-            borderRadius: '8px',
+            border: isDragOver ? '1px solid #000' : '1px dashed #000',
+            borderRadius: 0,
             padding: '36px 24px',
             textAlign: 'center',
             cursor: 'pointer',
-            background: isDragOver ? 'rgba(0,47,167,0.03)' : '#fafafa',
-            transition: 'all 0.15s',
+            background: isDragOver ? '#F5F5F5' : '#fff',
+            transition: 'background 0.1s',
             marginBottom: '16px',
           }}
         >
-          <div style={{ fontSize: '24px', marginBottom: '8px' }}>⬆</div>
-          <p style={{ fontSize: '14px', fontWeight: 600, color: isDragOver ? '#002FA7' : '#333', marginBottom: '4px' }}>
+          <div style={{ fontSize: '20px', marginBottom: '8px' }}>↑</div>
+          <p style={{ fontSize: '13px', fontWeight: 500, color: '#000', marginBottom: '4px' }}>
             Drop files here, or click to browse
           </p>
-          <p style={{ fontSize: '12px', color: '#aaa' }}>JPEG · PNG · HEIC · WebP</p>
+          <p style={{ fontSize: '11px', color: '#737373', letterSpacing: '0.1em' }}>JPEG · PNG · HEIC · WebP</p>
           <input
             ref={fileInputRef}
             type="file"
@@ -423,29 +408,28 @@ export function IntakeForm({
           />
         </div>
 
-        {/* Upload progress */}
         {uploading.map((u, i) => (
           <div key={i} style={{ marginBottom: '10px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-              <span style={{ fontSize: '12px', color: '#555' }}>{u.filename}</span>
-              <span style={{ fontSize: '12px', color: '#888' }}>{u.progress}%</span>
+              <span style={{ fontSize: '12px', color: '#404040' }}>{u.filename}</span>
+              <span style={{ fontSize: '12px', color: '#737373' }}>{u.progress}%</span>
             </div>
             <ProgressBar progress={u.progress} />
           </div>
         ))}
       </div>
 
-      {/* ── Per-photo tagging (appears as photos upload) ── */}
+      {/* ── Per-photo tagging ── */}
       {photos.length > 0 && (
         <div style={{ ...card, marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#000', marginBottom: '6px' }}>
+          <h2 style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#000', marginBottom: '6px' }}>
             Tag photos
-            <span style={{ fontSize: '12px', fontWeight: 400, color: '#aaa', marginLeft: '8px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 400, color: '#737373', marginLeft: '8px', letterSpacing: '0.06em' }}>
               {photos.length} uploaded
             </span>
           </h2>
-          <p style={{ fontSize: '13px', color: '#888', marginBottom: '18px' }}>
-            Select services for each photo. Leave all unselected to skip a photo. Style only shows when Virtual staging is chosen.
+          <p style={{ fontSize: '13px', color: '#737373', marginBottom: '18px' }}>
+            Select services for each photo. Style only shows when Virtual staging is chosen.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -464,7 +448,7 @@ export function IntakeForm({
         </div>
       )}
 
-      {/* ── Continue button ── */}
+      {/* ── Continue ── */}
       <div>
         {!canContinue && photos.length > 0 && photosWithService.length === 0 && (
           <p style={{ fontSize: '12px', color: '#b91c1c', marginBottom: '10px' }}>
