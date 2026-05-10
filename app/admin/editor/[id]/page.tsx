@@ -175,7 +175,9 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
                   />
                 </div>
                 <span style={{ fontSize: '13px', color: '#333', wordBreak: 'break-all', paddingRight: '12px' }}>{p.filename}</span>
-                <span style={{ fontSize: '13px', color: '#555', textTransform: 'capitalize' }}>{p.service.replace(/-/g, ' ')}</span>
+                <span style={{ fontSize: '13px', color: '#555' }}>
+                  {p.services && p.services.length > 0 ? p.services.join(' + ') : '—'}
+                </span>
                 <span style={{ fontSize: '13px', color: '#555' }}>{p.style ?? '—'}</span>
                 <span><StatusPill status={p.status} /></span>
               </div>

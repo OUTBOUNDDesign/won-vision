@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { eq } from 'drizzle-orm';
 import { db, editors } from '@/lib/db';
-import { Stepper } from './Stepper';
+import { Intake } from './Intake';
 import { STYLE_PRESETS } from '@/lib/styles';
 
 export default async function NewProperty() {
@@ -28,10 +28,10 @@ export default async function NewProperty() {
           New property intake
         </h1>
         <p style={{ fontSize: '13px', color: '#888' }}>
-          Complete all four steps to submit a property for editing.
+          Fill in the property details, upload photos, and tag each one before submitting.
         </p>
       </div>
-      <Stepper stylePresets={STYLE_PRESETS} />
+      <Intake stylePresets={STYLE_PRESETS} />
     </section>
   );
 }
