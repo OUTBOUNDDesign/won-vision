@@ -26,7 +26,9 @@ export default async function AdminDashboard() {
     <section>
       <h1>Welcome, {editor.email}</h1>
       <p>Role: {editor.role}</p>
-      <p>This is the placeholder editor dashboard. The review queue ships in Phase 5.</p>
+      <ul>
+        <li><a href="/admin/editor">Editor intake →</a></li>
+      </ul>
     </section>
   );
 }
