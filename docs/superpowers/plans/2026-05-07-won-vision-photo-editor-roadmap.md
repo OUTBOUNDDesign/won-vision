@@ -117,17 +117,18 @@ editors (
 
 Each phase ships independently and produces working software. Plan files for phases 2-7 are written as we begin each phase.
 
-### Phase 1 — Static HTML → Next.js migration ⬅ NEXT
+### Phase 1 — Static HTML → Next.js migration ✅ SHIPPED 2026-05-08
 **Plan:** `2026-05-07-phase-1-nextjs-migration.md`
-**Outcome:** Existing wonvision.com.au runs on Next.js 16 with visual parity. Every existing route returns identical output. No new features. Deploys to production replacing the static site.
+**Result:** wonvision.com.au runs on Next.js 16.2.5 with visual parity. PR #1 merged. 20-test Playwright suite green on prod.
 
-### Phase 2 — Foundations: DB, auth, account model
-**Outcome:** Neon Postgres provisioned, schema migrated, Clerk admin auth wired, anonymous client submission session model. No editor UI yet.
-**Depends on:** Phase 1.
+### Phase 2 — Foundations: DB, auth, account model ✅ SHIPPED 2026-05-10
+**Plan:** `2026-05-08-phase-2-db-auth-foundations.md`
+**Result:** Drizzle ORM + Neon Postgres (properties / photos / editors), Clerk auth via Vercel Marketplace at custom domain `clerk.wonvision.com.au` (DNS verified at GoDaddy), hidden `/admin` route with DB-backed editor authorization, seed-editor CLI script. PR #2 merged + vercel.json fix. 4/4 admin auth tests + 6/6 redirects + 5/5 smoke green on prod. First editor (`main@wonvision.com.au`) seeded and verified working.
 
-### Phase 3 — Property submission + Stripe Checkout
+### Phase 3 — Property submission + Stripe Checkout ⬅ NEXT
 **Outcome:** Public `/editor/new` flow: property details → upload photos → tag each with service → review → Stripe Checkout → confirmation page with magic-link email. No actual AI yet — payment + intake only.
 **Depends on:** Phase 2.
+**Open decisions to lock at start of plan:** real pricing tiers ($X/$Y/$Z), Stripe pre-created Price IDs vs dynamic, photo upload mechanism (direct-to-Dropbox vs Vercel Blob first), staging style preset count.
 
 ### Phase 4 — Vercel Workflow pipeline (fal.ai + Gemini QA + Dropbox)
 **Outcome:** Paid properties trigger a durable workflow that uploads originals to Dropbox, calls fal.ai per photo (Seedream 4.5 / Nano Banana Pro at 4K), runs Gemini 2.5 Pro QA, retries once on fail, drops results into `/02 EDITOR REVIEW/`. End-to-end working with no editor UI.
