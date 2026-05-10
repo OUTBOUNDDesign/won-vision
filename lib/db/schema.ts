@@ -15,6 +15,7 @@ export const paymentStatusEnum = pgEnum('payment_status', ['pending', 'paid', 'f
 export const propertyStatusEnum = pgEnum('property_status', [
   'draft',
   'intake',
+  'queued',
   'processing',
   'review',
   'approved',
@@ -49,7 +50,8 @@ export const properties = pgTable('properties', {
   status: propertyStatusEnum('status').notNull().default('draft'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   deliveredAt: timestamp('delivered_at', { withTimezone: true }),
-  magicLinkToken: text('magic_link_token').notNull().unique(),
+  magicLinkToken: text('magic_link_token').unique(),               // ← nullable now
+  submittedById: uuid('submitted_by_id').references(() => editors.id),
 });
 
 export const photos = pgTable('photos', {
@@ -57,7 +59,9 @@ export const photos = pgTable('photos', {
   propertyId: uuid('property_id')
     .notNull()
     .references(() => properties.id, { onDelete: 'cascade' }),
-  originalDropboxPath: text('original_dropbox_path').notNull(),
+  originalBlobUrl: text('original_blob_url'),                      // ← new
+  originalDropboxPath: text('original_dropbox_path'),              // ← nullable now (Phase 4 fills)
+  filename: text('filename'),                                      // ← new (nullable for existing rows)
   service: photoServiceEnum('service').notNull(),
   style: text('style'),
   workflowRunId: text('workflow_run_id'),
