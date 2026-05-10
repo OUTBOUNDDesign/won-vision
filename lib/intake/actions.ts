@@ -21,8 +21,6 @@ async function requireEditor() {
 const draftSchema = z.object({
   address: z.string().min(5).max(300),
   contactEmail: z.string().email(),
-  tier: z.enum(['small', 'standard', 'large']),
-  photoCount: z.number().int().min(1).max(200),
 });
 
 export async function createDraft(input: z.infer<typeof draftSchema>) {
@@ -34,8 +32,8 @@ export async function createDraft(input: z.infer<typeof draftSchema>) {
     .values({
       address: data.address,
       contactEmail: data.contactEmail,
-      tier: data.tier,
-      photoCount: data.photoCount,
+      tier: 'standard',
+      photoCount: 0,
       status: 'draft',
       submittedById: editor.id,
     })
@@ -48,7 +46,7 @@ const photoSchema = z.object({
   propertyId: z.string().uuid(),
   blobUrl: z.string().url(),
   filename: z.string().min(1).max(300),
-  service: z.enum(['declutter', 'stage', 'dusk', 'declutter-stage']),
+  services: z.array(z.enum(['declutter', 'stage', 'dusk'])).min(0).max(3),
   style: z.string().refine(isStylePreset, 'Unknown style preset').optional(),
 });
 
@@ -60,7 +58,7 @@ export async function attachPhoto(input: z.infer<typeof photoSchema>) {
     propertyId: data.propertyId,
     originalBlobUrl: data.blobUrl,
     filename: data.filename,
-    service: data.service,
+    services: data.services,
     style: data.style,
   });
 

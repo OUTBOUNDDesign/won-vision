@@ -22,12 +22,6 @@ export const propertyStatusEnum = pgEnum('property_status', [
   'delivered',
   'cancelled',
 ]);
-export const photoServiceEnum = pgEnum('photo_service', [
-  'declutter',
-  'stage',
-  'dusk',
-  'declutter-stage',
-]);
 export const photoStatusEnum = pgEnum('photo_status', [
   'pending',
   'processing',
@@ -62,7 +56,7 @@ export const photos = pgTable('photos', {
   originalBlobUrl: text('original_blob_url'),                      // ← new
   originalDropboxPath: text('original_dropbox_path'),              // ← nullable now (Phase 4 fills)
   filename: text('filename'),                                      // ← new (nullable for existing rows)
-  service: photoServiceEnum('service').notNull(),
+  services: text('services').array().notNull().default(sql`ARRAY[]::text[]`),
   style: text('style'),
   workflowRunId: text('workflow_run_id'),
   variant1Path: text('variant_1_path'),
