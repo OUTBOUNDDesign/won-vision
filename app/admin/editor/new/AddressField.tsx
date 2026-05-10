@@ -16,6 +16,16 @@ interface Props {
   onChange: (address: string, placeId?: string) => void;
 }
 
+// Exported so IntakeForm can reuse the same logic.
+export function formatAddress(unit: string, base: string): string {
+  const u = unit.trim();
+  const b = base.trim();
+  if (!u) return b;
+  if (!b) return u;
+  const wordPrefix = /^(unit|suite|apt|apartment)\b/i.test(u);
+  return wordPrefix ? `${u}, ${b}` : `${u}/${b}`;
+}
+
 export function AddressField({ value, onChange }: Props) {
   const [text, setText] = useState(value);
   const [predictions, setPredictions] = useState<Prediction[]>([]);

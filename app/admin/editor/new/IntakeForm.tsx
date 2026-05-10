@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { upload } from '@vercel/blob/client';
 import { createDraft } from '@/lib/intake/actions';
-import { AddressField } from './AddressField';
+import { AddressField, formatAddress } from './AddressField';
 import type { StylePreset } from './types';
 import type { IntakeState, ServiceId, UploadedPhoto } from './Intake';
 
@@ -206,7 +206,9 @@ export function IntakeForm({
   initial?: IntakeState;
   onContinue: (state: IntakeState) => void;
 }) {
-  const [address, setAddress] = useState(initial?.address ?? '');
+  const [unit, setUnit] = useState('');
+  const [addressBase, setAddressBase] = useState(initial?.address ?? '');
+  const address = formatAddress(unit, addressBase);
   const [contactEmail, setContactEmail] = useState(initial?.contactEmail ?? '');
   const [propertyId, setPropertyId] = useState<string | null>(initial?.propertyId ?? null);
   const [photos, setPhotos] = useState<UploadedPhoto[]>(initial?.photos ?? []);
@@ -216,7 +218,7 @@ export function IntakeForm({
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const addressOk = address.trim().length >= 5;
+  const addressOk = addressBase.trim().length >= 5;
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail.trim());
   const photosWithService = photos.filter((p) => p.services.length > 0);
   const canContinue = addressOk && emailOk && photos.length > 0 && photosWithService.length > 0 && !busy;
@@ -345,10 +347,58 @@ export function IntakeForm({
 
         <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle} htmlFor="address">Address</label>
-          <AddressField
-            value={address}
-            onChange={(addr) => setAddress(addr)}
-          />
+          {/* Unit + address row — flex row, stacks below 560px */}
+          <style>{`
+            .wv-address-row { display:flex; flex-direction:row; gap:12px; align-items:flex-start; }
+            .wv-unit-col    { flex:0 0 120px; min-width:120px; }
+            .wv-addr-col    { flex:1 1 240px; min-width:200px; }
+            @media (max-width:559px) {
+              .wv-address-row { flex-direction:column; }
+              .wv-unit-col, .wv-addr-col { flex:1 1 auto; min-width:0; }
+            }
+          `}</style>
+          <div className="wv-address-row">
+            {/* Unit / Apt — narrow, optional */}
+            <div className="wv-unit-col">
+              <input
+                id="unit"
+                type="text"
+                maxLength={20}
+                placeholder="Unit / Apt"
+                value={unit}
+                autoComplete="off"
+                onChange={(e) => setUnit(e.target.value)}
+                onFocus={(e) => {
+                  e.currentTarget.style.border = '2px solid #000';
+                  e.currentTarget.style.padding = '9px 11px';
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.border = '1px solid #000';
+                  e.currentTarget.style.padding = '10px 12px';
+                }}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  padding: '10px 12px',
+                  border: '1px solid #000',
+                  borderRadius: 0,
+                  fontSize: '14px',
+                  color: '#000',
+                  background: '#fff',
+                  outline: 'none',
+                  fontFamily: 'inherit',
+                  boxSizing: 'border-box',
+                }}
+              />
+            </div>
+            {/* Address autocomplete — takes remaining width */}
+            <div className="wv-addr-col">
+              <AddressField
+                value={addressBase}
+                onChange={(addr) => setAddressBase(addr)}
+              />
+            </div>
+          </div>
         </div>
 
         <div>
