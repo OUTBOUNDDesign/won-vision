@@ -4,7 +4,7 @@ const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000';
 const isLocal = baseURL.startsWith('http://localhost');
 
 export default defineConfig({
-  testDir: './tests/visual',
+  testDir: './tests',
   webServer: isLocal
     ? {
         command: 'npm run build && npm start',

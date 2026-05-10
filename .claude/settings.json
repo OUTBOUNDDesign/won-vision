@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(git push -u *)",
+      "Bash(git push origin *)",
+      "Bash(git stash)",
+      "Bash(git stash *)",
+      "Bash(git checkout *)",
+      "Bash(git pull --ff-only)",
+      "Bash(npx playwright *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vitest *)",
+      "Bash(npx drizzle-kit *)",
+      "Bash(npx dotenv *)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm run lint)",
+      "Bash(npm run test:visual)",
+      "Bash(npm run seed:editor)",
+      "Bash(vercel ls)",
+      "Bash(vercel ls *)",
+      "Bash(vercel env pull *)",
+      "Bash(vercel env ls)",
+      "Bash(vercel project inspect *)",
+      "Bash(curl -s *)",
+      "Bash(curl -sS *)",
+      "Bash(curl -sI *)",
+      "Bash(curl -sL *)",
+      "Bash(curl -sf *)",
+      "Bash(jq *)",
+      "Bash(node -e *)",
+      "Bash(rm -rf .next)",
+      "Bash(rm -rf node_modules)",
+      "Bash(mkdir -p *)"
+    ]
+  }
+}
