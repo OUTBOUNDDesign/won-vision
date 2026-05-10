@@ -364,7 +364,7 @@ export function IntakeForm({
                 id="unit"
                 type="text"
                 maxLength={20}
-                placeholder="Unit / Apt"
+                placeholder="Unit (optional)"
                 value={unit}
                 autoComplete="off"
                 onChange={(e) => setUnit(e.target.value)}
