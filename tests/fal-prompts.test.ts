@@ -5,7 +5,7 @@ import { buildPrompt } from '@/lib/fal/prompts';
 describe('buildPrompt', () => {
   it('declutter prompt does not include style', () => {
     const p = buildPrompt('declutter');
-    expect(p).toMatch(/remove all personal items/i);
+    expect(p).toMatch(/remove every removable personal item/i);
     expect(p).not.toMatch(/scandinavian|coastal|mid-century/i);
   });
 
