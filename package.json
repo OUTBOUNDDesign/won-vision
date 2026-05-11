@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:visual": "playwright test",
-    "seed:editor": "dotenv -e .env.local -- tsx scripts/seed-editor.ts"
+    "seed:editor": "dotenv -e .env.local -- tsx scripts/seed-editor.ts",
+    "dropbox:bootstrap": "dotenv -e .env.local -- tsx scripts/dropbox-bootstrap.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.3.3",
