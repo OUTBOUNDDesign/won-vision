@@ -6,333 +6,1467 @@
     {
       "label": "next-env.d.ts",
       "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/next-env.d.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_next_env_d_ts",
+      "community": 19,
+      "norm_label": "next-env.d.ts"
+    },
+    {
+      "label": "proxy.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/proxy.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_proxy_ts",
+      "community": 20,
+      "norm_label": "proxy.ts"
+    },
+    {
+      "label": "playwright.config.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/playwright.config.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_playwright_config_ts",
+      "community": 21,
+      "norm_label": "playwright.config.ts"
+    },
+    {
+      "label": "drizzle.config.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/drizzle.config.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_drizzle_config_ts",
+      "community": 22,
+      "norm_label": "drizzle.config.ts"
+    },
+    {
+      "label": "vitest.config.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/vitest.config.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_vitest_config_ts",
+      "community": 23,
+      "norm_label": "vitest.config.ts"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/next.config.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_next_config_ts",
+      "community": 24,
+      "norm_label": "next.config.ts"
+    },
+    {
+      "label": "fonts.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/fonts.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_fonts_ts",
+      "community": 25,
+      "norm_label": "fonts.ts"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_layout_tsx",
+      "community": 11,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
+      "source_location": "L20",
+      "id": "app_layout_rootlayout",
+      "community": 11,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/gallery/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_gallery_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/layout.tsx",
+      "source_location": "L1",
+      "id": "app_admin_layout_tsx",
+      "community": 26,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/page.tsx",
+      "source_location": "L1",
+      "id": "app_admin_page_tsx",
+      "community": 12,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/admin/sign-up/[[...sign-up]]/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_admin_sign_up_sign_up_page_tsx",
+      "community": 27,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/admin/sign-in/[[...sign-in]]/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_admin_sign_in_sign_in_page_tsx",
+      "community": 28,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/page.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_page_tsx",
+      "community": 9,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "StatusPill()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/page.tsx",
+      "source_location": "L20",
+      "id": "editor_page_statuspill",
+      "community": 9,
+      "norm_label": "statuspill()"
+    },
+    {
+      "label": "ReviewScreen.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_reviewscreen_tsx",
+      "community": 0,
+      "norm_label": "reviewscreen.tsx"
+    },
+    {
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L88",
+      "id": "new_reviewscreen_handlesubmit",
+      "community": 0,
+      "norm_label": "handlesubmit()"
+    },
+    {
+      "label": "IntakeForm.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_intakeform_tsx",
+      "community": 5,
+      "norm_label": "intakeform.tsx"
+    },
+    {
+      "label": "formatBytes()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L68",
+      "id": "new_intakeform_formatbytes",
+      "community": 5,
+      "norm_label": "formatbytes()"
+    },
+    {
+      "label": "ensureDraft()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L226",
+      "id": "new_intakeform_ensuredraft",
+      "community": 5,
+      "norm_label": "ensuredraft()"
+    },
+    {
+      "label": "onFileChange()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L280",
+      "id": "new_intakeform_onfilechange",
+      "community": 5,
+      "norm_label": "onfilechange()"
+    },
+    {
+      "label": "onDrop()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L285",
+      "id": "new_intakeform_ondrop",
+      "community": 5,
+      "norm_label": "ondrop()"
+    },
+    {
+      "label": "toggleService()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L294",
+      "id": "new_intakeform_toggleservice",
+      "community": 5,
+      "norm_label": "toggleservice()"
+    },
+    {
+      "label": "setStyle()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L306",
+      "id": "new_intakeform_setstyle",
+      "community": 5,
+      "norm_label": "setstyle()"
+    },
+    {
+      "label": "removePhoto()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L310",
+      "id": "new_intakeform_removephoto",
+      "community": 5,
+      "norm_label": "removephoto()"
+    },
+    {
+      "label": "handleContinue()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L319",
+      "id": "new_intakeform_handlecontinue",
+      "community": 5,
+      "norm_label": "handlecontinue()"
+    },
+    {
+      "label": "AddressField.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_addressfield_tsx",
+      "community": 5,
+      "norm_label": "addressfield.tsx"
+    },
+    {
+      "label": "formatAddress()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L20",
+      "id": "new_addressfield_formataddress",
+      "community": 5,
+      "norm_label": "formataddress()"
+    },
+    {
+      "label": "onDocClick()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L42",
+      "id": "new_addressfield_ondocclick",
+      "community": 5,
+      "norm_label": "ondocclick()"
+    },
+    {
+      "label": "selectPrediction()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L89",
+      "id": "new_addressfield_selectprediction",
+      "community": 5,
+      "norm_label": "selectprediction()"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/types.ts",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_types_ts",
+      "community": 29,
+      "norm_label": "types.ts"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/page.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_page_tsx",
+      "community": 10,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Stepper.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_stepper_tsx",
+      "community": 0,
+      "norm_label": "stepper.tsx"
+    },
+    {
+      "label": "Intake.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Intake.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_new_intake_tsx",
+      "community": 10,
+      "norm_label": "intake.tsx"
+    },
+    {
+      "label": "Intake()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Intake.tsx",
+      "source_location": "L26",
+      "id": "new_intake_intake",
+      "community": 10,
+      "norm_label": "intake()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_id_page_tsx",
+      "community": 13,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "StatusPill()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L22",
+      "id": "id_page_statuspill",
+      "community": 13,
+      "norm_label": "statuspill()"
+    },
+    {
+      "label": "ServiceGalleryLightbox.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_servicegallerylightbox_tsx",
+      "community": 8,
+      "norm_label": "servicegallerylightbox.tsx"
+    },
+    {
+      "label": "inject()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L62",
+      "id": "components_servicegallerylightbox_inject",
+      "community": 8,
+      "norm_label": "inject()"
+    },
+    {
+      "label": "handler()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L92",
+      "id": "components_servicegallerylightbox_handler",
+      "community": 8,
+      "norm_label": "handler()"
+    },
+    {
+      "label": "esc()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L102",
+      "id": "components_servicegallerylightbox_esc",
+      "community": 8,
+      "norm_label": "esc()"
+    },
+    {
+      "label": "Wordmark.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_wordmark_tsx",
+      "community": 1,
+      "norm_label": "wordmark.tsx"
+    },
+    {
+      "label": "Wordmark()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx",
+      "source_location": "L10",
+      "id": "components_wordmark_wordmark",
+      "community": 1,
+      "norm_label": "wordmark()"
+    },
+    {
+      "label": "WonVisionLoader.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/WonVisionLoader.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_wonvisionloader_tsx",
+      "community": 30,
+      "norm_label": "wonvisionloader.tsx"
+    },
+    {
+      "label": "LoaderGate.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_loadergate_tsx",
+      "community": 14,
+      "norm_label": "loadergate.tsx"
+    },
+    {
+      "label": "LoaderGate()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
+      "source_location": "L8",
+      "id": "components_loadergate_loadergate",
+      "community": 14,
+      "norm_label": "loadergate()"
+    },
+    {
+      "label": "ServicesEditorial.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServicesEditorial.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_serviceseditorial_tsx",
+      "community": 31,
+      "norm_label": "serviceseditorial.tsx"
+    },
+    {
+      "label": "ProcessStepper.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_processstepper_tsx",
+      "community": 15,
+      "norm_label": "processstepper.tsx"
+    },
+    {
+      "label": "ProcessStepper()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
+      "source_location": "L29",
+      "id": "components_processstepper_processstepper",
+      "community": 15,
+      "norm_label": "processstepper()"
+    },
+    {
+      "label": "WonVisionMark.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_components_wonvisionmark_tsx",
+      "community": 32,
+      "norm_label": "wonvisionmark.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_book_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "BookPage()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/page.tsx",
+      "source_location": "L13",
+      "id": "book_page_bookpage",
+      "community": 1,
+      "norm_label": "bookpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/schedule/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_book_schedule_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/confirmation/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_book_confirmation_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/checkout/page.tsx",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_book_checkout_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/places/autocomplete/route.ts",
+      "source_location": "L1",
+      "id": "app_api_places_autocomplete_route_ts",
+      "community": 17,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/places/autocomplete/route.ts",
+      "source_location": "L19",
+      "id": "autocomplete_route_get",
+      "community": 17,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/places/details/route.ts",
+      "source_location": "L1",
+      "id": "app_api_places_details_route_ts",
+      "community": 18,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/places/details/route.ts",
+      "source_location": "L7",
+      "id": "details_route_get",
+      "community": 18,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_app_api_admin_blob_token_route_ts",
+      "community": 7,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
+      "source_location": "L8",
+      "id": "blob_token_route_post",
+      "community": 7,
+      "norm_label": "post()"
+    },
+    {
+      "label": "intake.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/intake.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_intake_spec_ts",
+      "community": 33,
+      "norm_label": "intake.spec.ts"
+    },
+    {
+      "label": "styles.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/styles.test.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_styles_test_ts",
+      "community": 0,
+      "norm_label": "styles.test.ts"
+    },
+    {
+      "label": "intake-actions.test.ts",
+      "file_type": "code",
+      "source_file": "tests/intake-actions.test.ts",
+      "source_location": "L1",
+      "id": "tests_intake_actions_test_ts",
+      "community": 0,
+      "norm_label": "intake-actions.test.ts"
+    },
+    {
+      "label": "auth.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/admin/auth.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_admin_auth_spec_ts",
+      "community": 34,
+      "norm_label": "auth.spec.ts"
+    },
+    {
+      "label": "redirects.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/redirects.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_redirects_spec_ts",
+      "community": 35,
+      "norm_label": "redirects.spec.ts"
+    },
+    {
+      "label": "smoke.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/smoke.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_smoke_spec_ts",
+      "community": 36,
+      "norm_label": "smoke.spec.ts"
+    },
+    {
+      "label": "book-confirmation.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/book-confirmation.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_book_confirmation_spec_ts",
+      "community": 37,
+      "norm_label": "book-confirmation.spec.ts"
+    },
+    {
+      "label": "book-schedule.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/book-schedule.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_book_schedule_spec_ts",
+      "community": 38,
+      "norm_label": "book-schedule.spec.ts"
+    },
+    {
+      "label": "home.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/home.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_home_spec_ts",
+      "community": 39,
+      "norm_label": "home.spec.ts"
+    },
+    {
+      "label": "book-checkout.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/book-checkout.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_book_checkout_spec_ts",
+      "community": 40,
+      "norm_label": "book-checkout.spec.ts"
+    },
+    {
+      "label": "gallery.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/gallery.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_gallery_spec_ts",
+      "community": 41,
+      "norm_label": "gallery.spec.ts"
+    },
+    {
+      "label": "book.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/visual/book.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_visual_book_spec_ts",
+      "community": 42,
+      "norm_label": "book.spec.ts"
+    },
+    {
+      "label": "schema.spec.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/db/schema.spec.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_tests_db_schema_spec_ts",
+      "community": 43,
+      "norm_label": "schema.spec.ts"
+    },
+    {
+      "label": "build_brand_book.py",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "community": 6,
+      "norm_label": "build_brand_book.py"
+    },
+    {
+      "label": "shade_cell()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L26",
+      "id": "docs_build_brand_book_shade_cell",
+      "community": 6,
+      "norm_label": "shade_cell()"
+    },
+    {
+      "label": "remove_table_borders()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L36",
+      "id": "docs_build_brand_book_remove_table_borders",
+      "community": 6,
+      "norm_label": "remove_table_borders()"
+    },
+    {
+      "label": "set_run_font()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L50",
+      "id": "docs_build_brand_book_set_run_font",
+      "community": 6,
+      "norm_label": "set_run_font()"
+    },
+    {
+      "label": "add_para()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L74",
+      "id": "docs_build_brand_book_add_para",
+      "community": 6,
+      "norm_label": "add_para()"
+    },
+    {
+      "label": "add_eyebrow()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L92",
+      "id": "docs_build_brand_book_add_eyebrow",
+      "community": 6,
+      "norm_label": "add_eyebrow()"
+    },
+    {
+      "label": "add_section_title()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L98",
+      "id": "docs_build_brand_book_add_section_title",
+      "community": 6,
+      "norm_label": "add_section_title()"
+    },
+    {
+      "label": "hr()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L105",
+      "id": "docs_build_brand_book_hr",
+      "community": 6,
+      "norm_label": "hr()"
+    },
+    {
+      "label": "page_break()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L118",
+      "id": "docs_build_brand_book_page_break",
+      "community": 6,
+      "norm_label": "page_break()"
+    },
+    {
+      "label": "Generates Won Vision Brand Book.docx \u2014 a designer-facing brand document with the",
+      "file_type": "rationale",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L1",
+      "id": "docs_build_brand_book_rationale_1",
+      "community": 6,
+      "norm_label": "generates won vision brand book.docx \u2014 a designer-facing brand document with the"
+    },
+    {
+      "label": "Fill a table cell with a flat colour.",
+      "file_type": "rationale",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L27",
+      "id": "docs_build_brand_book_rationale_27",
+      "community": 6,
+      "norm_label": "fill a table cell with a flat colour."
+    },
+    {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/public/script.js",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_public_script_js",
+      "community": 2,
+      "norm_label": "script.js"
+    },
+    {
+      "label": "__wvBoot()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/public/script.js",
+      "source_location": "L5",
+      "id": "public_script_wvboot",
+      "community": 2,
+      "norm_label": "__wvboot()"
+    },
+    {
+      "label": "seed-editor.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_scripts_seed_editor_ts",
+      "community": 16,
+      "norm_label": "seed-editor.ts"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
+      "source_location": "L3",
+      "id": "scripts_seed_editor_main",
+      "community": 16,
+      "norm_label": "main()"
+    },
+    {
+      "label": "blob.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_lib_blob_ts",
+      "community": 7,
+      "norm_label": "blob.ts"
+    },
+    {
+      "label": "handleClientBlobUpload()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
+      "source_location": "L4",
+      "id": "lib_blob_handleclientblobupload",
+      "community": 7,
+      "norm_label": "handleclientblobupload()"
+    },
+    {
+      "label": "styles.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/styles.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_lib_styles_ts",
+      "community": 0,
+      "norm_label": "styles.ts"
+    },
+    {
+      "label": "isStylePreset()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/styles.ts",
+      "source_location": "L11",
+      "id": "lib_styles_isstylepreset",
+      "community": 0,
+      "norm_label": "isstylepreset()"
+    },
+    {
+      "label": "queries.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_lib_intake_queries_ts",
+      "community": 9,
+      "norm_label": "queries.ts"
+    },
+    {
+      "label": "listEditorProperties()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
+      "source_location": "L5",
+      "id": "intake_queries_listeditorproperties",
+      "community": 9,
+      "norm_label": "listeditorproperties()"
+    },
+    {
+      "label": "actions.ts",
+      "file_type": "code",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L1",
+      "id": "lib_intake_actions_ts",
+      "community": 0,
+      "norm_label": "actions.ts"
+    },
+    {
+      "label": "requireEditor()",
+      "file_type": "code",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L11",
+      "id": "intake_actions_requireeditor",
+      "community": 0,
+      "norm_label": "requireeditor()"
+    },
+    {
+      "label": "createDraft()",
+      "file_type": "code",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L26",
+      "id": "intake_actions_createdraft",
+      "community": 0,
+      "norm_label": "createdraft()"
+    },
+    {
+      "label": "attachPhoto()",
+      "file_type": "code",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L53",
+      "id": "intake_actions_attachphoto",
+      "community": 0,
+      "norm_label": "attachphoto()"
+    },
+    {
+      "label": "submitProperty()",
+      "file_type": "code",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L69",
+      "id": "intake_actions_submitproperty",
+      "community": 0,
+      "norm_label": "submitproperty()"
+    },
+    {
+      "label": "schema.ts",
+      "file_type": "code",
+      "source_file": "lib/db/schema.ts",
+      "source_location": "L1",
+      "id": "lib_db_schema_ts",
+      "community": 44,
+      "norm_label": "schema.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/db/index.ts",
+      "source_location": "L1",
+      "id": "users_kiranc_code_won_media_lib_db_index_ts",
+      "community": 45,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
+      "source_location": "L1",
+      "community": 12,
+      "norm_label": "page.tsx",
+      "id": "users_kiranc_code_won_media_app_admin_page_tsx"
+    },
+    {
+      "label": "AdminDashboard()",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
+      "source_location": "L6",
+      "community": 12,
+      "norm_label": "admindashboard()",
+      "id": "admin_page_admindashboard"
+    },
+    {
+      "label": "formatBytes()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L37",
+      "community": 0,
+      "norm_label": "formatbytes()",
+      "id": "new_stepper_formatbytes"
+    },
+    {
+      "label": "onCreateDraft()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L255",
+      "community": 0,
+      "norm_label": "oncreatedraft()",
+      "id": "new_stepper_oncreatedraft"
+    },
+    {
+      "label": "onFileChange()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L311",
+      "community": 0,
+      "norm_label": "onfilechange()",
+      "id": "new_stepper_onfilechange"
+    },
+    {
+      "label": "onDrop()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L316",
+      "community": 0,
+      "norm_label": "ondrop()",
+      "id": "new_stepper_ondrop"
+    },
+    {
+      "label": "removePhoto()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L324",
+      "community": 0,
+      "norm_label": "removephoto()",
+      "id": "new_stepper_removephoto"
+    },
+    {
+      "label": "updatePhoto()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L333",
+      "community": 0,
+      "norm_label": "updatephoto()",
+      "id": "new_stepper_updatephoto"
+    },
+    {
+      "label": "onSubmit()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L337",
+      "community": 0,
+      "norm_label": "onsubmit()",
+      "id": "new_stepper_onsubmit"
+    },
+    {
+      "label": "intake-actions.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/tests/intake-actions.test.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "intake-actions.test.ts",
+      "id": "users_kiranc_code_won_media_tests_intake_actions_test_ts"
+    },
+    {
+      "label": "actions.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "actions.ts",
+      "id": "users_kiranc_code_won_media_lib_intake_actions_ts"
+    },
+    {
+      "label": "schema.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/lib/db/schema.ts",
+      "source_location": "L1",
+      "community": 46,
+      "norm_label": "schema.ts",
+      "id": "users_kiranc_code_won_media_lib_db_schema_ts"
+    },
+    {
+      "label": "next-env.d.ts",
+      "file_type": "code",
       "source_file": "next-env.d.ts",
       "source_location": "L1",
-      "id": "next_env_d_ts",
-      "community": 8,
-      "norm_label": "next-env.d.ts"
+      "community": 47,
+      "norm_label": "next-env.d.ts",
+      "id": "next_env_d_ts"
+    },
+    {
+      "label": "proxy.ts",
+      "file_type": "code",
+      "source_file": "proxy.ts",
+      "source_location": "L1",
+      "community": 48,
+      "norm_label": "proxy.ts",
+      "id": "proxy_ts"
     },
     {
       "label": "playwright.config.ts",
       "file_type": "code",
       "source_file": "playwright.config.ts",
       "source_location": "L1",
-      "id": "playwright_config_ts",
-      "community": 9,
-      "norm_label": "playwright.config.ts"
+      "community": 49,
+      "norm_label": "playwright.config.ts",
+      "id": "playwright_config_ts"
+    },
+    {
+      "label": "drizzle.config.ts",
+      "file_type": "code",
+      "source_file": "drizzle.config.ts",
+      "source_location": "L1",
+      "community": 50,
+      "norm_label": "drizzle.config.ts",
+      "id": "drizzle_config_ts"
+    },
+    {
+      "label": "vitest.config.ts",
+      "file_type": "code",
+      "source_file": "vitest.config.ts",
+      "source_location": "L1",
+      "community": 51,
+      "norm_label": "vitest.config.ts",
+      "id": "vitest_config_ts"
     },
     {
       "label": "next.config.ts",
       "file_type": "code",
       "source_file": "next.config.ts",
       "source_location": "L1",
-      "id": "next_config_ts",
-      "community": 10,
-      "norm_label": "next.config.ts"
+      "community": 52,
+      "norm_label": "next.config.ts",
+      "id": "next_config_ts"
     },
     {
       "label": "fonts.ts",
       "file_type": "code",
       "source_file": "app/fonts.ts",
       "source_location": "L1",
-      "id": "app_fonts_ts",
-      "community": 11,
-      "norm_label": "fonts.ts"
+      "community": 53,
+      "norm_label": "fonts.ts",
+      "id": "app_fonts_ts"
     },
     {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "app/layout.tsx",
       "source_location": "L1",
-      "id": "app_layout_tsx",
-      "community": 5,
-      "norm_label": "layout.tsx"
-    },
-    {
-      "label": "RootLayout()",
-      "file_type": "code",
-      "source_file": "app/layout.tsx",
-      "source_location": "L19",
-      "id": "app_layout_rootlayout",
-      "community": 5,
-      "norm_label": "rootlayout()"
+      "community": 11,
+      "norm_label": "layout.tsx",
+      "id": "app_layout_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/page.tsx",
       "source_location": "L1",
-      "id": "app_page_tsx",
-      "community": 3,
-      "norm_label": "page.tsx"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "app_page_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/gallery/page.tsx",
       "source_location": "L1",
-      "id": "app_gallery_page_tsx",
-      "community": 3,
-      "norm_label": "page.tsx"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "app_gallery_page_tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/sign-up/[[...sign-up]]/page.tsx",
+      "source_location": "L1",
+      "community": 54,
+      "norm_label": "page.tsx",
+      "id": "app_admin_sign_up_sign_up_page_tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/sign-in/[[...sign-in]]/page.tsx",
+      "source_location": "L1",
+      "community": 55,
+      "norm_label": "page.tsx",
+      "id": "app_admin_sign_in_sign_in_page_tsx"
+    },
+    {
+      "label": "NewProperty()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/page.tsx",
+      "source_location": "L9",
+      "community": 10,
+      "norm_label": "newproperty()",
+      "id": "new_page_newproperty"
+    },
+    {
+      "label": "onUpload()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L52",
+      "community": 0,
+      "norm_label": "onupload()",
+      "id": "new_stepper_onupload"
+    },
+    {
+      "label": "PropertyDetail()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L7",
+      "community": 13,
+      "norm_label": "propertydetail()",
+      "id": "id_page_propertydetail"
     },
     {
       "label": "ServiceGalleryLightbox.tsx",
       "file_type": "code",
       "source_file": "app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L1",
-      "id": "app_components_servicegallerylightbox_tsx",
-      "community": 4,
-      "norm_label": "servicegallerylightbox.tsx"
-    },
-    {
-      "label": "inject()",
-      "file_type": "code",
-      "source_file": "app/components/ServiceGalleryLightbox.tsx",
-      "source_location": "L62",
-      "id": "components_servicegallerylightbox_inject",
-      "community": 4,
-      "norm_label": "inject()"
-    },
-    {
-      "label": "handler()",
-      "file_type": "code",
-      "source_file": "app/components/ServiceGalleryLightbox.tsx",
-      "source_location": "L92",
-      "id": "components_servicegallerylightbox_handler",
-      "community": 4,
-      "norm_label": "handler()"
-    },
-    {
-      "label": "esc()",
-      "file_type": "code",
-      "source_file": "app/components/ServiceGalleryLightbox.tsx",
-      "source_location": "L102",
-      "id": "components_servicegallerylightbox_esc",
-      "community": 4,
-      "norm_label": "esc()"
+      "community": 8,
+      "norm_label": "servicegallerylightbox.tsx",
+      "id": "app_components_servicegallerylightbox_tsx"
     },
     {
       "label": "Wordmark.tsx",
       "file_type": "code",
       "source_file": "app/components/Wordmark.tsx",
       "source_location": "L1",
-      "id": "app_components_wordmark_tsx",
-      "community": 3,
-      "norm_label": "wordmark.tsx"
-    },
-    {
-      "label": "Wordmark()",
-      "file_type": "code",
-      "source_file": "app/components/Wordmark.tsx",
-      "source_location": "L10",
-      "id": "components_wordmark_wordmark",
-      "community": 3,
-      "norm_label": "wordmark()"
+      "community": 1,
+      "norm_label": "wordmark.tsx",
+      "id": "app_components_wordmark_tsx"
     },
     {
       "label": "WonVisionLoader.tsx",
       "file_type": "code",
       "source_file": "app/components/WonVisionLoader.tsx",
       "source_location": "L1",
-      "id": "app_components_wonvisionloader_tsx",
-      "community": 12,
-      "norm_label": "wonvisionloader.tsx"
+      "community": 56,
+      "norm_label": "wonvisionloader.tsx",
+      "id": "app_components_wonvisionloader_tsx"
     },
     {
       "label": "LoaderGate.tsx",
       "file_type": "code",
       "source_file": "app/components/LoaderGate.tsx",
       "source_location": "L1",
-      "id": "app_components_loadergate_tsx",
-      "community": 6,
-      "norm_label": "loadergate.tsx"
-    },
-    {
-      "label": "LoaderGate()",
-      "file_type": "code",
-      "source_file": "app/components/LoaderGate.tsx",
-      "source_location": "L8",
-      "id": "components_loadergate_loadergate",
-      "community": 6,
-      "norm_label": "loadergate()"
+      "community": 14,
+      "norm_label": "loadergate.tsx",
+      "id": "app_components_loadergate_tsx"
     },
     {
       "label": "ServicesEditorial.tsx",
       "file_type": "code",
       "source_file": "app/components/ServicesEditorial.tsx",
       "source_location": "L1",
-      "id": "app_components_serviceseditorial_tsx",
-      "community": 13,
-      "norm_label": "serviceseditorial.tsx"
+      "community": 57,
+      "norm_label": "serviceseditorial.tsx",
+      "id": "app_components_serviceseditorial_tsx"
     },
     {
       "label": "ProcessStepper.tsx",
       "file_type": "code",
       "source_file": "app/components/ProcessStepper.tsx",
       "source_location": "L1",
-      "id": "app_components_processstepper_tsx",
-      "community": 7,
-      "norm_label": "processstepper.tsx"
-    },
-    {
-      "label": "ProcessStepper()",
-      "file_type": "code",
-      "source_file": "app/components/ProcessStepper.tsx",
-      "source_location": "L29",
-      "id": "components_processstepper_processstepper",
-      "community": 7,
-      "norm_label": "processstepper()"
+      "community": 15,
+      "norm_label": "processstepper.tsx",
+      "id": "app_components_processstepper_tsx"
     },
     {
       "label": "WonVisionMark.tsx",
       "file_type": "code",
       "source_file": "app/components/WonVisionMark.tsx",
       "source_location": "L1",
-      "id": "app_components_wonvisionmark_tsx",
-      "community": 3,
-      "norm_label": "wonvisionmark.tsx"
+      "community": 1,
+      "norm_label": "wonvisionmark.tsx",
+      "id": "app_components_wonvisionmark_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/book/page.tsx",
       "source_location": "L1",
-      "id": "app_book_page_tsx",
-      "community": 3,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "BookPage()",
-      "file_type": "code",
-      "source_file": "app/book/page.tsx",
-      "source_location": "L13",
-      "id": "book_page_bookpage",
-      "community": 3,
-      "norm_label": "bookpage()"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "app_book_page_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/book/schedule/page.tsx",
       "source_location": "L1",
-      "id": "app_book_schedule_page_tsx",
-      "community": 3,
-      "norm_label": "page.tsx"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "app_book_schedule_page_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/book/confirmation/page.tsx",
       "source_location": "L1",
-      "id": "app_book_confirmation_page_tsx",
-      "community": 3,
-      "norm_label": "page.tsx"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "app_book_confirmation_page_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "app/book/checkout/page.tsx",
       "source_location": "L1",
-      "id": "app_book_checkout_page_tsx",
-      "community": 3,
-      "norm_label": "page.tsx"
+      "community": 1,
+      "norm_label": "page.tsx",
+      "id": "app_book_checkout_page_tsx"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/admin/blob-token/route.ts",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "route.ts",
+      "id": "app_api_admin_blob_token_route_ts"
+    },
+    {
+      "label": "intake.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/intake.spec.ts",
+      "source_location": "L1",
+      "community": 58,
+      "norm_label": "intake.spec.ts",
+      "id": "tests_intake_spec_ts"
+    },
+    {
+      "label": "styles.test.ts",
+      "file_type": "code",
+      "source_file": "tests/styles.test.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "styles.test.ts",
+      "id": "tests_styles_test_ts"
+    },
+    {
+      "label": "auth.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/admin/auth.spec.ts",
+      "source_location": "L1",
+      "community": 59,
+      "norm_label": "auth.spec.ts",
+      "id": "tests_admin_auth_spec_ts"
     },
     {
       "label": "redirects.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/redirects.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_redirects_spec_ts",
-      "community": 14,
-      "norm_label": "redirects.spec.ts"
+      "community": 60,
+      "norm_label": "redirects.spec.ts",
+      "id": "tests_visual_redirects_spec_ts"
     },
     {
       "label": "smoke.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/smoke.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_smoke_spec_ts",
-      "community": 15,
-      "norm_label": "smoke.spec.ts"
+      "community": 61,
+      "norm_label": "smoke.spec.ts",
+      "id": "tests_visual_smoke_spec_ts"
     },
     {
       "label": "book-confirmation.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/book-confirmation.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_book_confirmation_spec_ts",
-      "community": 16,
-      "norm_label": "book-confirmation.spec.ts"
+      "community": 62,
+      "norm_label": "book-confirmation.spec.ts",
+      "id": "tests_visual_book_confirmation_spec_ts"
     },
     {
       "label": "book-schedule.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/book-schedule.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_book_schedule_spec_ts",
-      "community": 17,
-      "norm_label": "book-schedule.spec.ts"
+      "community": 63,
+      "norm_label": "book-schedule.spec.ts",
+      "id": "tests_visual_book_schedule_spec_ts"
     },
     {
       "label": "home.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/home.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_home_spec_ts",
-      "community": 18,
-      "norm_label": "home.spec.ts"
+      "community": 64,
+      "norm_label": "home.spec.ts",
+      "id": "tests_visual_home_spec_ts"
     },
     {
       "label": "book-checkout.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/book-checkout.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_book_checkout_spec_ts",
-      "community": 19,
-      "norm_label": "book-checkout.spec.ts"
+      "community": 65,
+      "norm_label": "book-checkout.spec.ts",
+      "id": "tests_visual_book_checkout_spec_ts"
     },
     {
       "label": "gallery.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/gallery.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_gallery_spec_ts",
-      "community": 20,
-      "norm_label": "gallery.spec.ts"
+      "community": 66,
+      "norm_label": "gallery.spec.ts",
+      "id": "tests_visual_gallery_spec_ts"
     },
     {
       "label": "book.spec.ts",
       "file_type": "code",
       "source_file": "tests/visual/book.spec.ts",
       "source_location": "L1",
-      "id": "tests_visual_book_spec_ts",
-      "community": 21,
-      "norm_label": "book.spec.ts"
+      "community": 67,
+      "norm_label": "book.spec.ts",
+      "id": "tests_visual_book_spec_ts"
+    },
+    {
+      "label": "schema.spec.ts",
+      "file_type": "code",
+      "source_file": "tests/db/schema.spec.ts",
+      "source_location": "L1",
+      "community": 68,
+      "norm_label": "schema.spec.ts",
+      "id": "tests_db_schema_spec_ts"
+    },
+    {
+      "label": "build_brand_book.py",
+      "file_type": "code",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "build_brand_book.py",
+      "id": "docs_build_brand_book_py"
     },
     {
       "label": "script.js",
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L1",
-      "id": "public_script_js",
-      "community": 0,
-      "norm_label": "script.js"
+      "community": 2,
+      "norm_label": "script.js",
+      "id": "public_script_js"
     },
     {
-      "label": "__wvBoot()",
+      "label": "seed-editor.ts",
       "file_type": "code",
-      "source_file": "public/script.js",
-      "source_location": "L5",
-      "id": "public_script_wvboot",
+      "source_file": "scripts/seed-editor.ts",
+      "source_location": "L1",
+      "community": 16,
+      "norm_label": "seed-editor.ts",
+      "id": "scripts_seed_editor_ts"
+    },
+    {
+      "label": "blob.ts",
+      "file_type": "code",
+      "source_file": "lib/blob.ts",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "blob.ts",
+      "id": "lib_blob_ts"
+    },
+    {
+      "label": "styles.ts",
+      "file_type": "code",
+      "source_file": "lib/styles.ts",
+      "source_location": "L1",
       "community": 0,
-      "norm_label": "__wvboot()"
+      "norm_label": "styles.ts",
+      "id": "lib_styles_ts"
+    },
+    {
+      "label": "queries.ts",
+      "file_type": "code",
+      "source_file": "lib/intake/queries.ts",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "queries.ts",
+      "id": "lib_intake_queries_ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "lib/db/index.ts",
+      "source_location": "L1",
+      "community": 69,
+      "norm_label": "index.ts",
+      "id": "lib_db_index_ts"
     },
     {
       "label": "WonVisionMark()",
       "file_type": "code",
       "source_file": "app/components/WonVisionMark.tsx",
       "source_location": "L3",
-      "community": 3,
+      "community": 1,
       "norm_label": "wonvisionmark()",
       "id": "components_wonvisionmark_wonvisionmark"
     },
@@ -341,7 +1475,7 @@
       "file_type": "code",
       "source_file": "app/page.tsx",
       "source_location": "L1",
-      "community": 3,
+      "community": 1,
       "norm_label": "homepage()",
       "id": "app_page_homepage"
     },
@@ -350,7 +1484,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L30",
-      "community": 0,
+      "community": 2,
       "norm_label": "enter()",
       "id": "public_script_enter"
     },
@@ -359,7 +1493,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L46",
-      "community": 0,
+      "community": 2,
       "norm_label": "ready()",
       "id": "public_script_ready"
     },
@@ -368,7 +1502,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L68",
-      "community": 0,
+      "community": 2,
       "norm_label": "sethidden()",
       "id": "public_script_sethidden"
     },
@@ -377,7 +1511,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L73",
-      "community": 0,
+      "community": 2,
       "norm_label": "update()",
       "id": "public_script_update"
     },
@@ -386,7 +1520,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L177",
-      "community": 0,
+      "community": 2,
       "norm_label": "paint()",
       "id": "public_script_paint"
     },
@@ -395,7 +1529,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L189",
-      "community": 0,
+      "community": 2,
       "norm_label": "schedule()",
       "id": "public_script_schedule"
     },
@@ -404,7 +1538,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L196",
-      "community": 0,
+      "community": 2,
       "norm_label": "ontilt()",
       "id": "public_script_ontilt"
     },
@@ -413,7 +1547,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L207",
-      "community": 0,
+      "community": 2,
       "norm_label": "startlistening()",
       "id": "public_script_startlistening"
     },
@@ -422,7 +1556,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L215",
-      "community": 0,
+      "community": 2,
       "norm_label": "ask()",
       "id": "public_script_ask"
     },
@@ -431,7 +1565,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L304",
-      "community": 0,
+      "community": 2,
       "norm_label": "easeout()",
       "id": "public_script_easeout"
     },
@@ -440,7 +1574,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L305",
-      "community": 0,
+      "community": 2,
       "norm_label": "animate()",
       "id": "public_script_animate"
     },
@@ -449,7 +1583,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L346",
-      "community": 0,
+      "community": 2,
       "norm_label": "apply()",
       "id": "public_script_apply"
     },
@@ -458,7 +1592,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L390",
-      "community": 0,
+      "community": 2,
       "norm_label": "open()",
       "id": "public_script_open"
     },
@@ -467,7 +1601,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L402",
-      "community": 0,
+      "community": 2,
       "norm_label": "close()",
       "id": "public_script_close"
     },
@@ -476,7 +1610,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L406",
-      "community": 0,
+      "community": 2,
       "norm_label": "step()",
       "id": "public_script_step"
     },
@@ -485,7 +1619,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "script.js",
       "id": "script_js"
     },
@@ -494,7 +1628,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L30",
-      "community": 1,
+      "community": 3,
       "norm_label": "enter()",
       "id": "js_script_enter"
     },
@@ -503,7 +1637,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L46",
-      "community": 1,
+      "community": 3,
       "norm_label": "ready()",
       "id": "js_script_ready"
     },
@@ -512,7 +1646,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L68",
-      "community": 1,
+      "community": 3,
       "norm_label": "sethidden()",
       "id": "js_script_sethidden"
     },
@@ -521,7 +1655,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L73",
-      "community": 1,
+      "community": 3,
       "norm_label": "update()",
       "id": "js_script_update"
     },
@@ -530,7 +1664,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L177",
-      "community": 1,
+      "community": 3,
       "norm_label": "paint()",
       "id": "js_script_paint"
     },
@@ -539,7 +1673,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L189",
-      "community": 1,
+      "community": 3,
       "norm_label": "schedule()",
       "id": "js_script_schedule"
     },
@@ -548,7 +1682,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L196",
-      "community": 1,
+      "community": 3,
       "norm_label": "ontilt()",
       "id": "js_script_ontilt"
     },
@@ -557,7 +1691,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L207",
-      "community": 1,
+      "community": 3,
       "norm_label": "startlistening()",
       "id": "js_script_startlistening"
     },
@@ -566,7 +1700,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L215",
-      "community": 1,
+      "community": 3,
       "norm_label": "ask()",
       "id": "js_script_ask"
     },
@@ -575,7 +1709,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L304",
-      "community": 1,
+      "community": 3,
       "norm_label": "easeout()",
       "id": "js_script_easeout"
     },
@@ -584,7 +1718,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L305",
-      "community": 1,
+      "community": 3,
       "norm_label": "animate()",
       "id": "js_script_animate"
     },
@@ -593,7 +1727,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L346",
-      "community": 1,
+      "community": 3,
       "norm_label": "apply()",
       "id": "js_script_apply"
     },
@@ -602,7 +1736,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L390",
-      "community": 1,
+      "community": 3,
       "norm_label": "open()",
       "id": "js_script_open"
     },
@@ -611,7 +1745,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L402",
-      "community": 1,
+      "community": 3,
       "norm_label": "close()",
       "id": "js_script_close"
     },
@@ -620,7 +1754,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L406",
-      "community": 1,
+      "community": 3,
       "norm_label": "step()",
       "id": "js_script_step"
     },
@@ -629,7 +1763,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L1",
-      "community": 2,
+      "community": 4,
       "norm_label": "script.js",
       "id": "js_script_js"
     },
@@ -638,7 +1772,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L30",
-      "community": 2,
+      "community": 4,
       "norm_label": "enter()",
       "id": "script_enter"
     },
@@ -647,7 +1781,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L46",
-      "community": 2,
+      "community": 4,
       "norm_label": "ready()",
       "id": "script_ready"
     },
@@ -656,7 +1790,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L68",
-      "community": 2,
+      "community": 4,
       "norm_label": "sethidden()",
       "id": "script_sethidden"
     },
@@ -665,7 +1799,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L73",
-      "community": 2,
+      "community": 4,
       "norm_label": "update()",
       "id": "script_update"
     },
@@ -674,7 +1808,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L177",
-      "community": 2,
+      "community": 4,
       "norm_label": "paint()",
       "id": "script_paint"
     },
@@ -683,7 +1817,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L189",
-      "community": 2,
+      "community": 4,
       "norm_label": "schedule()",
       "id": "script_schedule"
     },
@@ -692,7 +1826,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L196",
-      "community": 2,
+      "community": 4,
       "norm_label": "ontilt()",
       "id": "script_ontilt"
     },
@@ -701,7 +1835,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L207",
-      "community": 2,
+      "community": 4,
       "norm_label": "startlistening()",
       "id": "script_startlistening"
     },
@@ -710,7 +1844,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L215",
-      "community": 2,
+      "community": 4,
       "norm_label": "ask()",
       "id": "script_ask"
     },
@@ -719,7 +1853,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L304",
-      "community": 2,
+      "community": 4,
       "norm_label": "easeout()",
       "id": "script_easeout"
     },
@@ -728,7 +1862,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L305",
-      "community": 2,
+      "community": 4,
       "norm_label": "animate()",
       "id": "script_animate"
     },
@@ -737,7 +1871,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L346",
-      "community": 2,
+      "community": 4,
       "norm_label": "apply()",
       "id": "script_apply"
     },
@@ -746,7 +1880,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L390",
-      "community": 2,
+      "community": 4,
       "norm_label": "open()",
       "id": "script_open"
     },
@@ -755,7 +1889,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L402",
-      "community": 2,
+      "community": 4,
       "norm_label": "close()",
       "id": "script_close"
     },
@@ -764,12 +1898,22 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L406",
-      "community": 2,
+      "community": 4,
       "norm_label": "step()",
       "id": "script_step"
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_layout_tsx",
+      "target": "app_layout_rootlayout"
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -784,33 +1928,456 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/page.tsx",
+      "source_file": "/Users/kiranc/Code/won-media/app/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "app_page_tsx",
+      "source": "users_kiranc_code_won_media_app_page_tsx",
       "target": "components_wordmark_wordmark"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/page.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "app_page_tsx",
-      "target": "app_page_homepage"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/gallery/page.tsx",
+      "source_file": "/Users/kiranc/Code/won-media/app/gallery/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "app_gallery_page_tsx",
+      "source": "users_kiranc_code_won_media_app_gallery_page_tsx",
       "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_page_tsx",
+      "target": "admin_page_admindashboard"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_page_tsx",
+      "target": "intake_queries_listeditorproperties"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/page.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_page_tsx",
+      "target": "editor_page_statuspill"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_reviewscreen_tsx",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_reviewscreen_tsx",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_reviewscreen_tsx",
+      "target": "new_reviewscreen_handlesubmit"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "new_reviewscreen_handlesubmit",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/admin/editor/new/ReviewScreen.tsx",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "new_reviewscreen_handlesubmit",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_addressfield_formataddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_formatbytes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L226",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_ensuredraft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L281",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_onfilechange"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L286",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_ondrop"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L295",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_toggleservice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L308",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_setstyle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L312",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_removephoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L321",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intakeform_tsx",
+      "target": "new_intakeform_handlecontinue"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L326",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "new_intakeform_handlecontinue",
+      "target": "new_intakeform_ensuredraft"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/admin/editor/new/IntakeForm.tsx",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "new_intakeform_ensuredraft",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_addressfield_tsx",
+      "target": "new_addressfield_formataddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_addressfield_tsx",
+      "target": "new_addressfield_ondocclick"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/AddressField.tsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_addressfield_tsx",
+      "target": "new_addressfield_selectprediction"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_page_tsx",
+      "target": "new_intake_intake"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_page_tsx",
+      "target": "new_page_newproperty"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_formatbytes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_oncreatedraft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L311",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_onfilechange"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L316",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_ondrop"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L324",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_removephoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_updatephoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_onsubmit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_stepper_tsx",
+      "target": "new_stepper_onupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/new/Intake.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_new_intake_tsx",
+      "target": "new_intake_intake"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_id_page_tsx",
+      "target": "id_page_statuspill"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_id_page_tsx",
+      "target": "id_page_propertydetail"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_components_servicegallerylightbox_tsx",
+      "target": "components_servicegallerylightbox_inject"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_components_servicegallerylightbox_tsx",
+      "target": "components_servicegallerylightbox_handler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_components_servicegallerylightbox_tsx",
+      "target": "components_servicegallerylightbox_esc"
     },
     {
       "relation": "contains",
@@ -846,12 +2413,88 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/components/Wordmark.tsx",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx",
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "app_components_wordmark_tsx",
+      "source": "users_kiranc_code_won_media_app_components_wordmark_tsx",
       "target": "components_wonvisionmark_wonvisionmark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_components_wordmark_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_book_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/schedule/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_book_schedule_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/confirmation/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_book_confirmation_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/checkout/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_book_checkout_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/gallery/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_gallery_page_tsx",
+      "target": "components_wordmark_wordmark"
     },
     {
       "relation": "contains",
@@ -910,12 +2553,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_components_loadergate_tsx",
+      "target": "components_loadergate_loadergate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/components/LoaderGate.tsx",
       "source_location": "L8",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "app_components_loadergate_tsx",
       "target": "components_loadergate_loadergate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_components_processstepper_tsx",
+      "target": "components_processstepper_processstepper"
     },
     {
       "relation": "contains",
@@ -930,12 +2593,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/components/WonVisionMark.tsx",
-      "source_location": "L3",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/page.tsx",
+      "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "app_components_wonvisionmark_tsx",
-      "target": "components_wonvisionmark_wonvisionmark"
+      "source": "users_kiranc_code_won_media_app_book_page_tsx",
+      "target": "book_page_bookpage"
     },
     {
       "relation": "contains",
@@ -950,12 +2613,695 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/api/places/autocomplete/route.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_places_autocomplete_route_ts",
+      "target": "autocomplete_route_get"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/places/details/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_places_details_route_ts",
+      "target": "details_route_get"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_api_admin_blob_token_route_ts",
+      "target": "lib_blob_handleclientblobupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_api_admin_blob_token_route_ts",
+      "target": "blob_token_route_post"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/admin/blob-token/route.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "blob_token_route_post",
+      "target": "lib_blob_handleclientblobupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/admin/blob-token/route.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_admin_blob_token_route_ts",
+      "target": "blob_token_route_post"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/tests/styles.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_tests_styles_test_ts",
+      "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/intake-actions.test.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_intake_actions_test_ts",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/intake-actions.test.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_intake_actions_test_ts",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/intake-actions.test.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_intake_actions_test_ts",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_shade_cell"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_remove_table_borders"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_set_run_font"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_add_para"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_add_eyebrow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_add_section_title"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_hr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_docs_build_brand_book_py",
+      "target": "docs_build_brand_book_page_break"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_rationale_1",
+      "target": "users_kiranc_code_won_media_docs_build_brand_book_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_rationale_27",
+      "target": "docs_build_brand_book_shade_cell"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_shade_cell"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_remove_table_borders"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_add_para",
+      "target": "docs_build_brand_book_set_run_font"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_set_run_font"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_add_eyebrow",
+      "target": "docs_build_brand_book_add_para"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_add_section_title",
+      "target": "docs_build_brand_book_add_para"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_add_para"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_add_section_title",
+      "target": "docs_build_brand_book_add_eyebrow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_add_eyebrow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_add_section_title"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_hr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_py",
+      "target": "docs_build_brand_book_page_break"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/build_brand_book.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_build_brand_book_rationale_1",
+      "target": "docs_build_brand_book_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/public/script.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_public_script_js",
+      "target": "public_script_wvboot"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "public/script.js",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "public_script_js",
       "target": "public_script_wvboot"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_scripts_seed_editor_ts",
+      "target": "scripts_seed_editor_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/seed-editor.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_seed_editor_ts",
+      "target": "scripts_seed_editor_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_blob_ts",
+      "target": "lib_blob_handleclientblobupload"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/admin/blob-token/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_admin_blob_token_route_ts",
+      "target": "lib_blob_handleclientblobupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/blob.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_blob_ts",
+      "target": "lib_blob_handleclientblobupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/styles.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_styles_ts",
+      "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_intake_actions_ts",
+      "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_intake_actions_ts",
+      "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/styles.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_styles_test_ts",
+      "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/styles.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_styles_ts",
+      "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_intake_queries_ts",
+      "target": "intake_queries_listeditorproperties"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/queries.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_intake_queries_ts",
+      "target": "intake_queries_listeditorproperties"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_intake_actions_ts",
+      "target": "intake_actions_requireeditor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_intake_actions_ts",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_intake_actions_ts",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_intake_actions_ts",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "intake_actions_createdraft",
+      "target": "intake_actions_requireeditor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "intake_actions_attachphoto",
+      "target": "intake_actions_requireeditor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/intake/actions.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "intake_actions_submitproperty",
+      "target": "intake_actions_requireeditor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_intake_actions_ts",
+      "target": "intake_actions_requireeditor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "new_stepper_oncreatedraft",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/tests/intake-actions.test.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_tests_intake_actions_test_ts",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_intake_actions_ts",
+      "target": "intake_actions_createdraft"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "new_stepper_onsubmit",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_intake_actions_ts",
+      "target": "intake_actions_attachphoto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/admin/editor/new/Stepper.tsx",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "new_stepper_onsubmit",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/tests/intake-actions.test.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_tests_intake_actions_test_ts",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_lib_intake_actions_ts",
+      "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_admin_page_tsx",
+      "target": "admin_page_admindashboard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_homepage"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/Wordmark.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_components_wordmark_tsx",
+      "target": "components_wonvisionmark_wonvisionmark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/WonVisionMark.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_components_wonvisionmark_tsx",
+      "target": "components_wonvisionmark_wonvisionmark"
     },
     {
       "relation": "contains",
@@ -1505,5 +3851,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d5ab8c21c75732faf3d9fb5ee0d32ef0b50dc663"
+  "built_at_commit": "7d121cdd32a3099ee7693a2d3341176e9068d3ca"
 }

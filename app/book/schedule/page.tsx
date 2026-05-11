@@ -189,6 +189,58 @@ export default function SchedulePage() {
             </section>
 
             <section>
+              <h3>Promo code</h3>
+              <div className="row">
+                <label htmlFor="promoCode">Have a code?</label>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
+                  <input
+                    id="promoCode"
+                    name="promoCode"
+                    type="text"
+                    autoComplete="off"
+                    autoCapitalize="characters"
+                    placeholder="Enter code"
+                    style={{ flex: 1, textTransform: 'uppercase', letterSpacing: '0.08em' }}
+                  />
+                  <button
+                    type="button"
+                    id="promoApply"
+                    style={{
+                      padding: '0 18px',
+                      background: 'var(--ink)',
+                      color: 'var(--paper)',
+                      border: 'none',
+                      fontFamily: 'var(--body)',
+                      fontSize: 12,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                    }}
+                  >Apply</button>
+                  <button
+                    type="button"
+                    id="promoClear"
+                    hidden
+                    style={{
+                      padding: '0 14px',
+                      background: 'transparent',
+                      color: 'var(--graphite)',
+                      border: '1px solid rgba(74,74,72,0.2)',
+                      fontFamily: 'var(--body)',
+                      fontSize: 12,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                    }}
+                  >Clear</button>
+                </div>
+                <small className="hint" id="promoMsg">Codes from your studio — applied to the total below.</small>
+                <input type="hidden" name="discountCode" id="discountCode" defaultValue="" />
+                <input type="hidden" name="discountAmount" id="discountAmount" defaultValue="0" />
+              </div>
+            </section>
+
+            <section>
               <h3>Payment method</h3>
               <div className="row">
                 <label>How would you like to pay?</label>
@@ -214,8 +266,25 @@ export default function SchedulePage() {
           <aside className="step-summary">
             <h3>Your booking</h3>
             <div className="step-summary__list" id="summaryList"></div>
+            <div
+              id="summaryDiscountRow"
+              hidden
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                gap: 12,
+                padding: '10px 0',
+                borderTop: '1px solid rgba(74,74,72,0.12)',
+                fontFamily: 'var(--body)',
+                fontSize: 13,
+                color: 'var(--graphite)',
+              }}
+            >
+              <span id="summaryDiscountLabel">Discount</span>
+              <span id="summaryDiscountAmt">-$0</span>
+            </div>
             <div className="step-summary__total">
-              <span className="step-summary__total__label">Subtotal · GST inc.</span>
+              <span className="step-summary__total__label">Total · GST inc.</span>
               <span className="step-summary__total__amt" id="summaryAmt">$0</span>
             </div>
             <Link href="/book/checkout" className="step-summary__edit">← Edit details</Link>
@@ -274,7 +343,104 @@ export default function SchedulePage() {
       <div class="step-summary__price">\${priceLabel}</div>\`;
     list.appendChild(row);
   });
-  document.getElementById('summaryAmt').textContent = total === 0 ? '$0' : '$' + total.toLocaleString('en-AU');
+  function money(n){ return n === 0 ? '$0' : '$' + Number(n).toLocaleString('en-AU'); }
+  function renderTotal(){
+    const disc = Math.max(0, Math.min(total, Number(document.getElementById('discountAmount').value || 0)));
+    const net = Math.max(0, total - disc);
+    document.getElementById('summaryAmt').textContent = money(net);
+    const row = document.getElementById('summaryDiscountRow');
+    const amt = document.getElementById('summaryDiscountAmt');
+    const lbl = document.getElementById('summaryDiscountLabel');
+    const code = document.getElementById('discountCode').value;
+    if (disc > 0){
+      row.hidden = false;
+      lbl.textContent = code ? ('Discount · ' + code) : 'Discount';
+      amt.textContent = '-' + money(disc);
+    } else {
+      row.hidden = true;
+    }
+  }
+  renderTotal();
+
+  // ── Promo code ────────────────────────────────────────────────────────────
+  (function(){
+    const OPS_BASE = 'https://ops.outbounddesign.com.au';
+    const TENANT_SLUG = 'won-vision';
+    const input = document.getElementById('promoCode');
+    const apply = document.getElementById('promoApply');
+    const clear = document.getElementById('promoClear');
+    const msg   = document.getElementById('promoMsg');
+    const hCode = document.getElementById('discountCode');
+    const hAmt  = document.getElementById('discountAmount');
+
+    function setMsg(text, tone){
+      msg.textContent = text;
+      msg.style.color = tone === 'ok' ? '#2f6f4a' : tone === 'err' ? '#a23f28' : 'var(--graphite)';
+    }
+    function clearPromo(){
+      hCode.value = '';
+      hAmt.value = '0';
+      input.value = '';
+      input.disabled = false;
+      apply.hidden = false;
+      clear.hidden = true;
+      setMsg('Codes from your studio — applied to the total below.', '');
+      renderTotal();
+    }
+    // Restore any prior promo on back-nav
+    (function(){
+      const prior = JSON.parse(sessionStorage.getItem('wv-schedule') || '{}');
+      if (prior.discountCode && prior.discountAmount){
+        hCode.value = prior.discountCode;
+        hAmt.value = String(prior.discountAmount);
+        input.value = prior.discountCode;
+        input.disabled = true;
+        apply.hidden = true;
+        clear.hidden = false;
+        setMsg('“' + prior.discountCode + '” applied · saving ' + money(Number(prior.discountAmount)), 'ok');
+        renderTotal();
+      }
+    })();
+
+    apply.addEventListener('click', async () => {
+      const code = (input.value || '').trim().toUpperCase();
+      if (!code) { setMsg('Type a code first.', 'err'); return; }
+      apply.disabled = true;
+      setMsg('Checking…', '');
+      try {
+        // Single-package validation when the cart has one line (most bookings);
+        // for multi-line carts, validate against the total and let the server
+        // re-check applicable_packages for each line.
+        const pkg = (cart[0] && cart[0].name) || undefined;
+        const res = await fetch(OPS_BASE + '/api/public/' + TENANT_SLUG + '/validate-discount', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code, package_type: pkg, package_price: total }),
+        });
+        const j = await res.json();
+        if (!res.ok || !j.valid){
+          setMsg(j.message || 'Invalid code', 'err');
+          return;
+        }
+        hCode.value = j.code || code;
+        hAmt.value = String(j.discount_amount || 0);
+        input.disabled = true;
+        apply.hidden = true;
+        clear.hidden = false;
+        setMsg('“' + (j.code || code) + '” applied · saving ' + money(j.discount_amount || 0), 'ok');
+        renderTotal();
+      } catch (e){
+        setMsg('Couldn\\'t reach the server. Try again.', 'err');
+      } finally {
+        apply.disabled = false;
+      }
+    });
+
+    clear.addEventListener('click', clearPromo);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter'){ e.preventDefault(); apply.click(); }
+    });
+  })();
 
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('selectedDate').min = today;

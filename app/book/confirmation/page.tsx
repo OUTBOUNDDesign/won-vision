@@ -220,6 +220,7 @@ export default function ConfirmationPage() {
       },
       paymentMethod: schedule.paymentMethod || '',
       notes: details.propertyNotes || '',
+      discountCode: schedule.discountCode || '',
     };
 
     (function(){
