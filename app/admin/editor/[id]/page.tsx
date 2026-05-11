@@ -4,6 +4,7 @@ import { notFound, redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
 import { eq } from 'drizzle-orm';
 import { db, editors, properties, photos } from '@/lib/db';
+import { AutoRefresh } from './AutoRefresh';
 
 // ─── Status pill styles ──────────────────────────────────────────────────────
 // B&W brand rules:
@@ -132,7 +133,10 @@ export default async function PropertyDetail({ params }: { params: Promise<{ id:
           <h1 style={{ fontSize: '20px', fontWeight: 600, color: '#000', letterSpacing: '-0.01em' }}>
             {property.address}
           </h1>
-          <StatusPill status={property.status} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <AutoRefresh status={property.status} />
+            <StatusPill status={property.status} />
+          </div>
         </div>
         <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
           {[
