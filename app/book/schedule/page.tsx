@@ -198,9 +198,8 @@ export default function SchedulePage() {
                     name="promoCode"
                     type="text"
                     autoComplete="off"
-                    autoCapitalize="characters"
                     placeholder="Enter code"
-                    style={{ flex: 1, textTransform: 'uppercase', letterSpacing: '0.08em' }}
+                    style={{ flex: 1, letterSpacing: '0.04em' }}
                   />
                   <button
                     type="button"
@@ -403,7 +402,9 @@ export default function SchedulePage() {
     })();
 
     apply.addEventListener('click', async () => {
-      const code = (input.value || '').trim().toUpperCase();
+      // Server matches case-insensitively, so we just trim. The validated
+      // response echoes back the DB-stored casing, which is what we display.
+      const code = (input.value || '').trim();
       if (!code) { setMsg('Type a code first.', 'err'); return; }
       apply.disabled = true;
       setMsg('Checking…', '');

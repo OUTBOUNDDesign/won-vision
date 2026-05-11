@@ -4,8 +4,8 @@
     "hash": "2a74d3909800ca5467fa83b0ab4a4890"
   },
   "/Users/kiranc/Code/won-vision/proxy.ts": {
-    "mtime": 1778391284.0999627,
-    "hash": "ab9056d0847e0442ea1b432b10dfccd2"
+    "mtime": 1778483878.2320776,
+    "hash": "11ea28453edf127c0a8ac1f1356d02b6"
   },
   "/Users/kiranc/Code/won-vision/playwright.config.ts": {
     "mtime": 1778391284.0992978,
@@ -20,8 +20,8 @@
     "hash": "c2b95d4ac4c85b33d12bf13d7d8c3a94"
   },
   "/Users/kiranc/Code/won-vision/next.config.ts": {
-    "mtime": 1778213433.9481418,
-    "hash": "7291bb137f7afafee4fd11f52d970924"
+    "mtime": 1778483875.5568511,
+    "hash": "fe38ca7cdf0df090f75e3b12a2ee1205"
   },
   "/Users/kiranc/Code/won-vision/app/fonts.ts": {
     "mtime": 1778222685.2061558,
@@ -88,8 +88,8 @@
     "hash": "6dbb1679a05bc3b1143678213d809a6e"
   },
   "/Users/kiranc/Code/won-vision/app/admin/editor/[id]/page.tsx": {
-    "mtime": 1778415141.7720275,
-    "hash": "428a5ccd28cef8077d73251601fcf767"
+    "mtime": 1778484148.0781744,
+    "hash": "1238abca8523bb43d6097012bd9598dd"
   },
   "/Users/kiranc/Code/won-vision/app/components/ServiceGalleryLightbox.tsx": {
     "mtime": 1778222198.2543576,
@@ -124,12 +124,12 @@
     "hash": "920662651274dc64c9d9475304fa9ab5"
   },
   "/Users/kiranc/Code/won-vision/app/book/schedule/page.tsx": {
-    "mtime": 1778215614.1128447,
-    "hash": "4999949a0fbfb79d90c15ab75ae204de"
+    "mtime": 1778483949.0165703,
+    "hash": "bacb4929cb3b84136def1669934fe9eb"
   },
   "/Users/kiranc/Code/won-vision/app/book/confirmation/page.tsx": {
-    "mtime": 1778215643.9281795,
-    "hash": "c12e3e93f4e9916d9811077aa9f80c34"
+    "mtime": 1778480938.0184476,
+    "hash": "25cde9b451b651ca7f7fc997757fbaab"
   },
   "/Users/kiranc/Code/won-vision/app/book/checkout/page.tsx": {
     "mtime": 1778215586.784402,
@@ -147,6 +147,18 @@
     "mtime": 1778407992.3434849,
     "hash": "620ca7b902b30b22a17aad3700d5d780"
   },
+  "/Users/kiranc/Code/won-vision/app/api/workflow/trigger/route.ts": {
+    "mtime": 1778484080.9840975,
+    "hash": "75cabdf80899af52ff750c456e247f4f"
+  },
+  "/Users/kiranc/Code/won-vision/app/api/cron/queue-backstop/route.ts": {
+    "mtime": 1778484099.833465,
+    "hash": "15f9de307355c99589236e09d9f10ef3"
+  },
+  "/Users/kiranc/Code/won-vision/tests/dropbox-paths.test.ts": {
+    "mtime": 1778482329.164536,
+    "hash": "36d58133270757d84ada2d3ae9c90329"
+  },
   "/Users/kiranc/Code/won-vision/tests/intake.spec.ts": {
     "mtime": 1778408564.491647,
     "hash": "38e24f263d20b5b17c1250a2a6adfdce"
@@ -154,6 +166,14 @@
   "/Users/kiranc/Code/won-vision/tests/styles.test.ts": {
     "mtime": 1778407807.2101526,
     "hash": "3c762772224ae1a73363c0ef77952b8f"
+  },
+  "/Users/kiranc/Code/won-vision/tests/fal-prompts.test.ts": {
+    "mtime": 1778483249.989254,
+    "hash": "4264528a227fc02d3d6ca88a92bde90c"
+  },
+  "/Users/kiranc/Code/won-vision/tests/workflow-helpers.test.ts": {
+    "mtime": 1778483253.6692982,
+    "hash": "67b9329cce4f6a2d11e8033eaeee3562"
   },
   "/Users/kiranc/Code/won-vision/tests/intake-actions.test.ts": {
     "mtime": 1778414145.9741156,
@@ -211,6 +231,10 @@
     "mtime": 1778391284.10048,
     "hash": "e6404e0ac94c16337e5f56272dbb3952"
   },
+  "/Users/kiranc/Code/won-vision/scripts/dropbox-bootstrap.ts": {
+    "mtime": 1778481477.0754097,
+    "hash": "10f58fab2e1cd700f1bb0e120b3a4074"
+  },
   "/Users/kiranc/Code/won-vision/lib/blob.ts": {
     "mtime": 1778407836.497292,
     "hash": "c98410f7a72ce5ef5dc87eb23030be8e"
@@ -219,17 +243,41 @@
     "mtime": 1778407818.9028928,
     "hash": "54f015a6b6e93d294d795c511e8b1d4c"
   },
+  "/Users/kiranc/Code/won-vision/lib/gemini/qa.ts": {
+    "mtime": 1778483523.4838076,
+    "hash": "efbe7350916ebbbdb6ee9084a7e483dc"
+  },
+  "/Users/kiranc/Code/won-vision/lib/fal/prompts.ts": {
+    "mtime": 1778483281.5178237,
+    "hash": "c0e94255e535da848ff6ed9cd7fc7afe"
+  },
+  "/Users/kiranc/Code/won-vision/lib/fal/client.ts": {
+    "mtime": 1778483511.2780964,
+    "hash": "88413b60891c35ed9b5d663ee0ea17a2"
+  },
   "/Users/kiranc/Code/won-vision/lib/intake/queries.ts": {
     "mtime": 1778408168.6014326,
     "hash": "715cae418c0ba1218444692156df4497"
   },
   "/Users/kiranc/Code/won-vision/lib/intake/actions.ts": {
-    "mtime": 1778414127.8146966,
-    "hash": "7ea423c565ddc26a9724ec9dd747af5f"
+    "mtime": 1778484089.5019808,
+    "hash": "ba972677b348ee5faaac2655d011b4f9"
+  },
+  "/Users/kiranc/Code/won-vision/lib/workflow/helpers.ts": {
+    "mtime": 1778483283.3462923,
+    "hash": "b0cbc46eb173b943ed5d1fff4b860e8f"
+  },
+  "/Users/kiranc/Code/won-vision/lib/workflow/process-property.ts": {
+    "mtime": 1778483935.8672674,
+    "hash": "17882146c025f7a0c6c0e0d898e72ff4"
+  },
+  "/Users/kiranc/Code/won-vision/lib/workflow/process-photo.ts": {
+    "mtime": 1778483901.7016377,
+    "hash": "431fd9bc0b9d27dae77f48dfc837bc13"
   },
   "/Users/kiranc/Code/won-vision/lib/db/schema.ts": {
-    "mtime": 1778414114.515069,
-    "hash": "e223f958ed4b7da13ab802fcb30debaf"
+    "mtime": 1778482081.9954731,
+    "hash": "557e422706a7b45d72703d126f8c0b9a"
   },
   "/Users/kiranc/Code/won-vision/lib/db/index.ts": {
     "mtime": 1778391284.0928464,
@@ -243,9 +291,21 @@
     "mtime": 1778414176.9072225,
     "hash": "810d06ec1b2d48672607d18a1871a2cb"
   },
+  "/Users/kiranc/Code/won-vision/lib/db/migrations/0003_phase4_workflow.sql": {
+    "mtime": 1778482100.3863332,
+    "hash": "a286955ce74bd6f53abd407179732b99"
+  },
   "/Users/kiranc/Code/won-vision/lib/db/migrations/0000_thin_matthew_murdock.sql": {
     "mtime": 1778391284.0935402,
     "hash": "eea356bfba84e9c7b7d9188d1e0eba85"
+  },
+  "/Users/kiranc/Code/won-vision/lib/dropbox/client.ts": {
+    "mtime": 1778482816.4135504,
+    "hash": "9a57aac2cdd2f42072cd4162277e888e"
+  },
+  "/Users/kiranc/Code/won-vision/lib/dropbox/paths.ts": {
+    "mtime": 1778482345.0838592,
+    "hash": "d9a2d9529282622af4dca87b573cbd18"
   },
   "/Users/kiranc/Code/won-vision/docs/BRAND_GUIDELINES.md": {
     "mtime": 1778225472.482892,
@@ -255,6 +315,10 @@
     "mtime": 1778224696.4382472,
     "hash": "7ff5dd68de997ef4b63e32b880b12b3a"
   },
+  "/Users/kiranc/Code/won-vision/docs/dropbox-setup.md": {
+    "mtime": 1778481491.5160642,
+    "hash": "6cdf1b472a50f1c8017baa2f9d2b04b0"
+  },
   "/Users/kiranc/Code/won-vision/docs/runbooks/add-first-editor.md": {
     "mtime": 1778391284.0896406,
     "hash": "aa5d88c494e0068c3601d60fbb64d4ca"
@@ -262,6 +326,10 @@
   "/Users/kiranc/Code/won-vision/docs/superpowers/plans/2026-05-07-phase-1-nextjs-migration.md": {
     "mtime": 1778213433.9375336,
     "hash": "74555493fd0bf8b40c043cebb986128b"
+  },
+  "/Users/kiranc/Code/won-vision/docs/superpowers/plans/2026-05-11-won-vision-phase-4-ai-pipeline.md": {
+    "mtime": 1778481102.8465548,
+    "hash": "2368dbd7b7fad6954be5137a5b6617a2"
   },
   "/Users/kiranc/Code/won-vision/docs/superpowers/plans/2026-05-07-won-vision-photo-editor-roadmap.md": {
     "mtime": 1778409444.5786262,

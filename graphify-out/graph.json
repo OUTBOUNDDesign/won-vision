@@ -9,16 +9,16 @@
       "source_file": "/Users/kiranc/Code/won-media/next-env.d.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_next_env_d_ts",
-      "community": 19,
+      "community": 22,
       "norm_label": "next-env.d.ts"
     },
     {
       "label": "proxy.ts",
       "file_type": "code",
-      "source_file": "/Users/kiranc/Code/won-media/proxy.ts",
+      "source_file": "proxy.ts",
       "source_location": "L1",
-      "id": "users_kiranc_code_won_media_proxy_ts",
-      "community": 20,
+      "id": "proxy_ts",
+      "community": 23,
       "norm_label": "proxy.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "/Users/kiranc/Code/won-media/playwright.config.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_playwright_config_ts",
-      "community": 21,
+      "community": 24,
       "norm_label": "playwright.config.ts"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "/Users/kiranc/Code/won-media/drizzle.config.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_drizzle_config_ts",
-      "community": 22,
+      "community": 25,
       "norm_label": "drizzle.config.ts"
     },
     {
@@ -45,16 +45,16 @@
       "source_file": "/Users/kiranc/Code/won-media/vitest.config.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_vitest_config_ts",
-      "community": 23,
+      "community": 26,
       "norm_label": "vitest.config.ts"
     },
     {
       "label": "next.config.ts",
       "file_type": "code",
-      "source_file": "/Users/kiranc/Code/won-media/next.config.ts",
+      "source_file": "next.config.ts",
       "source_location": "L1",
-      "id": "users_kiranc_code_won_media_next_config_ts",
-      "community": 24,
+      "id": "next_config_ts",
+      "community": 27,
       "norm_label": "next.config.ts"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/fonts.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_fonts_ts",
-      "community": 25,
+      "community": 28,
       "norm_label": "fonts.ts"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_layout_tsx",
-      "community": 11,
+      "community": 14,
       "norm_label": "layout.tsx"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
       "source_location": "L20",
       "id": "app_layout_rootlayout",
-      "community": 11,
+      "community": 14,
       "norm_label": "rootlayout()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/page.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_page_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/gallery/page.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_gallery_page_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "app/admin/layout.tsx",
       "source_location": "L1",
       "id": "app_admin_layout_tsx",
-      "community": 26,
+      "community": 29,
       "norm_label": "layout.tsx"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "app/admin/page.tsx",
       "source_location": "L1",
       "id": "app_admin_page_tsx",
-      "community": 12,
+      "community": 19,
       "norm_label": "page.tsx"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/admin/sign-up/[[...sign-up]]/page.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_admin_sign_up_sign_up_page_tsx",
-      "community": 27,
+      "community": 30,
       "norm_label": "page.tsx"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/admin/sign-in/[[...sign-in]]/page.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_admin_sign_in_sign_in_page_tsx",
-      "community": 28,
+      "community": 31,
       "norm_label": "page.tsx"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "app/admin/editor/page.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_page_tsx",
-      "community": 9,
+      "community": 10,
       "norm_label": "page.tsx"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "app/admin/editor/page.tsx",
       "source_location": "L20",
       "id": "editor_page_statuspill",
-      "community": 9,
+      "community": 10,
       "norm_label": "statuspill()"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "app/admin/editor/new/ReviewScreen.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_reviewscreen_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "reviewscreen.tsx"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "app/admin/editor/new/ReviewScreen.tsx",
       "source_location": "L88",
       "id": "new_reviewscreen_handlesubmit",
-      "community": 0,
+      "community": 1,
       "norm_label": "handlesubmit()"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_intakeform_tsx",
-      "community": 5,
+      "community": 7,
       "norm_label": "intakeform.tsx"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L68",
       "id": "new_intakeform_formatbytes",
-      "community": 5,
+      "community": 7,
       "norm_label": "formatbytes()"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L226",
       "id": "new_intakeform_ensuredraft",
-      "community": 5,
+      "community": 7,
       "norm_label": "ensuredraft()"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L280",
       "id": "new_intakeform_onfilechange",
-      "community": 5,
+      "community": 7,
       "norm_label": "onfilechange()"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L285",
       "id": "new_intakeform_ondrop",
-      "community": 5,
+      "community": 7,
       "norm_label": "ondrop()"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L294",
       "id": "new_intakeform_toggleservice",
-      "community": 5,
+      "community": 7,
       "norm_label": "toggleservice()"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L306",
       "id": "new_intakeform_setstyle",
-      "community": 5,
+      "community": 7,
       "norm_label": "setstyle()"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L310",
       "id": "new_intakeform_removephoto",
-      "community": 5,
+      "community": 7,
       "norm_label": "removephoto()"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "app/admin/editor/new/IntakeForm.tsx",
       "source_location": "L319",
       "id": "new_intakeform_handlecontinue",
-      "community": 5,
+      "community": 7,
       "norm_label": "handlecontinue()"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "app/admin/editor/new/AddressField.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_addressfield_tsx",
-      "community": 5,
+      "community": 7,
       "norm_label": "addressfield.tsx"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "app/admin/editor/new/AddressField.tsx",
       "source_location": "L20",
       "id": "new_addressfield_formataddress",
-      "community": 5,
+      "community": 7,
       "norm_label": "formataddress()"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "app/admin/editor/new/AddressField.tsx",
       "source_location": "L42",
       "id": "new_addressfield_ondocclick",
-      "community": 5,
+      "community": 7,
       "norm_label": "ondocclick()"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "app/admin/editor/new/AddressField.tsx",
       "source_location": "L89",
       "id": "new_addressfield_selectprediction",
-      "community": 5,
+      "community": 7,
       "norm_label": "selectprediction()"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "app/admin/editor/new/types.ts",
       "source_location": "L1",
       "id": "app_admin_editor_new_types_ts",
-      "community": 29,
+      "community": 32,
       "norm_label": "types.ts"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "app/admin/editor/new/page.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_page_tsx",
-      "community": 10,
+      "community": 12,
       "norm_label": "page.tsx"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_stepper_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "stepper.tsx"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "app/admin/editor/new/Intake.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_intake_tsx",
-      "community": 10,
+      "community": 12,
       "norm_label": "intake.tsx"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "app/admin/editor/new/Intake.tsx",
       "source_location": "L26",
       "id": "new_intake_intake",
-      "community": 10,
+      "community": 12,
       "norm_label": "intake()"
     },
     {
@@ -349,10 +349,19 @@
       "label": "StatusPill()",
       "file_type": "code",
       "source_file": "app/admin/editor/[id]/page.tsx",
-      "source_location": "L22",
+      "source_location": "L37",
       "id": "id_page_statuspill",
       "community": 13,
       "norm_label": "statuspill()"
+    },
+    {
+      "label": "pathBasename()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L59",
+      "id": "id_page_pathbasename",
+      "community": 13,
+      "norm_label": "pathbasename()"
     },
     {
       "label": "ServiceGalleryLightbox.tsx",
@@ -360,7 +369,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_servicegallerylightbox_tsx",
-      "community": 8,
+      "community": 11,
       "norm_label": "servicegallerylightbox.tsx"
     },
     {
@@ -369,7 +378,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L62",
       "id": "components_servicegallerylightbox_inject",
-      "community": 8,
+      "community": 11,
       "norm_label": "inject()"
     },
     {
@@ -378,7 +387,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L92",
       "id": "components_servicegallerylightbox_handler",
-      "community": 8,
+      "community": 11,
       "norm_label": "handler()"
     },
     {
@@ -387,7 +396,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L102",
       "id": "components_servicegallerylightbox_esc",
-      "community": 8,
+      "community": 11,
       "norm_label": "esc()"
     },
     {
@@ -396,7 +405,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_wordmark_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "wordmark.tsx"
     },
     {
@@ -405,7 +414,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/Wordmark.tsx",
       "source_location": "L10",
       "id": "components_wordmark_wordmark",
-      "community": 1,
+      "community": 3,
       "norm_label": "wordmark()"
     },
     {
@@ -414,7 +423,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/WonVisionLoader.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_wonvisionloader_tsx",
-      "community": 30,
+      "community": 33,
       "norm_label": "wonvisionloader.tsx"
     },
     {
@@ -423,7 +432,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_loadergate_tsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "loadergate.tsx"
     },
     {
@@ -432,7 +441,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
       "source_location": "L8",
       "id": "components_loadergate_loadergate",
-      "community": 14,
+      "community": 15,
       "norm_label": "loadergate()"
     },
     {
@@ -441,7 +450,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServicesEditorial.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_serviceseditorial_tsx",
-      "community": 31,
+      "community": 34,
       "norm_label": "serviceseditorial.tsx"
     },
     {
@@ -450,7 +459,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_processstepper_tsx",
-      "community": 15,
+      "community": 16,
       "norm_label": "processstepper.tsx"
     },
     {
@@ -459,7 +468,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
       "source_location": "L29",
       "id": "components_processstepper_processstepper",
-      "community": 15,
+      "community": 16,
       "norm_label": "processstepper()"
     },
     {
@@ -468,7 +477,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/WonVisionMark.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_wonvisionmark_tsx",
-      "community": 32,
+      "community": 35,
       "norm_label": "wonvisionmark.tsx"
     },
     {
@@ -477,7 +486,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/book/page.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_book_page_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -486,25 +495,25 @@
       "source_file": "/Users/kiranc/Code/won-media/app/book/page.tsx",
       "source_location": "L13",
       "id": "book_page_bookpage",
-      "community": 1,
+      "community": 3,
       "norm_label": "bookpage()"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "/Users/kiranc/Code/won-media/app/book/schedule/page.tsx",
+      "source_file": "app/book/schedule/page.tsx",
       "source_location": "L1",
-      "id": "users_kiranc_code_won_media_app_book_schedule_page_tsx",
-      "community": 1,
+      "id": "app_book_schedule_page_tsx",
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "/Users/kiranc/Code/won-media/app/book/confirmation/page.tsx",
+      "source_file": "app/book/confirmation/page.tsx",
       "source_location": "L1",
-      "id": "users_kiranc_code_won_media_app_book_confirmation_page_tsx",
-      "community": 1,
+      "id": "app_book_confirmation_page_tsx",
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -513,7 +522,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/book/checkout/page.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_book_checkout_page_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -522,7 +531,7 @@
       "source_file": "app/api/places/autocomplete/route.ts",
       "source_location": "L1",
       "id": "app_api_places_autocomplete_route_ts",
-      "community": 17,
+      "community": 20,
       "norm_label": "route.ts"
     },
     {
@@ -531,7 +540,7 @@
       "source_file": "app/api/places/autocomplete/route.ts",
       "source_location": "L19",
       "id": "autocomplete_route_get",
-      "community": 17,
+      "community": 20,
       "norm_label": "get()"
     },
     {
@@ -540,7 +549,7 @@
       "source_file": "app/api/places/details/route.ts",
       "source_location": "L1",
       "id": "app_api_places_details_route_ts",
-      "community": 18,
+      "community": 21,
       "norm_label": "route.ts"
     },
     {
@@ -549,7 +558,7 @@
       "source_file": "app/api/places/details/route.ts",
       "source_location": "L7",
       "id": "details_route_get",
-      "community": 18,
+      "community": 21,
       "norm_label": "get()"
     },
     {
@@ -558,7 +567,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_api_admin_blob_token_route_ts",
-      "community": 7,
+      "community": 9,
       "norm_label": "route.ts"
     },
     {
@@ -567,8 +576,53 @@
       "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
       "source_location": "L8",
       "id": "blob_token_route_post",
-      "community": 7,
+      "community": 9,
       "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/workflow/trigger/route.ts",
+      "source_location": "L1",
+      "id": "app_api_workflow_trigger_route_ts",
+      "community": 2,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/workflow/trigger/route.ts",
+      "source_location": "L11",
+      "id": "trigger_route_post",
+      "community": 2,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/cron/queue-backstop/route.ts",
+      "source_location": "L1",
+      "id": "app_api_cron_queue_backstop_route_ts",
+      "community": 2,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/cron/queue-backstop/route.ts",
+      "source_location": "L12",
+      "id": "queue_backstop_route_get",
+      "community": 2,
+      "norm_label": "get()"
+    },
+    {
+      "label": "dropbox-paths.test.ts",
+      "file_type": "code",
+      "source_file": "tests/dropbox-paths.test.ts",
+      "source_location": "L1",
+      "id": "tests_dropbox_paths_test_ts",
+      "community": 2,
+      "norm_label": "dropbox-paths.test.ts"
     },
     {
       "label": "intake.spec.ts",
@@ -576,7 +630,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/intake.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_intake_spec_ts",
-      "community": 33,
+      "community": 36,
       "norm_label": "intake.spec.ts"
     },
     {
@@ -585,8 +639,26 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/styles.test.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_styles_test_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "styles.test.ts"
+    },
+    {
+      "label": "fal-prompts.test.ts",
+      "file_type": "code",
+      "source_file": "tests/fal-prompts.test.ts",
+      "source_location": "L1",
+      "id": "tests_fal_prompts_test_ts",
+      "community": 0,
+      "norm_label": "fal-prompts.test.ts"
+    },
+    {
+      "label": "workflow-helpers.test.ts",
+      "file_type": "code",
+      "source_file": "tests/workflow-helpers.test.ts",
+      "source_location": "L1",
+      "id": "tests_workflow_helpers_test_ts",
+      "community": 2,
+      "norm_label": "workflow-helpers.test.ts"
     },
     {
       "label": "intake-actions.test.ts",
@@ -594,7 +666,7 @@
       "source_file": "tests/intake-actions.test.ts",
       "source_location": "L1",
       "id": "tests_intake_actions_test_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "intake-actions.test.ts"
     },
     {
@@ -603,7 +675,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/admin/auth.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_admin_auth_spec_ts",
-      "community": 34,
+      "community": 37,
       "norm_label": "auth.spec.ts"
     },
     {
@@ -612,7 +684,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/redirects.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_redirects_spec_ts",
-      "community": 35,
+      "community": 38,
       "norm_label": "redirects.spec.ts"
     },
     {
@@ -621,7 +693,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/smoke.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_smoke_spec_ts",
-      "community": 36,
+      "community": 39,
       "norm_label": "smoke.spec.ts"
     },
     {
@@ -630,7 +702,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/book-confirmation.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_book_confirmation_spec_ts",
-      "community": 37,
+      "community": 40,
       "norm_label": "book-confirmation.spec.ts"
     },
     {
@@ -639,7 +711,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/book-schedule.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_book_schedule_spec_ts",
-      "community": 38,
+      "community": 41,
       "norm_label": "book-schedule.spec.ts"
     },
     {
@@ -648,7 +720,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/home.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_home_spec_ts",
-      "community": 39,
+      "community": 42,
       "norm_label": "home.spec.ts"
     },
     {
@@ -657,7 +729,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/book-checkout.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_book_checkout_spec_ts",
-      "community": 40,
+      "community": 43,
       "norm_label": "book-checkout.spec.ts"
     },
     {
@@ -666,7 +738,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/gallery.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_gallery_spec_ts",
-      "community": 41,
+      "community": 44,
       "norm_label": "gallery.spec.ts"
     },
     {
@@ -675,7 +747,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/visual/book.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_visual_book_spec_ts",
-      "community": 42,
+      "community": 45,
       "norm_label": "book.spec.ts"
     },
     {
@@ -684,7 +756,7 @@
       "source_file": "/Users/kiranc/Code/won-media/tests/db/schema.spec.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_tests_db_schema_spec_ts",
-      "community": 43,
+      "community": 46,
       "norm_label": "schema.spec.ts"
     },
     {
@@ -693,7 +765,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_docs_build_brand_book_py",
-      "community": 6,
+      "community": 8,
       "norm_label": "build_brand_book.py"
     },
     {
@@ -702,7 +774,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L26",
       "id": "docs_build_brand_book_shade_cell",
-      "community": 6,
+      "community": 8,
       "norm_label": "shade_cell()"
     },
     {
@@ -711,7 +783,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L36",
       "id": "docs_build_brand_book_remove_table_borders",
-      "community": 6,
+      "community": 8,
       "norm_label": "remove_table_borders()"
     },
     {
@@ -720,7 +792,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L50",
       "id": "docs_build_brand_book_set_run_font",
-      "community": 6,
+      "community": 8,
       "norm_label": "set_run_font()"
     },
     {
@@ -729,7 +801,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L74",
       "id": "docs_build_brand_book_add_para",
-      "community": 6,
+      "community": 8,
       "norm_label": "add_para()"
     },
     {
@@ -738,7 +810,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L92",
       "id": "docs_build_brand_book_add_eyebrow",
-      "community": 6,
+      "community": 8,
       "norm_label": "add_eyebrow()"
     },
     {
@@ -747,7 +819,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L98",
       "id": "docs_build_brand_book_add_section_title",
-      "community": 6,
+      "community": 8,
       "norm_label": "add_section_title()"
     },
     {
@@ -756,7 +828,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L105",
       "id": "docs_build_brand_book_hr",
-      "community": 6,
+      "community": 8,
       "norm_label": "hr()"
     },
     {
@@ -765,7 +837,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L118",
       "id": "docs_build_brand_book_page_break",
-      "community": 6,
+      "community": 8,
       "norm_label": "page_break()"
     },
     {
@@ -774,7 +846,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L1",
       "id": "docs_build_brand_book_rationale_1",
-      "community": 6,
+      "community": 8,
       "norm_label": "generates won vision brand book.docx \u2014 a designer-facing brand document with the"
     },
     {
@@ -783,7 +855,7 @@
       "source_file": "/Users/kiranc/Code/won-media/docs/build_brand_book.py",
       "source_location": "L27",
       "id": "docs_build_brand_book_rationale_27",
-      "community": 6,
+      "community": 8,
       "norm_label": "fill a table cell with a flat colour."
     },
     {
@@ -792,7 +864,7 @@
       "source_file": "/Users/kiranc/Code/won-media/public/script.js",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_public_script_js",
-      "community": 2,
+      "community": 4,
       "norm_label": "script.js"
     },
     {
@@ -801,7 +873,7 @@
       "source_file": "/Users/kiranc/Code/won-media/public/script.js",
       "source_location": "L5",
       "id": "public_script_wvboot",
-      "community": 2,
+      "community": 4,
       "norm_label": "__wvboot()"
     },
     {
@@ -810,7 +882,7 @@
       "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_scripts_seed_editor_ts",
-      "community": 16,
+      "community": 17,
       "norm_label": "seed-editor.ts"
     },
     {
@@ -819,8 +891,35 @@
       "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
       "source_location": "L3",
       "id": "scripts_seed_editor_main",
-      "community": 16,
+      "community": 17,
       "norm_label": "main()"
+    },
+    {
+      "label": "dropbox-bootstrap.ts",
+      "file_type": "code",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L1",
+      "id": "scripts_dropbox_bootstrap_ts",
+      "community": 18,
+      "norm_label": "dropbox-bootstrap.ts"
+    },
+    {
+      "label": "exchangeAuthCode()",
+      "file_type": "code",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L13",
+      "id": "scripts_dropbox_bootstrap_exchangeauthcode",
+      "community": 18,
+      "norm_label": "exchangeauthcode()"
+    },
+    {
+      "label": "refreshAccessToken()",
+      "file_type": "code",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L25",
+      "id": "scripts_dropbox_bootstrap_refreshaccesstoken",
+      "community": 18,
+      "norm_label": "refreshaccesstoken()"
     },
     {
       "label": "blob.ts",
@@ -828,7 +927,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_lib_blob_ts",
-      "community": 7,
+      "community": 9,
       "norm_label": "blob.ts"
     },
     {
@@ -837,7 +936,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
       "source_location": "L4",
       "id": "lib_blob_handleclientblobupload",
-      "community": 7,
+      "community": 9,
       "norm_label": "handleclientblobupload()"
     },
     {
@@ -846,7 +945,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/styles.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_lib_styles_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "styles.ts"
     },
     {
@@ -855,8 +954,62 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/styles.ts",
       "source_location": "L11",
       "id": "lib_styles_isstylepreset",
-      "community": 0,
+      "community": 1,
       "norm_label": "isstylepreset()"
+    },
+    {
+      "label": "qa.ts",
+      "file_type": "code",
+      "source_file": "lib/gemini/qa.ts",
+      "source_location": "L1",
+      "id": "lib_gemini_qa_ts",
+      "community": 0,
+      "norm_label": "qa.ts"
+    },
+    {
+      "label": "qaVariant()",
+      "file_type": "code",
+      "source_file": "lib/gemini/qa.ts",
+      "source_location": "L29",
+      "id": "gemini_qa_qavariant",
+      "community": 0,
+      "norm_label": "qavariant()"
+    },
+    {
+      "label": "prompts.ts",
+      "file_type": "code",
+      "source_file": "lib/fal/prompts.ts",
+      "source_location": "L1",
+      "id": "lib_fal_prompts_ts",
+      "community": 0,
+      "norm_label": "prompts.ts"
+    },
+    {
+      "label": "buildPrompt()",
+      "file_type": "code",
+      "source_file": "lib/fal/prompts.ts",
+      "source_location": "L16",
+      "id": "fal_prompts_buildprompt",
+      "community": 0,
+      "norm_label": "buildprompt()"
+    },
+    {
+      "label": "client.ts",
+      "file_type": "code",
+      "source_file": "lib/fal/client.ts",
+      "source_location": "L1",
+      "id": "lib_fal_client_ts",
+      "community": 0,
+      "norm_label": "client.ts"
+    },
+    {
+      "label": "generate()",
+      "file_type": "code",
+      "source_file": "lib/fal/client.ts",
+      "source_location": "L24",
+      "id": "fal_client_generate",
+      "community": 0,
+      "norm_label": "generate()"
     },
     {
       "label": "queries.ts",
@@ -864,7 +1017,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_lib_intake_queries_ts",
-      "community": 9,
+      "community": 10,
       "norm_label": "queries.ts"
     },
     {
@@ -873,7 +1026,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
       "source_location": "L5",
       "id": "intake_queries_listeditorproperties",
-      "community": 9,
+      "community": 10,
       "norm_label": "listeditorproperties()"
     },
     {
@@ -882,7 +1035,7 @@
       "source_file": "lib/intake/actions.ts",
       "source_location": "L1",
       "id": "lib_intake_actions_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "actions.ts"
     },
     {
@@ -891,7 +1044,7 @@
       "source_file": "lib/intake/actions.ts",
       "source_location": "L11",
       "id": "intake_actions_requireeditor",
-      "community": 0,
+      "community": 1,
       "norm_label": "requireeditor()"
     },
     {
@@ -900,7 +1053,7 @@
       "source_file": "lib/intake/actions.ts",
       "source_location": "L26",
       "id": "intake_actions_createdraft",
-      "community": 0,
+      "community": 1,
       "norm_label": "createdraft()"
     },
     {
@@ -909,7 +1062,7 @@
       "source_file": "lib/intake/actions.ts",
       "source_location": "L53",
       "id": "intake_actions_attachphoto",
-      "community": 0,
+      "community": 1,
       "norm_label": "attachphoto()"
     },
     {
@@ -918,8 +1071,242 @@
       "source_file": "lib/intake/actions.ts",
       "source_location": "L69",
       "id": "intake_actions_submitproperty",
-      "community": 0,
+      "community": 1,
       "norm_label": "submitproperty()"
+    },
+    {
+      "label": "helpers.ts",
+      "file_type": "code",
+      "source_file": "lib/workflow/helpers.ts",
+      "source_location": "L1",
+      "id": "lib_workflow_helpers_ts",
+      "community": 2,
+      "norm_label": "helpers.ts"
+    },
+    {
+      "label": "orderServices()",
+      "file_type": "code",
+      "source_file": "lib/workflow/helpers.ts",
+      "source_location": "L6",
+      "id": "workflow_helpers_orderservices",
+      "community": 2,
+      "norm_label": "orderservices()"
+    },
+    {
+      "label": "batch()",
+      "file_type": "code",
+      "source_file": "lib/workflow/helpers.ts",
+      "source_location": "L10",
+      "id": "workflow_helpers_batch",
+      "community": 2,
+      "norm_label": "batch()"
+    },
+    {
+      "label": "process-property.ts",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L1",
+      "id": "lib_workflow_process_property_ts",
+      "community": 2,
+      "norm_label": "process-property.ts"
+    },
+    {
+      "label": "loadProperty()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L46",
+      "id": "workflow_process_property_loadproperty",
+      "community": 2,
+      "norm_label": "loadproperty()"
+    },
+    {
+      "label": "loadPhotos()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L55",
+      "id": "workflow_process_property_loadphotos",
+      "community": 2,
+      "norm_label": "loadphotos()"
+    },
+    {
+      "label": "markPropertyProcessing()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L68",
+      "id": "workflow_process_property_markpropertyprocessing",
+      "community": 2,
+      "norm_label": "markpropertyprocessing()"
+    },
+    {
+      "label": "markPropertyReview()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L76",
+      "id": "workflow_process_property_markpropertyreview",
+      "community": 2,
+      "norm_label": "markpropertyreview()"
+    },
+    {
+      "label": "ensureDropboxFolders()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L81",
+      "id": "workflow_process_property_ensuredropboxfolders",
+      "community": 2,
+      "norm_label": "ensuredropboxfolders()"
+    },
+    {
+      "label": "intakePhoto()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L88",
+      "id": "workflow_process_property_intakephoto",
+      "community": 2,
+      "norm_label": "intakephoto()"
+    },
+    {
+      "label": "runPhotoWorkflow()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L108",
+      "id": "workflow_process_property_runphotoworkflow",
+      "community": 2,
+      "norm_label": "runphotoworkflow()"
+    },
+    {
+      "label": "processProperty()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L125",
+      "id": "workflow_process_property_processproperty",
+      "community": 2,
+      "norm_label": "processproperty()"
+    },
+    {
+      "label": "process-photo.ts",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L1",
+      "id": "lib_workflow_process_photo_ts",
+      "community": 0,
+      "norm_label": "process-photo.ts"
+    },
+    {
+      "label": "markPhotoProcessing()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L27",
+      "id": "workflow_process_photo_markphotoprocessing",
+      "community": 0,
+      "norm_label": "markphotoprocessing()"
+    },
+    {
+      "label": "markPhotoApproved()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L32",
+      "id": "workflow_process_photo_markphotoapproved",
+      "community": 0,
+      "norm_label": "markphotoapproved()"
+    },
+    {
+      "label": "generateIntermediate()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L37",
+      "id": "workflow_process_photo_generateintermediate",
+      "community": 0,
+      "norm_label": "generateintermediate()"
+    },
+    {
+      "label": "uploadIntermediate()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L47",
+      "id": "workflow_process_photo_uploadintermediate",
+      "community": 0,
+      "norm_label": "uploadintermediate()"
+    },
+    {
+      "label": "getTempLink()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L52",
+      "id": "workflow_process_photo_gettemplink",
+      "community": 0,
+      "norm_label": "gettemplink()"
+    },
+    {
+      "label": "generateAndUploadVariant()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L57",
+      "id": "workflow_process_photo_generateanduploadvariant",
+      "community": 0,
+      "norm_label": "generateanduploadvariant()"
+    },
+    {
+      "label": "runQa()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L70",
+      "id": "workflow_process_photo_runqa",
+      "community": 0,
+      "norm_label": "runqa()"
+    },
+    {
+      "label": "recordQaAttempt()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L75",
+      "id": "workflow_process_photo_recordqaattempt",
+      "community": 0,
+      "norm_label": "recordqaattempt()"
+    },
+    {
+      "label": "promoteVariant()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L80",
+      "id": "workflow_process_photo_promotevariant",
+      "community": 0,
+      "norm_label": "promotevariant()"
+    },
+    {
+      "label": "recordVariantPass()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L85",
+      "id": "workflow_process_photo_recordvariantpass",
+      "community": 0,
+      "norm_label": "recordvariantpass()"
+    },
+    {
+      "label": "recordVariantFail()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L100",
+      "id": "workflow_process_photo_recordvariantfail",
+      "community": 0,
+      "norm_label": "recordvariantfail()"
+    },
+    {
+      "label": "finalisePhotoStatus()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L108",
+      "id": "workflow_process_photo_finalisephotostatus",
+      "community": 0,
+      "norm_label": "finalisephotostatus()"
+    },
+    {
+      "label": "processPhoto()",
+      "file_type": "code",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L122",
+      "id": "workflow_process_photo_processphoto",
+      "community": 0,
+      "norm_label": "processphoto()"
     },
     {
       "label": "schema.ts",
@@ -927,7 +1314,7 @@
       "source_file": "lib/db/schema.ts",
       "source_location": "L1",
       "id": "lib_db_schema_ts",
-      "community": 44,
+      "community": 47,
       "norm_label": "schema.ts"
     },
     {
@@ -936,15 +1323,159 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/db/index.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_lib_db_index_ts",
-      "community": 45,
+      "community": 48,
       "norm_label": "index.ts"
+    },
+    {
+      "label": "client.ts",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L1",
+      "id": "lib_dropbox_client_ts",
+      "community": 0,
+      "norm_label": "client.ts"
+    },
+    {
+      "label": "getAccessToken()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L7",
+      "id": "dropbox_client_getaccesstoken",
+      "community": 0,
+      "norm_label": "getaccesstoken()"
+    },
+    {
+      "label": "rpc()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L24",
+      "id": "dropbox_client_rpc",
+      "community": 0,
+      "norm_label": "rpc()"
+    },
+    {
+      "label": "ensureFolder()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L35",
+      "id": "dropbox_client_ensurefolder",
+      "community": 0,
+      "norm_label": "ensurefolder()"
+    },
+    {
+      "label": "uploadFromUrl()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L45",
+      "id": "dropbox_client_uploadfromurl",
+      "community": 0,
+      "norm_label": "uploadfromurl()"
+    },
+    {
+      "label": "move()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L67",
+      "id": "dropbox_client_move",
+      "community": 0,
+      "norm_label": "move()"
+    },
+    {
+      "label": "getTemporaryLink()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L71",
+      "id": "dropbox_client_gettemporarylink",
+      "community": 0,
+      "norm_label": "gettemporarylink()"
+    },
+    {
+      "label": "paths.ts",
+      "file_type": "code",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L1",
+      "id": "lib_dropbox_paths_ts",
+      "community": 2,
+      "norm_label": "paths.ts"
+    },
+    {
+      "label": "slugifyAddress()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L4",
+      "id": "dropbox_paths_slugifyaddress",
+      "community": 2,
+      "norm_label": "slugifyaddress()"
+    },
+    {
+      "label": "buildIntakePath()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L13",
+      "id": "dropbox_paths_buildintakepath",
+      "community": 2,
+      "norm_label": "buildintakepath()"
+    },
+    {
+      "label": "buildProcessingPath()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L16",
+      "id": "dropbox_paths_buildprocessingpath",
+      "community": 2,
+      "norm_label": "buildprocessingpath()"
+    },
+    {
+      "label": "buildReviewPath()",
+      "file_type": "code",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L19",
+      "id": "dropbox_paths_buildreviewpath",
+      "community": 2,
+      "norm_label": "buildreviewpath()"
+    },
+    {
+      "label": "proxy.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/proxy.ts",
+      "source_location": "L1",
+      "community": 49,
+      "norm_label": "proxy.ts",
+      "id": "users_kiranc_code_won_media_proxy_ts"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/next.config.ts",
+      "source_location": "L1",
+      "community": 50,
+      "norm_label": "next.config.ts",
+      "id": "users_kiranc_code_won_media_next_config_ts"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/schedule/page.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "page.tsx",
+      "id": "users_kiranc_code_won_media_app_book_schedule_page_tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/confirmation/page.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "page.tsx",
+      "id": "users_kiranc_code_won_media_app_book_confirmation_page_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
       "source_location": "L1",
-      "community": 12,
+      "community": 19,
       "norm_label": "page.tsx",
       "id": "users_kiranc_code_won_media_app_admin_page_tsx"
     },
@@ -953,7 +1484,7 @@
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
       "source_location": "L6",
-      "community": 12,
+      "community": 19,
       "norm_label": "admindashboard()",
       "id": "admin_page_admindashboard"
     },
@@ -962,7 +1493,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L37",
-      "community": 0,
+      "community": 1,
       "norm_label": "formatbytes()",
       "id": "new_stepper_formatbytes"
     },
@@ -971,7 +1502,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L255",
-      "community": 0,
+      "community": 1,
       "norm_label": "oncreatedraft()",
       "id": "new_stepper_oncreatedraft"
     },
@@ -980,7 +1511,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L311",
-      "community": 0,
+      "community": 1,
       "norm_label": "onfilechange()",
       "id": "new_stepper_onfilechange"
     },
@@ -989,7 +1520,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L316",
-      "community": 0,
+      "community": 1,
       "norm_label": "ondrop()",
       "id": "new_stepper_ondrop"
     },
@@ -998,7 +1529,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L324",
-      "community": 0,
+      "community": 1,
       "norm_label": "removephoto()",
       "id": "new_stepper_removephoto"
     },
@@ -1007,7 +1538,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L333",
-      "community": 0,
+      "community": 1,
       "norm_label": "updatephoto()",
       "id": "new_stepper_updatephoto"
     },
@@ -1016,7 +1547,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L337",
-      "community": 0,
+      "community": 1,
       "norm_label": "onsubmit()",
       "id": "new_stepper_onsubmit"
     },
@@ -1025,7 +1556,7 @@
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/tests/intake-actions.test.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 1,
       "norm_label": "intake-actions.test.ts",
       "id": "users_kiranc_code_won_media_tests_intake_actions_test_ts"
     },
@@ -1034,7 +1565,7 @@
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/lib/intake/actions.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 1,
       "norm_label": "actions.ts",
       "id": "users_kiranc_code_won_media_lib_intake_actions_ts"
     },
@@ -1043,7 +1574,7 @@
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/lib/db/schema.ts",
       "source_location": "L1",
-      "community": 46,
+      "community": 51,
       "norm_label": "schema.ts",
       "id": "users_kiranc_code_won_media_lib_db_schema_ts"
     },
@@ -1052,25 +1583,16 @@
       "file_type": "code",
       "source_file": "next-env.d.ts",
       "source_location": "L1",
-      "community": 47,
+      "community": 52,
       "norm_label": "next-env.d.ts",
       "id": "next_env_d_ts"
-    },
-    {
-      "label": "proxy.ts",
-      "file_type": "code",
-      "source_file": "proxy.ts",
-      "source_location": "L1",
-      "community": 48,
-      "norm_label": "proxy.ts",
-      "id": "proxy_ts"
     },
     {
       "label": "playwright.config.ts",
       "file_type": "code",
       "source_file": "playwright.config.ts",
       "source_location": "L1",
-      "community": 49,
+      "community": 53,
       "norm_label": "playwright.config.ts",
       "id": "playwright_config_ts"
     },
@@ -1079,7 +1601,7 @@
       "file_type": "code",
       "source_file": "drizzle.config.ts",
       "source_location": "L1",
-      "community": 50,
+      "community": 54,
       "norm_label": "drizzle.config.ts",
       "id": "drizzle_config_ts"
     },
@@ -1088,25 +1610,16 @@
       "file_type": "code",
       "source_file": "vitest.config.ts",
       "source_location": "L1",
-      "community": 51,
+      "community": 55,
       "norm_label": "vitest.config.ts",
       "id": "vitest_config_ts"
-    },
-    {
-      "label": "next.config.ts",
-      "file_type": "code",
-      "source_file": "next.config.ts",
-      "source_location": "L1",
-      "community": 52,
-      "norm_label": "next.config.ts",
-      "id": "next_config_ts"
     },
     {
       "label": "fonts.ts",
       "file_type": "code",
       "source_file": "app/fonts.ts",
       "source_location": "L1",
-      "community": 53,
+      "community": 56,
       "norm_label": "fonts.ts",
       "id": "app_fonts_ts"
     },
@@ -1115,7 +1628,7 @@
       "file_type": "code",
       "source_file": "app/layout.tsx",
       "source_location": "L1",
-      "community": 11,
+      "community": 14,
       "norm_label": "layout.tsx",
       "id": "app_layout_tsx"
     },
@@ -1124,7 +1637,7 @@
       "file_type": "code",
       "source_file": "app/page.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx",
       "id": "app_page_tsx"
     },
@@ -1133,7 +1646,7 @@
       "file_type": "code",
       "source_file": "app/gallery/page.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx",
       "id": "app_gallery_page_tsx"
     },
@@ -1142,7 +1655,7 @@
       "file_type": "code",
       "source_file": "app/admin/sign-up/[[...sign-up]]/page.tsx",
       "source_location": "L1",
-      "community": 54,
+      "community": 57,
       "norm_label": "page.tsx",
       "id": "app_admin_sign_up_sign_up_page_tsx"
     },
@@ -1151,7 +1664,7 @@
       "file_type": "code",
       "source_file": "app/admin/sign-in/[[...sign-in]]/page.tsx",
       "source_location": "L1",
-      "community": 55,
+      "community": 58,
       "norm_label": "page.tsx",
       "id": "app_admin_sign_in_sign_in_page_tsx"
     },
@@ -1160,7 +1673,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/page.tsx",
       "source_location": "L9",
-      "community": 10,
+      "community": 12,
       "norm_label": "newproperty()",
       "id": "new_page_newproperty"
     },
@@ -1169,7 +1682,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/Stepper.tsx",
       "source_location": "L52",
-      "community": 0,
+      "community": 1,
       "norm_label": "onupload()",
       "id": "new_stepper_onupload"
     },
@@ -1187,7 +1700,7 @@
       "file_type": "code",
       "source_file": "app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L1",
-      "community": 8,
+      "community": 11,
       "norm_label": "servicegallerylightbox.tsx",
       "id": "app_components_servicegallerylightbox_tsx"
     },
@@ -1196,7 +1709,7 @@
       "file_type": "code",
       "source_file": "app/components/Wordmark.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "wordmark.tsx",
       "id": "app_components_wordmark_tsx"
     },
@@ -1205,7 +1718,7 @@
       "file_type": "code",
       "source_file": "app/components/WonVisionLoader.tsx",
       "source_location": "L1",
-      "community": 56,
+      "community": 59,
       "norm_label": "wonvisionloader.tsx",
       "id": "app_components_wonvisionloader_tsx"
     },
@@ -1214,7 +1727,7 @@
       "file_type": "code",
       "source_file": "app/components/LoaderGate.tsx",
       "source_location": "L1",
-      "community": 14,
+      "community": 15,
       "norm_label": "loadergate.tsx",
       "id": "app_components_loadergate_tsx"
     },
@@ -1223,7 +1736,7 @@
       "file_type": "code",
       "source_file": "app/components/ServicesEditorial.tsx",
       "source_location": "L1",
-      "community": 57,
+      "community": 60,
       "norm_label": "serviceseditorial.tsx",
       "id": "app_components_serviceseditorial_tsx"
     },
@@ -1232,7 +1745,7 @@
       "file_type": "code",
       "source_file": "app/components/ProcessStepper.tsx",
       "source_location": "L1",
-      "community": 15,
+      "community": 16,
       "norm_label": "processstepper.tsx",
       "id": "app_components_processstepper_tsx"
     },
@@ -1241,7 +1754,7 @@
       "file_type": "code",
       "source_file": "app/components/WonVisionMark.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "wonvisionmark.tsx",
       "id": "app_components_wonvisionmark_tsx"
     },
@@ -1250,34 +1763,16 @@
       "file_type": "code",
       "source_file": "app/book/page.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx",
       "id": "app_book_page_tsx"
     },
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "app/book/schedule/page.tsx",
-      "source_location": "L1",
-      "community": 1,
-      "norm_label": "page.tsx",
-      "id": "app_book_schedule_page_tsx"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/book/confirmation/page.tsx",
-      "source_location": "L1",
-      "community": 1,
-      "norm_label": "page.tsx",
-      "id": "app_book_confirmation_page_tsx"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
       "source_file": "app/book/checkout/page.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx",
       "id": "app_book_checkout_page_tsx"
     },
@@ -1286,7 +1781,7 @@
       "file_type": "code",
       "source_file": "app/api/admin/blob-token/route.ts",
       "source_location": "L1",
-      "community": 7,
+      "community": 9,
       "norm_label": "route.ts",
       "id": "app_api_admin_blob_token_route_ts"
     },
@@ -1295,7 +1790,7 @@
       "file_type": "code",
       "source_file": "tests/intake.spec.ts",
       "source_location": "L1",
-      "community": 58,
+      "community": 61,
       "norm_label": "intake.spec.ts",
       "id": "tests_intake_spec_ts"
     },
@@ -1304,7 +1799,7 @@
       "file_type": "code",
       "source_file": "tests/styles.test.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 1,
       "norm_label": "styles.test.ts",
       "id": "tests_styles_test_ts"
     },
@@ -1313,7 +1808,7 @@
       "file_type": "code",
       "source_file": "tests/admin/auth.spec.ts",
       "source_location": "L1",
-      "community": 59,
+      "community": 62,
       "norm_label": "auth.spec.ts",
       "id": "tests_admin_auth_spec_ts"
     },
@@ -1322,7 +1817,7 @@
       "file_type": "code",
       "source_file": "tests/visual/redirects.spec.ts",
       "source_location": "L1",
-      "community": 60,
+      "community": 63,
       "norm_label": "redirects.spec.ts",
       "id": "tests_visual_redirects_spec_ts"
     },
@@ -1331,7 +1826,7 @@
       "file_type": "code",
       "source_file": "tests/visual/smoke.spec.ts",
       "source_location": "L1",
-      "community": 61,
+      "community": 64,
       "norm_label": "smoke.spec.ts",
       "id": "tests_visual_smoke_spec_ts"
     },
@@ -1340,7 +1835,7 @@
       "file_type": "code",
       "source_file": "tests/visual/book-confirmation.spec.ts",
       "source_location": "L1",
-      "community": 62,
+      "community": 65,
       "norm_label": "book-confirmation.spec.ts",
       "id": "tests_visual_book_confirmation_spec_ts"
     },
@@ -1349,7 +1844,7 @@
       "file_type": "code",
       "source_file": "tests/visual/book-schedule.spec.ts",
       "source_location": "L1",
-      "community": 63,
+      "community": 66,
       "norm_label": "book-schedule.spec.ts",
       "id": "tests_visual_book_schedule_spec_ts"
     },
@@ -1358,7 +1853,7 @@
       "file_type": "code",
       "source_file": "tests/visual/home.spec.ts",
       "source_location": "L1",
-      "community": 64,
+      "community": 67,
       "norm_label": "home.spec.ts",
       "id": "tests_visual_home_spec_ts"
     },
@@ -1367,7 +1862,7 @@
       "file_type": "code",
       "source_file": "tests/visual/book-checkout.spec.ts",
       "source_location": "L1",
-      "community": 65,
+      "community": 68,
       "norm_label": "book-checkout.spec.ts",
       "id": "tests_visual_book_checkout_spec_ts"
     },
@@ -1376,7 +1871,7 @@
       "file_type": "code",
       "source_file": "tests/visual/gallery.spec.ts",
       "source_location": "L1",
-      "community": 66,
+      "community": 69,
       "norm_label": "gallery.spec.ts",
       "id": "tests_visual_gallery_spec_ts"
     },
@@ -1385,7 +1880,7 @@
       "file_type": "code",
       "source_file": "tests/visual/book.spec.ts",
       "source_location": "L1",
-      "community": 67,
+      "community": 70,
       "norm_label": "book.spec.ts",
       "id": "tests_visual_book_spec_ts"
     },
@@ -1394,7 +1889,7 @@
       "file_type": "code",
       "source_file": "tests/db/schema.spec.ts",
       "source_location": "L1",
-      "community": 68,
+      "community": 71,
       "norm_label": "schema.spec.ts",
       "id": "tests_db_schema_spec_ts"
     },
@@ -1403,7 +1898,7 @@
       "file_type": "code",
       "source_file": "docs/build_brand_book.py",
       "source_location": "L1",
-      "community": 6,
+      "community": 8,
       "norm_label": "build_brand_book.py",
       "id": "docs_build_brand_book_py"
     },
@@ -1412,7 +1907,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L1",
-      "community": 2,
+      "community": 4,
       "norm_label": "script.js",
       "id": "public_script_js"
     },
@@ -1421,7 +1916,7 @@
       "file_type": "code",
       "source_file": "scripts/seed-editor.ts",
       "source_location": "L1",
-      "community": 16,
+      "community": 17,
       "norm_label": "seed-editor.ts",
       "id": "scripts_seed_editor_ts"
     },
@@ -1430,7 +1925,7 @@
       "file_type": "code",
       "source_file": "lib/blob.ts",
       "source_location": "L1",
-      "community": 7,
+      "community": 9,
       "norm_label": "blob.ts",
       "id": "lib_blob_ts"
     },
@@ -1439,7 +1934,7 @@
       "file_type": "code",
       "source_file": "lib/styles.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 1,
       "norm_label": "styles.ts",
       "id": "lib_styles_ts"
     },
@@ -1448,7 +1943,7 @@
       "file_type": "code",
       "source_file": "lib/intake/queries.ts",
       "source_location": "L1",
-      "community": 9,
+      "community": 10,
       "norm_label": "queries.ts",
       "id": "lib_intake_queries_ts"
     },
@@ -1457,7 +1952,7 @@
       "file_type": "code",
       "source_file": "lib/db/index.ts",
       "source_location": "L1",
-      "community": 69,
+      "community": 72,
       "norm_label": "index.ts",
       "id": "lib_db_index_ts"
     },
@@ -1466,7 +1961,7 @@
       "file_type": "code",
       "source_file": "app/components/WonVisionMark.tsx",
       "source_location": "L3",
-      "community": 1,
+      "community": 3,
       "norm_label": "wonvisionmark()",
       "id": "components_wonvisionmark_wonvisionmark"
     },
@@ -1475,7 +1970,7 @@
       "file_type": "code",
       "source_file": "app/page.tsx",
       "source_location": "L1",
-      "community": 1,
+      "community": 3,
       "norm_label": "homepage()",
       "id": "app_page_homepage"
     },
@@ -1484,7 +1979,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L30",
-      "community": 2,
+      "community": 4,
       "norm_label": "enter()",
       "id": "public_script_enter"
     },
@@ -1493,7 +1988,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L46",
-      "community": 2,
+      "community": 4,
       "norm_label": "ready()",
       "id": "public_script_ready"
     },
@@ -1502,7 +1997,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L68",
-      "community": 2,
+      "community": 4,
       "norm_label": "sethidden()",
       "id": "public_script_sethidden"
     },
@@ -1511,7 +2006,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L73",
-      "community": 2,
+      "community": 4,
       "norm_label": "update()",
       "id": "public_script_update"
     },
@@ -1520,7 +2015,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L177",
-      "community": 2,
+      "community": 4,
       "norm_label": "paint()",
       "id": "public_script_paint"
     },
@@ -1529,7 +2024,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L189",
-      "community": 2,
+      "community": 4,
       "norm_label": "schedule()",
       "id": "public_script_schedule"
     },
@@ -1538,7 +2033,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L196",
-      "community": 2,
+      "community": 4,
       "norm_label": "ontilt()",
       "id": "public_script_ontilt"
     },
@@ -1547,7 +2042,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L207",
-      "community": 2,
+      "community": 4,
       "norm_label": "startlistening()",
       "id": "public_script_startlistening"
     },
@@ -1556,7 +2051,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L215",
-      "community": 2,
+      "community": 4,
       "norm_label": "ask()",
       "id": "public_script_ask"
     },
@@ -1565,7 +2060,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L304",
-      "community": 2,
+      "community": 4,
       "norm_label": "easeout()",
       "id": "public_script_easeout"
     },
@@ -1574,7 +2069,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L305",
-      "community": 2,
+      "community": 4,
       "norm_label": "animate()",
       "id": "public_script_animate"
     },
@@ -1583,7 +2078,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L346",
-      "community": 2,
+      "community": 4,
       "norm_label": "apply()",
       "id": "public_script_apply"
     },
@@ -1592,7 +2087,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L390",
-      "community": 2,
+      "community": 4,
       "norm_label": "open()",
       "id": "public_script_open"
     },
@@ -1601,7 +2096,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L402",
-      "community": 2,
+      "community": 4,
       "norm_label": "close()",
       "id": "public_script_close"
     },
@@ -1610,7 +2105,7 @@
       "file_type": "code",
       "source_file": "public/script.js",
       "source_location": "L406",
-      "community": 2,
+      "community": 4,
       "norm_label": "step()",
       "id": "public_script_step"
     },
@@ -1619,7 +2114,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L1",
-      "community": 3,
+      "community": 5,
       "norm_label": "script.js",
       "id": "script_js"
     },
@@ -1628,7 +2123,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L30",
-      "community": 3,
+      "community": 5,
       "norm_label": "enter()",
       "id": "js_script_enter"
     },
@@ -1637,7 +2132,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L46",
-      "community": 3,
+      "community": 5,
       "norm_label": "ready()",
       "id": "js_script_ready"
     },
@@ -1646,7 +2141,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L68",
-      "community": 3,
+      "community": 5,
       "norm_label": "sethidden()",
       "id": "js_script_sethidden"
     },
@@ -1655,7 +2150,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L73",
-      "community": 3,
+      "community": 5,
       "norm_label": "update()",
       "id": "js_script_update"
     },
@@ -1664,7 +2159,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L177",
-      "community": 3,
+      "community": 5,
       "norm_label": "paint()",
       "id": "js_script_paint"
     },
@@ -1673,7 +2168,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L189",
-      "community": 3,
+      "community": 5,
       "norm_label": "schedule()",
       "id": "js_script_schedule"
     },
@@ -1682,7 +2177,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L196",
-      "community": 3,
+      "community": 5,
       "norm_label": "ontilt()",
       "id": "js_script_ontilt"
     },
@@ -1691,7 +2186,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L207",
-      "community": 3,
+      "community": 5,
       "norm_label": "startlistening()",
       "id": "js_script_startlistening"
     },
@@ -1700,7 +2195,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L215",
-      "community": 3,
+      "community": 5,
       "norm_label": "ask()",
       "id": "js_script_ask"
     },
@@ -1709,7 +2204,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L304",
-      "community": 3,
+      "community": 5,
       "norm_label": "easeout()",
       "id": "js_script_easeout"
     },
@@ -1718,7 +2213,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L305",
-      "community": 3,
+      "community": 5,
       "norm_label": "animate()",
       "id": "js_script_animate"
     },
@@ -1727,7 +2222,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L346",
-      "community": 3,
+      "community": 5,
       "norm_label": "apply()",
       "id": "js_script_apply"
     },
@@ -1736,7 +2231,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L390",
-      "community": 3,
+      "community": 5,
       "norm_label": "open()",
       "id": "js_script_open"
     },
@@ -1745,7 +2240,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L402",
-      "community": 3,
+      "community": 5,
       "norm_label": "close()",
       "id": "js_script_close"
     },
@@ -1754,7 +2249,7 @@
       "file_type": "code",
       "source_file": "script.js",
       "source_location": "L406",
-      "community": 3,
+      "community": 5,
       "norm_label": "step()",
       "id": "js_script_step"
     },
@@ -1763,7 +2258,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L1",
-      "community": 4,
+      "community": 6,
       "norm_label": "script.js",
       "id": "js_script_js"
     },
@@ -1772,7 +2267,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L30",
-      "community": 4,
+      "community": 6,
       "norm_label": "enter()",
       "id": "script_enter"
     },
@@ -1781,7 +2276,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L46",
-      "community": 4,
+      "community": 6,
       "norm_label": "ready()",
       "id": "script_ready"
     },
@@ -1790,7 +2285,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L68",
-      "community": 4,
+      "community": 6,
       "norm_label": "sethidden()",
       "id": "script_sethidden"
     },
@@ -1799,7 +2294,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L73",
-      "community": 4,
+      "community": 6,
       "norm_label": "update()",
       "id": "script_update"
     },
@@ -1808,7 +2303,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L177",
-      "community": 4,
+      "community": 6,
       "norm_label": "paint()",
       "id": "script_paint"
     },
@@ -1817,7 +2312,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L189",
-      "community": 4,
+      "community": 6,
       "norm_label": "schedule()",
       "id": "script_schedule"
     },
@@ -1826,7 +2321,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L196",
-      "community": 4,
+      "community": 6,
       "norm_label": "ontilt()",
       "id": "script_ontilt"
     },
@@ -1835,7 +2330,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L207",
-      "community": 4,
+      "community": 6,
       "norm_label": "startlistening()",
       "id": "script_startlistening"
     },
@@ -1844,7 +2339,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L215",
-      "community": 4,
+      "community": 6,
       "norm_label": "ask()",
       "id": "script_ask"
     },
@@ -1853,7 +2348,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L304",
-      "community": 4,
+      "community": 6,
       "norm_label": "easeout()",
       "id": "script_easeout"
     },
@@ -1862,7 +2357,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L305",
-      "community": 4,
+      "community": 6,
       "norm_label": "animate()",
       "id": "script_animate"
     },
@@ -1871,7 +2366,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L346",
-      "community": 4,
+      "community": 6,
       "norm_label": "apply()",
       "id": "script_apply"
     },
@@ -1880,7 +2375,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L390",
-      "community": 4,
+      "community": 6,
       "norm_label": "open()",
       "id": "script_open"
     },
@@ -1889,7 +2384,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L402",
-      "community": 4,
+      "community": 6,
       "norm_label": "close()",
       "id": "script_close"
     },
@@ -1898,7 +2393,7 @@
       "file_type": "code",
       "source_file": "js/script.js",
       "source_location": "L406",
-      "community": 4,
+      "community": 6,
       "norm_label": "step()",
       "id": "script_step"
     }
@@ -2343,6 +2838,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "app_admin_editor_id_page_tsx",
+      "target": "id_page_pathbasename",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/[id]/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -2445,6 +2950,39 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/book/schedule/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_book_schedule_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/book/confirmation/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_book_confirmation_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/kiranc/Code/won-media/app/book/checkout/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_kiranc_code_won_media_app_book_checkout_page_tsx",
+      "target": "components_wordmark_wordmark"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/kiranc/Code/won-media/app/book/schedule/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -2461,17 +2999,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "users_kiranc_code_won_media_app_book_confirmation_page_tsx",
-      "target": "components_wordmark_wordmark"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/kiranc/Code/won-media/app/book/checkout/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_kiranc_code_won_media_app_book_checkout_page_tsx",
       "target": "components_wordmark_wordmark"
     },
     {
@@ -2515,28 +3042,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "app_book_page_tsx",
-      "target": "components_wordmark_wordmark"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/book/schedule/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "app_book_schedule_page_tsx",
-      "target": "components_wordmark_wordmark"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/book/confirmation/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "app_book_confirmation_page_tsx",
       "target": "components_wordmark_wordmark"
     },
     {
@@ -2676,12 +3181,131 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/api/workflow/trigger/route.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_api_workflow_trigger_route_ts",
+      "target": "workflow_process_property_processproperty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/workflow/trigger/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_api_workflow_trigger_route_ts",
+      "target": "trigger_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/queue-backstop/route.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_api_cron_queue_backstop_route_ts",
+      "target": "workflow_process_property_processproperty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/queue-backstop/route.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_api_cron_queue_backstop_route_ts",
+      "target": "queue_backstop_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dropbox-paths.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_dropbox_paths_test_ts",
+      "target": "dropbox_paths_slugifyaddress"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dropbox-paths.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_dropbox_paths_test_ts",
+      "target": "dropbox_paths_buildintakepath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dropbox-paths.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_dropbox_paths_test_ts",
+      "target": "dropbox_paths_buildprocessingpath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dropbox-paths.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_dropbox_paths_test_ts",
+      "target": "dropbox_paths_buildreviewpath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/kiranc/Code/won-media/tests/styles.test.ts",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "users_kiranc_code_won_media_tests_styles_test_ts",
       "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/fal-prompts.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_fal_prompts_test_ts",
+      "target": "fal_prompts_buildprompt"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/workflow-helpers.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_workflow_helpers_test_ts",
+      "target": "workflow_helpers_orderservices"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/workflow-helpers.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_workflow_helpers_test_ts",
+      "target": "workflow_helpers_batch"
     },
     {
       "relation": "imports",
@@ -2993,6 +3617,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_dropbox_bootstrap_ts",
+      "target": "scripts_dropbox_bootstrap_exchangeauthcode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_dropbox_bootstrap_ts",
+      "target": "scripts_dropbox_bootstrap_refreshaccesstoken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -3073,6 +3717,113 @@
       "confidence_score": 1.0,
       "source": "lib_styles_ts",
       "target": "lib_styles_isstylepreset"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/gemini/qa.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_gemini_qa_ts",
+      "target": "gemini_qa_qavariant"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "gemini_qa_qavariant"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "workflow_process_photo_runqa",
+      "target": "gemini_qa_qavariant"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/fal/prompts.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_fal_prompts_ts",
+      "target": "fal_prompts_buildprompt"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/fal/client.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_fal_client_ts",
+      "target": "fal_prompts_buildprompt"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/fal/client.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "fal_client_generate",
+      "target": "fal_prompts_buildprompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/fal/client.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_fal_client_ts",
+      "target": "fal_client_generate"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "fal_client_generate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "workflow_process_photo_generateintermediate",
+      "target": "fal_client_generate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "workflow_process_photo_generateanduploadvariant",
+      "target": "fal_client_generate"
     },
     {
       "relation": "contains",
@@ -3261,6 +4012,919 @@
       "confidence_score": 1.0,
       "source": "users_kiranc_code_won_media_lib_intake_actions_ts",
       "target": "intake_actions_submitproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/helpers.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_helpers_ts",
+      "target": "workflow_helpers_orderservices"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/helpers.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_helpers_ts",
+      "target": "workflow_helpers_batch"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_helpers_orderservices"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_helpers_orderservices"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_helpers_batch"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_helpers_batch"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "dropbox_client_ensurefolder"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "dropbox_client_uploadfromurl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "dropbox_paths_buildintakepath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "dropbox_paths_buildprocessingpath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "dropbox_paths_buildreviewpath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_photo_processphoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_loadproperty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_loadphotos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_markpropertyprocessing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_markpropertyreview"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_ensuredropboxfolders"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_intakephoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_runphotoworkflow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_property_ts",
+      "target": "workflow_process_property_processproperty"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_process_property_loadproperty"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_process_property_loadphotos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_process_property_markpropertyprocessing"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_process_property_markpropertyreview"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_process_property_ensuredropboxfolders"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "workflow_process_property_ensuredropboxfolders",
+      "target": "dropbox_client_ensurefolder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "workflow_process_property_ensuredropboxfolders",
+      "target": "dropbox_paths_buildintakepath"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "workflow_process_property_ensuredropboxfolders",
+      "target": "dropbox_paths_buildprocessingpath"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "workflow_process_property_ensuredropboxfolders",
+      "target": "dropbox_paths_buildreviewpath"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_property_processproperty",
+      "target": "workflow_process_property_intakephoto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "workflow_process_property_intakephoto",
+      "target": "dropbox_paths_buildintakepath"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-property.ts",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "workflow_process_property_intakephoto",
+      "target": "dropbox_client_uploadfromurl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "dropbox_client_uploadfromurl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "dropbox_client_move"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "dropbox_client_gettemporarylink"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "dropbox_paths_buildprocessingpath"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "dropbox_paths_buildreviewpath"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_markphotoprocessing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_markphotoapproved"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_generateintermediate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_uploadintermediate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_gettemplink"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_generateanduploadvariant"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_runqa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_recordqaattempt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_promotevariant"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_recordvariantpass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_recordvariantfail"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_finalisephotostatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_workflow_process_photo_ts",
+      "target": "workflow_process_photo_processphoto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L138",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_markphotoprocessing"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_markphotoapproved"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_generateintermediate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L148",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_uploadintermediate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "workflow_process_photo_uploadintermediate",
+      "target": "dropbox_client_uploadfromurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_gettemplink"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "workflow_process_photo_gettemplink",
+      "target": "dropbox_client_gettemporarylink"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_generateanduploadvariant"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "workflow_process_photo_generateanduploadvariant",
+      "target": "dropbox_client_uploadfromurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "workflow_process_photo_generateanduploadvariant",
+      "target": "dropbox_client_gettemporarylink"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L173",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_runqa"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_recordqaattempt"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L183",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_promotevariant"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "workflow_process_photo_promotevariant",
+      "target": "dropbox_client_move"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_recordvariantpass"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_recordvariantfail"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L190",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "workflow_process_photo_finalisephotostatus"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "dropbox_paths_buildprocessingpath"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/workflow/process-photo.ts",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "workflow_process_photo_processphoto",
+      "target": "dropbox_paths_buildreviewpath"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_client_ts",
+      "target": "dropbox_client_getaccesstoken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_client_ts",
+      "target": "dropbox_client_rpc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_client_ts",
+      "target": "dropbox_client_ensurefolder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_client_ts",
+      "target": "dropbox_client_uploadfromurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_client_ts",
+      "target": "dropbox_client_move"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_client_ts",
+      "target": "dropbox_client_gettemporarylink"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_client_rpc",
+      "target": "dropbox_client_getaccesstoken"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_client_uploadfromurl",
+      "target": "dropbox_client_getaccesstoken"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_client_ensurefolder",
+      "target": "dropbox_client_rpc"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/client.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_client_move",
+      "target": "dropbox_client_rpc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_paths_ts",
+      "target": "dropbox_paths_slugifyaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_paths_ts",
+      "target": "dropbox_paths_buildintakepath"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_paths_ts",
+      "target": "dropbox_paths_buildprocessingpath"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_dropbox_paths_ts",
+      "target": "dropbox_paths_buildreviewpath"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_paths_buildintakepath",
+      "target": "dropbox_paths_slugifyaddress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_paths_buildprocessingpath",
+      "target": "dropbox_paths_slugifyaddress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/dropbox/paths.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dropbox_paths_buildreviewpath",
+      "target": "dropbox_paths_slugifyaddress"
     },
     {
       "relation": "contains",
@@ -3851,5 +5515,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7d121cdd32a3099ee7693a2d3341176e9068d3ca"
+  "built_at_commit": "57f6c404315e3930cfbad18bfefc09d6a7428e68"
 }
