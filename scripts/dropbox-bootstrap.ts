@@ -34,29 +34,33 @@ async function refreshAccessToken(refresh: string) {
   return res.json() as Promise<{ access_token: string }>;
 }
 
-if (VERIFY) {
-  const refresh = process.env.DROPBOX_REFRESH_TOKEN;
-  if (!refresh) throw new Error('Set DROPBOX_REFRESH_TOKEN to verify.');
-  const { access_token } = await refreshAccessToken(refresh);
-  const list = await fetch('https://api.dropboxapi.com/2/files/list_folder', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path: '' }),
-  });
-  console.log('list_folder status:', list.status);
-  console.log(await list.text());
-  process.exit(list.ok ? 0 : 1);
+async function main() {
+  if (VERIFY) {
+    const refresh = process.env.DROPBOX_REFRESH_TOKEN;
+    if (!refresh) throw new Error('Set DROPBOX_REFRESH_TOKEN to verify.');
+    const { access_token } = await refreshAccessToken(refresh);
+    const list = await fetch('https://api.dropboxapi.com/2/files/list_folder', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: '' }),
+    });
+    console.log('list_folder status:', list.status);
+    console.log(await list.text());
+    process.exit(list.ok ? 0 : 1);
+  }
+
+  const authUrl =
+    `https://www.dropbox.com/oauth2/authorize?client_id=${KEY}` +
+    `&token_access_type=offline&response_type=code`;
+  console.log('Open this URL, sign in to the Won Vision Dropbox, click Allow, then paste the code shown:\n', authUrl);
+
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  const code = (await rl.question('Auth code: ')).trim();
+  rl.close();
+
+  const tok = await exchangeAuthCode(code);
+  console.log('\nSave these to Vercel env (all three environments):');
+  console.log('DROPBOX_REFRESH_TOKEN =', tok.refresh_token);
 }
 
-const authUrl =
-  `https://www.dropbox.com/oauth2/authorize?client_id=${KEY}` +
-  `&token_access_type=offline&response_type=code`;
-console.log('Open this URL, sign in to the Won Vision Dropbox, click Allow, then paste the code shown:\n', authUrl);
-
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-const code = (await rl.question('Auth code: ')).trim();
-rl.close();
-
-const tok = await exchangeAuthCode(code);
-console.log('\nSave these to Vercel env (all three environments):');
-console.log('DROPBOX_REFRESH_TOKEN =', tok.refresh_token);
+main().catch((err) => { console.error(err); process.exit(1); });
