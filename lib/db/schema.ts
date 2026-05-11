@@ -24,6 +24,7 @@ export const propertyStatusEnum = pgEnum('property_status', [
 ]);
 export const photoStatusEnum = pgEnum('photo_status', [
   'pending',
+  'queued',
   'processing',
   'review',
   'approved',
@@ -46,6 +47,9 @@ export const properties = pgTable('properties', {
   deliveredAt: timestamp('delivered_at', { withTimezone: true }),
   magicLinkToken: text('magic_link_token').unique(),               // ← nullable now
   submittedById: uuid('submitted_by_id').references(() => editors.id),
+  workflowRunId: text('workflow_run_id'),
+  processingError: text('processing_error'),
+  processingStartedAt: timestamp('processing_started_at', { withTimezone: true }),
 });
 
 export const photos = pgTable('photos', {
@@ -67,6 +71,7 @@ export const photos = pgTable('photos', {
   editorDecision: editorDecisionEnum('editor_decision').notNull().default('pending'),
   approvedVariant: integer('approved_variant'),
   status: photoStatusEnum('status').notNull().default('pending'),
+  qaAttempts: integer('qa_attempts').notNull().default(0),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
