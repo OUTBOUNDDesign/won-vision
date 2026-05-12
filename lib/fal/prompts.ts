@@ -1,5 +1,17 @@
 // lib/fal/prompts.ts
-import type { ServiceId } from './client';
+import { buildDuskPrompt, type DuskVariationId } from '@/lib/editor/dusk-variations';
+import { buildSkyPrompt, type SkyVariationId } from '@/lib/editor/sky-variations';
+import { type StagingStyleId } from '@/lib/editor/staging-styles';
+
+export type HelperType =
+  | { type: 'declutter' }
+  | { type: 'stage';   style: StagingStyleId }
+  | { type: 'dusk';    variation: DuskVariationId }
+  | { type: 'sky';     variation: SkyVariationId }
+  | { type: 'lawn' }
+  | { type: 'fire' }
+  | { type: 'ceiling' }
+  | { type: 'object-removal'; maskHint: string };
 
 /* ─────────────────────────────────────────────────────────────────────────
    BASE REALISM
@@ -35,7 +47,7 @@ const BASE_REALISM = [
    One dedicated prompt per furniture style — palette, named furniture pieces,
    specific materials, decor accents, lighting temperature, mood.
    ─────────────────────────────────────────────────────────────────────── */
-const STAGE_PROMPTS: Record<string, string> = {
+const STAGE_PROMPTS: Record<StagingStyleId, string> = {
   modern: [
     'STAGING STYLE: CONTEMPORARY MODERN (Australian metro 2025 listing aesthetic).',
 
@@ -211,115 +223,127 @@ const STAGE_PROMPTS: Record<string, string> = {
     'starburst clocks, fake plants, anything that reads "thrift store" instead of',
     '"curated mid-century revival."',
   ].join(' '),
+
+  'industrial-loft': [
+    'STAGING STYLE: INDUSTRIAL LOFT (NYC warehouse conversion aesthetic).',
+    'PALETTE: black metal, exposed brick red-brown, raw concrete grey, cognac and oxblood leather, brass fittings.',
+    'FURNITURE: black steel-frame sofa with deep cognac leather cushions; reclaimed timber coffee table with',
+    'visible knots and steel hairpin legs; Tolix-style metal chairs in matte black; oversized Edison-bulb pendant',
+    'cluster on black cloth cord; industrial wheeled bar cart; black bookshelf with steel angle-iron uprights.',
+    'TEXTILES: chunky wool throws in charcoal or rust, leather floor cushions, dark Persian-style rug.',
+    'DECOR: vintage typewriter or camera as sculpture, framed black-and-white architectural photography,',
+    'a single trailing pothos in a concrete planter, stack of design books with black spines.',
+    'LIGHTING: warm 2700K bulbs in exposed sockets, no diffusers. Strong directional daylight casting hard shadows.',
+    'AVOID: shabby chic, country kitsch, plastic anything, gold or chrome, light woods, anything that reads "loft apartment showroom" instead of "real industrial conversion."',
+  ].join(' '),
+
+  japandi: [
+    'STAGING STYLE: JAPANDI (Japanese + Scandinavian fusion).',
+    'PALETTE: warm ivory, sage green, soft charcoal, pale natural wood (white oak or beech), accents of black-stained timber and matte black metal. No bright colours.',
+    'FURNITURE: low-profile sofa in ivory linen with clean lines and exposed wood legs; pale oak coffee table sitting close to the floor; a single sculptural lounge chair (Yanagi Butterfly or similar); minimal sideboard with sliding doors.',
+    'TEXTILES: linen, raw cotton, undyed wool. One textured throw, one ceramic-toned cushion. A cream wool tatami-style rug.',
+    'DECOR: a single ikebana arrangement in a hand-thrown ceramic vessel, one piece of abstract sumi-ink art, a black ceramic tea set on a wooden tray, a low bonsai or a tall sculptural snake plant.',
+    'LIGHTING: soft 3000K diffused light, paper-shade pendant lamps, sunlight through sheer linen curtains creating soft geometric patterns on the floor.',
+    'AVOID: bright reds, anime references, kitsch Japanese imagery, dark heavy woods, busy patterns, anything maximalist.',
+  ].join(' '),
 };
 
 /* ─────────────────────────────────────────────────────────────────────────
    PUBLIC API
    ─────────────────────────────────────────────────────────────────────── */
-export function buildPrompt(service: ServiceId, style?: string): string {
-  if (service === 'declutter') {
-    return [
-      BASE_REALISM,
+export function buildPrompt(helper: HelperType): string {
+  switch (helper.type) {
+    case 'declutter':
+      return [
+        BASE_REALISM,
 
-      'TASK: DECLUTTER.',
+        'TASK: DECLUTTER.',
 
-      'Remove every removable personal item, paperwork, photo frame, family photograph,',
-      'magazine, newspaper, junk mail, cable, charging station, power board, kitchen',
-      'small-appliance clutter, toiletries on bathroom surfaces, rubbish bin, laundry,',
-      'shoes by the door, jackets on chairs, mail on benchtops, keys, remotes, and any',
-      'temporary or visually noisy item that wouldn\'t belong in a clean editorial',
-      'listing photograph.',
+        'Remove every removable personal item, paperwork, photo frame, family photograph,',
+        'magazine, newspaper, junk mail, cable, charging station, power board, kitchen',
+        'small-appliance clutter, toiletries on bathroom surfaces, rubbish bin, laundry,',
+        'shoes by the door, jackets on chairs, mail on benchtops, keys, remotes, and any',
+        'temporary or visually noisy item that wouldn\'t belong in a clean editorial',
+        'listing photograph.',
 
-      'Remove portable furniture ONLY when it is clearly excess or out of place — for',
-      'example: a mismatched extra dining chair tucked in a corner, an ironing board',
-      'leaning against a wall, a folded card table, a portable heater or fan mid-room,',
-      'a baby gate stretched across an opening, a fold-out drying rack. Do NOT remove',
-      'the main intended furniture (sofa, bed, dining table, primary chairs, side tables).',
+        'Remove portable furniture ONLY when it is clearly excess or out of place — for',
+        'example: a mismatched extra dining chair tucked in a corner, an ironing board',
+        'leaning against a wall, a folded card table, a portable heater or fan mid-room,',
+        'a baby gate stretched across an opening, a fold-out drying rack. Do NOT remove',
+        'the main intended furniture (sofa, bed, dining table, primary chairs, side tables).',
 
-      'PRESERVE EXACTLY: all built-in fixtures (kitchen cabinetry, range, hood, splashback,',
-      'oven, fridge in place, fireplace mantle, built-in shelving, built-in wardrobes,',
-      'all doors, all windows, all light fittings, ceiling fans, air vents, downlights,',
-      'all flooring including tile/timber/carpet pattern, all wall paint colour, all',
-      'skirting and architraves, all tap fixtures, all sanitary ware).',
+        'PRESERVE EXACTLY: all built-in fixtures (kitchen cabinetry, range, hood, splashback,',
+        'oven, fridge in place, fireplace mantle, built-in shelving, built-in wardrobes,',
+        'all doors, all windows, all light fittings, ceiling fans, air vents, downlights,',
+        'all flooring including tile/timber/carpet pattern, all wall paint colour, all',
+        'skirting and architraves, all tap fixtures, all sanitary ware).',
 
-      'PRESERVE EXACTLY: the natural lighting, exposure, white balance, shadows, and',
-      'colour cast of the original HDR image. Do not relight the scene. Do not change',
-      'the time of day. Do not change the camera position.',
+        'PRESERVE EXACTLY: the natural lighting, exposure, white balance, shadows, and',
+        'colour cast of the original HDR image. Do not relight the scene. Do not change',
+        'the time of day. Do not change the camera position.',
 
-      'The result should look like the SAME room professionally tidied for a real-estate',
-      'listing shoot — not staged, not redesigned, not refurnished. A clean, honest',
-      'representation of the space ready to photograph.',
-    ].join(' ');
+        'The result should look like the SAME room professionally tidied for a real-estate',
+        'listing shoot — not staged, not redesigned, not refurnished. A clean, honest',
+        'representation of the space ready to photograph.',
+      ].join(' ');
+
+    case 'stage': {
+      const styleBody = STAGE_PROMPTS[helper.style];
+      return [
+        BASE_REALISM,
+
+        'TASK: VIRTUAL STAGING.',
+
+        styleBody,
+
+        'CRITICAL PHYSICAL CORRECTNESS RULES: every piece of furniture must sit physically',
+        'flat on the original floor with realistic contact shadows and contact points.',
+        'Furniture scale must match the room — measure visually against doors, windows,',
+        'and ceiling height. No furniture clipping through walls, no objects floating in',
+        'mid-air, no shadows pointing the wrong direction, no double shadows. The light',
+        'source on staged furniture must match the existing light direction in the',
+        'original photo.',
+
+        'ARCHITECTURAL PRESERVATION: do NOT alter walls, ceilings, windows, doors,',
+        'fixtures, flooring, paint colour, ceiling height, room layout, or camera',
+        'perspective. The staging is added ON TOP OF the existing empty or sparsely-',
+        'furnished room. The bones of the room must remain identical.',
+
+        'NEVER include: a real estate agent\'s sign, an "auction" board, a sold sticker,',
+        'price tags, brand logos on furniture, a TV showing a brand or content, any',
+        'recognisable celebrity face, anything religious, anything political.',
+
+        'The final result must be visually INDISTINGUISHABLE from a real photograph of',
+        'a professionally staged room. A property buyer browsing on realestate.com.au',
+        'should believe this furniture is physically in the room.',
+      ].join(' ');
+    }
+
+    case 'dusk':
+      return `${BASE_REALISM} TASK: DAY-TO-DUSK CONVERSION. ${buildDuskPrompt(helper.variation)}`;
+
+    case 'sky':
+      return `${BASE_REALISM} TASK: SKY REPLACEMENT. ${buildSkyPrompt(helper.variation)}`;
+
+    case 'lawn':
+      return `${BASE_REALISM} TASK: LAWN ENHANCEMENT. Improve only the lawn / grass / garden vegetation in this ` +
+        `photo. Greener, healthier, denser turf. Remove brown patches, weeds, and bare soil. Preserve every ` +
+        `building, hardscape, plant bed, tree, and pathway exactly. No new objects. Do not change the lighting or sky.`;
+
+    case 'fire':
+      return `${BASE_REALISM} TASK: FIRE ON. If the photo contains a fireplace, ignite a realistic warm flame ` +
+        `in it with appropriate glow on surrounding stone/brick/timber and the room. Flames should look natural ` +
+        `for the fireplace type (gas / wood / electric). Add subtle warm light spill on nearby surfaces. ` +
+        `Do not alter anything else. If no fireplace is present, return the image unchanged.`;
+
+    case 'ceiling':
+      return `${BASE_REALISM} TASK: CEILING BRIGHTEN. Lift the ceiling exposure subtly so it reads clean white ` +
+        `or near-white without losing texture, shadow detail, or natural light direction. Remove any yellow ` +
+        `cast from incandescent lighting on the ceiling. Preserve every cornice, downlight, fan, beam, and architectural feature.`;
+
+    case 'object-removal':
+      return `${BASE_REALISM} TASK: OBJECT REMOVAL. Remove the following items from the photo: ${helper.maskHint}. ` +
+        `Fill the removed areas with surrounding textures, shadows, and lighting that match the rest of the photo perfectly. ` +
+        `No ghosting, no soft patches, no obvious AI fill. Preserve everything else exactly.`;
   }
-
-  if (service === 'stage') {
-    const styleKey = style && STAGE_PROMPTS[style] ? style : 'modern';
-    return [
-      BASE_REALISM,
-
-      'TASK: VIRTUAL STAGING.',
-
-      STAGE_PROMPTS[styleKey],
-
-      'CRITICAL PHYSICAL CORRECTNESS RULES: every piece of furniture must sit physically',
-      'flat on the original floor with realistic contact shadows and contact points.',
-      'Furniture scale must match the room — measure visually against doors, windows,',
-      'and ceiling height. No furniture clipping through walls, no objects floating in',
-      'mid-air, no shadows pointing the wrong direction, no double shadows. The light',
-      'source on staged furniture must match the existing light direction in the',
-      'original photo.',
-
-      'ARCHITECTURAL PRESERVATION: do NOT alter walls, ceilings, windows, doors,',
-      'fixtures, flooring, paint colour, ceiling height, room layout, or camera',
-      'perspective. The staging is added ON TOP OF the existing empty or sparsely-',
-      'furnished room. The bones of the room must remain identical.',
-
-      'NEVER include: a real estate agent\'s sign, an "auction" board, a sold sticker,',
-      'price tags, brand logos on furniture, a TV showing a brand or content, any',
-      'recognisable celebrity face, anything religious, anything political.',
-
-      'The final result must be visually INDISTINGUISHABLE from a real photograph of',
-      'a professionally staged room. A property buyer browsing on realestate.com.au',
-      'should believe this furniture is physically in the room.',
-    ].join(' ');
-  }
-
-  // dusk
-  return [
-    BASE_REALISM,
-
-    'TASK: DAY-TO-DUSK CONVERSION.',
-
-    'Convert the lighting from daytime to dusk/twilight, approximately 15-25 minutes',
-    'AFTER sunset (the "blue hour" with residual warm horizon glow).',
-
-    'SKY: gradient from a warm sunset orange and soft pink at the horizon, transitioning',
-    'through pale lavender and dusty purple, to a deepening cobalt and indigo blue',
-    'directly overhead. A few faint cirrus or stratus clouds catching the residual sun,',
-    'gilded in soft gold and pink along their lower edges. The sky should look like a',
-    'real Australian late-summer evening — not exaggerated, not over-saturated.',
-
-    'INTERIOR LIGHTING: every visible interior lamp, pendant, downlight, wall sconce,',
-    'and feature light is switched ON and emitting a warm 2700K-3000K glow. Light',
-    'spills out through windows creating soft pools of warm light on interior surfaces',
-    'and on the ground or paving just outside. Where applicable, faint silhouettes of',
-    'furniture are visible through curtains as warm shapes.',
-
-    'EXTERIOR LIGHTING (if facade visible): a subtle warm ambient glow on the building',
-    'facade where natural light would still hit. Landscape lights, garden path lights,',
-    'or under-eave downlights are switched on as warm pinpoints. The pool (if present)',
-    'shows underwater lighting if it has it. No streetlights unless they were already',
-    'visible in the source image.',
-
-    'SHADOWS AND REFLECTIONS: all shadows must match the new low-angle late-evening',
-    'light direction. Reflections in glass, water, and polished floors must show the',
-    'new warm-cool sky gradient correctly. Do not leave shadows from the original',
-    'daytime sun direction.',
-
-    'PRESERVE EXACTLY: all architecture, geometry, composition, camera position,',
-    'lens choice, framing, aspect ratio, and the placement of every fixed element',
-    '(windows, doors, fixtures, landscaping, furniture). Only the lighting and sky',
-    'change. The image must feel like the same A7R V tripod-locked shot taken six',
-    'hours later — not a different composition.',
-  ].join(' ');
 }
