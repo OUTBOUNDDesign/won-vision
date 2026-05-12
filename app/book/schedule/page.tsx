@@ -198,8 +198,11 @@ export default function SchedulePage() {
                     name="promoCode"
                     type="text"
                     autoComplete="off"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck="false"
                     placeholder="Enter code"
-                    style={{ flex: 1, letterSpacing: '0.04em' }}
+                    style={{ flex: 1, letterSpacing: '0.04em', textTransform: 'none' }}
                   />
                   <button
                     type="button"

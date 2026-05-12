@@ -263,23 +263,54 @@ export default function ConfirmationPage() {
       banner.textContent = 'We saved your booking locally but couldn\\'t reach the studio system: ' + msg + '. Please contact us to confirm.';
     }
 
-    if (window.OutboundOps && typeof window.OutboundOps.submitBooking === 'function') {
+    // booking-submit.js loads via <Script afterInteractive>, which can land
+    // AFTER this boot() runs. Poll for the helper instead of failing on
+    // first miss — without this, the discount usage never increments and
+    // the call sheet never reaches ops.
+    function waitForOps(maxMs){
+      return new Promise(function(resolve, reject){
+        var startedAt = Date.now();
+        (function tick(){
+          if (window.OutboundOps && typeof window.OutboundOps.submitBooking === 'function'){
+            resolve();
+            return;
+          }
+          if (Date.now() - startedAt > maxMs){
+            reject(new Error('Ops helper script failed to load'));
+            return;
+          }
+          setTimeout(tick, 100);
+        })();
+      });
+    }
+
+    function cleanupCart(){
+      setTimeout(() => {
+        sessionStorage.removeItem('wv-cart');
+        sessionStorage.removeItem('wv-details');
+        sessionStorage.removeItem('wv-schedule');
+      }, 1500);
+    }
+
+    waitForOps(8000).then(function(){
       window.OutboundOps.submitBooking({
         slug: 'won-vision',
         booking: booking,
-        onSuccess: applyPortal,
-        onError: showSubmitError,
+        onSuccess: function(jobNumber, response){
+          applyPortal(jobNumber, response);
+          cleanupCart();
+        },
+        onError: function(err){
+          applyPortal(fallbackRef, {});
+          showSubmitError(err);
+          // Don't clear the cart on error so the user can retry / studio
+          // can recover the data manually.
+        },
       });
-    } else {
+    }).catch(function(err){
       applyPortal(fallbackRef, {});
-      showSubmitError(new Error('Ops helper script failed to load'));
-    }
-
-    setTimeout(() => {
-      sessionStorage.removeItem('wv-cart');
-      sessionStorage.removeItem('wv-details');
-      sessionStorage.removeItem('wv-schedule');
-    }, 1500);
+      showSubmitError(err);
+    });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();

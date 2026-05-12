@@ -44,8 +44,8 @@
     "hash": "f093ff9ad409d27a9b977a292ce46c95"
   },
   "/Users/kiranc/Code/won-vision/app/admin/page.tsx": {
-    "mtime": 1778415151.4859638,
-    "hash": "50b1879a99e5869b850536d19f8fddf5"
+    "mtime": 1778578798.1822014,
+    "hash": "c5a98168e6048504ae242f6faf4f0509"
   },
   "/Users/kiranc/Code/won-vision/app/admin/sign-up/[[...sign-up]]/page.tsx": {
     "mtime": 1778391284.0838103,
@@ -54,46 +54,6 @@
   "/Users/kiranc/Code/won-vision/app/admin/sign-in/[[...sign-in]]/page.tsx": {
     "mtime": 1778391284.0833368,
     "hash": "7906b15f2faa132d0bab679fb6f35c44"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/page.tsx": {
-    "mtime": 1778415117.9390101,
-    "hash": "6f30d5668f36554b68af3b6d4b096a73"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/ReviewScreen.tsx": {
-    "mtime": 1778415093.5344212,
-    "hash": "52069308392bbe99086f786b34919929"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/IntakeForm.tsx": {
-    "mtime": 1778416998.272339,
-    "hash": "c9232727c857dfec4b47ece488edea52"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/AddressField.tsx": {
-    "mtime": 1778416482.4011412,
-    "hash": "3ba8a1561ece04432b6bf20355ccc582"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/types.ts": {
-    "mtime": 1778414245.2494316,
-    "hash": "0b76c6aa3b27daef2c9c13e6e8073ef8"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/page.tsx": {
-    "mtime": 1778415164.9295003,
-    "hash": "7c444db28361ff7465fcad8f700ab0d4"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/Stepper.tsx": {
-    "mtime": 1778414416.4471507,
-    "hash": "33056904b58c40f59cc4204819b6edf1"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/new/Intake.tsx": {
-    "mtime": 1778414241.9094768,
-    "hash": "6dbb1679a05bc3b1143678213d809a6e"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/[id]/AutoRefresh.tsx": {
-    "mtime": 1778491534.6854572,
-    "hash": "22cd60345d0f290eb791e1fae77b5987"
-  },
-  "/Users/kiranc/Code/won-vision/app/admin/editor/[id]/page.tsx": {
-    "mtime": 1778491559.5483053,
-    "hash": "93c0f8a6e47ca6cc0d41a9a642875d4d"
   },
   "/Users/kiranc/Code/won-vision/app/components/ServiceGalleryLightbox.tsx": {
     "mtime": 1778222198.2543576,
@@ -155,21 +115,25 @@
     "mtime": 1778482329.164536,
     "hash": "36d58133270757d84ada2d3ae9c90329"
   },
-  "/Users/kiranc/Code/won-vision/tests/intake.spec.ts": {
-    "mtime": 1778408564.491647,
-    "hash": "38e24f263d20b5b17c1250a2a6adfdce"
+  "/Users/kiranc/Code/won-vision/tests/editor-adjustments.test.ts": {
+    "mtime": 1778579522.4728146,
+    "hash": "2a802f19d871b3cf3938e6816f1baa2c"
+  },
+  "/Users/kiranc/Code/won-vision/tests/editor-variations.test.ts": {
+    "mtime": 1778579712.7109828,
+    "hash": "37c73bd9ba6d039b2d77b624a818dd2e"
   },
   "/Users/kiranc/Code/won-vision/tests/styles.test.ts": {
     "mtime": 1778407807.2101526,
     "hash": "3c762772224ae1a73363c0ef77952b8f"
   },
   "/Users/kiranc/Code/won-vision/tests/fal-prompts.test.ts": {
-    "mtime": 1778492305.6289093,
-    "hash": "02314575ac3b9b54679718b32ba18ba1"
+    "mtime": 1778579959.1529539,
+    "hash": "0f77d9c6893b760c48e892ed519c0aa6"
   },
-  "/Users/kiranc/Code/won-vision/tests/intake-actions.test.ts": {
-    "mtime": 1778414145.9741156,
-    "hash": "d7c4a363dff810b5c63a92fdd75b659e"
+  "/Users/kiranc/Code/won-vision/tests/editor-presets.test.ts": {
+    "mtime": 1778579668.5265467,
+    "hash": "4ccecaf4947feaefb87e7c187bef89d8"
   },
   "/Users/kiranc/Code/won-vision/tests/admin/auth.spec.ts": {
     "mtime": 1778391284.1010184,
@@ -240,24 +204,16 @@
     "hash": "efbe7350916ebbbdb6ee9084a7e483dc"
   },
   "/Users/kiranc/Code/won-vision/lib/fal/prompts.ts": {
-    "mtime": 1778492158.1177359,
-    "hash": "bbdafc2cfee5f7bba8e2ffcfde8f4daf"
+    "mtime": 1778579931.9613829,
+    "hash": "bd7ad243fdebb36882ee32c820532f4c"
   },
   "/Users/kiranc/Code/won-vision/lib/fal/client.ts": {
-    "mtime": 1778483511.2780964,
-    "hash": "88413b60891c35ed9b5d663ee0ea17a2"
-  },
-  "/Users/kiranc/Code/won-vision/lib/intake/queries.ts": {
-    "mtime": 1778408168.6014326,
-    "hash": "715cae418c0ba1218444692156df4497"
-  },
-  "/Users/kiranc/Code/won-vision/lib/intake/actions.ts": {
-    "mtime": 1778564485.8584833,
-    "hash": "7ea423c565ddc26a9724ec9dd747af5f"
+    "mtime": 1778579947.6949244,
+    "hash": "6677e01fb55cd0059f19030c82c10e6c"
   },
   "/Users/kiranc/Code/won-vision/lib/db/schema.ts": {
-    "mtime": 1778482081.9954731,
-    "hash": "557e422706a7b45d72703d126f8c0b9a"
+    "mtime": 1778579119.3521426,
+    "hash": "2c9c9a5fe9043b24e2cd27e27fd782da"
   },
   "/Users/kiranc/Code/won-vision/lib/db/index.ts": {
     "mtime": 1778391284.0928464,
@@ -270,6 +226,10 @@
   "/Users/kiranc/Code/won-vision/lib/db/migrations/0002_phase3_multi_service.sql": {
     "mtime": 1778414176.9072225,
     "hash": "810d06ec1b2d48672607d18a1871a2cb"
+  },
+  "/Users/kiranc/Code/won-vision/lib/db/migrations/0004_phase4_v2_shoots.sql": {
+    "mtime": 1778579130.4886634,
+    "hash": "939cd2ecbecf1078960d28160b78412a"
   },
   "/Users/kiranc/Code/won-vision/lib/db/migrations/0003_phase4_workflow.sql": {
     "mtime": 1778482100.3863332,
@@ -286,6 +246,26 @@
   "/Users/kiranc/Code/won-vision/lib/dropbox/paths.ts": {
     "mtime": 1778482345.0838592,
     "hash": "d9a2d9529282622af4dca87b573cbd18"
+  },
+  "/Users/kiranc/Code/won-vision/lib/editor/sky-variations.ts": {
+    "mtime": 1778579745.0560124,
+    "hash": "ae51a74155c2d00ee726da821fec0584"
+  },
+  "/Users/kiranc/Code/won-vision/lib/editor/dusk-variations.ts": {
+    "mtime": 1778579735.949598,
+    "hash": "d8058835e631eaf46ba6b1afd6e00056"
+  },
+  "/Users/kiranc/Code/won-vision/lib/editor/adjustments.ts": {
+    "mtime": 1778579537.9671745,
+    "hash": "64b1e71e4e435778533413084569aaf0"
+  },
+  "/Users/kiranc/Code/won-vision/lib/editor/staging-styles.ts": {
+    "mtime": 1778579749.8281877,
+    "hash": "adc541559003bea44b602b2b1cb4af81"
+  },
+  "/Users/kiranc/Code/won-vision/lib/editor/presets.ts": {
+    "mtime": 1778579687.3780665,
+    "hash": "8cd4743a288755690e4d562826126156"
   },
   "/Users/kiranc/Code/won-vision/docs/BRAND_GUIDELINES.md": {
     "mtime": 1778225472.482892,
