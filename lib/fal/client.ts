@@ -5,8 +5,9 @@
 //   Plan slug: 'fal-ai/nano-banana/pro/edit'  ← 404 on fal.ai
 //   Actual slug: 'fal-ai/nano-banana-pro/edit' ← verified live 2026-05-11
 import { fal } from '@fal-ai/client';
-import type { ServiceId } from '@/app/admin/editor/new/Intake';
 import { buildPrompt } from './prompts';
+
+export type ServiceId = 'declutter' | 'stage' | 'dusk';
 
 fal.config({ credentials: process.env.FAL_API_KEY });
 

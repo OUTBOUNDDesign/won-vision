@@ -1,5 +1,5 @@
 // lib/fal/prompts.ts
-import type { ServiceId } from '@/app/admin/editor/new/Intake';
+import type { ServiceId } from './client';
 
 /* ─────────────────────────────────────────────────────────────────────────
    BASE REALISM

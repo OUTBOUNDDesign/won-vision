@@ -2,7 +2,6 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { eq } from 'drizzle-orm';
 import { db, editors } from '@/lib/db';
-import Link from 'next/link';
 
 export default async function AdminDashboard() {
   const { userId } = await auth();
@@ -36,23 +35,9 @@ export default async function AdminDashboard() {
       <p style={{ fontSize: '13px', color: '#737373', marginBottom: '32px', textTransform: 'capitalize' }}>
         {editor.role}
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', border: '1px solid #E5E5E5' }}>
-        <Link href="/admin/editor" style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '14px 18px',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: '#000',
-          background: '#fff',
-          textDecoration: 'none',
-          borderBottom: '1px solid #E5E5E5',
-        }}>
-          <span>Editor intake</span>
-          <span style={{ color: '#737373', fontSize: '16px' }}>→</span>
-        </Link>
-      </div>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        <li>Photographer shoots — coming soon</li>
+      </ul>
     </section>
   );
 }
