@@ -75,19 +75,6 @@ export async function submitProperty(propertyId: string) {
     .set({ status: 'queued' })
     .where(eq(properties.id, propertyId));
 
-  // Fire the workflow — non-blocking. Errors are logged; the cron backstop is
-  // the safety net for any missed invocations.
-  const base = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000';
-  fetch(`${base}/api/workflow/trigger`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ propertyId, secret: process.env.CRON_SECRET }),
-  }).catch((err) =>
-    console.error('workflow trigger failed (cron backstop will retry):', err),
-  );
-
   revalidatePath('/admin/editor');
   revalidatePath(`/admin/editor/${propertyId}`);
   return { ok: true as const };

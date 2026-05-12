@@ -72,7 +72,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_layout_tsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "layout.tsx"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/layout.tsx",
       "source_location": "L20",
       "id": "app_layout_rootlayout",
-      "community": 14,
+      "community": 15,
       "norm_label": "rootlayout()"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "app/admin/page.tsx",
       "source_location": "L1",
       "id": "app_admin_page_tsx",
-      "community": 19,
+      "community": 16,
       "norm_label": "page.tsx"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "app/admin/editor/page.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_page_tsx",
-      "community": 10,
+      "community": 11,
       "norm_label": "page.tsx"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "app/admin/editor/page.tsx",
       "source_location": "L20",
       "id": "editor_page_statuspill",
-      "community": 10,
+      "community": 11,
       "norm_label": "statuspill()"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "app/admin/editor/new/page.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_page_tsx",
-      "community": 12,
+      "community": 13,
       "norm_label": "page.tsx"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "app/admin/editor/new/Intake.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_new_intake_tsx",
-      "community": 12,
+      "community": 13,
       "norm_label": "intake.tsx"
     },
     {
@@ -333,8 +333,26 @@
       "source_file": "app/admin/editor/new/Intake.tsx",
       "source_location": "L26",
       "id": "new_intake_intake",
-      "community": 12,
+      "community": 13,
       "norm_label": "intake()"
+    },
+    {
+      "label": "AutoRefresh.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/editor/[id]/AutoRefresh.tsx",
+      "source_location": "L1",
+      "id": "app_admin_editor_id_autorefresh_tsx",
+      "community": 9,
+      "norm_label": "autorefresh.tsx"
+    },
+    {
+      "label": "AutoRefresh()",
+      "file_type": "code",
+      "source_file": "app/admin/editor/[id]/AutoRefresh.tsx",
+      "source_location": "L8",
+      "id": "id_autorefresh_autorefresh",
+      "community": 9,
+      "norm_label": "autorefresh()"
     },
     {
       "label": "page.tsx",
@@ -342,25 +360,25 @@
       "source_file": "app/admin/editor/[id]/page.tsx",
       "source_location": "L1",
       "id": "app_admin_editor_id_page_tsx",
-      "community": 13,
+      "community": 9,
       "norm_label": "page.tsx"
     },
     {
       "label": "StatusPill()",
       "file_type": "code",
       "source_file": "app/admin/editor/[id]/page.tsx",
-      "source_location": "L37",
+      "source_location": "L38",
       "id": "id_page_statuspill",
-      "community": 13,
+      "community": 9,
       "norm_label": "statuspill()"
     },
     {
       "label": "pathBasename()",
       "file_type": "code",
       "source_file": "app/admin/editor/[id]/page.tsx",
-      "source_location": "L59",
+      "source_location": "L60",
       "id": "id_page_pathbasename",
-      "community": 13,
+      "community": 9,
       "norm_label": "pathbasename()"
     },
     {
@@ -369,7 +387,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_servicegallerylightbox_tsx",
-      "community": 11,
+      "community": 12,
       "norm_label": "servicegallerylightbox.tsx"
     },
     {
@@ -378,7 +396,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L62",
       "id": "components_servicegallerylightbox_inject",
-      "community": 11,
+      "community": 12,
       "norm_label": "inject()"
     },
     {
@@ -387,7 +405,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L92",
       "id": "components_servicegallerylightbox_handler",
-      "community": 11,
+      "community": 12,
       "norm_label": "handler()"
     },
     {
@@ -396,7 +414,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L102",
       "id": "components_servicegallerylightbox_esc",
-      "community": 11,
+      "community": 12,
       "norm_label": "esc()"
     },
     {
@@ -432,7 +450,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_loadergate_tsx",
-      "community": 15,
+      "community": 17,
       "norm_label": "loadergate.tsx"
     },
     {
@@ -441,7 +459,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/LoaderGate.tsx",
       "source_location": "L8",
       "id": "components_loadergate_loadergate",
-      "community": 15,
+      "community": 17,
       "norm_label": "loadergate()"
     },
     {
@@ -459,7 +477,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_components_processstepper_tsx",
-      "community": 16,
+      "community": 18,
       "norm_label": "processstepper.tsx"
     },
     {
@@ -468,7 +486,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/components/ProcessStepper.tsx",
       "source_location": "L29",
       "id": "components_processstepper_processstepper",
-      "community": 16,
+      "community": 18,
       "norm_label": "processstepper()"
     },
     {
@@ -567,7 +585,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_app_api_admin_blob_token_route_ts",
-      "community": 9,
+      "community": 10,
       "norm_label": "route.ts"
     },
     {
@@ -576,7 +594,7 @@
       "source_file": "/Users/kiranc/Code/won-media/app/api/admin/blob-token/route.ts",
       "source_location": "L8",
       "id": "blob_token_route_post",
-      "community": 9,
+      "community": 10,
       "norm_label": "post()"
     },
     {
@@ -882,7 +900,7 @@
       "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_scripts_seed_editor_ts",
-      "community": 17,
+      "community": 19,
       "norm_label": "seed-editor.ts"
     },
     {
@@ -891,7 +909,7 @@
       "source_file": "/Users/kiranc/Code/won-media/scripts/seed-editor.ts",
       "source_location": "L3",
       "id": "scripts_seed_editor_main",
-      "community": 17,
+      "community": 19,
       "norm_label": "main()"
     },
     {
@@ -900,7 +918,7 @@
       "source_file": "scripts/dropbox-bootstrap.ts",
       "source_location": "L1",
       "id": "scripts_dropbox_bootstrap_ts",
-      "community": 18,
+      "community": 14,
       "norm_label": "dropbox-bootstrap.ts"
     },
     {
@@ -909,7 +927,7 @@
       "source_file": "scripts/dropbox-bootstrap.ts",
       "source_location": "L13",
       "id": "scripts_dropbox_bootstrap_exchangeauthcode",
-      "community": 18,
+      "community": 14,
       "norm_label": "exchangeauthcode()"
     },
     {
@@ -918,8 +936,17 @@
       "source_file": "scripts/dropbox-bootstrap.ts",
       "source_location": "L25",
       "id": "scripts_dropbox_bootstrap_refreshaccesstoken",
-      "community": 18,
+      "community": 14,
       "norm_label": "refreshaccesstoken()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L37",
+      "id": "scripts_dropbox_bootstrap_main",
+      "community": 14,
+      "norm_label": "main()"
     },
     {
       "label": "blob.ts",
@@ -927,7 +954,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_lib_blob_ts",
-      "community": 9,
+      "community": 10,
       "norm_label": "blob.ts"
     },
     {
@@ -936,7 +963,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/blob.ts",
       "source_location": "L4",
       "id": "lib_blob_handleclientblobupload",
-      "community": 9,
+      "community": 10,
       "norm_label": "handleclientblobupload()"
     },
     {
@@ -988,7 +1015,7 @@
       "label": "buildPrompt()",
       "file_type": "code",
       "source_file": "lib/fal/prompts.ts",
-      "source_location": "L16",
+      "source_location": "L219",
       "id": "fal_prompts_buildprompt",
       "community": 0,
       "norm_label": "buildprompt()"
@@ -1017,7 +1044,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
       "source_location": "L1",
       "id": "users_kiranc_code_won_media_lib_intake_queries_ts",
-      "community": 10,
+      "community": 11,
       "norm_label": "queries.ts"
     },
     {
@@ -1026,7 +1053,7 @@
       "source_file": "/Users/kiranc/Code/won-media/lib/intake/queries.ts",
       "source_location": "L5",
       "id": "intake_queries_listeditorproperties",
-      "community": 10,
+      "community": 11,
       "norm_label": "listeditorproperties()"
     },
     {
@@ -1475,7 +1502,7 @@
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
       "source_location": "L1",
-      "community": 19,
+      "community": 16,
       "norm_label": "page.tsx",
       "id": "users_kiranc_code_won_media_app_admin_page_tsx"
     },
@@ -1484,7 +1511,7 @@
       "file_type": "code",
       "source_file": "/Users/kiranc/Code/won-media/app/admin/page.tsx",
       "source_location": "L6",
-      "community": 19,
+      "community": 16,
       "norm_label": "admindashboard()",
       "id": "admin_page_admindashboard"
     },
@@ -1628,7 +1655,7 @@
       "file_type": "code",
       "source_file": "app/layout.tsx",
       "source_location": "L1",
-      "community": 14,
+      "community": 15,
       "norm_label": "layout.tsx",
       "id": "app_layout_tsx"
     },
@@ -1673,7 +1700,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/new/page.tsx",
       "source_location": "L9",
-      "community": 12,
+      "community": 13,
       "norm_label": "newproperty()",
       "id": "new_page_newproperty"
     },
@@ -1691,7 +1718,7 @@
       "file_type": "code",
       "source_file": "app/admin/editor/[id]/page.tsx",
       "source_location": "L7",
-      "community": 13,
+      "community": 9,
       "norm_label": "propertydetail()",
       "id": "id_page_propertydetail"
     },
@@ -1700,7 +1727,7 @@
       "file_type": "code",
       "source_file": "app/components/ServiceGalleryLightbox.tsx",
       "source_location": "L1",
-      "community": 11,
+      "community": 12,
       "norm_label": "servicegallerylightbox.tsx",
       "id": "app_components_servicegallerylightbox_tsx"
     },
@@ -1727,7 +1754,7 @@
       "file_type": "code",
       "source_file": "app/components/LoaderGate.tsx",
       "source_location": "L1",
-      "community": 15,
+      "community": 17,
       "norm_label": "loadergate.tsx",
       "id": "app_components_loadergate_tsx"
     },
@@ -1745,7 +1772,7 @@
       "file_type": "code",
       "source_file": "app/components/ProcessStepper.tsx",
       "source_location": "L1",
-      "community": 16,
+      "community": 18,
       "norm_label": "processstepper.tsx",
       "id": "app_components_processstepper_tsx"
     },
@@ -1781,7 +1808,7 @@
       "file_type": "code",
       "source_file": "app/api/admin/blob-token/route.ts",
       "source_location": "L1",
-      "community": 9,
+      "community": 10,
       "norm_label": "route.ts",
       "id": "app_api_admin_blob_token_route_ts"
     },
@@ -1916,7 +1943,7 @@
       "file_type": "code",
       "source_file": "scripts/seed-editor.ts",
       "source_location": "L1",
-      "community": 17,
+      "community": 19,
       "norm_label": "seed-editor.ts",
       "id": "scripts_seed_editor_ts"
     },
@@ -1925,7 +1952,7 @@
       "file_type": "code",
       "source_file": "lib/blob.ts",
       "source_location": "L1",
-      "community": 9,
+      "community": 10,
       "norm_label": "blob.ts",
       "id": "lib_blob_ts"
     },
@@ -1943,7 +1970,7 @@
       "file_type": "code",
       "source_file": "lib/intake/queries.ts",
       "source_location": "L1",
-      "community": 10,
+      "community": 11,
       "norm_label": "queries.ts",
       "id": "lib_intake_queries_ts"
     },
@@ -2827,6 +2854,27 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/[id]/AutoRefresh.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_id_autorefresh_tsx",
+      "target": "id_autorefresh_autorefresh"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/editor/[id]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_admin_editor_id_page_tsx",
+      "target": "id_autorefresh_autorefresh"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/admin/editor/[id]/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -2840,9 +2888,9 @@
       "source_file": "app/admin/editor/[id]/page.tsx",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_admin_editor_id_page_tsx",
-      "target": "id_page_pathbasename",
-      "confidence_score": 1.0
+      "target": "id_page_pathbasename"
     },
     {
       "relation": "contains",
@@ -3184,9 +3232,9 @@
       "source_file": "app/api/workflow/trigger/route.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_workflow_trigger_route_ts",
-      "target": "workflow_process_property_processproperty",
-      "confidence_score": 1.0
+      "target": "workflow_process_property_processproperty"
     },
     {
       "relation": "contains",
@@ -3194,9 +3242,9 @@
       "source_file": "app/api/workflow/trigger/route.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_workflow_trigger_route_ts",
-      "target": "trigger_route_post",
-      "confidence_score": 1.0
+      "target": "trigger_route_post"
     },
     {
       "relation": "imports",
@@ -3205,9 +3253,9 @@
       "source_file": "app/api/cron/queue-backstop/route.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_cron_queue_backstop_route_ts",
-      "target": "workflow_process_property_processproperty",
-      "confidence_score": 1.0
+      "target": "workflow_process_property_processproperty"
     },
     {
       "relation": "contains",
@@ -3215,9 +3263,9 @@
       "source_file": "app/api/cron/queue-backstop/route.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_api_cron_queue_backstop_route_ts",
-      "target": "queue_backstop_route_get",
-      "confidence_score": 1.0
+      "target": "queue_backstop_route_get"
     },
     {
       "relation": "imports",
@@ -3632,6 +3680,38 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "scripts_dropbox_bootstrap_ts",
+      "target": "scripts_dropbox_bootstrap_refreshaccesstoken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_dropbox_bootstrap_ts",
+      "target": "scripts_dropbox_bootstrap_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_dropbox_bootstrap_main",
+      "target": "scripts_dropbox_bootstrap_exchangeauthcode"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dropbox-bootstrap.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_dropbox_bootstrap_main",
       "target": "scripts_dropbox_bootstrap_refreshaccesstoken"
     },
     {
@@ -5515,5 +5595,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "57f6c404315e3930cfbad18bfefc09d6a7428e68"
+  "built_at_commit": "e0b4c48a6074bccf61ee5cfadad5817bf7f082d9"
 }

@@ -1,16 +1,16 @@
 # Graph Report - won-vision  (2026-05-11)
 
 ## Corpus Check
-- 77 files · ~91,886 words
+- 78 files · ~94,507 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 266 nodes · 299 edges · 73 communities (65 shown, 8 thin omitted)
+- 269 nodes · 304 edges · 73 communities (64 shown, 9 thin omitted)
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 26 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `57f6c404`
+- Built from commit: `e0b4c48a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,10 +28,12 @@
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 12|Community 12]]
+- [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
 - [[_COMMUNITY_Community 15|Community 15]]
 - [[_COMMUNITY_Community 16|Community 16]]
 - [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 18|Community 18]]
 - [[_COMMUNITY_Community 19|Community 19]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -58,7 +60,7 @@
 - `onSubmit()` --calls--> `attachPhoto()`  [INFERRED]
   app/admin/editor/new/Stepper.tsx → lib/intake/actions.ts
 
-## Communities (73 total, 8 thin omitted)
+## Communities (73 total, 9 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.14
@@ -96,14 +98,18 @@ Nodes (3): formatAddress(), ensureDraft(), handleContinue()
 Cohesion: 0.35
 Nodes (10): add_eyebrow(), add_para(), add_section_title(), hr(), page_break(), Generates Won Vision Brand Book.docx — a designer-facing brand document with the, Fill a table cell with a flat colour., remove_table_borders() (+2 more)
 
-### Community 11 - "Community 11"
+### Community 12 - "Community 12"
 Cohesion: 0.6
 Nodes (3): esc(), handler(), inject()
+
+### Community 14 - "Community 14"
+Cohesion: 0.83
+Nodes (3): exchangeAuthCode(), main(), refreshAccessToken()
 
 ## Knowledge Gaps
 - **1 isolated node(s):** `Fill a table cell with a flat colour.`
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -111,7 +117,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `createDraft()` connect `Community 1` to `Community 7`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Why does `processPhoto()` connect `Community 0` to `Community 2`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `processPhoto()` (e.g. with `orderServices()` and `buildProcessingPath()`) actually correct?**
   _`processPhoto()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `createDraft()` (e.g. with `ensureDraft()` and `onCreateDraft()`) actually correct?**

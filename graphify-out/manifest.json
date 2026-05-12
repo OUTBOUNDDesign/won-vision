@@ -87,9 +87,13 @@
     "mtime": 1778414241.9094768,
     "hash": "6dbb1679a05bc3b1143678213d809a6e"
   },
+  "/Users/kiranc/Code/won-vision/app/admin/editor/[id]/AutoRefresh.tsx": {
+    "mtime": 1778491534.6854572,
+    "hash": "22cd60345d0f290eb791e1fae77b5987"
+  },
   "/Users/kiranc/Code/won-vision/app/admin/editor/[id]/page.tsx": {
-    "mtime": 1778484148.0781744,
-    "hash": "1238abca8523bb43d6097012bd9598dd"
+    "mtime": 1778491559.5483053,
+    "hash": "93c0f8a6e47ca6cc0d41a9a642875d4d"
   },
   "/Users/kiranc/Code/won-vision/app/components/ServiceGalleryLightbox.tsx": {
     "mtime": 1778222198.2543576,
@@ -168,8 +172,8 @@
     "hash": "3c762772224ae1a73363c0ef77952b8f"
   },
   "/Users/kiranc/Code/won-vision/tests/fal-prompts.test.ts": {
-    "mtime": 1778483249.989254,
-    "hash": "4264528a227fc02d3d6ca88a92bde90c"
+    "mtime": 1778492305.6289093,
+    "hash": "02314575ac3b9b54679718b32ba18ba1"
   },
   "/Users/kiranc/Code/won-vision/tests/workflow-helpers.test.ts": {
     "mtime": 1778483253.6692982,
@@ -232,8 +236,8 @@
     "hash": "e6404e0ac94c16337e5f56272dbb3952"
   },
   "/Users/kiranc/Code/won-vision/scripts/dropbox-bootstrap.ts": {
-    "mtime": 1778481477.0754097,
-    "hash": "10f58fab2e1cd700f1bb0e120b3a4074"
+    "mtime": 1778488778.1322837,
+    "hash": "fdbfb5c55b3b049adf98f7ee83d91915"
   },
   "/Users/kiranc/Code/won-vision/lib/blob.ts": {
     "mtime": 1778407836.497292,
@@ -248,8 +252,8 @@
     "hash": "efbe7350916ebbbdb6ee9084a7e483dc"
   },
   "/Users/kiranc/Code/won-vision/lib/fal/prompts.ts": {
-    "mtime": 1778483281.5178237,
-    "hash": "c0e94255e535da848ff6ed9cd7fc7afe"
+    "mtime": 1778492158.1177359,
+    "hash": "bbdafc2cfee5f7bba8e2ffcfde8f4daf"
   },
   "/Users/kiranc/Code/won-vision/lib/fal/client.ts": {
     "mtime": 1778483511.2780964,
