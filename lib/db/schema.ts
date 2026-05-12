@@ -89,3 +89,56 @@ export type Photo = typeof photos.$inferSelect;
 export type NewPhoto = typeof photos.$inferInsert;
 export type Editor = typeof editors.$inferSelect;
 export type NewEditor = typeof editors.$inferInsert;
+
+// ── Phase 4 v2: photographer pipeline ────────────────────────────────────────
+
+export const shootStatusEnum = pgEnum('shoot_status', [
+  'draft',
+  'uploading',
+  'editing',
+  'sent',
+  'archived',
+]);
+
+export const frameStatusEnum = pgEnum('frame_status', [
+  'draft',
+  'merging',
+  'ready',     // hdr base ready, ready to edit
+  'editing',
+  'exporting',
+  'exported',
+  'failed',
+]);
+
+export const shoots = pgTable('shoots', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  photographerId: uuid('photographer_id').notNull().references(() => editors.id),
+  address: text('address').notNull(),
+  contactEmail: text('contact_email').notNull(),
+  status: shootStatusEnum('status').notNull().default('draft'),
+  opsJobId: text('ops_job_id'),
+  dropboxFolder: text('dropbox_folder'),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  sentAt: timestamp('sent_at', { withTimezone: true }),
+});
+
+export const frames = pgTable('frames', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  shootId: uuid('shoot_id').notNull().references(() => shoots.id, { onDelete: 'cascade' }),
+  bracketBlobUrls: jsonb('bracket_blob_urls').notNull(),    // string[] of 3 URLs
+  filename: text('filename').notNull(),                      // base filename (e.g. "DSC_0001")
+  hdrBaseUrl: text('hdr_base_url'),                          // 16-bit linear PNG after merge
+  previewUrl: text('preview_url'),                           // current 2K JPEG
+  finalJpegUrl: text('final_jpeg_url'),                      // full-res 6K JPEG
+  adjustments: jsonb('adjustments').notNull().default({}),   // current slider values
+  presetId: text('preset_id').notNull().default('standard'), // current HDR preset
+  appliedHelpers: jsonb('applied_helpers').notNull().default([]), // list of helper runs
+  status: frameStatusEnum('status').notNull().default('draft'),
+  errorMessage: text('error_message'),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+});
+
+export type Shoot = typeof shoots.$inferSelect;
+export type NewShoot = typeof shoots.$inferInsert;
+export type Frame = typeof frames.$inferSelect;
+export type NewFrame = typeof frames.$inferInsert;
