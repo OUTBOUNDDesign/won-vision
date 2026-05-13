@@ -263,14 +263,14 @@ The build is complete when **all** of the following are true:
 
 ---
 
-## 10. Open questions (resolve before kicking off implementation milestones)
+## 10. Decisions (resolved 2026-05-13)
 
-1. **Invoice supplementary behaviour.** When edits are added after the job invoice has been issued, do we (a) append to the existing invoice and re-issue, (b) create a separate supplementary invoice linked to the original, or (c) hold edits until the invoice is finalised? Default proposed: **(b) supplementary**.
-2. **Edit delivery granularity.** Does Vision Studio post `edits-delivered` per photo as each one finishes, or only when the whole batch is done? Per-photo gives faster perceived turnaround; batch is simpler. Default proposed: **per-photo with debounce (max 1 POST / 30 s)**.
-3. **Vision Studio export trigger.** Today the editor runs in `app/admin/editor/new` interactively. Do we add an "Export to portal" action there, or have an auto-export step in the existing pipeline? Default proposed: **explicit "Export to portal" button per property — gives photographer a final review gate**.
-4. **Notification to agent.** When HDR lands and when edits land, does the agent get an email/SMS? If so, which channel and from which service (Ops's existing notification stack)? Default proposed: **email from Ops, no SMS in v1**.
-5. **Revision counter cap.** "Free revision" — is that one free revision per edit, or unlimited free revisions in v1? Default proposed: **one free revision per delivered edit**.
-6. **Edit failure path.** If Vision Studio fails to process an edit (e.g. virtual staging engine errors), how does that surface to the agent? Default proposed: **portal shows "couldn't process" on the photo + auto-refund / invoice credit**.
+1. **Invoice supplementary:** Separate supplementary invoice linked to the parent job invoice via `parent_invoice_ref`.
+2. **Edit delivery:** Per-photo POST with 30 s debounce.
+3. **Vision Studio export trigger:** Explicit "Export to portal" button per property in `app/admin/editor/` — photographer final-review gate.
+4. **Agent notification:** Email from Ops on HDR landing and edits ready. No SMS in v1.
+5. **Revision cap:** One free revision per delivered edit.
+6. **Edit failure path:** Portal shows "couldn't process" on the photo and auto-credits the invoice (or refunds the Stripe charge).
 
 ---
 

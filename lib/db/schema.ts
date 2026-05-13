@@ -112,11 +112,13 @@ export const frameStatusEnum = pgEnum('frame_status', [
 
 export const shoots = pgTable('shoots', {
   id: uuid('id').defaultRandom().primaryKey(),
-  photographerId: uuid('photographer_id').notNull().references(() => editors.id),
+  photographerId: uuid('photographer_id').references(() => editors.id),
   address: text('address').notNull(),
   contactEmail: text('contact_email').notNull(),
   status: shootStatusEnum('status').notNull().default('draft'),
   opsJobId: text('ops_job_id'),
+  opsJobRef: text('ops_job_ref'),
+  opsTenantSlug: text('ops_tenant_slug'),
   dropboxFolder: text('dropbox_folder'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   sentAt: timestamp('sent_at', { withTimezone: true }),
