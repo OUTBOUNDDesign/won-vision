@@ -39,43 +39,59 @@ export default function HomePage() {
     min-height:1.2em;
   }
   .hero__morph__a,
+  .hero__morph__b{margin:0}
   .hero__morph__b{
-    margin:0;
+    position:absolute;left:0;right:0;top:50%;
+    transform:translateY(-50%);
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(26px, 3.4vw, 54px);
+    line-height:1.1;letter-spacing:-0.005em;color:var(--paper);
+  }
+  .hero__morph__line{display:inline-block}
+  .hero__morph__line--em{font-style:italic;color:var(--paper)}
+  .hero__morph__a .ch,
+  .hero__morph__b .ch{
+    display:inline-block;
     will-change:opacity, filter, transform;
     backface-visibility:hidden;
   }
-  .hero__morph__b{
-    position:absolute;left:0;right:0;top:50%;
-    transform-origin:center;
-    font-family:var(--display);font-weight:500;font-style:italic;
-    font-size:clamp(40px, 6vw, 96px);
-    line-height:1.05;letter-spacing:-0.005em;color:var(--paper);
+  .hero__morph__a .ch{
+    /* Stop the .accent underline from collapsing per-character. */
+    padding-bottom:0;
   }
-  .hero__morph__b em{font-style:italic;color:var(--steel);font-weight:400}
 
-  /* 8s cycle: 0–3s A hold · 3–4s A→B morph · 4–7s B hold · 7–8s B→A morph */
-  .hero__morph__a{ animation: heroMorphA 8s cubic-bezier(.65,.05,.36,1) infinite both; }
-  .hero__morph__b{ animation: heroMorphB 8s cubic-bezier(.65,.05,.36,1) infinite both; }
+  /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out. */
+  .hero__morph__a .ch{
+    animation: heroMorphChA 8s cubic-bezier(.6,.05,.3,1) infinite both;
+    animation-delay: calc(var(--i, 0) * 28ms);
+  }
+  .hero__morph__b .ch{
+    animation: heroMorphChB 8s cubic-bezier(.6,.05,.3,1) infinite both;
+    animation-delay: calc(var(--i, 0) * 32ms);
+  }
 
-  @keyframes heroMorphA{
-    0%   { opacity:1; filter:blur(0);    transform:scale(1)    translateY(0); }
-    35%  { opacity:1; filter:blur(0);    transform:scale(1)    translateY(0); }
-    50%  { opacity:0; filter:blur(22px); transform:scale(1.06) translateY(-10px); }
-    85%  { opacity:0; filter:blur(22px); transform:scale(0.94) translateY(10px); }
-    100% { opacity:1; filter:blur(0);    transform:scale(1)    translateY(0); }
+  /* A: visible 0–35%, fades out 35–48%, hidden through 85%, fades back 85–100%. */
+  @keyframes heroMorphChA{
+    0%   { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    35%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    48%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
+    85%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
+    100% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
   }
-  @keyframes heroMorphB{
-    0%   { opacity:0; filter:blur(22px); transform:translateY(-50%) scale(0.92); }
-    35%  { opacity:0; filter:blur(22px); transform:translateY(-50%) scale(0.92); }
-    50%  { opacity:1; filter:blur(0);    transform:translateY(-50%) scale(1); }
-    85%  { opacity:1; filter:blur(0);    transform:translateY(-50%) scale(1); }
-    100% { opacity:0; filter:blur(22px); transform:translateY(-50%) scale(1.06); }
+  /* B: hidden 0–48%, fades in 48–60%, holds through 85%, fades out 85–100%. */
+  @keyframes heroMorphChB{
+    0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    40%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    60%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    85%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
+
   @media (prefers-reduced-motion: reduce){
-    .hero__morph__a,
-    .hero__morph__b{ animation:none }
-    .hero__morph__a{ opacity:1 }
-    .hero__morph__b{ opacity:0 }
+    .hero__morph__a .ch,
+    .hero__morph__b .ch{ animation:none }
+    .hero__morph__a .ch{ opacity:1 }
+    .hero__morph__b .ch{ opacity:0 }
   }
 
   /* ---------- Home: Packages quick-press ---------- */
@@ -214,10 +230,36 @@ export default function HomePage() {
           <div className="hero__copy fonts-ready">
             <div className="hero__morph" aria-label="Won Vision — Same day turn around.">
               <h1 className="hero__hed hero__hed--wordmark hero__morph__a" aria-hidden="false">
-                Won <span className="accent">Vision</span>
+                {[
+                  { c: 'W' }, { c: 'o' }, { c: 'n' }, { c: ' ' },
+                  { c: 'V', accent: true }, { c: 'i', accent: true }, { c: 's', accent: true },
+                  { c: 'i', accent: true }, { c: 'o', accent: true }, { c: 'n', accent: true },
+                ].map((g, i) => (
+                  <span
+                    key={i}
+                    className={'ch' + (g.accent ? ' ch--accent' : '')}
+                    style={{ ['--i' as never]: i }}
+                  >
+                    {g.c === ' ' ? ' ' : g.c}
+                  </span>
+                ))}
               </h1>
               <p className="hero__morph__b" aria-hidden="true">
-                Same day<br /><em>turn around.</em>
+                <span className="hero__morph__line">
+                  {['S', 'a', 'm', 'e', ' ', 'd', 'a', 'y'].map((c, i) => (
+                    <span key={i} className="ch" style={{ ['--i' as never]: i }}>
+                      {c === ' ' ? ' ' : c}
+                    </span>
+                  ))}
+                </span>
+                <br />
+                <span className="hero__morph__line hero__morph__line--em">
+                  {['t', 'u', 'r', 'n', ' ', 'a', 'r', 'o', 'u', 'n', 'd', '.'].map((c, j) => (
+                    <span key={j} className="ch" style={{ ['--i' as never]: 8 + j }}>
+                      {c === ' ' ? ' ' : c}
+                    </span>
+                  ))}
+                </span>
               </p>
             </div>
           </div>
