@@ -31,6 +31,53 @@ export default function HomePage() {
       <LoaderGate />
 
       <style>{`
+  /* ---------- Hero: Won Vision ⇄ Same day turn around morph loop ---------- */
+  .hero__morph{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    min-height:1.2em;
+  }
+  .hero__morph__a,
+  .hero__morph__b{
+    margin:0;
+    will-change:opacity, filter, transform;
+    backface-visibility:hidden;
+  }
+  .hero__morph__b{
+    position:absolute;left:0;right:0;top:50%;
+    transform-origin:center;
+    font-family:var(--display);font-weight:500;font-style:italic;
+    font-size:clamp(40px, 6vw, 96px);
+    line-height:1.05;letter-spacing:-0.005em;color:var(--paper);
+  }
+  .hero__morph__b em{font-style:italic;color:var(--steel);font-weight:400}
+
+  /* 8s cycle: 0–3s A hold · 3–4s A→B morph · 4–7s B hold · 7–8s B→A morph */
+  .hero__morph__a{ animation: heroMorphA 8s cubic-bezier(.65,.05,.36,1) infinite both; }
+  .hero__morph__b{ animation: heroMorphB 8s cubic-bezier(.65,.05,.36,1) infinite both; }
+
+  @keyframes heroMorphA{
+    0%   { opacity:1; filter:blur(0);    transform:scale(1)    translateY(0); }
+    35%  { opacity:1; filter:blur(0);    transform:scale(1)    translateY(0); }
+    50%  { opacity:0; filter:blur(22px); transform:scale(1.06) translateY(-10px); }
+    85%  { opacity:0; filter:blur(22px); transform:scale(0.94) translateY(10px); }
+    100% { opacity:1; filter:blur(0);    transform:scale(1)    translateY(0); }
+  }
+  @keyframes heroMorphB{
+    0%   { opacity:0; filter:blur(22px); transform:translateY(-50%) scale(0.92); }
+    35%  { opacity:0; filter:blur(22px); transform:translateY(-50%) scale(0.92); }
+    50%  { opacity:1; filter:blur(0);    transform:translateY(-50%) scale(1); }
+    85%  { opacity:1; filter:blur(0);    transform:translateY(-50%) scale(1); }
+    100% { opacity:0; filter:blur(22px); transform:translateY(-50%) scale(1.06); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero__morph__a,
+    .hero__morph__b{ animation:none }
+    .hero__morph__a{ opacity:1 }
+    .hero__morph__b{ opacity:0 }
+  }
+
   /* ---------- Home: Packages quick-press ---------- */
   .home-pkgs{padding:64px var(--gutter) 16px;background:var(--paper)}
   .home-pkgs__inner{max-width:var(--max);margin:0 auto}
@@ -165,10 +212,14 @@ export default function HomePage() {
 
         <div className="hero__layer">
           <div className="hero__copy fonts-ready">
-            <h1 className="hero__hed hero__hed--wordmark">
-              Won <span className="accent">Vision</span>
-            </h1>
-            <p className="hero__slogan">Same day turn around.</p>
+            <div className="hero__morph" aria-label="Won Vision — Same day turn around.">
+              <h1 className="hero__hed hero__hed--wordmark hero__morph__a" aria-hidden="false">
+                Won <span className="accent">Vision</span>
+              </h1>
+              <p className="hero__morph__b" aria-hidden="true">
+                Same day<br /><em>turn around.</em>
+              </p>
+            </div>
           </div>
         </div>
 
