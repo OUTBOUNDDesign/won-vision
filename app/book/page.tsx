@@ -688,69 +688,39 @@ export default function BookPage() {
 
         {/* SALES PHOTOGRAPHY */}
         <div className="cat" id="cat-sales" data-gallery="photography">
-          <div className="cat__head"><h3>Sales <em>photography</em></h3><span className="cat__count">3 tiers · Base or Upgrade</span></div>
+          <div className="cat__head"><h3>Sales <em>photography</em></h3><span className="cat__count">3 tiers · photo-only</span></div>
           <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--graphite)', maxWidth: 640, marginBottom: 18 }}>
-            <strong>Base</strong> includes either a floor plan or a drone set — you pick. <strong>Upgrade</strong> includes both. Full HDR retouching and sky replacement included.
+            Pure photography pricing by property size. Full HDR retouching, sky replacement and agent-facing licensing included. Floor plan, drone, twilight and video available as add-ons below — or bundle them at 18–29% off via Packages above.
           </p>
           <div className="svc-grid">
 
-            <article className="svc-card" data-svc="Sales Compact · Base (1–2 bed)" data-price="250" data-desc="1–2 bed sales shoot — 15 HDR photos, full retouching, sky replacement, plus floor plan OR drone." data-img="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80">
+            <article className="svc-card" data-svc="Sales Compact (1–2 bed)" data-price="195" data-desc="1–2 bed sales shoot — 15 HDR photos, full retouching, sky replacement, next-business-day delivery, agent-facing licensing." data-img="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80">
               <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Sales Compact · Base</h4>
-                <p className="svc-card__desc">1–2 bed · 15 photos · floor plan OR drone included.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$250</span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Sales Compact</h4>
+                <p className="svc-card__desc">1–2 bed · 15 HDR photos · full retouching · sky replacement.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$195</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
-            <article className="svc-card" data-svc="Sales Compact · Upgrade (1–2 bed)" data-price="350" data-desc="1–2 bed sales shoot — 15 HDR photos, full retouching, sky replacement, floor plan AND drone." data-img="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Sales Compact · Upgrade</h4>
-                <p className="svc-card__desc">1–2 bed · 15 photos · floor plan AND drone.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$350</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Sales Standard · Base (3–4 bed)" data-price="345" data-desc="3–4 bed sales shoot — 20 HDR photos, full retouching, sky replacement, plus floor plan OR drone." data-img="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80">
+            <article className="svc-card" data-svc="Sales Standard (3–4 bed)" data-price="295" data-desc="3–4 bed sales shoot — 20 HDR photos, full retouching, sky replacement, next-business-day delivery, agent-facing licensing." data-img="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80">
               <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Sales Standard · Base</h4>
-                <p className="svc-card__desc">3–4 bed · 20 photos · floor plan OR drone included.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$345</span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Sales Standard</h4>
+                <p className="svc-card__desc">3–4 bed · 20 HDR photos · full retouching · sky replacement.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$295</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
-            <article className="svc-card" data-svc="Sales Standard · Upgrade (3–4 bed)" data-price="445" data-desc="3–4 bed sales shoot — 20 HDR photos, full retouching, sky replacement, floor plan AND drone." data-img="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Sales Standard · Upgrade</h4>
-                <p className="svc-card__desc">3–4 bed · 20 photos · floor plan AND drone.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$445</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Sales Premium · Base (5+ bed)" data-price="445" data-desc="5+ bed sales shoot — 25 HDR photos, full retouching, sky replacement, plus floor plan OR drone." data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80">
+            <article className="svc-card" data-svc="Sales Premium (5+ bed)" data-price="395" data-desc="5+ bed sales shoot — 25 HDR photos, full retouching, sky replacement, next-business-day delivery, agent-facing licensing." data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80">
               <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Sales Premium · Base</h4>
-                <p className="svc-card__desc">5+ bed · 25 photos · floor plan OR drone included.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$445</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Sales Premium · Upgrade (5+ bed)" data-price="545" data-desc="5+ bed sales shoot — 25 HDR photos, full retouching, sky replacement, floor plan AND drone." data-img="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Sales Premium · Upgrade</h4>
-                <p className="svc-card__desc">5+ bed · 25 photos · floor plan AND drone.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$545</span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Sales Premium</h4>
+                <p className="svc-card__desc">5+ bed · 25 HDR photos · full retouching · sky replacement.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$395</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
@@ -836,110 +806,70 @@ export default function BookPage() {
           </div>
         </div>
 
-        {/* VIRTUAL EDITING — info only, not bookable here */}
+        {/* VIRTUAL EDITING — info only, handled in Vision Studio client portal */}
         <div className="cat" id="cat-staging" data-gallery="staging">
-          <div className="cat__head"><h3>Virtual <em>editing</em></h3><span className="cat__count">Selected after shoot</span></div>
+          <div className="cat__head"><h3>Virtual <em>editing</em></h3><span className="cat__count">Vision Studio · post-shoot</span></div>
           <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--graphite)', maxWidth: 720, marginBottom: 8 }}>
-            Virtual staging, decluttering, day-to-dusk, sky replacement, grass enhancement and object removal are <strong>not booked here</strong>. Once the shoot is delivered, the agent reviews the gallery in the Won Vision client portal and picks which photos need editing — pay only for what you choose. Standard rates apply (staging from $25/image · day-to-dusk $20 · declutter $15 · sky / object $15–$20).
+            Virtual staging, decluttering, day-to-dusk, sky replacement, grass enhancement and object removal are <strong>not booked here</strong>. Once the shoot is delivered, you'll review the gallery in the <strong>Vision Studio client portal</strong> and pick which photos need editing — pay only for what you choose. Volume rates apply automatically.
           </p>
+        </div>
+
+        {/* TWILIGHT PHOTOGRAPHY */}
+        <div className="cat" id="cat-twilight" data-gallery="photography">
+          <div className="cat__head"><h3>Twilight <em>photography</em></h3><span className="cat__count">Golden-hour shoot</span></div>
+          <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--graphite)', maxWidth: 640, marginBottom: 18 }}>
+            Captured on-site at golden hour — deep blue/orange skies with warm interior glow through windows. Separate visit, weather-dependent. Ideal for luxury homes, pools, outdoor lighting and scenic locations. Included in the Cinematic package.
+          </p>
+          <div className="svc-grid">
+
+            <article className="svc-card" data-svc="Twilight Photography (5 images)" data-price="295" data-desc="Golden-hour on-site shoot — 5 dusk-captured images. Separate visit, weather-dependent." data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80">
+              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80')" }}></div></div>
+              <span className="svc-card__badge">In booking</span>
+              <div className="svc-card__body">
+                <h4 className="svc-card__name">Twilight Set</h4>
+                <p className="svc-card__desc">5 dusk-captured images · golden-hour on-site shoot.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$295</span><span className="svc-card__add">Add +</span></div>
+              </div>
+            </article>
+
+            <article className="svc-card" data-svc="Additional Twilight Image" data-price="45" data-desc="Each twilight image beyond the standard 5-image set." data-img="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80">
+              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80')" }}></div></div>
+              <span className="svc-card__badge">In booking</span>
+              <div className="svc-card__body">
+                <h4 className="svc-card__name">Additional Twilight Image</h4>
+                <p className="svc-card__desc">Each image beyond the standard 5-image twilight set.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$45 <small>/ img</small></span><span className="svc-card__add">Add +</span></div>
+              </div>
+            </article>
+
+          </div>
         </div>
 
         {/* FLOORPLANS */}
         <div className="cat" id="cat-floorplans" data-gallery="floorplans">
-          <div className="cat__head"><h3>Floor <em>plans</em></h3><span className="cat__count">Customisable</span></div>
-
-          <div className="fp-config">
-            <div className="fp-config__media">
-              <div className="fp-config__img" id="fpImg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80')" }}></div>
-            </div>
-            <div className="fp-config__body">
-              <div className="fp-group">
-                <label>Size</label>
-                <div className="fp-pills" data-fp="size">
-                  <button type="button" data-value="small">Small<small>up to 200m²</small></button>
-                  <button type="button" data-value="medium" className="is-active">Medium<small>200–300m²</small></button>
-                  <button type="button" data-value="large">Large<small>300–500m²</small></button>
-                  <button type="button" data-value="xl">XL<small>500m²+</small></button>
-                </div>
-              </div>
-
-              <div className="fp-group">
-                <label>Style</label>
-
-                <div className="fp-style-section">
-                  <div className="fp-style-section__head">
-                    <span className="fp-style-section__name">Line work</span>
-                    <span className="fp-style-section__from">From $159</span>
-                  </div>
-                  <div className="fp-style-grid" data-fp="style">
-                    <button type="button" className="fp-style-card is-active" data-value="2d-basic">
-                      <span className="fp-style-card__label">Standard <small>Black &amp; white</small></span>
-                    </button>
-                    <button type="button" className="fp-style-card" data-value="2d-site">
-                      <span className="fp-style-card__label">With site <small>Landscape context</small></span>
-                    </button>
-                    <button type="button" className="fp-style-card" data-value="2d-colour">
-                      <span className="fp-style-card__label">Coloured <small>Subtle wash</small></span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="fp-style-section">
-                  <div className="fp-style-section__head">
-                    <span className="fp-style-section__name">Render</span>
-                    <span className="fp-style-section__from">From $199</span>
-                  </div>
-                  <div className="fp-style-grid fp-style-grid--two" data-fp="style">
-                    <button type="button" className="fp-style-card" data-value="render-2d">
-                      <span className="fp-style-card__label">2D <small>Shaded plan view</small></span>
-                    </button>
-                    <button type="button" className="fp-style-card" data-value="render-3d">
-                      <span className="fp-style-card__label">3D <small>Dollhouse · photoreal</small></span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="fp-foot">
-                <div>
-                  <span className="fp-foot__label">Subtotal · ex-GST</span>
-                  <span className="fp-foot__price" id="fpPrice">$199</span>
-                </div>
-                <button type="button" className="fp-add" id="fpAdd">Add to booking →</button>
-              </div>
-            </div>
-          </div>
-
-          <h5 className="fp-sub">Redraws &amp; site plan · post-production add-ons</h5>
+          <div className="cat__head"><h3>Floor <em>plans</em></h3><span className="cat__count">2D · dimensions included</span></div>
+          <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--graphite)', maxWidth: 640, marginBottom: 18 }}>
+            2D floor plans with dimensions, agent-branded watermark optional. Single level included in base price — add one card per additional level. Included in every Package above.
+          </p>
           <div className="svc-grid">
 
-            <article className="svc-card" data-svc="Basic Floorplan Redraw" data-price="30" data-desc="Redraw an existing plan in Won Vision linework. Per page." data-img="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80')" }}></div></div>
+            <article className="svc-card" data-svc="Floor Plan · 2D single level" data-price="80" data-desc="2D floor plan, single level, dimensions included, agent-branded watermark optional." data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80">
+              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Floorplan Redraw</h4>
-                <p className="svc-card__desc">Redraw an existing plan in Won Vision linework. Per page.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$30</span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Floor Plan · 2D</h4>
+                <p className="svc-card__desc">Single level · dimensions included · optional watermark.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$80</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
-            <article className="svc-card" data-svc="Floorplan Redraw with Site Plan" data-price="45" data-desc="Redraw plus matched site plan with boundaries and orientation." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
+            <article className="svc-card" data-svc="Floor Plan · Additional Level" data-price="40" data-desc="Each additional level beyond the first — same 2D linework style." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
               <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Redraw + Site Plan</h4>
-                <p className="svc-card__desc">Redraw plus matched site plan with boundaries and orientation.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$45</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Site Plan only" data-price="89" data-desc="Standalone site plan — boundaries, orientation, lot dimensions." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Site Plan only</h4>
-                <p className="svc-card__desc">Standalone site plan — boundaries, orientation, lot dimensions.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$89</span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Additional Level</h4>
+                <p className="svc-card__desc">Each level beyond the first. Same 2D linework style.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">+$40 <small>/ level</small></span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
@@ -981,16 +911,6 @@ export default function BookPage() {
                 <h4 className="svc-card__name">Rush Delivery</h4>
                 <p className="svc-card__desc">Same-day turnaround. Order before 11am.</p>
                 <div className="svc-card__foot"><span className="svc-card__price">+$100</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Twilight Photography (per image)" data-price="20" data-desc="Captured twilight pass — ideal for luxury homes, pools, lighting and landscapes." data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Twilight Photography</h4>
-                <p className="svc-card__desc">Luxury homes, pools, outdoor lighting and scenic locations.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$20 <small>/ img</small></span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 

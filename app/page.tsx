@@ -50,25 +50,29 @@ export default function HomePage() {
     transition:transform .35s var(--ease,cubic-bezier(.2,.7,.2,1)), border-color .25s ease;
   }
   .home-pkg:hover{transform:translateY(-3px);border-color:var(--ink)}
-  .home-pkg__media{aspect-ratio:5/3;background:#f3f3ef;position:relative;overflow:hidden}
-  .home-pkg__media__img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(0.94);transition:filter .35s ease}
-  .home-pkg:hover .home-pkg__media__img{filter:saturate(1.05)}
+  .home-pkg__media{aspect-ratio:4/5;background:#f3f3ef;position:relative;overflow:hidden}
+  .home-pkg__media__img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(0.94);transition:filter .35s ease, transform .8s var(--ease,cubic-bezier(.2,.7,.2,1))}
+  .home-pkg:hover .home-pkg__media__img{filter:saturate(1.05);transform:scale(1.03)}
   .home-pkg__tag{
-    position:absolute;top:12px;left:12px;z-index:2;
+    position:absolute;top:14px;left:14px;z-index:2;
     background:var(--ink);color:var(--paper);
-    padding:6px 10px;
+    padding:7px 12px;
     font-family:var(--body);font-size:9px;letter-spacing:0.32em;text-transform:uppercase;font-weight:600;
   }
-  .home-pkg__body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .home-pkg__name{font-family:var(--display);font-weight:500;font-size:24px;line-height:1.1;color:var(--ink);letter-spacing:-0.005em}
-  .home-pkg__desc{font-family:var(--body);font-size:12px;line-height:1.55;color:var(--graphite,#4A4A48);flex:1}
+  .home-pkg__body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .home-pkg__name{font-family:var(--display);font-weight:500;font-size:30px;line-height:1.05;color:var(--ink);letter-spacing:-0.008em}
+  .home-pkg__desc{font-family:var(--body);font-size:13px;line-height:1.6;color:var(--graphite,#4A4A48)}
+  .home-pkg__incl{font-family:var(--body);font-size:12px;line-height:1.6;color:var(--ink);margin:0;padding:0;list-style:none;flex:1}
+  .home-pkg__incl li{padding:9px 0;border-top:1px solid rgba(0,0,0,0.08);display:flex;gap:10px;align-items:flex-start}
+  .home-pkg__incl li:first-child{border-top:none}
+  .home-pkg__incl li::before{content:'';flex:0 0 6px;width:6px;height:6px;background:var(--ink);margin-top:7px}
   .home-pkg__foot{
     display:flex;justify-content:space-between;align-items:baseline;gap:8px;
-    margin-top:8px;padding-top:14px;border-top:1px solid rgba(0,0,0,0.12);
+    margin-top:8px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.12);
   }
-  .home-pkg__price{font-family:var(--display);font-weight:500;font-size:24px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
-  .home-pkg__price small{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite,#4A4A48);font-weight:500;margin-right:4px}
-  .home-pkg__cta{font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:500}
+  .home-pkg__price{font-family:var(--display);font-weight:500;font-size:30px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
+  .home-pkg__price small{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite,#4A4A48);font-weight:500;margin-right:6px;display:block;margin-bottom:4px}
+  .home-pkg__cta{font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:500;white-space:nowrap}
   @media (max-width:1100px){.home-pkgs__grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:760px){
     .home-pkgs{padding:64px var(--gutter) 16px}
@@ -218,6 +222,12 @@ export default function HomePage() {
               <div className="home-pkg__body">
                 <h3 className="home-pkg__name">Showcase</h3>
                 <p className="home-pkg__desc">Photos, floor plan and a 5-image drone set — the standard suburban listing bundle.</p>
+                <ul className="home-pkg__incl">
+                  <li>15 / 20 / 25 HDR photos by tier</li>
+                  <li>2D floor plan with dimensions</li>
+                  <li>Drone set — 5 edited images</li>
+                  <li>Next-business-day delivery</li>
+                </ul>
                 <div className="home-pkg__foot">
                   <span className="home-pkg__price"><small>From</small>$280</span>
                   <span className="home-pkg__cta">Pick size →</span>
@@ -233,6 +243,12 @@ export default function HomePage() {
               <div className="home-pkg__body">
                 <h3 className="home-pkg__name">Signature</h3>
                 <p className="home-pkg__desc">Photo + plan + drone + a full listing video — the complete agent deliverable.</p>
+                <ul className="home-pkg__incl">
+                  <li>15 / 20 / 25 HDR photos by tier</li>
+                  <li>2D floor plan + 5-image drone set</li>
+                  <li>Listing video 16:9 · 40 / 50 / 60s</li>
+                  <li>2-business-day video delivery</li>
+                </ul>
                 <div className="home-pkg__foot">
                   <span className="home-pkg__price"><small>From</small>$540</span>
                   <span className="home-pkg__cta">Pick size →</span>
@@ -248,6 +264,12 @@ export default function HomePage() {
               <div className="home-pkg__body">
                 <h3 className="home-pkg__name">Cinematic</h3>
                 <p className="home-pkg__desc">Twilight imagery and a 90-second cinematic — luxury listing presentation.</p>
+                <ul className="home-pkg__incl">
+                  <li>15 / 20 / 25 HDR photos by tier</li>
+                  <li>2D floor plan + 5-image drone set</li>
+                  <li>90s premium cinematic, full grade</li>
+                  <li>5 twilight images · priority editing</li>
+                </ul>
                 <div className="home-pkg__foot">
                   <span className="home-pkg__price"><small>From</small>$880</span>
                   <span className="home-pkg__cta">Pick size →</span>
