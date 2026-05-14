@@ -7,7 +7,7 @@ import ProcessStepper from './components/ProcessStepper';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Won Vision — Your listing the star, we make it go far.',
+    absolute: 'Won Vision — Same day turn around.',
   },
   description:
     'Melbourne real estate photography by Won Vision — a property media studio offering listing photography, video, CASA-licensed drone, floor plans, virtual staging, agent headshots and day-to-dusk conversions. Flexible packages and add-ons built to sell premium property faster.',
@@ -163,6 +163,15 @@ export default function HomePage() {
         <div className="hero__lens"></div>
         <div className="hero__veil"></div>
 
+        <div className="hero__layer">
+          <div className="hero__copy fonts-ready">
+            <h1 className="hero__hed hero__hed--wordmark">
+              Won <span className="accent">Vision</span>
+            </h1>
+            <p className="hero__slogan">Same day turn around.</p>
+          </div>
+        </div>
+
         <div className="hero__cursor"></div>
       </section>
 
@@ -217,7 +226,6 @@ export default function HomePage() {
               <span className="eyebrow">Packages</span>
               <h2>Bundled,<br /><em>and ready to book.</em></h2>
             </div>
-            <p>Three flagship bundles cover most listings — Showcase for the everyday sale, Signature when video matters, Cinematic for luxury. Pick one, choose your property size, we handle the rest. 20% launch promo applied at checkout.</p>
           </div>
 
           <div className="home-pkgs__grid reveal-stagger">
@@ -293,7 +301,7 @@ export default function HomePage() {
           <div className="home-faq__head reveal">
             <span className="eyebrow">FAQ</span>
             <h2>The <em>quick</em> answers.</h2>
-            <p>Anything not covered, email <a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a> or <a href="/book">book a shoot</a> — the form walks you through the rest.</p>
+            <p>Anything not covered, email <a href="mailto:hello@wonvision.com.au">hello@wonvision.com.au</a> or <a href="/book">book a shoot</a> — the form walks you through the rest.</p>
           </div>
 
           <div className="home-faq__list reveal-stagger">
@@ -382,7 +390,7 @@ export default function HomePage() {
           <div className="foot__top reveal-stagger">
             <div>
               <a href="#top" data-home aria-label="Won Vision — home"><Wordmark /></a>
-              <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
+              <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Same day turn around.</p>
             </div>
             <div>
               <h4>Studio</h4>
@@ -395,7 +403,7 @@ export default function HomePage() {
             <div>
               <h4>Contact</h4>
               <ul>
-                <li><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></li>
+                <li><a href="mailto:hello@wonvision.com.au">hello@wonvision.com.au</a></li>
                 <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
                 <li><a href="https://www.instagram.com/" target="_rel">Instagram</a></li>
               </ul>
@@ -413,7 +421,7 @@ export default function HomePage() {
           <div className="foot__rule"></div>
           <div className="foot__bot">
             <span>© 2026 Won Vision Pty Ltd</span>
-            <span>Your listing the star, we make it go far.</span>
+            <span>Same day turn around.</span>
             <span>Melbourne · Made in-house</span>
           </div>
         </div>

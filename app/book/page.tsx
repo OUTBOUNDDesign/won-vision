@@ -959,7 +959,7 @@ export default function BookPage() {
           <div className="foot__top">
             <div>
               <Link href="/#top" data-home aria-label="Won Vision — home"><Wordmark /></Link>
-              <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Your listing the star, we make it go far.</p>
+              <p>A Melbourne property media studio. Photography, video, drone, floor plans, virtual staging. Same day turn around.</p>
             </div>
             <div>
               <h4>Studio</h4>
@@ -972,7 +972,7 @@ export default function BookPage() {
             <div>
               <h4>Contact</h4>
               <ul>
-                <li><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></li>
+                <li><a href="mailto:hello@wonvision.com.au">hello@wonvision.com.au</a></li>
                 <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
                 <li><a href="https://www.instagram.com/" target="_rel">Instagram</a></li>
               </ul>
@@ -990,7 +990,7 @@ export default function BookPage() {
           <div className="foot__rule"></div>
           <div className="foot__bot">
             <span>© 2026 Won Vision Pty Ltd</span>
-            <span>Your listing the star, we make it go far.</span>
+            <span>Same day turn around.</span>
             <span>Melbourne · Made in-house</span>
           </div>
         </div>

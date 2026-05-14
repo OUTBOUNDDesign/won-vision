@@ -307,7 +307,7 @@ export default function SchedulePage() {
               <li><Link href="/book">Book now</Link></li>
             </ul></div>
             <div><h4>Contact</h4><ul>
-              <li><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></li>
+              <li><a href="mailto:hello@wonvision.com.au">hello@wonvision.com.au</a></li>
               <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
             </ul></div>
             <div><h4>Operations</h4><ul>
@@ -318,7 +318,7 @@ export default function SchedulePage() {
           <div className="foot__rule"></div>
           <div className="foot__bot">
             <span>© 2026 Won Vision Pty Ltd</span>
-            <span>Your listing the star, we make it go far.</span>
+            <span>Same day turn around.</span>
             <span>Melbourne · Made in-house</span>
           </div>
         </div>
