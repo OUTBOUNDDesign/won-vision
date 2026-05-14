@@ -32,16 +32,16 @@ export default function HomePage() {
 
       <style>{`
   /* ---------- Home: Packages quick-press ---------- */
-  .home-pkgs{padding:96px var(--gutter) 24px;background:var(--paper)}
+  .home-pkgs{padding:64px var(--gutter) 16px;background:var(--paper)}
   .home-pkgs__inner{max-width:var(--max);margin:0 auto}
   .home-pkgs__head{
     display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;
-    margin-bottom:48px;
+    margin-bottom:32px;
   }
-  .home-pkgs__head h2{font-family:var(--display);font-weight:500;font-size:clamp(40px,5vw,72px);line-height:1.02;color:var(--ink);letter-spacing:-0.005em;margin-top:14px}
+  .home-pkgs__head h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,4.4vw,60px);line-height:1.02;color:var(--ink);letter-spacing:-0.005em;margin-top:10px}
   .home-pkgs__head h2 em{font-style:italic;color:var(--steel);font-weight:400}
-  .home-pkgs__head p{color:var(--graphite,#4A4A48);font-size:15px;line-height:1.6;max-width:420px}
-  .home-pkgs__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .home-pkgs__head p{color:var(--graphite,#4A4A48);font-size:14px;line-height:1.6;max-width:380px}
+  .home-pkgs__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:center}
   .home-pkg{
     display:flex;flex-direction:column;
     background:var(--paper);
@@ -50,34 +50,41 @@ export default function HomePage() {
     transition:transform .35s var(--ease,cubic-bezier(.2,.7,.2,1)), border-color .25s ease;
   }
   .home-pkg:hover{transform:translateY(-3px);border-color:var(--ink)}
-  .home-pkg__media{aspect-ratio:4/5;background:#f3f3ef;position:relative;overflow:hidden}
+  .home-pkg__media{aspect-ratio:1/1;background:#f3f3ef;position:relative;overflow:hidden}
+  .home-pkg--featured .home-pkg__media{aspect-ratio:4/5}
   .home-pkg__media__img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(0.94);transition:filter .35s ease, transform .8s var(--ease,cubic-bezier(.2,.7,.2,1))}
   .home-pkg:hover .home-pkg__media__img{filter:saturate(1.05);transform:scale(1.03)}
   .home-pkg__tag{
-    position:absolute;top:14px;left:14px;z-index:2;
+    position:absolute;top:12px;left:12px;z-index:2;
     background:var(--ink);color:var(--paper);
-    padding:7px 12px;
+    padding:6px 10px;
     font-family:var(--body);font-size:9px;letter-spacing:0.32em;text-transform:uppercase;font-weight:600;
   }
-  .home-pkg__body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
-  .home-pkg__name{font-family:var(--display);font-weight:500;font-size:30px;line-height:1.05;color:var(--ink);letter-spacing:-0.008em}
-  .home-pkg__desc{font-family:var(--body);font-size:13px;line-height:1.6;color:var(--graphite,#4A4A48)}
-  .home-pkg__incl{font-family:var(--body);font-size:12px;line-height:1.6;color:var(--ink);margin:0;padding:0;list-style:none;flex:1}
-  .home-pkg__incl li{padding:9px 0;border-top:1px solid rgba(0,0,0,0.08);display:flex;gap:10px;align-items:flex-start}
+  .home-pkg__body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .home-pkg--featured .home-pkg__body{padding:22px 24px 24px;gap:12px}
+  .home-pkg__name{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.05;color:var(--ink);letter-spacing:-0.008em}
+  .home-pkg--featured .home-pkg__name{font-size:28px}
+  .home-pkg__desc{font-family:var(--body);font-size:12px;line-height:1.55;color:var(--graphite,#4A4A48)}
+  .home-pkg__incl{font-family:var(--body);font-size:11.5px;line-height:1.55;color:var(--ink);margin:0;padding:0;list-style:none;flex:1}
+  .home-pkg__incl li{padding:6px 0;border-top:1px solid rgba(0,0,0,0.08);display:flex;gap:8px;align-items:flex-start}
   .home-pkg__incl li:first-child{border-top:none}
-  .home-pkg__incl li::before{content:'';flex:0 0 6px;width:6px;height:6px;background:var(--ink);margin-top:7px}
+  .home-pkg__incl li::before{content:'';flex:0 0 5px;width:5px;height:5px;background:var(--ink);margin-top:7px}
   .home-pkg__foot{
     display:flex;justify-content:space-between;align-items:baseline;gap:8px;
-    margin-top:8px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.12);
+    margin-top:4px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.12);
   }
-  .home-pkg__price{font-family:var(--display);font-weight:500;font-size:30px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
-  .home-pkg__price small{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite,#4A4A48);font-weight:500;margin-right:6px;display:block;margin-bottom:4px}
+  .home-pkg__price{font-family:var(--display);font-weight:500;font-size:24px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
+  .home-pkg--featured .home-pkg__price{font-size:30px}
+  .home-pkg__price small{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite,#4A4A48);font-weight:500;display:block;margin-bottom:3px}
   .home-pkg__cta{font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:500;white-space:nowrap}
-  @media (max-width:1100px){.home-pkgs__grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:1100px){
+    .home-pkgs__grid{grid-template-columns:repeat(2,1fr);align-items:stretch}
+    .home-pkg--featured .home-pkg__media{aspect-ratio:1/1}
+  }
   @media (max-width:760px){
-    .home-pkgs{padding:64px var(--gutter) 16px}
-    .home-pkgs__head{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:28px}
-    .home-pkgs__grid{grid-template-columns:1fr;gap:14px}
+    .home-pkgs{padding:48px var(--gutter) 12px}
+    .home-pkgs__head{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:24px}
+    .home-pkgs__grid{grid-template-columns:1fr;gap:12px}
   }
 
   /* ---------- Home: FAQ ---------- */
@@ -235,7 +242,7 @@ export default function HomePage() {
               </div>
             </a>
 
-            <a className="home-pkg" href="/book?package=signature#cat-packages">
+            <a className="home-pkg home-pkg--featured" href="/book?package=signature#cat-packages">
               <div className="home-pkg__media">
                 <span className="home-pkg__tag">Complete deliverable</span>
                 <div className="home-pkg__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85')" }}></div>
@@ -370,22 +377,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Studio info / contact strip */}
-      <section id="contact" style={{ padding: '64px var(--gutter)', background: 'var(--paper)', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-        <div style={{ maxWidth: 'var(--max)', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 28 }}>
-          <div>
-            <span className="eyebrow">Contact</span>
-            <h3 style={{ fontFamily: 'var(--display)', fontWeight: 500, fontSize: 28, marginTop: 12, letterSpacing: '-0.005em' }}>Studio</h3>
-            <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--graphite, #4A4A48)', marginTop: 8, maxWidth: 280 }}>Greater Melbourne and beyond by appointment.</p>
-          </div>
-          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Email</b><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></div>
-          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Phone</b><a href="tel:+61000000000">+61 (0) 0000 0000</a></div>
-          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Hours</b><span>Mon–Fri · 8am–6pm AEST</span></div>
-          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Booking</b><a href="/book">Book a shoot →</a></div>
-        </div>
-      </section>
-
-      <footer className="foot">
+      <footer id="contact" className="foot">
         <div className="foot__inner">
           <div className="foot__top reveal-stagger">
             <div>
