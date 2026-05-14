@@ -405,17 +405,13 @@ export default function HomePage() {
               <ul>
                 <li><a href="mailto:hello@wonvision.com.au">hello@wonvision.com.au</a></li>
                 <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
-                <li><a href="https://www.instagram.com/" target="_rel">Instagram</a></li>
+                <li><a href="https://www.instagram.com/won.vision/" target="_blank" rel="noopener">Instagram</a></li>
               </ul>
             </div>
             <div>
               <h4>Operations</h4>
               <ul>
-                <li>Won Vision Pty Ltd</li>
-                <li>ABN — coming soon</li>
-                <li>CASA-licensed drone ops</li>
-                <li>PPIB / Coverdrone insured</li>
-              </ul>
+                <li>Won Vision Pty Ltd</li>                <li>CASA-licensed drone ops</li>              </ul>
             </div>
           </div>
           <div className="foot__rule"></div>

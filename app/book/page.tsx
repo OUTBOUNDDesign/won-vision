@@ -813,62 +813,102 @@ export default function BookPage() {
           </p>
         </div>
 
-        {/* TWILIGHT PHOTOGRAPHY */}
-        <div className="cat" id="cat-twilight" data-gallery="photography">
-          <div className="cat__head"><h3>Twilight <em>photography</em></h3><span className="cat__count">Golden-hour shoot</span></div>
-          <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--graphite)', maxWidth: 640, marginBottom: 18 }}>
-            Captured on-site at golden hour — deep blue/orange skies with warm interior glow through windows. Separate visit, weather-dependent. Ideal for luxury homes, pools, outdoor lighting and scenic locations. Included in the Cinematic package.
-          </p>
-          <div className="svc-grid">
-
-            <article className="svc-card" data-svc="Twilight Photography (5 images)" data-price="295" data-desc="Golden-hour on-site shoot — 5 dusk-captured images. Separate visit, weather-dependent." data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Twilight Set</h4>
-                <p className="svc-card__desc">5 dusk-captured images · golden-hour on-site shoot.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$295</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Additional Twilight Image" data-price="45" data-desc="Each twilight image beyond the standard 5-image set." data-img="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Additional Twilight Image</h4>
-                <p className="svc-card__desc">Each image beyond the standard 5-image twilight set.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$45 <small>/ img</small></span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
         {/* FLOORPLANS */}
         <div className="cat" id="cat-floorplans" data-gallery="floorplans">
-          <div className="cat__head"><h3>Floor <em>plans</em></h3><span className="cat__count">2D · dimensions included</span></div>
-          <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--graphite)', maxWidth: 640, marginBottom: 18 }}>
-            2D floor plans with dimensions, agent-branded watermark optional. Single level included in base price — add one card per additional level. Included in every Package above.
-          </p>
+          <div className="cat__head"><h3>Floor <em>plans</em></h3><span className="cat__count">Customisable</span></div>
+
+          <div className="fp-config">
+            <div className="fp-config__media">
+              <div className="fp-config__img" id="fpImg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80')" }}></div>
+            </div>
+            <div className="fp-config__body">
+              <div className="fp-group">
+                <label>Size</label>
+                <div className="fp-pills" data-fp="size">
+                  <button type="button" data-value="small">Small<small>up to 200m²</small></button>
+                  <button type="button" data-value="medium" className="is-active">Medium<small>200–300m²</small></button>
+                  <button type="button" data-value="large">Large<small>300–500m²</small></button>
+                  <button type="button" data-value="xl">XL<small>500m²+</small></button>
+                </div>
+              </div>
+
+              <div className="fp-group">
+                <label>Style</label>
+
+                <div className="fp-style-section">
+                  <div className="fp-style-section__head">
+                    <span className="fp-style-section__name">Line work</span>
+                    <span className="fp-style-section__from">From $159</span>
+                  </div>
+                  <div className="fp-style-grid" data-fp="style">
+                    <button type="button" className="fp-style-card is-active" data-value="2d-basic">
+                      <span className="fp-style-card__label">Standard <small>Black &amp; white</small></span>
+                    </button>
+                    <button type="button" className="fp-style-card" data-value="2d-site">
+                      <span className="fp-style-card__label">With site <small>Landscape context</small></span>
+                    </button>
+                    <button type="button" className="fp-style-card" data-value="2d-colour">
+                      <span className="fp-style-card__label">Coloured <small>Subtle wash</small></span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="fp-style-section">
+                  <div className="fp-style-section__head">
+                    <span className="fp-style-section__name">Render</span>
+                    <span className="fp-style-section__from">From $199</span>
+                  </div>
+                  <div className="fp-style-grid fp-style-grid--two" data-fp="style">
+                    <button type="button" className="fp-style-card" data-value="render-2d">
+                      <span className="fp-style-card__label">2D <small>Shaded plan view</small></span>
+                    </button>
+                    <button type="button" className="fp-style-card" data-value="render-3d">
+                      <span className="fp-style-card__label">3D <small>Dollhouse · photoreal</small></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="fp-foot">
+                <div>
+                  <span className="fp-foot__label">Subtotal · ex-GST</span>
+                  <span className="fp-foot__price" id="fpPrice">$199</span>
+                </div>
+                <button type="button" className="fp-add" id="fpAdd">Add to booking →</button>
+              </div>
+            </div>
+          </div>
+
+          <h5 className="fp-sub">Redraws &amp; site plan · post-production add-ons</h5>
           <div className="svc-grid">
 
-            <article className="svc-card" data-svc="Floor Plan · 2D single level" data-price="80" data-desc="2D floor plan, single level, dimensions included, agent-branded watermark optional." data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80')" }}></div></div>
+            <article className="svc-card" data-svc="Basic Floorplan Redraw" data-price="30" data-desc="Redraw an existing plan in Won Vision linework. Per page." data-img="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80">
+              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Floor Plan · 2D</h4>
-                <p className="svc-card__desc">Single level · dimensions included · optional watermark.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$80</span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Floorplan Redraw</h4>
+                <p className="svc-card__desc">Redraw an existing plan in Won Vision linework. Per page.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$30</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
-            <article className="svc-card" data-svc="Floor Plan · Additional Level" data-price="40" data-desc="Each additional level beyond the first — same 2D linework style." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
+            <article className="svc-card" data-svc="Floorplan Redraw with Site Plan" data-price="45" data-desc="Redraw plus matched site plan with boundaries and orientation." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
               <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80')" }}></div></div>
               <span className="svc-card__badge">In booking</span>
               <div className="svc-card__body">
-                <h4 className="svc-card__name">Additional Level</h4>
-                <p className="svc-card__desc">Each level beyond the first. Same 2D linework style.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">+$40 <small>/ level</small></span><span className="svc-card__add">Add +</span></div>
+                <h4 className="svc-card__name">Redraw + Site Plan</h4>
+                <p className="svc-card__desc">Redraw plus matched site plan with boundaries and orientation.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$45</span><span className="svc-card__add">Add +</span></div>
+              </div>
+            </article>
+
+            <article className="svc-card" data-svc="Site Plan only" data-price="89" data-desc="Standalone site plan — boundaries, orientation, lot dimensions." data-img="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80">
+              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&q=80')" }}></div></div>
+              <span className="svc-card__badge">In booking</span>
+              <div className="svc-card__body">
+                <h4 className="svc-card__name">Site Plan only</h4>
+                <p className="svc-card__desc">Standalone site plan — boundaries, orientation, lot dimensions.</p>
+                <div className="svc-card__foot"><span className="svc-card__price">$89</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
@@ -890,26 +930,6 @@ export default function BookPage() {
                 <h4 className="svc-card__name">Additional Photos</h4>
                 <p className="svc-card__desc">Each photo above the standard tier count.</p>
                 <div className="svc-card__foot"><span className="svc-card__price">$25 <small>/ img</small></span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Key Collection / Drop-off" data-price="40" data-desc="We collect the property key from your agency before the shoot and return it after." data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Key Collection</h4>
-                <p className="svc-card__desc">We collect from your agency before the shoot and return after.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">$40</span><span className="svc-card__add">Add +</span></div>
-              </div>
-            </article>
-
-            <article className="svc-card" data-svc="Rush Delivery (same-day)" data-price="100" data-desc="Same-day delivery on photos. Order before 11am for same-evening turnaround." data-img="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80">
-              <div className="svc-card__media"><div className="svc-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80')" }}></div></div>
-              <span className="svc-card__badge">In booking</span>
-              <div className="svc-card__body">
-                <h4 className="svc-card__name">Rush Delivery</h4>
-                <p className="svc-card__desc">Same-day turnaround. Order before 11am.</p>
-                <div className="svc-card__foot"><span className="svc-card__price">+$100</span><span className="svc-card__add">Add +</span></div>
               </div>
             </article>
 
@@ -974,17 +994,13 @@ export default function BookPage() {
               <ul>
                 <li><a href="mailto:hello@wonvision.com.au">hello@wonvision.com.au</a></li>
                 <li><a href="tel:+61000000000">+61 (0) 0000 0000</a></li>
-                <li><a href="https://www.instagram.com/" target="_rel">Instagram</a></li>
+                <li><a href="https://www.instagram.com/won.vision/" target="_blank" rel="noopener">Instagram</a></li>
               </ul>
             </div>
             <div>
               <h4>Operations</h4>
               <ul>
-                <li>Won Vision Pty Ltd</li>
-                <li>ABN — coming soon</li>
-                <li>CASA-licensed drone ops</li>
-                <li>PPIB / Coverdrone insured</li>
-              </ul>
+                <li>Won Vision Pty Ltd</li>                <li>CASA-licensed drone ops</li>              </ul>
             </div>
           </div>
           <div className="foot__rule"></div>
