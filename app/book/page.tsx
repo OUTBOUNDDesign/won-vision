@@ -522,7 +522,6 @@ export default function BookPage() {
             <span className="eyebrow">Catalogue</span>
             <h2>Pick what your <em>listing needs.</em></h2>
           </div>
-          <p>Categories below mirror the studio's full delivery list — rental shoots, sales shoots, drone, video, virtual editing and post-production add-ons. All prices in AUD, ex-GST. <strong>Launch offer:</strong> 20% off everything until 31 December 2026, applied automatically at checkout.</p>
         </div>
 
         {/* PACKAGES */}
