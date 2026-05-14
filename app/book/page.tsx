@@ -250,6 +250,79 @@ export default function BookPage() {
     .fp-pills button{flex:1 1 auto}
   }
 
+  /* ---------- Packages ---------- */
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pkg-card{
+    display:flex;flex-direction:column;
+    background:var(--paper);
+    border:1px solid rgba(74,74,72,0.16);
+    overflow:hidden;
+    transition:border-color .25s ease, transform .35s var(--ease);
+    scroll-margin-top:120px;
+  }
+  .pkg-card:hover{border-color:var(--ink);transform:translateY(-3px)}
+  .pkg-card.is-target{border-color:var(--steel);box-shadow:0 12px 40px rgba(10,10,10,0.12)}
+  .pkg-card__media{aspect-ratio:5/3;background:var(--soft);overflow:hidden;position:relative}
+  .pkg-card__media__img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(0.94)}
+  .pkg-card__tag{
+    position:absolute;top:12px;left:12px;z-index:2;
+    background:var(--ink);color:var(--paper);
+    padding:6px 10px;
+    font-family:var(--body);font-size:9px;letter-spacing:0.32em;text-transform:uppercase;font-weight:600;
+  }
+  .pkg-card__body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .pkg-card__name{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.1;color:var(--ink);letter-spacing:-0.005em}
+  .pkg-card__name em{font-style:italic;color:var(--steel);font-weight:400}
+  .pkg-card__desc{font-family:var(--body);font-size:12px;line-height:1.55;color:var(--graphite)}
+  .pkg-card__incl{font-family:var(--body);font-size:11px;line-height:1.6;color:var(--ink);margin:0;padding:0;list-style:none}
+  .pkg-card__incl li{padding:4px 0;border-top:1px solid rgba(74,74,72,0.1)}
+  .pkg-card__incl li:first-child{border-top:none}
+  .pkg-card__pricerow{
+    display:flex;align-items:baseline;gap:8px;padding-top:10px;border-top:1px solid rgba(74,74,72,0.12)
+  }
+  .pkg-card__from{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite);font-weight:500}
+  .pkg-card__price{font-family:var(--display);font-weight:500;font-size:26px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
+  .pkg-card__list{font-family:var(--body);font-size:12px;color:var(--graphite);text-decoration:line-through;font-weight:500}
+  .pkg-card__tiers{display:flex;flex-direction:column;gap:6px}
+  .pkg-card__tiers > label{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite);font-weight:500}
+  .pkg-card__pills{display:flex;gap:6px;flex-wrap:wrap}
+  .pkg-card__pills button{
+    flex:1 1 0;min-width:0;
+    font-family:var(--body);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;
+    padding:10px 8px;border:1px solid rgba(74,74,72,0.2);background:transparent;color:var(--ink);cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.1;
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .pkg-card__pills button small{font-size:9px;letter-spacing:0.18em;color:var(--graphite);font-weight:500}
+  .pkg-card__pills button:hover{border-color:var(--ink)}
+  .pkg-card__pills button.is-active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .pkg-card__pills button.is-active small{color:rgba(250,250,247,0.85)}
+  .pkg-card__add{
+    position:relative;isolation:isolate;overflow:hidden;
+    margin-top:4px;
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;
+    color:var(--paper);background:transparent;border:1px solid var(--ink);
+    padding:13px 18px;cursor:pointer;
+    transition:color .4s var(--ease), border-color .4s var(--ease);
+  }
+  .pkg-card__add::before{
+    content:'';position:absolute;inset:0;z-index:-1;
+    background:var(--ink);
+    transform:scaleX(1);transform-origin:right center;
+    transition:transform .55s var(--ease);
+  }
+  .pkg-card__add:hover{color:var(--ink)}
+  .pkg-card__add:hover::before{transform:scaleX(0);transform-origin:left center}
+  .pkg-card.is-added .pkg-card__add{color:var(--paper);border-color:var(--steel)}
+  .pkg-card.is-added .pkg-card__add::before{background:var(--steel);transform:scaleX(1) !important;transform-origin:left center}
+  .pkg-card.is-added .pkg-card__add::after{content:' ✓'}
+  @media (max-width:1100px){.pkg-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:760px){
+    .pkg-grid{grid-template-columns:1fr;gap:14px}
+    .pkg-card__name{font-size:19px}
+    .pkg-card__price{font-size:22px}
+  }
+
   /* ---------- Floating cart toggle (FAB) ---------- */
   .cart-fab{
     position:fixed;bottom:24px;right:24px;z-index:90;
@@ -450,6 +523,129 @@ export default function BookPage() {
             <h2>Pick what your <em>listing needs.</em></h2>
           </div>
           <p>Categories below mirror the studio's full delivery list — rental shoots, sales shoots, drone, video, virtual editing and post-production add-ons. All prices in AUD, ex-GST. <strong>Launch offer:</strong> 20% off everything until 31 December 2026, applied automatically at checkout.</p>
+        </div>
+
+        {/* PACKAGES */}
+        <div className="cat" id="cat-packages" data-gallery="photography">
+          <div className="cat__head"><h3><em>Packages</em></h3><span className="cat__count">3 bundles · pick a tier</span></div>
+          <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--graphite)', maxWidth: 640, marginBottom: 18 }}>
+            Bundled offerings that combine our most-requested services at significant savings versus à la carte. Pick a package, choose the property tier — we handle the rest. <strong>20% launch promo applied at checkout</strong> until 31 December 2026.
+          </p>
+
+          <div className="pkg-grid">
+
+            <article
+              className="pkg-card"
+              data-pkg="showcase"
+              data-pkg-name="Showcase"
+              data-pkg-img="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1200&q=85"
+              data-tiers='{"compact":{"label":"Compact · 1–2 bed","price":350,"promo":280},"standard":{"label":"Standard · 3–4 bed","price":450,"promo":360},"premium":{"label":"Premium · 5+ bed","price":550,"promo":440}}'
+            >
+              <div className="pkg-card__media">
+                <span className="pkg-card__tag">Most booked</span>
+                <div className="pkg-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1200&q=85')" }}></div>
+              </div>
+              <div className="pkg-card__body">
+                <h4 className="pkg-card__name">Showcase</h4>
+                <p className="pkg-card__desc">Photos, floor plan, and aerial context in one shoot — the standard suburban listing bundle.</p>
+                <ul className="pkg-card__incl">
+                  <li>15 / 20 / 25 HDR photos (by tier)</li>
+                  <li>2D floor plan with dimensions</li>
+                  <li>Drone set — 5 edited images</li>
+                  <li>Next-business-day delivery</li>
+                </ul>
+                <div className="pkg-card__tiers">
+                  <label>Property size</label>
+                  <div className="pkg-card__pills" data-pkg-tiers>
+                    <button type="button" data-tier="compact" className="is-active">Compact<small>1–2 bed</small></button>
+                    <button type="button" data-tier="standard">Standard<small>3–4 bed</small></button>
+                    <button type="button" data-tier="premium">Premium<small>5+ bed</small></button>
+                  </div>
+                </div>
+                <div className="pkg-card__pricerow">
+                  <span className="pkg-card__from">From</span>
+                  <span className="pkg-card__price" data-pkg-price>$280</span>
+                  <span className="pkg-card__list" data-pkg-list>$350</span>
+                </div>
+                <button type="button" className="pkg-card__add" data-pkg-add>Add to booking →</button>
+              </div>
+            </article>
+
+            <article
+              className="pkg-card"
+              data-pkg="signature"
+              data-pkg-name="Signature"
+              data-pkg-img="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85"
+              data-tiers='{"compact":{"label":"Compact · 1–2 bed","price":675,"promo":540},"standard":{"label":"Standard · 3–4 bed","price":750,"promo":600},"premium":{"label":"Premium · 5+ bed","price":825,"promo":660}}'
+            >
+              <div className="pkg-card__media">
+                <span className="pkg-card__tag">Complete deliverable</span>
+                <div className="pkg-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85')" }}></div>
+              </div>
+              <div className="pkg-card__body">
+                <h4 className="pkg-card__name">Signature</h4>
+                <p className="pkg-card__desc">Photo + plan + drone + a full listing video — the complete agent deliverable.</p>
+                <ul className="pkg-card__incl">
+                  <li>15 / 20 / 25 HDR photos (by tier)</li>
+                  <li>2D floor plan + 5-image drone set</li>
+                  <li>Listing Video 16:9 · 40 / 50 / 60s</li>
+                  <li>2-business-day video delivery</li>
+                </ul>
+                <div className="pkg-card__tiers">
+                  <label>Property size</label>
+                  <div className="pkg-card__pills" data-pkg-tiers>
+                    <button type="button" data-tier="compact" className="is-active">Compact<small>1–2 bed</small></button>
+                    <button type="button" data-tier="standard">Standard<small>3–4 bed</small></button>
+                    <button type="button" data-tier="premium">Premium<small>5+ bed</small></button>
+                  </div>
+                </div>
+                <div className="pkg-card__pricerow">
+                  <span className="pkg-card__from">From</span>
+                  <span className="pkg-card__price" data-pkg-price>$540</span>
+                  <span className="pkg-card__list" data-pkg-list>$675</span>
+                </div>
+                <button type="button" className="pkg-card__add" data-pkg-add>Add to booking →</button>
+              </div>
+            </article>
+
+            <article
+              className="pkg-card"
+              data-pkg="cinematic"
+              data-pkg-name="Cinematic"
+              data-pkg-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85"
+              data-tiers='{"compact":{"label":"Compact · 1–2 bed","price":1100,"promo":880},"standard":{"label":"Standard · 3–4 bed","price":1200,"promo":960},"premium":{"label":"Premium · 5+ bed","price":1300,"promo":1040}}'
+            >
+              <div className="pkg-card__media">
+                <span className="pkg-card__tag">Flagship</span>
+                <div className="pkg-card__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85')" }}></div>
+              </div>
+              <div className="pkg-card__body">
+                <h4 className="pkg-card__name">Cinematic</h4>
+                <p className="pkg-card__desc">Luxury listing presentation — twilight imagery and a 90-second cinematic film.</p>
+                <ul className="pkg-card__incl">
+                  <li>15 / 20 / 25 HDR photos (by tier)</li>
+                  <li>2D floor plan + 5-image drone set</li>
+                  <li>90s premium cinematic, full grade</li>
+                  <li>5 twilight images · priority editing</li>
+                </ul>
+                <div className="pkg-card__tiers">
+                  <label>Property size</label>
+                  <div className="pkg-card__pills" data-pkg-tiers>
+                    <button type="button" data-tier="compact" className="is-active">Compact<small>1–2 bed</small></button>
+                    <button type="button" data-tier="standard">Standard<small>3–4 bed</small></button>
+                    <button type="button" data-tier="premium">Premium<small>5+ bed</small></button>
+                  </div>
+                </div>
+                <div className="pkg-card__pricerow">
+                  <span className="pkg-card__from">From</span>
+                  <span className="pkg-card__price" data-pkg-price>$880</span>
+                  <span className="pkg-card__list" data-pkg-list>$1,100</span>
+                </div>
+                <button type="button" className="pkg-card__add" data-pkg-add>Add to booking →</button>
+              </div>
+            </article>
+
+          </div>
         </div>
 
         {/* RENTAL PHOTOGRAPHY */}
@@ -1060,6 +1256,83 @@ export default function BookPage() {
       window.location.href = '/book/checkout';
     });
   }
+
+  // Package picker — Showcase / Signature / Cinematic
+  (function(){
+    const fmtAud = (n) => '$' + Number(n).toLocaleString('en-AU');
+    const cards = document.querySelectorAll('.pkg-card');
+    const state = new Map(); // pkgKey -> tierKey
+
+    cards.forEach(card => {
+      const pkgKey = card.dataset.pkg;
+      const pkgName = card.dataset.pkgName;
+      const pkgImg = card.dataset.pkgImg;
+      let tiers;
+      try { tiers = JSON.parse(card.dataset.tiers || '{}'); } catch (_) { tiers = {}; }
+      state.set(pkgKey, 'compact');
+
+      const priceEl = card.querySelector('[data-pkg-price]');
+      const listEl  = card.querySelector('[data-pkg-list]');
+      const addBtn  = card.querySelector('[data-pkg-add]');
+      const pillBtns = card.querySelectorAll('[data-pkg-tiers] button');
+
+      function currentName(){
+        const t = state.get(pkgKey);
+        return pkgName + ' — ' + tiers[t].label;
+      }
+
+      function refresh(){
+        const t = state.get(pkgKey);
+        const tier = tiers[t];
+        if(priceEl) priceEl.textContent = fmtAud(tier.promo);
+        if(listEl)  listEl.textContent  = fmtAud(tier.price);
+
+        // Reflect cart state: highlight card if any tier of this package is in cart
+        const inCart = Array.from(items.keys()).some(k => k.startsWith(pkgName + ' — '));
+        card.classList.toggle('is-added', inCart);
+      }
+
+      pillBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          pillBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          state.set(pkgKey, btn.dataset.tier);
+          refresh();
+        });
+      });
+
+      if(addBtn){
+        addBtn.addEventListener('click', () => {
+          // Remove any other tier of this package, then add the chosen tier
+          Array.from(items.keys()).forEach(k => {
+            if(k.startsWith(pkgName + ' — ')) items.delete(k);
+          });
+          const t = state.get(pkgKey);
+          const tier = tiers[t];
+          items.set(currentName(), { price: String(tier.price), img: pkgImg });
+          render();
+          openCart();
+          refresh();
+        });
+      }
+
+      refresh();
+    });
+
+    // Deep-link: /book?package=showcase|signature|cinematic
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const wanted = (params.get('package') || '').toLowerCase();
+      if(wanted){
+        const target = document.querySelector('.pkg-card[data-pkg="' + wanted + '"]');
+        if(target){
+          target.classList.add('is-target');
+          setTimeout(() => target.scrollIntoView({ behavior:'smooth', block:'start' }), 200);
+          setTimeout(() => target.classList.remove('is-target'), 3000);
+        }
+      }
+    } catch (_) {}
+  })();
 
   render();
 })();

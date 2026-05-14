@@ -30,13 +30,84 @@ export default function HomePage() {
     <>
       <LoaderGate />
 
-      {/* Leaflet stylesheet for the contact map */}
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossOrigin=""
-      />
+      <style>{`
+  /* ---------- Home: Packages quick-press ---------- */
+  .home-pkgs{padding:96px var(--gutter) 24px;background:var(--paper)}
+  .home-pkgs__inner{max-width:var(--max);margin:0 auto}
+  .home-pkgs__head{
+    display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;
+    margin-bottom:48px;
+  }
+  .home-pkgs__head h2{font-family:var(--display);font-weight:500;font-size:clamp(40px,5vw,72px);line-height:1.02;color:var(--ink);letter-spacing:-0.005em;margin-top:14px}
+  .home-pkgs__head h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .home-pkgs__head p{color:var(--graphite,#4A4A48);font-size:15px;line-height:1.6;max-width:420px}
+  .home-pkgs__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .home-pkg{
+    display:flex;flex-direction:column;
+    background:var(--paper);
+    border:1px solid rgba(0,0,0,0.16);
+    overflow:hidden;text-decoration:none;color:inherit;
+    transition:transform .35s var(--ease,cubic-bezier(.2,.7,.2,1)), border-color .25s ease;
+  }
+  .home-pkg:hover{transform:translateY(-3px);border-color:var(--ink)}
+  .home-pkg__media{aspect-ratio:5/3;background:#f3f3ef;position:relative;overflow:hidden}
+  .home-pkg__media__img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(0.94);transition:filter .35s ease}
+  .home-pkg:hover .home-pkg__media__img{filter:saturate(1.05)}
+  .home-pkg__tag{
+    position:absolute;top:12px;left:12px;z-index:2;
+    background:var(--ink);color:var(--paper);
+    padding:6px 10px;
+    font-family:var(--body);font-size:9px;letter-spacing:0.32em;text-transform:uppercase;font-weight:600;
+  }
+  .home-pkg__body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .home-pkg__name{font-family:var(--display);font-weight:500;font-size:24px;line-height:1.1;color:var(--ink);letter-spacing:-0.005em}
+  .home-pkg__desc{font-family:var(--body);font-size:12px;line-height:1.55;color:var(--graphite,#4A4A48);flex:1}
+  .home-pkg__foot{
+    display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+    margin-top:8px;padding-top:14px;border-top:1px solid rgba(0,0,0,0.12);
+  }
+  .home-pkg__price{font-family:var(--display);font-weight:500;font-size:24px;color:var(--ink);letter-spacing:-0.01em;line-height:1}
+  .home-pkg__price small{font-family:var(--body);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--graphite,#4A4A48);font-weight:500;margin-right:4px}
+  .home-pkg__cta{font-family:var(--body);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:500}
+  @media (max-width:1100px){.home-pkgs__grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:760px){
+    .home-pkgs{padding:64px var(--gutter) 16px}
+    .home-pkgs__head{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:28px}
+    .home-pkgs__grid{grid-template-columns:1fr;gap:14px}
+  }
+
+  /* ---------- Home: FAQ ---------- */
+  .home-faq{padding:96px var(--gutter) 120px;background:var(--paper);border-top:1px solid rgba(0,0,0,0.08)}
+  .home-faq__inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:64px;align-items:start}
+  .home-faq__head h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,4.6vw,64px);line-height:1.02;color:var(--ink);letter-spacing:-0.005em;margin-top:14px}
+  .home-faq__head h2 em{font-style:italic;color:var(--steel);font-weight:400}
+  .home-faq__head p{color:var(--graphite,#4A4A48);font-size:14px;line-height:1.6;margin-top:18px;max-width:340px}
+  .home-faq__head a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+  .home-faq__list{display:flex;flex-direction:column;border-top:1px solid rgba(0,0,0,0.16)}
+  .home-faq__item{border-bottom:1px solid rgba(0,0,0,0.16)}
+  .home-faq__item > summary{
+    list-style:none;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+    padding:22px 4px;
+    font-family:var(--display);font-weight:500;font-size:18px;line-height:1.25;color:var(--ink);letter-spacing:-0.005em;
+  }
+  .home-faq__item > summary::-webkit-details-marker{display:none}
+  .home-faq__item > summary::after{
+    content:'+';font-family:var(--display);font-size:22px;color:var(--ink);font-weight:400;
+    transition:transform .3s var(--ease,cubic-bezier(.2,.7,.2,1));
+  }
+  .home-faq__item[open] > summary::after{content:'–'}
+  .home-faq__item > div{
+    padding:0 4px 22px;
+    font-family:var(--body);font-size:13px;line-height:1.65;color:var(--graphite,#4A4A48);
+    max-width:680px;
+  }
+  .home-faq__item > div p + p{margin-top:10px}
+  @media (max-width:900px){
+    .home-faq__inner{grid-template-columns:1fr;gap:32px}
+    .home-faq{padding:64px var(--gutter) 80px}
+  }
+`}</style>
 
       {/* OUTBOUND Pixel — analytics for the Won Vision tenant in OUTBOUND Operations */}
       <Script
@@ -127,21 +198,168 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CONTACT B — Map + studio info */}
-      <section id="contact" className="con-b">
-        <div id="serviceMap" className="con-b__map" aria-label="Map of Melbourne with a 100 kilometre service radius">
-          <div className="con-b__label">100 KM SERVICE RADIUS</div>
-        </div>
-        <div className="con-b__copy reveal">
-          <span className="eyebrow">Find the studio</span>
-          <h2>Greater Melbourne,<br /><em>and beyond.</em></h2>
-          <p>Studio works within 100 km of the Melbourne CBD — Greater Melbourne, the Mornington and Bellarine peninsulas, the Yarra Valley and the Macedon Ranges. Visits by appointment elsewhere across Victoria.</p>
-          <div className="con-b__list">
-            <div className="item"><b>Email</b><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></div>
-            <div className="item"><b>Phone</b><a href="tel:+61000000000">+61 (0) 0000 0000</a></div>
-            <div className="item"><b>Hours</b><span>Mon–Fri · 8am–6pm AEST</span></div>
-            <div className="item"><b>Booking</b><a href="/book">Book a shoot →</a></div>
+      {/* PACKAGES quick-press */}
+      <section id="packages" className="home-pkgs">
+        <div className="home-pkgs__inner">
+          <div className="home-pkgs__head reveal-stagger">
+            <div>
+              <span className="eyebrow">Packages</span>
+              <h2>Bundled,<br /><em>and ready to book.</em></h2>
+            </div>
+            <p>Three flagship bundles cover most listings — Showcase for the everyday sale, Signature when video matters, Cinematic for luxury. Pick one, choose your property size, we handle the rest. 20% launch promo applied at checkout.</p>
           </div>
+
+          <div className="home-pkgs__grid reveal-stagger">
+            <a className="home-pkg" href="/book?package=showcase#cat-packages">
+              <div className="home-pkg__media">
+                <span className="home-pkg__tag">Most booked</span>
+                <div className="home-pkg__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=1200&q=85')" }}></div>
+              </div>
+              <div className="home-pkg__body">
+                <h3 className="home-pkg__name">Showcase</h3>
+                <p className="home-pkg__desc">Photos, floor plan and a 5-image drone set — the standard suburban listing bundle.</p>
+                <div className="home-pkg__foot">
+                  <span className="home-pkg__price"><small>From</small>$280</span>
+                  <span className="home-pkg__cta">Pick size →</span>
+                </div>
+              </div>
+            </a>
+
+            <a className="home-pkg" href="/book?package=signature#cat-packages">
+              <div className="home-pkg__media">
+                <span className="home-pkg__tag">Complete deliverable</span>
+                <div className="home-pkg__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85')" }}></div>
+              </div>
+              <div className="home-pkg__body">
+                <h3 className="home-pkg__name">Signature</h3>
+                <p className="home-pkg__desc">Photo + plan + drone + a full listing video — the complete agent deliverable.</p>
+                <div className="home-pkg__foot">
+                  <span className="home-pkg__price"><small>From</small>$540</span>
+                  <span className="home-pkg__cta">Pick size →</span>
+                </div>
+              </div>
+            </a>
+
+            <a className="home-pkg" href="/book?package=cinematic#cat-packages">
+              <div className="home-pkg__media">
+                <span className="home-pkg__tag">Flagship</span>
+                <div className="home-pkg__media__img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85')" }}></div>
+              </div>
+              <div className="home-pkg__body">
+                <h3 className="home-pkg__name">Cinematic</h3>
+                <p className="home-pkg__desc">Twilight imagery and a 90-second cinematic — luxury listing presentation.</p>
+                <div className="home-pkg__foot">
+                  <span className="home-pkg__price"><small>From</small>$880</span>
+                  <span className="home-pkg__cta">Pick size →</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="home-faq">
+        <div className="home-faq__inner">
+          <div className="home-faq__head reveal">
+            <span className="eyebrow">FAQ</span>
+            <h2>The <em>quick</em> answers.</h2>
+            <p>Anything not covered, email <a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a> or <a href="/book">book a shoot</a> — the form walks you through the rest.</p>
+          </div>
+
+          <div className="home-faq__list reveal-stagger">
+            <details className="home-faq__item">
+              <summary>What areas do you service?</summary>
+              <div>
+                <p>Won Vision operates within a 100 km radius of the Melbourne CBD as standard — Greater Melbourne, the Mornington and Bellarine peninsulas, the Yarra Valley and the Macedon Ranges.</p>
+                <p>Properties beyond 20 km from the CBD attract a distance surcharge of $20 per 5 km block. Visits further afield across Victoria are available by appointment.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>How does the 20% launch promo work?</summary>
+              <div>
+                <p>The launch promo applies 20% off every service — rental, sales, packages, drone, video, floor plans and add-ons — automatically at checkout, until 31 December 2026. No code required.</p>
+                <p>The promo stacks with our volume discounts on virtual staging.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>How fast is delivery?</summary>
+              <div>
+                <p>Standard delivery is next business day for photos and 2 business days for video. Floor plans deliver in 1–2 business days.</p>
+                <p>Same-day rush is available on photos for +$100 (order before 11am).</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>What's the difference between a package and à la carte?</summary>
+              <div>
+                <p>Packages (Showcase, Signature, Cinematic) bundle our most-requested services together at 18–29% savings compared to buying each piece individually. Photo count scales automatically with property size.</p>
+                <p>À la carte lets you build a custom shoot — photography only, drone only, video only, or any combination. Both routes use the same booking form.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>Who owns the photos? What are the licensing terms?</summary>
+              <div>
+                <p>You receive an agent-facing licence to use the content for the listing period — agency website, realestate.com.au, Domain, agency socials, print collateral and email campaigns. Won Vision retains copyright and the right to use the imagery in our own portfolio.</p>
+                <p>Extended licensing for developer marketing, hotel listings, or commercial use is available — ask at booking.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>What if the weather is bad on shoot day?</summary>
+              <div>
+                <p>We monitor the forecast 24 hours out. Indoor photography proceeds in any conditions. Drone, twilight and exterior-dependent work reschedules at no charge when weather makes a quality shoot impossible.</p>
+                <p>Sky replacement is included in all sales photography, so an overcast day rarely affects deliverables.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>How does virtual staging and AI editing work?</summary>
+              <div>
+                <p>Virtual staging, decluttering, day-to-dusk conversions, sky replacement, grass enhancement and object removal are handled in-house using our AI editing pipeline — competitors outsource these at 2–3x our rates.</p>
+                <p>Once the shoot is delivered, you review the gallery in the Won Vision client portal and pick which photos need editing. You pay only for what you choose.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>Can I add or remove things after booking?</summary>
+              <div>
+                <p>Yes — add-ons can be added any time before the shoot. Removing items inside 24 hours of the booked slot may incur a cancellation fee for crew already scheduled.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>Is the drone work licensed and insured?</summary>
+              <div>
+                <p>All aerial work is performed by CASA-licensed operators with PPIB / Coverdrone public liability insurance. We file flight notifications where required and operate within all CASA regulations.</p>
+              </div>
+            </details>
+
+            <details className="home-faq__item">
+              <summary>How do I pay?</summary>
+              <div>
+                <p>Payment is taken at checkout via Stripe (card, Apple Pay, Google Pay) or invoiced to the agency on 7-day terms once we've onboarded your agency. All prices are quoted ex-GST; tax invoices issued after delivery.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      {/* Studio info / contact strip */}
+      <section id="contact" style={{ padding: '64px var(--gutter)', background: 'var(--paper)', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+        <div style={{ maxWidth: 'var(--max)', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 28 }}>
+          <div>
+            <span className="eyebrow">Contact</span>
+            <h3 style={{ fontFamily: 'var(--display)', fontWeight: 500, fontSize: 28, marginTop: 12, letterSpacing: '-0.005em' }}>Studio</h3>
+            <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--graphite, #4A4A48)', marginTop: 8, maxWidth: 280 }}>Greater Melbourne and beyond by appointment.</p>
+          </div>
+          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Email</b><a href="mailto:studio@wonvision.com.au">studio@wonvision.com.au</a></div>
+          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Phone</b><a href="tel:+61000000000">+61 (0) 0000 0000</a></div>
+          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Hours</b><span>Mon–Fri · 8am–6pm AEST</span></div>
+          <div><b style={{ fontFamily: 'var(--body)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--graphite, #4A4A48)', display: 'block', marginBottom: 6 }}>Booking</b><a href="/book">Book a shoot →</a></div>
         </div>
       </section>
 
@@ -187,128 +405,6 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Leaflet for the service-area map */}
-      <Script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossOrigin=""
-        strategy="afterInteractive"
-      />
-
-      {/* Service-area map — Melbourne CBD + 100 km radius. Display-only. */}
-      <Script id="wv-service-map" strategy="afterInteractive">
-        {`(function(){
-  function boot(){
-    var el = document.getElementById('serviceMap');
-    if(!el || typeof L === 'undefined') { setTimeout(boot, 80); return; }
-
-    var MELBOURNE = [-37.8136, 144.9631];
-    var map = null, radiusCircle = null;
-
-    function init(){
-      if (map) return;
-      map = L.map(el, {
-        center: MELBOURNE,
-        zoom: 8,
-        attributionControl: false,
-        zoomControl: false,
-        scrollWheelZoom: false,
-        doubleClickZoom: false,
-        dragging: false,
-        touchZoom: false,
-        boxZoom: false,
-        keyboard: false,
-        tap: false,
-        zoomSnap: 0.25
-      });
-
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
-        maxZoom: 19,
-        crossOrigin: true
-      }).addTo(map);
-
-      radiusCircle = L.circle(MELBOURNE, {
-        radius: 100000,
-        color: '#4A6178',
-        weight: 2.5,
-        opacity: 1,
-        fillColor: '#4A6178',
-        fillOpacity: 0.10,
-        interactive: false
-      }).addTo(map);
-
-      L.circleMarker(MELBOURNE, {
-        radius: 8,
-        color: '#FAFAF7',
-        weight: 2,
-        fillColor: '#4A6178',
-        fillOpacity: 1,
-        interactive: false
-      }).addTo(map);
-
-      var SUBURBS = [
-        { name: 'Melbourne CBD', ll: [-37.8136, 144.9631], cbd: true },
-        { name: 'Geelong',       ll: [-38.1499, 144.3617] },
-        { name: 'Werribee',      ll: [-37.9000, 144.6627] },
-        { name: 'Gisborne',      ll: [-37.4900, 144.5957] },
-        { name: 'Wallan',        ll: [-37.4143, 144.9803] },
-        { name: 'Healesville',   ll: [-37.6520, 145.5210] },
-        { name: 'Dandenong',     ll: [-37.9818, 145.2147] },
-        { name: 'Frankston',     ll: [-38.1413, 145.1198] }
-      ];
-      SUBURBS.forEach(function(s){
-        L.marker(s.ll, {
-          icon: L.divIcon({
-            className: 'map-suburb' + (s.cbd ? ' map-suburb--cbd' : ''),
-            html: '<div class="map-suburb__inner">'
-                + '<div class="map-suburb__pip"></div>'
-                + '<span class="map-suburb__name">' + s.name + '</span>'
-                + '</div>',
-            iconSize: [0, 0],
-            iconAnchor: [0, 0]
-          }),
-          interactive: false,
-          keyboard: false
-        }).addTo(map);
-      });
-
-      fit();
-      map.whenReady(function(){ setTimeout(fit, 80); });
-      map.on('load', function(){ setTimeout(fit, 80); });
-
-      var rt = null;
-      window.addEventListener('resize', function(){
-        clearTimeout(rt);
-        rt = setTimeout(fit, 200);
-      });
-    }
-
-    function fit(){
-      if (!map || !radiusCircle) return;
-      map.invalidateSize();
-      map.fitBounds(radiusCircle.getBounds(), { padding: [40, 40] });
-    }
-
-    var started = false;
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (!started && e.isIntersecting && e.intersectionRatio > 0){
-          started = true;
-          obs.disconnect();
-          setTimeout(init, 80);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
-    obs.observe(el);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
-    boot();
-  }
-})();`}
-      </Script>
     </>
   );
 }
