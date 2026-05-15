@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import { Wordmark } from '../components/Wordmark';
 import ServiceGalleryLightbox from '../components/ServiceGalleryLightbox';
+import BeforeAfterSlider from '../components/BeforeAfterSlider';
 
 export const metadata: Metadata = {
   title: 'Book a shoot',
@@ -115,6 +116,62 @@ export default function BookPage() {
   }
   @media (max-width:440px){
     .svc-grid{grid-template-columns:1fr;gap:12px}
+  }
+
+  /* ---------- Before/after comparison sliders ---------- */
+  .ba-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    margin-top:8px;
+  }
+  @media (max-width:900px){
+    .ba-row{grid-template-columns:1fr;gap:14px}
+  }
+  .ba-slider{margin:0;display:flex;flex-direction:column;gap:10px}
+  .ba-slider__frame{
+    position:relative;width:100%;aspect-ratio:4/3;
+    background:var(--soft);overflow:hidden;
+    border:1px solid var(--border);
+    user-select:none;touch-action:none;cursor:ew-resize;
+  }
+  .ba-slider__img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;pointer-events:none;
+  }
+  .ba-slider__before-clip{
+    position:absolute;inset:0;will-change:clip-path;
+  }
+  .ba-slider__tag{
+    position:absolute;top:10px;
+    font-family:var(--body);font-size:10px;letter-spacing:0.22em;
+    text-transform:uppercase;font-weight:600;
+    padding:5px 9px;background:var(--ink);color:var(--paper);
+    pointer-events:none;z-index:3;
+  }
+  .ba-slider__tag--before{left:10px}
+  .ba-slider__tag--after{right:10px;background:var(--paper);color:var(--ink);border:1px solid var(--ink)}
+  .ba-slider__divider{
+    position:absolute;top:0;bottom:0;width:2px;
+    background:var(--paper);
+    transform:translateX(-50%);
+    z-index:4;outline:none;cursor:ew-resize;
+    box-shadow:0 0 0 1px rgba(0,0,0,0.18);
+  }
+  .ba-slider__divider:focus-visible{box-shadow:0 0 0 2px var(--ink)}
+  .ba-slider__handle{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:40px;height:40px;background:var(--paper);
+    border:1px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    gap:2px;font-family:var(--body);
+    color:var(--ink);font-size:18px;line-height:1;
+    pointer-events:none;
+  }
+  .ba-slider__handle-arrow{font-weight:600}
+  .ba-slider__label{
+    font-family:var(--body);font-size:11px;letter-spacing:0.22em;
+    text-transform:uppercase;color:var(--ink);font-weight:600;
+    text-align:center;
   }
 
   /* ---------- Floor-plan customiser ---------- */
@@ -811,6 +868,31 @@ export default function BookPage() {
           <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--graphite)', maxWidth: 720, marginBottom: 8 }}>
             Virtual staging, decluttering, day-to-dusk, sky replacement, grass enhancement and object removal are <strong>not booked here</strong>. Once the shoot is delivered, you'll review the gallery in the <strong>Vision Studio client portal</strong> and pick which photos need editing — pay only for what you choose. Volume rates apply automatically.
           </p>
+
+          {/* Before/after comparison sliders — placeholder Unsplash imagery, swap with real shots later */}
+          <div className="ba-row" style={{ marginTop: 16 }}>
+            <BeforeAfterSlider
+              label="Decluttering"
+              beforeAlt="Cluttered living room (placeholder)"
+              afterAlt="Decluttered living room (placeholder)"
+              beforeSrc="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1200&q=80"
+              afterSrc="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200&q=80"
+            />
+            <BeforeAfterSlider
+              label="Virtual Staging"
+              beforeAlt="Empty room (placeholder)"
+              afterAlt="Virtually staged room (placeholder)"
+              beforeSrc="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+              afterSrc="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
+            />
+            <BeforeAfterSlider
+              label="Day to Dusk"
+              beforeAlt="Exterior at day (placeholder)"
+              afterAlt="Exterior at dusk (placeholder)"
+              beforeSrc="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80"
+              afterSrc="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80"
+            />
+          </div>
         </div>
 
         {/* FLOORPLANS */}
