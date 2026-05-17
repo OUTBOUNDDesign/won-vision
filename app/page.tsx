@@ -40,9 +40,10 @@ export default function HomePage() {
     width:100%;max-width:min(1100px, 92vw);
     margin-inline:auto;
     padding-inline:clamp(16px, 5vw, 40px);
-    /* Tall enough that the larger, wrap-capable phrase B never gets
-       vertically clipped on narrow screens (it can run to 3 lines). */
-    min-height:4.2em;
+    /* Reserve exactly enough height for B's 3 tight lines (line-height
+       1.18 × 3 ≈ 3.54em) without opening a vertical gap. Phrase B never
+       gets vertically clipped on narrow screens. */
+    min-height:3.7em;
   }
   /* Both phrases share this sizing — fluid hero scale: confident on
      desktop (caps 78px), still readable on a ~360px phone (floors 32px). */
@@ -57,7 +58,7 @@ export default function HomePage() {
     box-sizing:border-box;
     padding-inline:clamp(16px, 5vw, 40px);
     font-family:var(--display);font-weight:500;
-    line-height:1.32;letter-spacing:0.005em;color:var(--paper);
+    line-height:1.18;letter-spacing:0.005em;color:var(--paper);
     text-wrap:balance;
     overflow-wrap:break-word;
   }
@@ -71,7 +72,7 @@ export default function HomePage() {
     overflow-wrap:break-word;
     text-wrap:balance;
   }
-  .hero__morph__line--em{font-style:italic;color:var(--paper);margin-top:0.12em}
+  .hero__morph__line--em{font-style:italic;color:var(--paper);margin-top:0}
   .hero__morph__a .ch,
   .hero__morph__b .ch{
     display:inline-block;
@@ -84,40 +85,44 @@ export default function HomePage() {
   }
 
   /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out.
-     Shorter B tail buys a much wider fully-legible plateau for B.
      A delay 20ms → A tail = i max 9 × 20ms = 180ms = 2.25% of loop.
-     B delay 18ms → B tail = i max 34 × 18ms = 612ms = 7.65% of loop. */
+     B delay 26ms → B tail = i max 33 × 26ms = 858ms = 10.725% of loop.
+       (26ms is calmer than the too-fast 18ms, snappier than the
+        original sluggish 32ms.) */
   .hero__morph__a .ch{
     animation: heroMorphChA 8s cubic-bezier(.6,.05,.3,1) infinite both;
     animation-delay: calc(var(--i, 0) * 20ms);
   }
   .hero__morph__b .ch{
     animation: heroMorphChB 8s cubic-bezier(.6,.05,.3,1) infinite both;
-    animation-delay: calc(var(--i, 0) * 18ms);
+    animation-delay: calc(var(--i, 0) * 26ms);
   }
 
   /* NO-OVERLAP INVARIANT (preserved from 09b1075):
      A-visible window and B-visible window stay disjoint on BOTH handoffs.
 
+     A is FIXED (unchanged from 11390e1) — B is fitted around it.
+
      A: opaque 0–26%, fades out 26–38%, hidden 38–99%, snaps back 99–100%.
        Last A char fully transparent at 38% + A-tail 2.25% = 40.25% ≈ 3.22s.
        A re-gains legibility only at the 100%/0% loop wrap ≈ 8.00s
        (97→99% held at opacity 0 so the blur-back is never legible).
-     B: hidden 0–42%, fades in 42–48%, HOLDS 48–84%, fades out 84–90%,
-        hidden 90–100%.
+     B: hidden 0–42%, fades in 42–48%, HOLDS 48–81%, fades out 81–87%,
+        hidden 87–100%.
        First B char begins its fade-in at 42% ≈ 3.36s.
-       Last B char fully transparent at 90% + B-tail 7.65% = 97.65% ≈ 7.81s.
+       Last B char fully transparent at 87% + B-tail 10.725% = 97.725% ≈ 7.82s.
 
      Handoff A→B: A gone 40.25% (3.22s) · B fade-in starts 42% (3.36s)
                   → gap ≈ 0.14s, windows disjoint. ✓
-     Handoff B→A: B gone 97.65% (7.81s) · A legible again 100%/0% (8.00s)
-                  → gap ≈ 0.19s, windows disjoint. ✓
+     Handoff B→A: B gone 97.725% (7.82s) · A legible again 100%/0% (8.00s)
+                  → gap ≈ 0.18s, windows disjoint. ✓
 
-     B fully-legible (all 35 chars opaque): from 48% + B-tail 7.65% = 55.65%
-     to 84% = 28.35% of loop ≈ 2.27s — vs the prior 60–68% keyframe plateau
-     where the all-opaque overlap was ~0.03s (a flash). B now holds legible
-     roughly an order of magnitude longer; >2× even against the widened
-     on-disk 52–80% plateau (all-opaque 1.63s → 2.27s). */
+     B fully-legible (all 34 chars opaque): from 48% + B-tail 10.725%
+     = 58.725% to 81% = 22.275% of loop ≈ 1.78s. The longer 26ms tail
+     (calmer reveal) costs plateau width, but B's visible window is
+     maximised inside the fixed gaps the loop physically permits:
+     fade-in starts as early as A's clearance allows (42%) and fade-out
+     ends as late as the B→A gap allows (87%). */
   @keyframes heroMorphChA{
     0%   { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
     26%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
@@ -130,8 +135,8 @@ export default function HomePage() {
     0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
     42%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
     48%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    84%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    90%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
+    81%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    87%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
     100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
 
@@ -293,25 +298,42 @@ export default function HomePage() {
                 ))}
               </h1>
               <p className="hero__morph__b" aria-hidden="true">
+                {/* Three tight lines. --i continuous across all lines
+                    (L1 0..11, L2 12..14, L3 15..33) so the left to right
+                    cascade flows unbroken through the whole phrase. */}
                 <span className="hero__morph__line">
-                  {[
-                    'S', 'h', 'o', 't', ',', ' ',
-                    'e', 'd', 'i', 't', 'e', 'd', ' ',
-                    'a', 'n', 'd', ' ',
-                    'd', 'e', 'l', 'i', 'v', 'e', 'r', 'e', 'd',
-                  ].map((c, i) => (
-                    <span key={i} className="ch" style={{ ['--i' as never]: i }}>
-                      {c === ' ' ? ' ' : c}
+                  {['S', 'h', 'o', 't', ',', ' ', 'e', 'd', 'i', 't', 'e', 'd'].map(
+                    (c, i) => (
+                      <span key={i} className="ch" style={{ ['--i' as never]: i }}>
+                        {c === ' ' ? ' ' : c}
+                      </span>
+                    ),
+                  )}
+                </span>
+                <span className="hero__morph__line">
+                  {['a', 'n', 'd'].map((c, j) => (
+                    <span key={j} className="ch" style={{ ['--i' as never]: 12 + j }}>
+                      {c}
                     </span>
                   ))}
                 </span>
-                <br />
-                <span className="hero__morph__line hero__morph__line--em">
-                  {['s', 'a', 'm', 'e', ' ', 'd', 'a', 'y', '.'].map((c, j) => (
-                    <span key={j} className="ch" style={{ ['--i' as never]: 26 + j }}>
+                <span className="hero__morph__line">
+                  {['d', 'e', 'l', 'i', 'v', 'e', 'r', 'e', 'd', ' '].map((c, k) => (
+                    <span key={k} className="ch" style={{ ['--i' as never]: 15 + k }}>
                       {c === ' ' ? ' ' : c}
                     </span>
                   ))}
+                  <span className="hero__morph__line--em">
+                    {['s', 'a', 'm', 'e', ' ', 'd', 'a', 'y', '.'].map((c, m) => (
+                      <span
+                        key={m}
+                        className="ch"
+                        style={{ ['--i' as never]: 25 + m }}
+                      >
+                        {c === ' ' ? ' ' : c}
+                      </span>
+                    ))}
+                  </span>
                 </span>
               </p>
             </div>
