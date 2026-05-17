@@ -36,19 +36,41 @@ export default function HomePage() {
     position:relative;
     display:flex;align-items:center;justify-content:center;
     text-align:center;
-    min-height:1.2em;
+    box-sizing:border-box;
+    width:100%;max-width:min(1100px, 92vw);
+    margin-inline:auto;
+    padding-inline:clamp(16px, 5vw, 40px);
+    /* Tall enough that the larger, wrap-capable phrase B never gets
+       vertically clipped on narrow screens (it can run to 3 lines). */
+    min-height:4.2em;
   }
+  /* Both phrases share this sizing — fluid hero scale: confident on
+     desktop (caps 78px), still readable on a ~360px phone (floors 32px). */
   .hero__morph__a,
-  .hero__morph__b{margin:0}
+  .hero__morph__b{
+    margin:0;
+    font-size:clamp(32px, 6.2vw, 78px);
+  }
   .hero__morph__b{
     position:absolute;left:0;right:0;top:50%;
     transform:translateY(-50%);
+    box-sizing:border-box;
+    padding-inline:clamp(16px, 5vw, 40px);
     font-family:var(--display);font-weight:500;
-    font-size:clamp(26px, 3.4vw, 54px);
     line-height:1.32;letter-spacing:0.005em;color:var(--paper);
     text-wrap:balance;
+    overflow-wrap:break-word;
   }
-  .hero__morph__line{display:inline-block;text-wrap:balance}
+  /* Must NOT be a non-wrapping inline-block: on a narrow viewport the
+     long line ("Shot, edited and delivered") would extrude past the
+     screen edge and clip. Allow it to wrap within the container. */
+  .hero__morph__line{
+    display:block;
+    max-width:100%;
+    white-space:normal;
+    overflow-wrap:break-word;
+    text-wrap:balance;
+  }
   .hero__morph__line--em{font-style:italic;color:var(--paper);margin-top:0.12em}
   .hero__morph__a .ch,
   .hero__morph__b .ch{
@@ -62,35 +84,54 @@ export default function HomePage() {
   }
 
   /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out.
-     A tail: i max 9 × 28ms ≈ 0.25s. B tail: i max 34 × 32ms ≈ 1.09s. */
+     Shorter B tail buys a much wider fully-legible plateau for B.
+     A delay 20ms → A tail = i max 9 × 20ms = 180ms = 2.25% of loop.
+     B delay 18ms → B tail = i max 34 × 18ms = 612ms = 7.65% of loop. */
   .hero__morph__a .ch{
     animation: heroMorphChA 8s cubic-bezier(.6,.05,.3,1) infinite both;
-    animation-delay: calc(var(--i, 0) * 28ms);
+    animation-delay: calc(var(--i, 0) * 20ms);
   }
   .hero__morph__b .ch{
     animation: heroMorphChB 8s cubic-bezier(.6,.05,.3,1) infinite both;
-    animation-delay: calc(var(--i, 0) * 32ms);
+    animation-delay: calc(var(--i, 0) * 18ms);
   }
 
-  /* A: visible 0–32%, fades out 32–45%, hidden 45–92%, fades back 92–100%.
-     B's long stagger tail (i up to 34 × 32ms ≈ 1.09s) is fully cleared by
-     76% + tail ≈ 7.17s; A only re-enters at 92% ≈ 7.36s — clean handoff. */
+  /* NO-OVERLAP INVARIANT (preserved from 09b1075):
+     A-visible window and B-visible window stay disjoint on BOTH handoffs.
+
+     A: opaque 0–26%, fades out 26–38%, hidden 38–99%, snaps back 99–100%.
+       Last A char fully transparent at 38% + A-tail 2.25% = 40.25% ≈ 3.22s.
+       A re-gains legibility only at the 100%/0% loop wrap ≈ 8.00s
+       (97→99% held at opacity 0 so the blur-back is never legible).
+     B: hidden 0–42%, fades in 42–48%, HOLDS 48–84%, fades out 84–90%,
+        hidden 90–100%.
+       First B char begins its fade-in at 42% ≈ 3.36s.
+       Last B char fully transparent at 90% + B-tail 7.65% = 97.65% ≈ 7.81s.
+
+     Handoff A→B: A gone 40.25% (3.22s) · B fade-in starts 42% (3.36s)
+                  → gap ≈ 0.14s, windows disjoint. ✓
+     Handoff B→A: B gone 97.65% (7.81s) · A legible again 100%/0% (8.00s)
+                  → gap ≈ 0.19s, windows disjoint. ✓
+
+     B fully-legible (all 35 chars opaque): from 48% + B-tail 7.65% = 55.65%
+     to 84% = 28.35% of loop ≈ 2.27s — vs the prior 60–68% keyframe plateau
+     where the all-opaque overlap was ~0.03s (a flash). B now holds legible
+     roughly an order of magnitude longer; >2× even against the widened
+     on-disk 52–80% plateau (all-opaque 1.63s → 2.27s). */
   @keyframes heroMorphChA{
     0%   { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    32%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    45%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
-    92%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
+    26%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    38%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
+    97%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
+    99%  { opacity:0; filter:blur(8px);  transform:translateY(4px)   scale(0.98); }
     100% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
   }
-  /* B: hidden 0–50%, fades in 50–60%, holds 60–68%, fades out 68–76%,
-     hidden 76–100%. A is fully gone by 45% + tail ≈ 3.85s; B only enters
-     at 50% ≈ 4.0s — no frame where both phrases are legible. */
   @keyframes heroMorphChB{
     0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    50%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    60%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    68%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    76%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
+    42%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    48%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    84%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    90%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
     100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
 
