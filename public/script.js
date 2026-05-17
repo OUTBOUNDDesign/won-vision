@@ -160,71 +160,12 @@ function __wvBoot(){
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    // ===== Mobile: scroll + device-tilt parallax (no aperture, no scroll-block) =====
+    // ===== Mobile: static hero — no parallax, no device-tilt, no Ken Burns =====
     if (isMobile) {
       if (!hero || !base) return;
-      // Disable Ken Burns; we'll drive the transform manually
+      // Kill Ken Burns and pin the background to a fixed transform.
       base.style.animation = 'none';
-
-      // Smoothed tilt — interpolate towards target so it feels like real depth, not jittery
-      let scrollPx = 0;
-      let tx = 0, ty = 0;       // current transform offsets (px)
-      let targetX = 0, targetY = 0; // target offsets from tilt
-      let baseY0 = 0;           // calibrated initial beta
-      let calibrated = false;
-      let raf = null;
-
-      function paint(){
-        // ease towards target each frame (slow lerp = iOS-style smoothness)
-        tx += (targetX - tx) * 0.08;
-        ty += (targetY - ty) * 0.08;
-        const total = scrollPx * 0.35 + ty;
-        base.style.transform = `scale(1.12) translate3d(${tx}px, ${total}px, 0)`;
-        if (Math.abs(targetX - tx) > 0.05 || Math.abs(targetY - ty) > 0.05){
-          raf = requestAnimationFrame(paint);
-        } else {
-          raf = null;
-        }
-      }
-      function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
-
-      window.addEventListener('scroll', () => {
-        scrollPx = Math.min(window.scrollY, window.innerHeight * 1.2);
-        schedule();
-      }, { passive: true });
-
-      function onTilt(e){
-        const gx = e.gamma || 0;        // left/right tilt
-        const by = (e.beta || 0);       // front/back tilt
-        if (!calibrated && by){ baseY0 = by; calibrated = true; }
-        const dy = by - baseY0;
-        // iOS-wallpaper subtlety — small range, gentle multiplier
-        targetX = Math.max(-10, Math.min(10, gx * 0.22));
-        targetY = Math.max(-8,  Math.min(8,  dy * 0.16));
-        schedule();
-      }
-
-      function startListening(){
-        window.addEventListener('deviceorientation', onTilt);
-      }
-
-      // iOS 13+ requires a user-gesture-triggered permission request.
-      // Hook it onto the first user interaction of any kind so we don't miss it.
-      if (typeof DeviceOrientationEvent !== 'undefined'
-          && typeof DeviceOrientationEvent.requestPermission === 'function') {
-        const ask = () => {
-          DeviceOrientationEvent.requestPermission().then(p => {
-            if (p === 'granted') startListening();
-          }).catch(() => {});
-        };
-        ['touchstart','click','pointerdown'].forEach(ev =>
-          document.body.addEventListener(ev, ask, { once: true, passive: true })
-        );
-      } else if ('DeviceOrientationEvent' in window) {
-        startListening();
-      }
-
-      paint();
+      base.style.transform = 'scale(1.12)';
       return;
     }
 
