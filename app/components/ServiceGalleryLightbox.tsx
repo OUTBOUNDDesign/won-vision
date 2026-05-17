@@ -49,7 +49,7 @@ const ICON_SVG =
   '<path d="M3 16l5-5 4 4 3-3 6 6"/>' +
   '<circle cx="8" cy="9" r="1.4"/>' +
   '</svg>' +
-  '<span>View</span>';
+  '<span>Examples</span>';
 
 export default function ServiceGalleryLightbox() {
   const [active, setActive] = useState<string | null>(null);
@@ -60,9 +60,13 @@ export default function ServiceGalleryLightbox() {
   // booking flow's dynamic re-renders) still get a button.
   useEffect(() => {
     const inject = (root: ParentNode = document) => {
-      const cards = root.querySelectorAll<HTMLElement>('.svc-card');
+      const cards = root.querySelectorAll<HTMLElement>(
+        '.svc-card, .pkg-card',
+      );
       cards.forEach((card) => {
-        const media = card.querySelector('.svc-card__media');
+        const media = card.querySelector(
+          '.svc-card__media, .pkg-card__media',
+        );
         if (!media || media.querySelector('[data-gallery-btn]')) return;
         const cardOverride = card.dataset.gallery;
         const cat = card.closest('.cat') as HTMLElement | null;
@@ -72,7 +76,7 @@ export default function ServiceGalleryLightbox() {
         btn.type = 'button';
         btn.className = 'svc-card__gallery-btn';
         btn.setAttribute('data-gallery-btn', key);
-        btn.setAttribute('aria-label', `View ${titles[key] ?? key} gallery`);
+        btn.setAttribute('aria-label', `${titles[key] ?? key} examples`);
         btn.innerHTML = ICON_SVG;
         media.appendChild(btn);
       });
