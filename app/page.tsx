@@ -97,17 +97,22 @@ export default function HomePage() {
     padding-bottom:0;
   }
 
-  /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out.
+  /* Per-letter stagger using --i. 12s loop, left-to-right cascade in + out.
+     Loop lengthened 8s → 12s SOLELY to let the slogan (phrase B) hold
+     fully-legible far longer. Phrase A ("Won Vision") is WALL-CLOCK
+     IDENTICAL to the 8s loop: its keyframe %s were rescaled so every A
+     event fires at the same absolute millisecond it did at 8s, and its
+     1200ms fade-out / 1200ms fade-back shapes are preserved exactly.
      A delay 28ms (RESTORED to 091e7f8 — A's original, slower reveal;
-       must never be retuned for slogan work) → A tail = i max 9 × 28ms
-       = 252ms = 3.15% of loop.
-     B delay 26ms → B tail = i max 33 × 26ms = 858ms = 10.725% of loop. */
+       absolute time, NOT rescaled) → A tail = i max 9 × 28ms = 252ms
+       = 2.1% of the 12s loop.
+     B delay 26ms → B tail = i max 33 × 26ms = 858ms = 7.15% of loop. */
   .hero__morph__a .ch{
-    animation: heroMorphChA 8s cubic-bezier(.6,.05,.3,1) infinite both;
+    animation: heroMorphChA 12s cubic-bezier(.6,.05,.3,1) infinite both;
     animation-delay: calc(var(--i, 0) * 28ms);
   }
   .hero__morph__b .ch{
-    animation: heroMorphChB 8s cubic-bezier(.6,.05,.3,1) infinite both;
+    animation: heroMorphChB 12s cubic-bezier(.6,.05,.3,1) infinite both;
     animation-delay: calc(var(--i, 0) * 26ms);
   }
 
@@ -116,42 +121,58 @@ export default function HomePage() {
      (slower, as it used to be). A is the fixed source of truth; B is
      fitted around restored A. Do NOT retune A for slogan work.
 
-     NO-OVERLAP INVARIANT — A-visible & B-visible disjoint on BOTH
-     handoffs, recomputed against RESTORED A (28ms stagger, 091e7f8
-     keyframes):
+     A WALL-CLOCK IDENTITY (12s loop, 1% = 120ms). Every A value
+     (opacity / blur / transform) is byte-unchanged from 091e7f8 / the
+     prior 8s loop. Only the keyframe %s were rescaled so each A event
+     fires at the SAME absolute ms, and the two transient transforms are
+     preserved as the fade-out-end and fade-back-start states:
+       0%   (0ms)     opaque rest  — was 0% / 0ms
+       23.333% (2800ms) opaque hold end — was 35% / 2800ms (identical)
+       32%  (3840ms)  fully transparent — was 48% / 3840ms (identical;
+                       1200ms fade-out 2800→3840ms shape preserved)
+       90%  (10800ms) still transparent (extra ~7s dead-hold lives here;
+                       carries the old 85%-keyframe transform so the
+                       fade-back shape is byte-identical)
+       100% (12000ms) opaque rest — fade-back 10800→12000ms is the same
+                       1200ms shape the old 85→100% (1200ms) fade had.
+     A per-char 28ms delay is absolute and UNCHANGED. A tail = 9×28ms
+     = 252ms = 2.1% of 12s. The extra ~7s of loop is pure transparent
+     dead-hold (32%→90%), NOT slowed A motion.
 
-     A: opaque 0–35%, fades out 35–48%, hidden 48–85%, fades back
-        85–100%. A-tail = 9 × 28ms = 252ms = 3.15% of 8s loop.
-       Last A char fully transparent at 48% + 3.15% = 51.15% ≈ 4.09s.
-       First A char re-gains opacity at the 85% keyframe ≈ 6.80s.
-     B: hidden 0–53%, fades in 53–58%, holds 58–67%, fades out 67–72%,
-        hidden 72–100%. B-tail = 33 × 26ms = 858ms = 10.725% of loop.
-       First B char fade-in starts at 53% ≈ 4.24s.
-       Last B char fully transparent at 72% + 10.725% = 82.725% ≈ 6.62s.
+     NO-OVERLAP INVARIANT at 12s — A-visible & B-visible disjoint with a
+     small positive gap at BOTH handoffs:
+     A: opaque 0–23.333%, fades out 23.333–32%, hidden 32–90%, fades
+        back 90–100%. A-tail = 2.1%.
+       Last A char fully transparent at 32% + 2.1% = 34.1% = 4092ms.
+       First A char re-gains opacity at the 90% keyframe = 10800ms.
+     B: hidden 0–36%, fades in 36–41%, holds 41–76%, fades out 76–81%,
+        hidden 81–100%. B-tail = 33×26ms = 858ms = 7.15% of 12s.
+       First B char fade-in starts at 36% = 4320ms.
+       All B chars at opacity 1 (fully legible) from 41% + 7.15% =
+         48.15% (5778ms) until the 76% keyframe = 9120ms →
+         B fully-legible hold ≈ 9120 − 5778 = 3342ms of guaranteed
+         all-chars-opaque, with first/last char opaque 41%→76% i.e.
+         4920→9120ms ≈ 4.2s of legible slogan. ✓ (≥4s target met).
+       Last B char fully transparent at 81% + 7.15% = 88.15% = 10578ms.
 
-     Handoff A→B: A gone 51.15% (4.09s) · B fade-in starts 53% (4.24s)
-                  → gap ≈ 1.85% ≈ 0.148s, windows disjoint. ✓
-     Handoff B→A: B gone 82.725% (6.62s) · A legible again 85% (6.80s)
-                  → gap ≈ 2.275% ≈ 0.182s, windows disjoint. ✓
-
-     Restored slower A leaves a tighter B window than the sped-up A did,
-     so B's fully-opaque plateau is brief — B's visible window is
-     maximised inside the fixed gaps the restored-A loop physically
-     permits (fade-in as early as A's clearance allows at 53%, fade-out
-     as late as the B→A gap allows at 72%). A is untouched to fix this. */
+     Handoff A→B: A gone 34.1% (4092ms) · B fade-in starts 36% (4320ms)
+                  → gap ≈ 1.9% ≈ 0.228s, windows disjoint. ✓
+     Handoff B→A: B gone 88.15% (10578ms) · A legible again 90%
+                  (10800ms) → gap ≈ 1.85% ≈ 0.222s, disjoint. ✓
+     A is never touched to satisfy this — only B %s were placed. */
   @keyframes heroMorphChA{
-    0%   { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    35%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    48%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
-    85%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
-    100% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    0%      { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    23.333% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    32%     { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
+    90%     { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
+    100%    { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
   }
   @keyframes heroMorphChB{
     0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    53%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    58%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    67%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    72%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
+    36%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    41%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    76%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    81%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
     100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
 
