@@ -534,14 +534,16 @@ export default function BookPage() {
   }
 
   /* ---------- Section-jump filter strip ---------- */
+  /* Constant height — NEVER mutate layout on scroll/nav state. The strip is
+     pinned at top:0 so it stays visible when the navbar auto-hides; the fixed
+     padding-top reserves space for the (overlay) stuck navbar. Animating this
+     in response to the nav's scroll class caused a reflow ↔ scroll-anchoring
+     ↔ nav-toggle feedback loop (sporadic up/down glitch). */
   .svc-jump{
     position:sticky;top:0;z-index:90;background:var(--paper);
-    max-width:var(--max);margin:0 auto;padding-top:72px;
+    max-width:var(--max);margin:0 auto;padding-top:64px;
     border-bottom:1px solid var(--border);
-    transition:padding-top .3s var(--ease);
   }
-  /* When the navbar auto-hides on scroll, ride the chips up to the top */
-  .svc-jump.is-navhidden{padding-top:14px}
   .svc-jump__strip{
     display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
     -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
@@ -560,9 +562,8 @@ export default function BookPage() {
   /* Land anchored sections clear of the fixed nav + sticky strip */
   .cat{scroll-margin-top:130px}
   @media (max-width:760px){
-    .svc-jump{padding-top:60px}
-    .svc-jump.is-navhidden{padding-top:12px}
-    .cat{scroll-margin-top:114px}
+    .svc-jump{padding-top:56px}
+    .cat{scroll-margin-top:110px}
     .svc-jump__chip{font-size:11px;padding:8px 13px}
   }
 `}</style>
@@ -1445,16 +1446,8 @@ export default function BookPage() {
     }, { rootMargin:'-140px 0px -55% 0px', threshold:0 });
     cats.forEach(function(c){ io.observe(c); });
   }
-
-  // Keep the strip visible AND tucked to the top when the navbar auto-hides
-  var nav = document.querySelector('.nav');
-  if(nav){
-    var sync = function(){
-      strip.classList.toggle('is-navhidden', nav.classList.contains('is-hidden'));
-    };
-    sync();
-    new MutationObserver(sync).observe(nav, { attributes:true, attributeFilter:['class'] });
-  }
+  // NOTE: the strip is pinned via CSS position:sticky;top:0 — it stays visible
+  // when the navbar auto-hides with no JS and, crucially, no layout mutation.
 })();
 `}</Script>
       <ServiceGalleryLightbox />
