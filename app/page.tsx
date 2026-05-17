@@ -45,10 +45,11 @@ export default function HomePage() {
     transform:translateY(-50%);
     font-family:var(--display);font-weight:500;
     font-size:clamp(26px, 3.4vw, 54px);
-    line-height:1.1;letter-spacing:-0.005em;color:var(--paper);
+    line-height:1.32;letter-spacing:0.005em;color:var(--paper);
+    text-wrap:balance;
   }
-  .hero__morph__line{display:inline-block}
-  .hero__morph__line--em{font-style:italic;color:var(--paper)}
+  .hero__morph__line{display:inline-block;text-wrap:balance}
+  .hero__morph__line--em{font-style:italic;color:var(--paper);margin-top:0.12em}
   .hero__morph__a .ch,
   .hero__morph__b .ch{
     display:inline-block;
@@ -228,7 +229,7 @@ export default function HomePage() {
 
         <div className="hero__layer">
           <div className="hero__copy fonts-ready">
-            <div className="hero__morph" aria-label="Won Vision — Same day turn around.">
+            <div className="hero__morph" aria-label="Won Vision — Shot, edited and delivered — same day.">
               <h1 className="hero__hed hero__hed--wordmark hero__morph__a" aria-hidden="false">
                 {[
                   { c: 'W' }, { c: 'o' }, { c: 'n' }, { c: ' ' },
@@ -246,7 +247,12 @@ export default function HomePage() {
               </h1>
               <p className="hero__morph__b" aria-hidden="true">
                 <span className="hero__morph__line">
-                  {['S', 'a', 'm', 'e', ' ', 'd', 'a', 'y'].map((c, i) => (
+                  {[
+                    'S', 'h', 'o', 't', ',', ' ',
+                    'e', 'd', 'i', 't', 'e', 'd', ' ',
+                    'a', 'n', 'd', ' ',
+                    'd', 'e', 'l', 'i', 'v', 'e', 'r', 'e', 'd',
+                  ].map((c, i) => (
                     <span key={i} className="ch" style={{ ['--i' as never]: i }}>
                       {c === ' ' ? ' ' : c}
                     </span>
@@ -254,8 +260,8 @@ export default function HomePage() {
                 </span>
                 <br />
                 <span className="hero__morph__line hero__morph__line--em">
-                  {['t', 'u', 'r', 'n', ' ', 'a', 'r', 'o', 'u', 'n', 'd', '.'].map((c, j) => (
-                    <span key={j} className="ch" style={{ ['--i' as never]: 8 + j }}>
+                  {['—', ' ', 's', 'a', 'm', 'e', ' ', 'd', 'a', 'y', '.'].map((c, j) => (
+                    <span key={j} className="ch" style={{ ['--i' as never]: 26 + j }}>
                       {c === ' ' ? ' ' : c}
                     </span>
                   ))}
