@@ -97,82 +97,55 @@ export default function HomePage() {
     padding-bottom:0;
   }
 
-  /* Per-letter stagger using --i. 12s loop, left-to-right cascade in + out.
-     Loop lengthened 8s → 12s SOLELY to let the slogan (phrase B) hold
-     fully-legible far longer. Phrase A ("Won Vision") is WALL-CLOCK
-     IDENTICAL to the 8s loop: its keyframe %s were rescaled so every A
-     event fires at the same absolute millisecond it did at 8s, and its
-     1200ms fade-out / 1200ms fade-back shapes are preserved exactly.
-     A delay 28ms (RESTORED to 091e7f8 — A's original, slower reveal;
-       absolute time, NOT rescaled) → A tail = i max 9 × 28ms = 252ms
-       = 2.1% of the 12s loop.
-     B delay 26ms → B tail = i max 33 × 26ms = 858ms = 7.15% of loop. */
+  /* Per-letter stagger via --i, left-to-right cascade in + out.
+
+     LOOP = 10.8s (was 12s). Per request, the A↔B swap is ~0.6s quicker
+     each way: the cut was taken from BOTH the holds and the empty pauses
+     (the fade shapes were left alone). 1% = 108ms.
+
+     --hero-hold: one-time START offset (0ms normally). When the intro
+     loader shows (html.wv-loader-active, set before paint) it becomes the
+     loader duration, so phrase A holds opaque ("Won Vision") behind the
+     loader and is revealed fresh when it clears — then the loop runs
+     normally. Applied equally to A and B, so it shifts the whole morph
+     clock without disturbing the A↔B relationship.
+
+     A per-char delay 28ms → A tail = 9×28 = 252ms = 2.333% of 10.8s.
+     B per-char delay 26ms → B tail = 33×26 = 858ms = 7.944% of 10.8s.
+
+     NO-OVERLAP INVARIANT (A-visible & B-visible disjoint, both handoffs):
+     A: opaque 0–22.222% (0–2400ms), fades out →31.852% (3440ms), hidden
+        to 88.889% (9600ms), fades back →100% (10800ms).
+        Last A char transparent at 31.852%+2.333% = 34.185% (3692ms).
+     B: hidden 0–35% (3780ms), fades in →40% (4320ms), holds to 75%
+        (8100ms), fades out →80% (8640ms), hidden to 100%.
+        Last B char transparent at 80%+7.944% = 87.944% (9498ms).
+       All B chars legible 47.944% (5178ms) → 75% (8100ms) ≈ 2.92s.
+     Handoff A→B: A gone 3692ms · B in starts 3780ms → +88ms gap. ✓
+     Handoff B→A: B gone 9498ms · A back starts 9600ms → +102ms gap. ✓ */
   .hero__morph__a .ch{
-    animation: heroMorphChA 12s cubic-bezier(.6,.05,.3,1) infinite both;
-    animation-delay: calc(var(--i, 0) * 28ms);
+    animation: heroMorphChA 10.8s cubic-bezier(.6,.05,.3,1) infinite both;
+    animation-delay: calc(var(--hero-hold, 0ms) + var(--i, 0) * 28ms);
   }
   .hero__morph__b .ch{
-    animation: heroMorphChB 12s cubic-bezier(.6,.05,.3,1) infinite both;
-    animation-delay: calc(var(--i, 0) * 26ms);
+    animation: heroMorphChB 10.8s cubic-bezier(.6,.05,.3,1) infinite both;
+    animation-delay: calc(var(--hero-hold, 0ms) + var(--i, 0) * 26ms);
   }
+  html.wv-loader-active{ --hero-hold: 3000ms; }
 
-  /* heroMorphChA is RESTORED byte-for-byte to its 091e7f8 state — the
-     "Won Vision" reveal must look and time exactly as it did there
-     (slower, as it used to be). A is the fixed source of truth; B is
-     fitted around restored A. Do NOT retune A for slogan work.
-
-     A WALL-CLOCK IDENTITY (12s loop, 1% = 120ms). Every A value
-     (opacity / blur / transform) is byte-unchanged from 091e7f8 / the
-     prior 8s loop. Only the keyframe %s were rescaled so each A event
-     fires at the SAME absolute ms, and the two transient transforms are
-     preserved as the fade-out-end and fade-back-start states:
-       0%   (0ms)     opaque rest  — was 0% / 0ms
-       23.333% (2800ms) opaque hold end — was 35% / 2800ms (identical)
-       32%  (3840ms)  fully transparent — was 48% / 3840ms (identical;
-                       1200ms fade-out 2800→3840ms shape preserved)
-       90%  (10800ms) still transparent (extra ~7s dead-hold lives here;
-                       carries the old 85%-keyframe transform so the
-                       fade-back shape is byte-identical)
-       100% (12000ms) opaque rest — fade-back 10800→12000ms is the same
-                       1200ms shape the old 85→100% (1200ms) fade had.
-     A per-char 28ms delay is absolute and UNCHANGED. A tail = 9×28ms
-     = 252ms = 2.1% of 12s. The extra ~7s of loop is pure transparent
-     dead-hold (32%→90%), NOT slowed A motion.
-
-     NO-OVERLAP INVARIANT at 12s — A-visible & B-visible disjoint with a
-     small positive gap at BOTH handoffs:
-     A: opaque 0–23.333%, fades out 23.333–32%, hidden 32–90%, fades
-        back 90–100%. A-tail = 2.1%.
-       Last A char fully transparent at 32% + 2.1% = 34.1% = 4092ms.
-       First A char re-gains opacity at the 90% keyframe = 10800ms.
-     B: hidden 0–36%, fades in 36–41%, holds 41–76%, fades out 76–81%,
-        hidden 81–100%. B-tail = 33×26ms = 858ms = 7.15% of 12s.
-       First B char fade-in starts at 36% = 4320ms.
-       All B chars at opacity 1 (fully legible) from 41% + 7.15% =
-         48.15% (5778ms) until the 76% keyframe = 9120ms →
-         B fully-legible hold ≈ 9120 − 5778 = 3342ms of guaranteed
-         all-chars-opaque, with first/last char opaque 41%→76% i.e.
-         4920→9120ms ≈ 4.2s of legible slogan. ✓ (≥4s target met).
-       Last B char fully transparent at 81% + 7.15% = 88.15% = 10578ms.
-
-     Handoff A→B: A gone 34.1% (4092ms) · B fade-in starts 36% (4320ms)
-                  → gap ≈ 1.9% ≈ 0.228s, windows disjoint. ✓
-     Handoff B→A: B gone 88.15% (10578ms) · A legible again 90%
-                  (10800ms) → gap ≈ 1.85% ≈ 0.222s, disjoint. ✓
-     A is never touched to satisfy this — only B %s were placed. */
   @keyframes heroMorphChA{
-    0%      { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    23.333% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    32%     { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
-    90%     { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
-    100%    { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    0%       { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    22.222%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    31.852%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
+    88.889%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
+    100%     { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
   }
   @keyframes heroMorphChB{
     0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    36%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    41%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    76%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    81%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
+    35%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    40%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    75%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    80%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
     100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
 

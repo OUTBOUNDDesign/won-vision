@@ -534,16 +534,18 @@ export default function BookPage() {
   }
 
   /* ---------- Section-jump filter strip ---------- */
-  /* Constant height — NEVER mutate layout on scroll/nav state. The strip is
-     pinned at top:0 so it stays visible when the navbar auto-hides; the fixed
-     padding-top reserves space for the (overlay) stuck navbar. Animating this
-     in response to the nav's scroll class caused a reflow ↔ scroll-anchoring
-     ↔ nav-toggle feedback loop (sporadic up/down glitch). */
+  /* padding-top clears the fixed navbar (~77px unstuck / ~69 stuck) so it
+     never clips the chips. When the navbar auto-hides we lift the strip with
+     TRANSFORM (compositor-only — no reflow, so the old reflow ↔ scroll-anchor
+     ↔ nav-toggle oscillation cannot recur), letting the chips ride to the top
+     and reclaim the vacated navbar space. Box height stays constant. */
   .svc-jump{
     position:sticky;top:0;z-index:90;background:var(--paper);
-    max-width:var(--max);margin:0 auto;padding-top:64px;
+    max-width:var(--max);margin:0 auto;padding-top:84px;
     border-bottom:1px solid var(--border);
+    transition:transform .28s var(--ease);will-change:transform;
   }
+  .svc-jump.is-navhidden{transform:translateY(-72px)}
   .svc-jump__strip{
     display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
     -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
@@ -560,10 +562,11 @@ export default function BookPage() {
   .svc-jump__chip:hover{border-color:var(--ink)}
   .svc-jump__chip[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   /* Land anchored sections clear of the fixed nav + sticky strip */
-  .cat{scroll-margin-top:130px}
+  .cat{scroll-margin-top:140px}
   @media (max-width:760px){
-    .svc-jump{padding-top:56px}
-    .cat{scroll-margin-top:110px}
+    .svc-jump{padding-top:78px}
+    .svc-jump.is-navhidden{transform:translateY(-66px)}
+    .cat{scroll-margin-top:128px}
     .svc-jump__chip{font-size:11px;padding:8px 13px}
   }
 `}</style>
@@ -589,7 +592,6 @@ export default function BookPage() {
           <li><Link href="/gallery"><em>Gallery</em></Link></li>
           <li><Link href="/book" className="drawer-cta">Book now →</Link></li>
         </ul>
-        <div className="nav__drawer__foot"><span>Won Vision</span><span>Melbourne · 2026</span></div>
       </aside>
 
       {/* L — TYPE-AS-WINDOW HEADER */}
@@ -1446,8 +1448,18 @@ export default function BookPage() {
     }, { rootMargin:'-140px 0px -55% 0px', threshold:0 });
     cats.forEach(function(c){ io.observe(c); });
   }
-  // NOTE: the strip is pinned via CSS position:sticky;top:0 — it stays visible
-  // when the navbar auto-hides with no JS and, crucially, no layout mutation.
+
+  // When the navbar auto-hides, lift the strip so the chips ride to the top.
+  // Toggles ONLY a CSS transform (compositor-only) — no layout reflow, so the
+  // old reflow/scroll-anchor/nav-toggle oscillation cannot recur.
+  var nav = document.querySelector('.nav');
+  if(nav){
+    var sync = function(){
+      strip.classList.toggle('is-navhidden', nav.classList.contains('is-hidden'));
+    };
+    sync();
+    new MutationObserver(sync).observe(nav, { attributes:true, attributeFilter:['class'] });
+  }
 })();
 `}</Script>
       <ServiceGalleryLightbox />
