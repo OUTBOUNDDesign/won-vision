@@ -532,6 +532,39 @@ export default function BookPage() {
     .cart__item__name{font-size:12px}
     .cart__item__price{font-size:10px}
   }
+
+  /* ---------- Section-jump filter strip ---------- */
+  .svc-jump{
+    position:sticky;top:0;z-index:90;background:var(--paper);
+    max-width:var(--max);margin:0 auto;padding-top:72px;
+    border-bottom:1px solid var(--border);
+    transition:padding-top .3s var(--ease);
+  }
+  /* When the navbar auto-hides on scroll, ride the chips up to the top */
+  .svc-jump.is-navhidden{padding-top:14px}
+  .svc-jump__strip{
+    display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
+    padding:0 0 12px;
+  }
+  .svc-jump__strip::-webkit-scrollbar{display:none}
+  .svc-jump__chip{
+    flex:0 0 auto;white-space:nowrap;scroll-snap-align:start;
+    border:1px solid var(--border-strong);background:var(--paper);color:var(--ink);
+    font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:0.02em;
+    padding:9px 16px;text-decoration:none;cursor:pointer;
+    transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+  }
+  .svc-jump__chip:hover{border-color:var(--ink)}
+  .svc-jump__chip[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  /* Land anchored sections clear of the fixed nav + sticky strip */
+  .cat{scroll-margin-top:130px}
+  @media (max-width:760px){
+    .svc-jump{padding-top:60px}
+    .svc-jump.is-navhidden{padding-top:12px}
+    .cat{scroll-margin-top:114px}
+    .svc-jump__chip{font-size:11px;padding:8px 13px}
+  }
 `}</style>
 
       <header className="nav">
@@ -580,6 +613,19 @@ export default function BookPage() {
             <h2>Pick what your <em>listing needs.</em></h2>
           </div>
         </div>
+
+        <nav className="svc-jump" id="svcJump" aria-label="Jump to a service section">
+          <div className="svc-jump__strip">
+            <a href="#cat-packages" className="svc-jump__chip">Packages</a>
+            <a href="#cat-rental" className="svc-jump__chip">Rental photography</a>
+            <a href="#cat-sales" className="svc-jump__chip">Sales photography</a>
+            <a href="#cat-drone" className="svc-jump__chip">Aerial / drone</a>
+            <a href="#cat-video" className="svc-jump__chip">Video</a>
+            <a href="#cat-staging" className="svc-jump__chip">Virtual editing</a>
+            <a href="#cat-floorplans" className="svc-jump__chip">Floor plans</a>
+            <a href="#cat-addons" className="svc-jump__chip">Add-ons</a>
+          </div>
+        </nav>
 
         {/* PACKAGES */}
         <div className="cat" id="cat-packages" data-gallery="photography">
@@ -1352,6 +1398,63 @@ export default function BookPage() {
   })();
 
   render();
+})();
+`}</Script>
+
+      {/* Section-jump strip: scrollspy + click-jump + stay-on-nav-hide */}
+      <Script id="wv-book-jump" strategy="afterInteractive">{`
+(function(){
+  var strip = document.getElementById('svcJump');
+  if(!strip) return;
+  var chips = Array.prototype.slice.call(strip.querySelectorAll('.svc-jump__chip'));
+  if(!chips.length) return;
+
+  function chipFor(id){
+    for(var i=0;i<chips.length;i++){
+      if(chips[i].getAttribute('href') === '#'+id) return chips[i];
+    }
+    return null;
+  }
+  function setActive(chip){
+    if(!chip || chip.getAttribute('aria-current')==='true') return;
+    chips.forEach(function(c){ c.removeAttribute('aria-current'); });
+    chip.setAttribute('aria-current','true');
+    chip.scrollIntoView({ inline:'center', block:'nearest', behavior:'smooth' });
+  }
+
+  // Click -> smooth jump (scroll-margin-top handles the offset)
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(e){
+      var id = chip.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if(!sec) return;
+      e.preventDefault();
+      setActive(chip);
+      sec.scrollIntoView({ behavior:'smooth', block:'start' });
+      if(history.replaceState) history.replaceState(null,'','#'+id);
+    });
+  });
+
+  // Scrollspy: highlight the section currently in view
+  var cats = Array.prototype.slice.call(document.querySelectorAll('.cat[id]'));
+  if('IntersectionObserver' in window && cats.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting) setActive(chipFor(en.target.id));
+      });
+    }, { rootMargin:'-140px 0px -55% 0px', threshold:0 });
+    cats.forEach(function(c){ io.observe(c); });
+  }
+
+  // Keep the strip visible AND tucked to the top when the navbar auto-hides
+  var nav = document.querySelector('.nav');
+  if(nav){
+    var sync = function(){
+      strip.classList.toggle('is-navhidden', nav.classList.contains('is-hidden'));
+    };
+    sync();
+    new MutationObserver(sync).observe(nav, { attributes:true, attributeFilter:['class'] });
+  }
 })();
 `}</Script>
       <ServiceGalleryLightbox />
