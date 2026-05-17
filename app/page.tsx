@@ -61,7 +61,8 @@ export default function HomePage() {
     padding-bottom:0;
   }
 
-  /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out. */
+  /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out.
+     A tail: i max 9 × 28ms ≈ 0.25s. B tail: i max 34 × 32ms ≈ 1.09s. */
   .hero__morph__a .ch{
     animation: heroMorphChA 8s cubic-bezier(.6,.05,.3,1) infinite both;
     animation-delay: calc(var(--i, 0) * 28ms);
@@ -71,20 +72,25 @@ export default function HomePage() {
     animation-delay: calc(var(--i, 0) * 32ms);
   }
 
-  /* A: visible 0–35%, fades out 35–48%, hidden through 85%, fades back 85–100%. */
+  /* A: visible 0–32%, fades out 32–45%, hidden 45–92%, fades back 92–100%.
+     B's long stagger tail (i up to 34 × 32ms ≈ 1.09s) is fully cleared by
+     76% + tail ≈ 7.17s; A only re-enters at 92% ≈ 7.36s — clean handoff. */
   @keyframes heroMorphChA{
     0%   { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    35%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    48%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
-    85%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
+    32%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    45%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
+    92%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
     100% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
   }
-  /* B: hidden 0–48%, fades in 48–60%, holds through 85%, fades out 85–100%. */
+  /* B: hidden 0–50%, fades in 50–60%, holds 60–68%, fades out 68–76%,
+     hidden 76–100%. A is fully gone by 45% + tail ≈ 3.85s; B only enters
+     at 50% ≈ 4.0s — no frame where both phrases are legible. */
   @keyframes heroMorphChB{
     0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    40%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    50%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
     60%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    85%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    68%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    76%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
     100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
 
@@ -229,7 +235,7 @@ export default function HomePage() {
 
         <div className="hero__layer">
           <div className="hero__copy fonts-ready">
-            <div className="hero__morph" aria-label="Won Vision — Shot, edited and delivered — same day.">
+            <div className="hero__morph" aria-label="Won Vision — Shot, edited and delivered same day.">
               <h1 className="hero__hed hero__hed--wordmark hero__morph__a" aria-hidden="false">
                 {[
                   { c: 'W' }, { c: 'o' }, { c: 'n' }, { c: ' ' },
@@ -260,7 +266,7 @@ export default function HomePage() {
                 </span>
                 <br />
                 <span className="hero__morph__line hero__morph__line--em">
-                  {['—', ' ', 's', 'a', 'm', 'e', ' ', 'd', 'a', 'y', '.'].map((c, j) => (
+                  {['s', 'a', 'm', 'e', ' ', 'd', 'a', 'y', '.'].map((c, j) => (
                     <span key={j} className="ch" style={{ ['--i' as never]: 26 + j }}>
                       {c === ' ' ? ' ' : c}
                     </span>
