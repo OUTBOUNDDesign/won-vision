@@ -45,19 +45,22 @@ export default function HomePage() {
        gets vertically clipped on narrow screens. */
     min-height:3.7em;
   }
-  /* Both phrases share this sizing — fluid hero scale: confident on
-     desktop (caps 78px), still readable on a ~360px phone (floors 32px). */
+  /* Shared reset only. Phrase A's font-size/line-height/letter-spacing
+     is intentionally NOT set here — A inherits its original
+     .hero__hed--wordmark sizing exactly as it did at 091e7f8. The
+     slogan-only fluid scale lives on .hero__morph__b below. */
   .hero__morph__a,
-  .hero__morph__b{
-    margin:0;
-    font-size:clamp(32px, 6.2vw, 78px);
-  }
+  .hero__morph__b{margin:0}
   .hero__morph__b{
     position:absolute;left:0;right:0;top:50%;
     transform:translateY(-50%);
     box-sizing:border-box;
     padding-inline:clamp(16px, 5vw, 40px);
     font-family:var(--display);font-weight:500;
+    /* Slogan-only fluid scale. Floor lowered to 26px so the longest
+       single line ("delivered same day.") fits without wrap on a
+       ~360px phone; cap kept at 78px for desktop confidence. */
+    font-size:clamp(26px, 6.2vw, 78px);
     line-height:1.18;letter-spacing:0.005em;color:var(--paper);
     text-wrap:balance;
     overflow-wrap:break-word;
@@ -72,6 +75,16 @@ export default function HomePage() {
     overflow-wrap:break-word;
     text-wrap:balance;
   }
+  /* Slogan line 3 ("delivered same day.") must sit on ONE visual line —
+     no wrap. The lowered B clamp floor (26px) lets it still fit without
+     horizontal clipping down to ~360px; it shrinks with the fluid scale
+     rather than wrapping. Lines 1 & 2 keep normal wrapping. */
+  .hero__morph__line--nowrap{
+    white-space:nowrap;
+    overflow-wrap:normal;
+    text-wrap:nowrap;
+    max-width:none;
+  }
   .hero__morph__line--em{font-style:italic;color:var(--paper);margin-top:0}
   .hero__morph__a .ch,
   .hero__morph__b .ch{
@@ -85,58 +98,60 @@ export default function HomePage() {
   }
 
   /* Per-letter stagger using --i. 8s loop, left-to-right cascade in + out.
-     A delay 20ms → A tail = i max 9 × 20ms = 180ms = 2.25% of loop.
-     B delay 26ms → B tail = i max 33 × 26ms = 858ms = 10.725% of loop.
-       (26ms is calmer than the too-fast 18ms, snappier than the
-        original sluggish 32ms.) */
+     A delay 28ms (RESTORED to 091e7f8 — A's original, slower reveal;
+       must never be retuned for slogan work) → A tail = i max 9 × 28ms
+       = 252ms = 3.15% of loop.
+     B delay 26ms → B tail = i max 33 × 26ms = 858ms = 10.725% of loop. */
   .hero__morph__a .ch{
     animation: heroMorphChA 8s cubic-bezier(.6,.05,.3,1) infinite both;
-    animation-delay: calc(var(--i, 0) * 20ms);
+    animation-delay: calc(var(--i, 0) * 28ms);
   }
   .hero__morph__b .ch{
     animation: heroMorphChB 8s cubic-bezier(.6,.05,.3,1) infinite both;
     animation-delay: calc(var(--i, 0) * 26ms);
   }
 
-  /* NO-OVERLAP INVARIANT (preserved from 09b1075):
-     A-visible window and B-visible window stay disjoint on BOTH handoffs.
+  /* heroMorphChA is RESTORED byte-for-byte to its 091e7f8 state — the
+     "Won Vision" reveal must look and time exactly as it did there
+     (slower, as it used to be). A is the fixed source of truth; B is
+     fitted around restored A. Do NOT retune A for slogan work.
 
-     A is FIXED (unchanged from 11390e1) — B is fitted around it.
+     NO-OVERLAP INVARIANT — A-visible & B-visible disjoint on BOTH
+     handoffs, recomputed against RESTORED A (28ms stagger, 091e7f8
+     keyframes):
 
-     A: opaque 0–26%, fades out 26–38%, hidden 38–99%, snaps back 99–100%.
-       Last A char fully transparent at 38% + A-tail 2.25% = 40.25% ≈ 3.22s.
-       A re-gains legibility only at the 100%/0% loop wrap ≈ 8.00s
-       (97→99% held at opacity 0 so the blur-back is never legible).
-     B: hidden 0–42%, fades in 42–48%, HOLDS 48–81%, fades out 81–87%,
-        hidden 87–100%.
-       First B char begins its fade-in at 42% ≈ 3.36s.
-       Last B char fully transparent at 87% + B-tail 10.725% = 97.725% ≈ 7.82s.
+     A: opaque 0–35%, fades out 35–48%, hidden 48–85%, fades back
+        85–100%. A-tail = 9 × 28ms = 252ms = 3.15% of 8s loop.
+       Last A char fully transparent at 48% + 3.15% = 51.15% ≈ 4.09s.
+       First A char re-gains opacity at the 85% keyframe ≈ 6.80s.
+     B: hidden 0–53%, fades in 53–58%, holds 58–67%, fades out 67–72%,
+        hidden 72–100%. B-tail = 33 × 26ms = 858ms = 10.725% of loop.
+       First B char fade-in starts at 53% ≈ 4.24s.
+       Last B char fully transparent at 72% + 10.725% = 82.725% ≈ 6.62s.
 
-     Handoff A→B: A gone 40.25% (3.22s) · B fade-in starts 42% (3.36s)
-                  → gap ≈ 0.14s, windows disjoint. ✓
-     Handoff B→A: B gone 97.725% (7.82s) · A legible again 100%/0% (8.00s)
-                  → gap ≈ 0.18s, windows disjoint. ✓
+     Handoff A→B: A gone 51.15% (4.09s) · B fade-in starts 53% (4.24s)
+                  → gap ≈ 1.85% ≈ 0.148s, windows disjoint. ✓
+     Handoff B→A: B gone 82.725% (6.62s) · A legible again 85% (6.80s)
+                  → gap ≈ 2.275% ≈ 0.182s, windows disjoint. ✓
 
-     B fully-legible (all 34 chars opaque): from 48% + B-tail 10.725%
-     = 58.725% to 81% = 22.275% of loop ≈ 1.78s. The longer 26ms tail
-     (calmer reveal) costs plateau width, but B's visible window is
-     maximised inside the fixed gaps the loop physically permits:
-     fade-in starts as early as A's clearance allows (42%) and fade-out
-     ends as late as the B→A gap allows (87%). */
+     Restored slower A leaves a tighter B window than the sped-up A did,
+     so B's fully-opaque plateau is brief — B's visible window is
+     maximised inside the fixed gaps the restored-A loop physically
+     permits (fade-in as early as A's clearance allows at 53%, fade-out
+     as late as the B→A gap allows at 72%). A is untouched to fix this. */
   @keyframes heroMorphChA{
     0%   { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    26%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    38%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
-    97%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
-    99%  { opacity:0; filter:blur(8px);  transform:translateY(4px)   scale(0.98); }
+    35%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    48%  { opacity:0; filter:blur(14px); transform:translateY(-10px) scale(1.04); }
+    85%  { opacity:0; filter:blur(14px); transform:translateY(10px)  scale(0.96); }
     100% { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
   }
   @keyframes heroMorphChB{
     0%   { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    42%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
-    48%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    81%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
-    87%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
+    53%  { opacity:0; filter:blur(14px); transform:translateY(8px)  scale(0.94); }
+    58%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    67%  { opacity:1; filter:blur(0);    transform:translateY(0)    scale(1); }
+    72%  { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
     100% { opacity:0; filter:blur(14px); transform:translateY(-6px) scale(1.04); }
   }
 
@@ -317,7 +332,7 @@ export default function HomePage() {
                     </span>
                   ))}
                 </span>
-                <span className="hero__morph__line">
+                <span className="hero__morph__line hero__morph__line--nowrap">
                   {['d', 'e', 'l', 'i', 'v', 'e', 'r', 'e', 'd', ' '].map((c, k) => (
                     <span key={k} className="ch" style={{ ['--i' as never]: 15 + k }}>
                       {c === ' ' ? ' ' : c}
